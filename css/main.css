@@ -4,6 +4,10 @@
    Author's custom styles
    ========================================================================== */
 
+.noScroll {
+    overflow: hidden;
+    position:fixed;
+}
 
 
 
