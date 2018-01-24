@@ -15,8 +15,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/main.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
+  <link href="https://energybench-ccb2.restdb.io/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
@@ -37,9 +39,85 @@
 <!-- Large modal -->
 
 
-    <div class="container text-center">
-        <button type="button" class="btn btn-success " data-toggle="modal" data-target=".bd-example-modal-lg">Insert Energy Issue</button>
+      
+      <div class='container'>
+          <div id="accordion" class="card">
+              <h2 id="headingOne" class='card-header'>
+                  <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Insert Energy Issue
+                  </button>
+              </h2>
+             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+            <form role="form" id="energybench-form">
+          <div class="form-group">
+            <label>App Name: </label><input class="form-control" name="AppName" data-type="text" type="text" placeholder="MyApp">
+          </div>
+          <div class="form-group">
+            <label>Platform:</label>
+              <select class="form-control"  name="Platform" data-type="option" >
+                <option value="iOS">iOS</option>
+                <option value="Android">Android</option>
+                <option value="Phone">Phone</option>
+                <option value="Other">Other</option>  </select>
+          </div>
+          <div class="form-group">
+            <label for='package'>Package: </label>
+            <input id='package' class="form-control" name="Package" data-type="text" type="text" placeholder="org.example.app" required>
+            <div class="invalid-tooltip">
+                Please insert a valid package name.
+            </div>
+            <div class="valid-tooltip">
+                Please insert a valid package name.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Website: </label><input class="form-control" name="Website" data-type="text" type="text" placeholder="https://example.org">
+          </div>
+          <div class="form-group">
+            <label>Source Code Repository: </label><input class="form-control" name="SourceCodeRepository" data-type="text" type="text" placeholder="https://github.com/example/app/" required>
+          </div>
+          <div class="form-group">
+            <label>Energy Issue Commit: </label><input class="form-control" name="EnergyIssueCommit" data-type="text" type="text" placeholder="Commit hash" required>
+          </div>
+          <div class="form-group">
+            <label>Fixing Commit: </label><input class="form-control" name="FixingCommit" data-type="text" type="text" placeholder="Commit hash" required>
+          </div>
+          <div class="form-group">
+            <label>Pull Request: </label><input class="form-control" name="PullRequest" data-type="text" type="text" placeholder="Pull Request ID">
+          </div>
+          <div class="form-group">
+            <label>Improvement Validation:</label>
+              <select class="form-control"  name="ImprovementValidation" data-type="option" >
+                <option value="Hardware-based profiling">Hardware-based profiling</option>
+                <option value="Software-based profiling">Software-based profiling</option>
+                <option value="User's feedback">User's feedback</option>
+                <option value="Common sense">Common sense</option>
+                <option value="Other">Other</option>  </select>
+          </div>
+          <div class="form-group">
+            <label>Severity:</label>
+              <select class="form-control"  name="Severity" data-type="option" >
+                <option value="Major">Major</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Minor">Minor</option>  </select>
+          </div>
+          <div class="form-group">
+            <label>Comments/Suggestions: </label>
+            <textarea class="form-control" name="Comments" data-type="text" rows="3"></textarea>
+        </div>
+          
+
+            <div id="fg-errors" class="form-group">
+            </div>
+            <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
+
+          </div>
+            </div>
       </div>
+      </div>
+      
+      
 <hr>
       <footer class='container'>
         <p>&copy; Luis Cruz, Rui Abreu 2018</p>
@@ -57,9 +135,13 @@
   </div>
 </div>   
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <script src="https://energybench-ccb2.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
+  <script src="https://energybench-ccb2.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+        
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
