@@ -1,3 +1,7 @@
+
+
+/* ******************** */
+
 $(function () {
 
   // put your own error messages and/or message translation logic here
@@ -239,9 +243,16 @@ $(function () {
   };
 
   $("#energybench-form").submit(function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+      if (this.checkValidity() === false) {
+      }
+      else{
         postForm();
-        event.preventDefault();
-        return false;
+      }
+    this.classList.add('was-validated');
+    return false;
     });
 });
+
 
