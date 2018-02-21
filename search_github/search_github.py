@@ -79,8 +79,8 @@ def analyze_repo(user, project, retry=120):
         for pull in chain(issues, pull_requests):
             content = "\n".join([
                 pull.title,
-                pull.body,
-            ]+[comment.body for comment in pull.get_comments()])
+                str(pull.body),
+            ]+[str(comment.body) for comment in pull.get_comments()])
             match = regexEnergy.search(content)
             if match:
                 result.append({
@@ -112,7 +112,7 @@ def analyze_repo(user, project, retry=120):
 def main(input_path, output_path):
     """Process github repos."""
     with open(input_path, 'r') as input_file:
-        csv_reader = csv.DictReader(input_file, fieldnames=CSV_HEADER)
+        csv_reader = csv.DictReader(input_file)
         for app in csv_reader:
             try:
                 click.secho(
