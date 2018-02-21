@@ -1,0 +1,18 @@
+k9mail,k-9,https://github.com/k9mail/k-9/commit/79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,Merge pull request #3192 from k9mail/update_build_tools,commit_message
+k9mail,k-9,https://github.com/k9mail/k-9/commit/79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,Merge pull request #3192 from k9mail/update_build_tools,commit_message
+zeapo,Android-Password-Store,https://github.com/zeapo/Android-Password-Store/commit/ad938504379206a5e8dc2d535cbc588e61c0e799,ad938504379206a5e8dc2d535cbc588e61c0e799,fix travis build,commit_message
+zeapo,Android-Password-Store,https://github.com/zeapo/Android-Password-Store/commit/61218501032ee4f1f546fde517dd55ce0ea6a60b,61218501032ee4f1f546fde517dd55ce0ea6a60b,build a signed APK for master branch,commit_message
+k9mail,k-9,https://github.com/k9mail/k-9/commit/79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,Merge pull request #3192 from k9mail/update_build_tools,commit_message
+zeapo,Android-Password-Store,https://github.com/zeapo/Android-Password-Store/commit/ad938504379206a5e8dc2d535cbc588e61c0e799,ad938504379206a5e8dc2d535cbc588e61c0e799,fix travis build,commit_message
+zeapo,Android-Password-Store,https://github.com/zeapo/Android-Password-Store/commit/61218501032ee4f1f546fde517dd55ce0ea6a60b,61218501032ee4f1f546fde517dd55ce0ea6a60b,build a signed APK for master branch,commit_message
+k9mail,k-9,https://github.com/k9mail/k-9/commit/79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,79059ca38cc25858e0a8aa3bdbddc9f3cedd2331,Merge pull request #3192 from k9mail/update_build_tools,commit_message
+k9mail,"Repository(full_name=""k9mail/k-9"")",https://github.com/k9mail/k-9/pull/3196,170457836,Adding i18n arabic,pull_request
+k9mail,"Repository(full_name=""k9mail/k-9"")",https://github.com/k9mail/k-9/pull/3196,170457836,Adding i18n arabic,pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/pull/3196,170457836,Adding i18n arabic,pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/pull/3196,3196,Adding i18n arabic,pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/pull/3075,3075,Prefer encrypt setting,pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/issues/3186,3186,"Slow mail compose with encryption, signature, and large attachment",pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/pull/3075,3075,Prefer encrypt setting,pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/issues/3186,3186,"Slow mail compose with encryption, signature, and large attachment",pull_request
+k9mail,k-9,https://github.com/k9mail/k-9/pull/3075,3075,Prefer encrypt setting,pull_request
+connectbot,connectbot,https://github.com/connectbot/connectbot/issues/581,581,Btw: Which encryption algorithm did you use with the Bitwise Client?,pull_request
