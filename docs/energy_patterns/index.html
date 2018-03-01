@@ -1,0 +1,161 @@
+
+
+
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Energy Issues Dataset for Mobile Apps</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
+  <link href="https://energybench-ccb2.restdb.io/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Energy Issues Dataset for Mobile Apps</h1>
+        <p>We are a group of researchers from <a href='http://idss.inesc-id.pt' target='_blank'>INESC-ID</a> creating an <strong>open database of energy-related issues in mobile applications</strong>. We'd love to count on you to make this a thorough dataset and available to the mobile development community.
+            Our goal is to <strong>share the knowledge across all developers</strong> and make mobile apps more <strong>energy efficient</strong>.
+            If you know any issue that was draining energy in one of your projects, <strong>please share it with the community by filling the form below</strong>.</p>
+        <p>Lead Researchers: <a href='http://luiscruz.github.io/'>Luis Cruz</a>, <a href='http://ruimaranhao.com'>Rui Abreu</a>.</p>
+      </div>
+    </div>
+<!-- Large modal -->
+
+
+      
+      <div class='container'>
+          <div id="accordion" class="card">
+              <h2 id="headingOne" class='card-header'>
+                  <button class="btn btn-link btn-lg collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Insert Energy Issue
+                  </button>
+              </h2>
+             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+            <form role="form" id="energybench-form" class='needs-validation' novalidate>
+          <div class="form-group">
+            <label>App Name: </label><input class="form-control" name="AppName" data-type="text" type="text" placeholder="MyApp">
+          </div>
+          <div class="form-group">
+            <label>Platform:</label>
+              <select class="form-control"  name="Platform" data-type="option" >
+                <option value="iOS">iOS</option>
+                <option value="Android">Android</option>
+                <option value="Phone">Phone</option>
+                <option value="Other">Other</option>  </select>
+          </div>
+          <div class="form-group">
+            <label for='package'>Package: </label>
+            <input id='package' class="form-control" name="Package" data-type="text" type="text" placeholder="org.example.app" required>
+            <div class="invalid-tooltip">
+                Please insert a valid package name.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Website: </label><input class="form-control" name="Website" data-type="text" type="text" placeholder="https://example.org">
+          </div>
+          <div class="form-group">
+            <label>Source Code Repository: </label><input class="form-control" name="SourceCodeRepository" data-type="text" type="text" placeholder="https://github.com/example/app/" required>
+            <div class="invalid-tooltip">
+                Please insert a URL for the git repository.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Energy Issue Commit: </label><input class="form-control" name="EnergyIssueCommit" data-type="text" type="text" placeholder="Commit hash" required>
+            <div class="invalid-tooltip">
+                Please insert the commit ID.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Fixing Commit: </label><input class="form-control" name="FixingCommit" data-type="text" type="text" placeholder="Commit hash" required><div class="invalid-tooltip">
+                Please insert the commit ID.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Pull Request: </label><input class="form-control" name="PullRequest" data-type="text" type="text" placeholder="Pull Request ID">
+          </div>
+          <div class="form-group">
+            <label>Improvement Validation:</label>
+              <select class="form-control"  name="ImprovementValidation" data-type="option" >
+                <option value="Hardware-based profiling">Hardware-based profiling</option>
+                <option value="Software-based profiling">Software-based profiling</option>
+                <option value="User's feedback">User's feedback</option>
+                <option value="Common sense">Common sense</option>
+                <option value="Other">Other</option>  </select>
+          </div>
+          <div class="form-group">
+            <label>Severity:</label>
+              <select class="form-control"  name="Severity" data-type="option" >
+                <option value="Major">Major</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Minor">Minor</option>  </select>
+          </div>
+          <div class="form-group">
+            <label>Comments/Suggestions: </label>
+            <textarea class="form-control" name="Comments" data-type="text" rows="3"></textarea>
+        </div>
+            <div id="fg-errors" class="form-group">
+            </div>
+            <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
+
+          </div>
+            </div>
+      </div>
+      </div>
+      
+      
+<hr>
+      <footer class='container'>
+        <p>&copy; Luis Cruz, Rui Abreu 2018</p>
+      </footer>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="embed-responsive" style="height:2300px;">
+        <iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/1FAIpQLScS6FcWVCxc9M7BfagySasUxzgybKz0SSPc5xtt9HY_rAClfQ/viewform?embedded=true">Loading...</iframe>
+        
+      </div>
+    </div>
+  </div>
+</div>   
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <script src="https://energybench-ccb2.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
+  <script src="https://energybench-ccb2.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+        
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script> -->
+    </body>
+</html>

@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Luis Cruz -- Research Assistant -- @luismcruz
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, Bootstrap 4
+
+# SITE
+	Last update: 2017/01/17
+	Language: English
+	Doctype: HTML5
+	IDE: TextMate
