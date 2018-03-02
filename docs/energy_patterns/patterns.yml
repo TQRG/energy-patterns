@@ -1,0 +1,37 @@
+- name: Dark UI colors
+  description: Provide a dark UI color theme in order to save battery on devices with AMOLED screens.
+  context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen can have a big impact on battery life.
+  solution: Some mobile devices are shipped with AMOLED screens, which are more energy savior when displaying dark colors. Provide a UI with dark background colors, while preserving the contrast of foreground elements. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).
+  example:
+  occurrences_android:
+    issues:
+      - https://github.com/rdoeffinger/Dictionary/issues/43
+      - https://github.com/bitcoin-wallet/bitcoin-wallet/issues/338
+      - https://github.com/mikifus/padland/issues/4
+      - https://github.com/TeamAmaze/AmazeFileManager/issues/336
+      - https://github.com/vishesh/sealnote/issues/47
+      - https://github.com/Wilm0r/giggity/issues/42
+      - https://github.com/AntennaPod/AntennaPod/issues/1881
+      - https://github.com/m0ppers/ElpeEfpeAndroid/issues/3
+      - https://github.com/artetxem/mitzuli/issues/26
+      - https://github.com/nextcloud/news-android/issues/512
+      - https://github.com/Yubico/yubioath-android/issues/49
+      - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
+      - https://github.com/signalapp/Signal-Android/issues/5470
+      - https://github.com/vector-im/riot-android/issues/507
+    commits:
+      - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
+      - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
+    pull_requests:
+      -
+  occurrences_ios:
+    issues:
+    commits:
+    pull_requests:
+  references:
+    - authors: Agolli T, Pollock L, Clause J.
+      title: Investigating decreasing energy usage in mobile apps via indistinguishable color changes.
+      url: http://ieeexplore.ieee.org/abstract/document/7972715/
+    - authors: Linares-Vásquez M, Bernal-Cárdenas C, Bavota G, Oliveto R, Di Penta M, Poshyvanyk D.
+      title: "GEMMA: multi-objective optimization of energy consumption of GUIs in Android apps."
+      url: http://ieeexplore.ieee.org/abstract/document/7965245/
