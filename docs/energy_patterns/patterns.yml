@@ -35,3 +35,68 @@
     - authors: Linares-Vásquez M, Bernal-Cárdenas C, Bavota G, Oliveto R, Di Penta M, Poshyvanyk D.
       title: "GEMMA: multi-objective optimization of energy consumption of GUIs in Android apps."
       url: http://ieeexplore.ieee.org/abstract/document/7965245/
+
+- name: Polite poller
+  description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
+  context:
+  solution: "Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established"
+  occurrences_android:
+    issues:
+      - https://github.com/deltachat/deltachat-android/issues/186
+
+- name: Affordable
+  description: Avoid performing tasks that are not visible to the user and quickly become obsolete.
+  context: When displaying real-time information, the data presented to the user has to be constantly updated. However, depending on the view that is being displayed to the user, this data might not be entirely presented. The same happens when the app goes to background. Since the data quickly becomes obsolete the phone is using resources unnecessarily.
+  solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data which is visible to the user. FIXME
+  example:
+  occurrences_android:
+    issues:
+      - https://github.com/deltachat/deltachat-android/issues/186
+    commits:
+      - https://github.com/greenaddress/GreenBits/commit/e16925c2231a0f8ef82636b3f7df9b69316ab53a
+      - https://github.com/greenaddress/GreenBits/commit/1d5da879a71da8060d5ad6a784d318f7f0c63515
+
+
+- name: Close Immediately
+  description: Close resources immediately after they are no longer necessary. E.g., Wakelocks
+  occurrences_android:
+    issues:
+      - https://github.com/deltachat/deltachat-android/issues/104
+    commits:
+      - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
+
+- name: Open Immediately Before
+  description: Only open resources if will be immediately necessary.
+
+- name: Push / Poll FIXME
+  description: don't do active query for new messages and wait for push notification from mail server (not shure if this works stable in every use case).
+  occurrences_android:
+    issues:
+      - https://github.com/deltachat/deltachat-android/issues/186
+
+- name: Power Save mode
+  description: provide an energy savior mode whenever the device enters a power save  mode.
+  context: Whenever the battery is running low the device can enter a power save mode to assure users can extend the battery life until they reach a charging station. In some systems, this mode can be manually activated by users.
+  solution: implement a mode in which the app will use less resources while providing the minimum functionality that is indispensible to the user. This can include deactivating some features, reducing update intervals, or deactivating animated effects in the UI.
+  occurrences_android:
+    issues:
+      -
+    commits:
+      - https://github.com/nextcloud/android/commit/ef7900a6a470469e2bce57b1458747dd9053afd1
+
+
+
+- name: Kill the app optimizer
+  description: most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
+  occurrences_android:
+    issues:
+      - https://github.com/siacs/Conversations/issues/2775
+      - https://github.com/siacs/Conversations/issues/1725
+    commits:
+      - https://github.com/siacs/Conversations/commit/d5608cb4f3bd357e46513a38b8f3676049992dcc
+      - https://github.com/siacs/Conversations/commit/e6a9829dd2b275f80231b19930fbb75b209f4c2e
+      - https://github.com/siacs/Conversations/commit/aa6955a0d687c0310d69658d0a68facb798daaf6
+      - https://github.com/siacs/Conversations/commit/c296d6f4466e2616432660bb01465f3746e1bb65
+      - https://github.com/quarck/CalendarNotification/commit/118d6802e539e10c0fabd0f968de8e57ed2446e0
+      - https://github.com/deltachat/deltachat-android/commit/e2225be331d4c041510b988d03f171b7532a1355
+      - https://github.com/deltachat/deltachat-android/commit/b941b9e21a2787308755f092ce92ca048bdbcd84
