@@ -80,7 +80,8 @@
   solution: implement a mode in which the app will use less resources while providing the minimum functionality that is indispensible to the user. This can include deactivating some features, reducing update intervals, or deactivating animated effects in the UI.
   occurrences_android:
     issues:
-      -
+      - https://github.com/nextcloud/android/commit/8bc432027e0d33e8043cf40192203203a40ca29c
+      - 
     commits:
       - https://github.com/nextcloud/android/commit/ef7900a6a470469e2bce57b1458747dd9053afd1
 
