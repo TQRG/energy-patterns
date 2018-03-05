@@ -1,0 +1,34 @@
+{
+  "name": "energy-patterns",
+  "version": "1.0.0",
+  "description": "Catalogue of energy efficiency practices for iOS and Android",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TQRG/energy-bench.git"
+  },
+  "keywords": [
+    "energy",
+    "battery",
+    "android",
+    "ios",
+    "power-consumption",
+    "battery-life",
+    "energy-efficiency",
+    "green",
+    "computing"
+  ],
+  "author": "Luis Cruz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TQRG/energy-bench/issues"
+  },
+  "homepage": "https:/tqrg.github.io/energy-bench",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "python -m SimpleHTTPServer"
+  }
+}
