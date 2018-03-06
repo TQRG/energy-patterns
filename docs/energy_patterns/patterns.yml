@@ -118,6 +118,16 @@
       url: https://www.technipages.com/does-wi-fi-consume-more-battery-power-than-3g-or-4glte
 
 
+- name: No Ads
+  occurrences_android:
+    issues: https://github.com/mozilla-mobile/focus-android/issues/2082
+
+- name: Play on demand (is this anti pattern?)
+  description: Do not automatically start playing media content.
+  context:
+  occurrences_android:
+    issues:
+      - https://github.com/mozilla-mobile/focus-android/issues/2003
 
 - name: Constant notification (anti pattern)
   occurrences_android:

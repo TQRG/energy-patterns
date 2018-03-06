@@ -48,7 +48,6 @@ nextcloud,android,https://github.com/nextcloud/android/issues/1013,1013,"- signi
 nextcloud,android,https://github.com/nextcloud/android/issues/979,979,"- significantly less battery usage",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/844,844,"- significantly less battery usage",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/833,833,"The app drains my battery",pull_request
-
 nextcloud,android,https://github.com/nextcloud/android/issues/816,816,"- significantly less battery usage",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/804,804,"In the new autoupload Settings i set only to upload if the Smartphone is at the power suply.",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/780,780,New Autoupload feature kills battery,pull_request
@@ -61,13 +60,16 @@ nextcloud,android,https://github.com/nextcloud/android/issues/82,82,"If you ask 
 nextcloud,android,https://github.com/nextcloud/android/issues/57,57,"While thinking about it, I think this might be related to the new battery saving mechanism (doze).",pull_request
 nextcloud,android,https://github.com/nextcloud/android/pull/4,4,Or we could show a little warning/info that a value <60 could be battery consumption.,pull_request
 nextcloud,android,https://github.com/nextcloud/android/pull/515,515,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request
-nextcloud,android,https://github.com/nextcloud/android/pull/513,513,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request
+nextcloud,android,https://github.com/nextcloud/android/pull/513,513,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request ENERGYTODO
 mozilla-mobile,focus-android,https://github.com/mozilla-mobile/focus-android/issues/2082,2082,"Also adblocking options should be included, possible to add lists (Fanboy Complete + Ultimate list, Easylist + EasyPrivacy and such), currently adblocking system on Firefox Focus is mostly about trackers protection, but there are much more to adblocking, and new thing as web miners (not privacy flaw, but increase devices resources and battery usage)",pull_request
 mozilla-mobile,focus-android,https://github.com/mozilla-mobile/focus-android/issues/2003,2003,"Issue: on Firefox, you can turn off auto play of videos to save data and battery, and sometimes you just don't want to see a video. This is not available in Firefox Focus.",pull_request
 mozilla-mobile,focus-android,https://github.com/mozilla-mobile/focus-android/issues/1633,1633,"* Always use ""time since boot"" and don't do any ""normalization"". With that a process restart wouldn't create a new sequence but continue to previous one (maybe with large gap at times). We might see the same behavior as above for hard reboots (device runs out of battery).",pull_request
 mozilla-mobile,focus-android,https://github.com/mozilla-mobile/focus-android/issues/1569,1569,"- [x] #2013 High-level understanding: summarize all the ways the browsing session can end (e.g. user erases, system OOMs, battery falls out)",pull_request
 mozilla-mobile,focus-android,https://github.com/mozilla-mobile/focus-android/issues/1216,1216,"""Draining battery on 7.1.1 stock, Xperia xz as Stamina recognized it.""",pull_request
 mozilla-mobile,focus-android,https://github.com/mozilla-mobile/focus-android/issues/594,594,"* Battery power saved when loading the page",pull_request
+
+
+
 Freeyourgadget,Gadgetbridge,https://github.com/Freeyourgadget/Gadgetbridge/commit/d1a62968f69ebb7dd6dd7cb273a06aa0761681a4,d1a62968f69ebb7dd6dd7cb273a06aa0761681a4,This prevents some players which send a metadata changed intent every second to drain the battery,commit_message
 Freeyourgadget,Gadgetbridge,https://github.com/Freeyourgadget/Gadgetbridge/commit/204748c518c0477689c05730c30ab57859ef89fd,204748c518c0477689c05730c30ab57859ef89fd,tiny little bit of battery life).,commit_message
 Freeyourgadget,Gadgetbridge,https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365,c06ef3d260a8785b567743d51edcba8803195365,"Pebble: try to shut up datalog, which might cause battery drain on the watch",commit_message
