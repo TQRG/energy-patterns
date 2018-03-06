@@ -39,10 +39,11 @@
 - name: Polite poller
   description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
   context:
-  solution: "Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established"
+  solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth)
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
+      - https://github.com/nextcloud/android/issues/1561
 
 - name: Affordable
   description: Avoid performing tasks that are not visible to the user and quickly become obsolete.
@@ -73,6 +74,7 @@
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
+      - https://github.com/nextcloud/android/issues/1654 FIXME
 
 - name: Power Save mode
   description: provide an energy savior mode whenever the device enters a power save  mode.
@@ -80,14 +82,46 @@
   solution: implement a mode in which the app will use less resources while providing the minimum functionality that is indispensible to the user. This can include deactivating some features, reducing update intervals, or deactivating animated effects in the UI.
   occurrences_android:
     issues:
-      - https://github.com/nextcloud/android/commit/8bc432027e0d33e8043cf40192203203a40ca29c
-      - 
+      -
     commits:
+      - https://github.com/nextcloud/android/commit/8bc432027e0d33e8043cf40192203203a40ca29c
       - https://github.com/nextcloud/android/commit/ef7900a6a470469e2bce57b1458747dd9053afd1
 
+- name: Lazy first - Defer
+  description: Delay battery intensive operations until the device is connected to a charger.
+  context: There are operations that do not have high priority and do not need to execute immediately (e.g., backup data in the cloud). However, these operations can be intensive and thus drain energy.
+  solution: Delay intensive operations until the device is connected to a charger. Since whenever the device is connected to power, the battery might be running low, it might be advisable to wait until the power save mode is deactivated (or until a pre-defined battery level is reached).
+  occurrences_android:
+    issues:
+      - https://github.com/nextcloud/android/issues/1803
+    commits:
+    pull_requests:
+      - https://github.com/nextcloud/android/pull/1527
+  references:
+    - title: Android Developer Guides — Optimizing for Battery Life
+      url: https://developer.android.com/topic/performance/power/index.html
+
+- name: WiFi over Cellular (lazy first - defer)
+  description: Delay heavy data connections until the device is connected to a WiFi network.
+  context: Data needs to be syncronized with a server but it is not high priority and can be delayed.
+  solution: Data connections using cellular networks are usually more battery intensive than connections using WiFi.  Low priority operations that require a data connection to exchange considerable amounts of data should be delayed until a WiFi connection is available.
+  occurrences_android:
+    issues:
+      - https://github.com/nextcloud/android/issues/1626
+    commits:
+    pull_requests:
+  references:
+    - title: Does Wi-Fi Consume More Battery Power Than 3G or 4G/LTE?
+      authors: Mitch Bartlett
+      url: https://www.technipages.com/does-wi-fi-consume-more-battery-power-than-3g-or-4glte
 
 
-- name: Kill the app optimizer
+
+- name: Constant notification (anti pattern)
+  occurrences_android:
+    issues: https://github.com/nextcloud/android/issues/2130
+
+- name: Kill the app optimizer (anti pattern)
   description: most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
   occurrences_android:
     issues:
