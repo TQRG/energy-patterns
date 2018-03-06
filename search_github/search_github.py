@@ -58,38 +58,39 @@ def analyze_repo(user, project, retry=120):
     try:
         repo = get_repo(user, project)
         commits = repo.get_commits()
-        for commit in commits:
-            commit_message = commit.commit.message
-            match = regexEnergy.search(commit_message)
-            if match:
-                print('----------------')
-                print("Repo {}/{}".format(user, repo))
-                print(commit_message)
-                print(commit.html_url)
-                result.append({
-                    'user': user,
-                    'repo': project,
-                    'url': commit.html_url,
-                    'ref': commit.sha,
-                    'match': match.group(0),
-                    'contribution_type': 'commit_message'
-                })
-        pull_requests = repo.get_pulls()
-        issues = repo.get_issues()
-        for pull in chain(issues, pull_requests):
+        # for commit in commits:
+        #     commit_message = commit.commit.message
+        #     match = regexEnergy.search(commit_message)
+        #     if match:
+        #         print('----------------')
+        #         print("Repo {}/{}".format(user, repo))
+        #         print(commit_message)
+        #         print(commit.html_url)
+        #         result.append({
+        #             'user': user,
+        #             'repo': project,
+        #             'url': commit.html_url,
+        #             'ref': commit.sha,
+        #             'match': match.group(0),
+        #             'contribution_type': 'commit_message'
+        #         })
+        import pdb; pdb.set_trace()
+        pull_requests = repo.get_pulls(state='closed')
+        issues = repo.get_issues(state='closed')
+        for subject in chain(issues, pull_requests):
             content = "\n".join([
-                pull.title,
-                str(pull.body),
-            ]+[str(comment.body) for comment in pull.get_comments()])
+                subject.title,
+                str(subject.body),
+            ]+[str(comment.body) for comment in subject.get_comments()])
             match = regexEnergy.search(content)
             if match:
                 result.append({
                     'user': user,
                     'repo': project,
-                    'url': pull.html_url,
-                    'ref': pull.number,
+                    'url': subject.html_url,
+                    'ref': subject.number,
                     'match': match.group(0),
-                    'contribution_type': 'pull_request'
+                    'contribution_type': type(subject).__name__
                 })
 
     except requests.exceptions.HTTPError as error:
