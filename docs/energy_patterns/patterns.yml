@@ -108,6 +108,8 @@
   occurrences_android:
     issues:
       - https://github.com/nextcloud/android/issues/1626
+      - https://github.com/nextcloud/android/issues/1105
+      - https://github.com/nextcloud/android/issues/844
     commits:
     pull_requests:
   references:

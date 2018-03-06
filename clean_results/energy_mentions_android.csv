@@ -35,7 +35,6 @@ nextcloud,android,https://github.com/nextcloud/android/issues/1609,1609,".. then
 nextcloud,android,https://github.com/nextcloud/android/issues/1583,1583,"Since you have a Huawei, this could be caused by the 'battery manager' which closes apps automatically and seemingly random (but more likely when screen is off and/or on low battery). ",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/1561,1561,"> [...] would recommend to have a 10-15 minutes interval to not drain the battery. As a second step we could then of course go for a ""smarter"" polling looking at the frequency of notifications coming in.",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/1495,1495,"I disabled the battery optimation for the nc client. But there is still no account sync.",pull_request
-
 nextcloud,android,https://github.com/nextcloud/android/issues/1328,1328,"It works fine, I think it´s there to save some battery life, and if you want to instantly upload you can force there a new scan. I´m right? That the reason, why it isn´t added intanlty to the upload tasker, is it?",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/1293,1293,"How will the battery will be affected if everything is moved to file system walker?",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/1168,1168,"Power saving is disabled for the nextcloud app but it still happens, other apps that require turning off power saving seem to be running fine.",pull_request
@@ -49,6 +48,7 @@ nextcloud,android,https://github.com/nextcloud/android/issues/1013,1013,"- signi
 nextcloud,android,https://github.com/nextcloud/android/issues/979,979,"- significantly less battery usage",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/844,844,"- significantly less battery usage",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/833,833,"The app drains my battery",pull_request
+
 nextcloud,android,https://github.com/nextcloud/android/issues/816,816,"- significantly less battery usage",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/804,804,"In the new autoupload Settings i set only to upload if the Smartphone is at the power suply.",pull_request
 nextcloud,android,https://github.com/nextcloud/android/issues/780,780,New Autoupload feature kills battery,pull_request
