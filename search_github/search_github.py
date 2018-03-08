@@ -74,7 +74,6 @@ def analyze_repo(user, project, retry=120):
         #             'match': match.group(0),
         #             'contribution_type': 'commit_message'
         #         })
-        import pdb; pdb.set_trace()
         pull_requests = repo.get_pulls(state='closed')
         issues = repo.get_issues(state='closed')
         for subject in chain(issues, pull_requests):
