@@ -22,6 +22,8 @@
       - https://github.com/k3b/APhotoManager/issues/14
       - https://github.com/nbossard/packlist/issues/53
       - https://github.com/dmfs/opentasks/issues/4
+      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
+      - https://github.com/mpcjanssen/simpletask-android/issues/694
     commits:
       - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
       - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
@@ -48,9 +50,11 @@
       - https://github.com/deltachat/deltachat-android/issues/186
       - https://github.com/nextcloud/android/issues/1561
       - https://github.com/vector-im/riot-android/issues/882
+    commits:
+      - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
 
 - name: Affordable
-  description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete.
+  description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete. (TODO Obsolete layour param)
   context: When displaying real-time information, the data presented to the user has to be constantly updated. However, depending on the view that is being displayed to the user, this data might not be entirely presented or useful. The same happens when the app goes to background. Since the data quickly becomes obsolete the phone is using resources unnecessarily. Another context -- too many notifications for somethinf a user might not be interested. another exemple, notifications are disabled, so information that would fire that notification does not need to be fetched.
   solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data which is visible to the user. FIXME
   example:
@@ -67,10 +71,11 @@
       - https://github.com/greenaddress/GreenBits/commit/1d5da879a71da8060d5ad6a784d318f7f0c63515
       - https://github.com/osmandapp/Osmand/commit/59c8b5d39cf2c0361d6f688d75e19f2786a4cbae
       - https://github.com/chaitan94/RedReader/commit/a774cab934ce24a5fa028e65841ab71523f5ed2c
+      - https://github.com/mpcjanssen/simpletask-android/commit/13b615b26b0fe05be1ac6330d02b116d604b4a6a
     pull_requests:
       - https://github.com/vitas/beaconloc/pull/13
       - https://github.com/redfish64/TinyTravelTracker/pull/59
-      -
+      - https://github.com/ccrama/Slide/pull/2347
 
 - name: Close Immediately
   description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen, in which voice commands can replace it.
@@ -81,11 +86,14 @@
       - https://github.com/andstatus/andstatus/issues/467
       - https://github.com/ctodobom/OpenNoteScanner/issues/87
       - https://github.com/TwidereProject/Twidere-Android/issues/935
+      - https://github.com/tananaev/traccar-client-android/issues/128
+      - https://github.com/tananaev/traccar-client-android/issues/11
     commits:
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
     pull_requests:
       - https://github.com/redfish64/TinyTravelTracker/pull/58
+      - https://github.com/ccrama/Slide/pull/2345
 
 - name: Open Immediately Before
   description: Only open resources if will be immediately necessary.
@@ -103,7 +111,8 @@
       - https://github.com/vector-im/riot-android/issues/616
       - https://github.com/vector-im/riot-android/issues/1117
       - https://github.com/vector-im/riot-android/issues/994
-      -
+      - https://github.com/criticalmaps/criticalmaps-android/issues/93
+      - https://github.com/servalproject/batphone/issues/106
   references:
     - title: The State of Mobile XMPP in 2016
       authors: Daniel Gultsch
@@ -129,9 +138,13 @@
       - https://github.com/syncthing/syncthing-android/commit/8463c194163f0d24bf2ac5b5cfe3531474381113
       - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/d6714de9ce2b22749ccb794509016b0aac9c0480
+      - https://github.com/MarcelJurtz/LifeCounter/commit/508f991ea9b065d65314aa560635c45e42431668
+      - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
+      - https://github.com/samuelclay/NewsBlur/commit/8468a1c7c591376dbaea69fcf614dd6eb8450c92
+
 
 - name: Lazy first - Defer
-  description: Delay battery intensive operations until the device is connected to a charger.
+  description: Delay battery intensive operations until the device is connected to a charger. (or reduce intensity/ frequency)
   context: There are operations that do not have high priority and do not need to execute immediately (e.g., backup data in the cloud). However, these operations can be intensive and thus drain energy.
   solution: Delay intensive operations until the device is connected to a charger. Since whenever the device is connected to power, the battery might be running low, it might be advisable to wait until the power save mode is deactivated (and/or until a pre-defined battery level is reached).
   occurrences_android:
@@ -141,12 +154,15 @@
       - https://github.com/haiwen/seadroid/issues/270
       - https://github.com/syncthing/syncthing-android/issues/602
       - https://github.com/syncthing/syncthing-android/issues/511
+      - https://github.com/splondike/polipoid/issues/3
     commits:
       - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/50f77c4ff25e80299a25a5bbd8742a3a1391e5f4
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/cc7511bf5207f36ff7bd2fcf5cdb410bf041f05e
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/9834af0a3970f02dad737d42b9ba0c719f9a29c6
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/d6714de9ce2b22749ccb794509016b0aac9c0480
+      - https://github.com/inorichi/tachiyomi/commit/b1b97c19d4311ccd2222dff8de26e9a499fe63e5
+      - https://github.com/bottiger/SoundWaves/commit/9d6f91f17f555cf78bb439ad756ea63cad964f63
     pull_requests:
       - https://github.com/nextcloud/android/pull/1527
   references:
@@ -154,7 +170,7 @@
       url: https://developer.android.com/topic/performance/power/index.html
 
 - name: WiFi over Cellular (lazy first - defer)
-  description: Delay heavy data connections until the device is connected to a WiFi network.
+  description: Delay(/disable) heavy data connections until the device is connected to a WiFi network.
   context: Data needs to be syncronized with a server but it is not high priority and can be delayed.
   solution: Data connections using cellular networks are usually more battery intensive than connections using WiFi.  Low priority operations that require a data connection to exchange considerable amounts of data should be delayed until a WiFi connection is available.
   occurrences_android:
@@ -165,8 +181,10 @@
       - https://github.com/haiwen/seadroid/issues/270
       - https://github.com/syncthing/syncthing-android/issues/549
       - https://github.com/syncthing/syncthing-android/issues/511
+      - https://github.com/ppareit/swiftp/issues/94
     commits:
       - https://github.com/Telegram-FOSS-Team/Telegram-FOSS/commit/644fc7ccea9deee3686dc9c824893baa4ce4bef6
+      - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
     pull_requests:
   references:
     - title: Does Wi-Fi Consume More Battery Power Than 3G or 4G/LTE?
@@ -186,7 +204,7 @@
     - url: https://link.springer.com/article/10.1007/s10664-017-9545-x
     - position: Not necessary when logs are generated at rates of ≤ 1 message per second
 
-- name: Lazy First — Coalesce / Inexact Schedulling
+- name: Lazy First — Coalesce / (e.g., Inexact Schedulling)
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time.
   solution: Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode).
@@ -196,32 +214,48 @@
     commits:
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/QuantumBadger/RedReader/commit/bae362a07f649dac39617a9ad748de86e0944dc2
+      - https://github.com/ccrama/Slide/commit/070c2c6f1faf56bb486acb25fae1b9cc63c10702
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
 
-- name: Lazy First — reduce (merge with affordable?)
+- name: Lazy First — reduce
   description: Are there redundant operations your app can cut out? For example, can it cache downloaded data instead of repeatedly waking up the radio to re-download the data?
+  related:
+    - Affordable
   occurrences_android:
+    issues:
+      - https://github.com/bfabiszewski/ulogger-android/issues/8
     commits:
       - https://github.com/Freeyourgadget/Gadgetbridge/commit/d1a62968f69ebb7dd6dd7cb273a06aa0761681a4
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/5491f315f6080f6ce9883638c5a7339c19a14828
       - https://github.com/redfish64/TinyTravelTracker/issues/49
+    pull_requests:
+      - https://github.com/bfabiszewski/ulogger-android/pull/20
   references:
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
 
 - name: Decrease rate
-  description: Increase time between syncs and/or allow users to specify their preferred sync delays.
+  description: Increase time between syncs/sensor reads and/or allow users to specify their preferred sync delays. This can also depend on context (dynamic).
+  related:
+    - Enough resolution
   occurrences_android:
     issues:
       - https://github.com/opacapp/opacclient/issues/492
+      - https://github.com/mvglasow/satstat/issues/140
+      - https://github.com/tananaev/traccar-client-android/issues/135
+      - https://github.com/tananaev/traccar-client-android/issues/128
+      - https://github.com/tananaev/traccar-client-android/issues/58
+      - https://github.com/tananaev/traccar-client-android/issues/12
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/OGRECave/ogre/commit/bb0763af64738504487fb94533d5682d361c8764
+      - https://github.com/farmerbb/Taskbar/commit/ffd2d7fd676507219dbf0f3104ea50b35dd3c9ed
+      - https://github.com/samuelclay/NewsBlur/commit/744ebd54a9014682999a21b665298e65a6a766ec
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy. (This might be more effective with power users.)
@@ -229,8 +263,12 @@
     issues:
       - https://github.com/redfish64/TinyTravelTracker/issues/49
       - https://github.com/redfish64/TinyTravelTracker/issues/17
+      - https://github.com/TeamNewPipe/NewPipe/issues/1096
+      - https://github.com/TeamNewPipe/NewPipe/issues/1059
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
+      - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
+      - https://github.com/proninyaroslav/libretorrent/commit/8dca82790bf631e913369027632924257dfe3ce4
 
 
 - name: No Ads
@@ -246,7 +284,7 @@
 
 - name: Enough resolution
   description: Choose high accuracy data collection only when strictly necessary.
-  context: (screen resolution, location services precision)
+  context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS)
   solution:
   occurrences_android:
     issues:
@@ -254,18 +292,98 @@
       - https://github.com/osmandapp/Osmand/issues/3556
       - https://github.com/redfish64/TinyTravelTracker/issues/60
       - https://github.com/redfish64/TinyTravelTracker/issues/52
+      - https://github.com/criticalmaps/criticalmaps-android/issues/116
+      - https://github.com/mvglasow/satstat/issues/140
+      - https://github.com/tananaev/traccar-client-android/issues/308
+      - https://github.com/tananaev/traccar-client-android/issues/288
     commits:
       - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
       - https://github.com/gateship-one/malp/commit/47914c186ada0f03d758b5d249e96e70fe51dfbf
+    pull_requests:
+      - https://github.com/mvglasow/satstat/pull/141
 
+- name: use alternative sensor sources
+  related: enough resolution
+  occurrences_android:
+    issues:
+      - https://github.com/tananaev/traccar-client-android/issues/288
 
+- name: Duty cycle
+  related:
+    - Enough resolution
+    - Decrease rate
+  occurrences_android:
+    issues:
+      - https://github.com/servalproject/batphone/issues/20
 
-- name: Constant notification (anti pattern)
+- name: Reasonable timeout
+  description: Interrupt tasks that are taking an abnormal time to execute
+  occurrences_android:
+    issues:
+      - https://github.com/kontalk/androidclient/issues/405
+
+- name: Infer instead of asking
+  description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
+  occurences_android:
+    issues:
+      - https://github.com/kontalk/androidclient/issues/378
+
+- name: no screen
+  description: whenever possible allow interaction without using the display.
+  occurrences_android:
+    issues:
+      - https://github.com/inorichi/tachiyomi/pull/1177
+      - https://github.com/anthonycr/Lightning-Browser/issues/342
+
+- name: Offline mode
+  description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
+  related:
+    - Lazy First (Reduce)
+    - Lazy First (Coalesce)
+  occurrences_android:
+    issues:
+      - https://github.com/hidroh/materialistic/issues/659
+
+- name: Smart poller / dynamically adjust sync rate
+  description: Analyze history of a feed to understand how often it is updated. Automatically adjust update times based on that.
+  occurrences_android:
+    commits:
+      - https://github.com/samuelclay/NewsBlur/commit/71b746a48daa687fb94339d21fb5cd00bf229c2f
+
+- name: Permanent notification (anti pattern)
   occurrences_android:
     issues:
       - https://github.com/nextcloud/android/issues/2130
       - https://github.com/redfish64/TinyTravelTracker/issues/54
+
+- name: Obsolete
+  related:
+    - Affordable
+  occurrences_android:
+    pull_requests:
+      - https://github.com/SecUSo/privacy-friendly-sudoku/pull/19
+      - https://github.com/vitas/beaconloc/pull/13
+      - https://github.com/redfish64/TinyTravelTracker/pull/59
+      - https://github.com/ccrama/Slide/pull/2347
+      - https://github.com/bfabiszewski/ulogger-android/pull/20
+      - https://github.com/vijai1996/screenrecorder/pull/16
+
+- name: Offload heavy operations
+  description:
+  occurrences_android:
+    issues:
+      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
+
+- name: Schedulle and Sleep
+  description: use AlarmManager for updates, instead of using Wakelocks.
+  related:
+    - Close Immediately
+  occurrences_android:
+    issues:
+      - https://github.com/tananaev/traccar-client-android/issues/240
+      - https://github.com/tananaev/traccar-client-android/issues/11
+      - https://github.com/tananaev/traccar-client-android/issues/11
 
 - name: Kill the app optimizer (anti pattern)
   description: most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
@@ -276,6 +394,11 @@
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/782
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/564
       - https://github.com/julian-klode/dns66/issues/166
+      - https://github.com/romannurik/muzei/issues/207
+      - https://github.com/romannurik/muzei/issues/190
+      - https://github.com/michaelkourlas/voipms-sms-client/issues/137
+      - https://github.com/termux/termux-app/issues/377
+      - https://github.com/tananaev/traccar-client-android/issues/240
     commits:
       - https://github.com/siacs/Conversations/commit/d5608cb4f3bd357e46513a38b8f3676049992dcc
       - https://github.com/siacs/Conversations/commit/e6a9829dd2b275f80231b19930fbb75b209f4c2e
@@ -286,6 +409,9 @@
       - https://github.com/deltachat/deltachat-android/commit/b941b9e21a2787308755f092ce92ca048bdbcd84
       - https://github.com/syncthing/syncthing-android/commit/31721af0c3a00e4a9a2434e50f34
       - https://github.com/syncthing/syncthing-android/commit/f005fcd1d2b0d197eab706a2d5a36520f7f2ff82
+      - https://github.com/jackpal/Android-Terminal-Emulator/commit/c40111ffeb3523cede1d76731901b7cb73c7dca0
+      - https://github.com/kontalk/androidclient/commit/391f01742ef8c618499ef6dd02d02b35b669d14d
+      - https://github.com/fython/Blackbulb/commit/aee784223b1860759381d269f9572bad01189607
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
