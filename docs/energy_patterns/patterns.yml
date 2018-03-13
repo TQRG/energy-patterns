@@ -24,6 +24,7 @@
       - https://github.com/dmfs/opentasks/issues/4
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/mpcjanssen/simpletask-android/issues/694
+      - https://github.com/vishesh/sealnote/issues/47
     commits:
       - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
       - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
@@ -44,7 +45,7 @@
 - name: Polite poller
   description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
   context:
-  solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth)
+  solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth). Eventually stop retrying.
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
@@ -52,6 +53,7 @@
       - https://github.com/vector-im/riot-android/issues/882
     commits:
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
+      - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
 
 - name: Affordable
   description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete. (TODO Obsolete layour param)
@@ -91,6 +93,7 @@
     commits:
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
+      - https://github.com/LibreShift/red-moon/commit/12fdc2fe2785468b9c6b426a499004479d2d383d
     pull_requests:
       - https://github.com/redfish64/TinyTravelTracker/pull/58
       - https://github.com/ccrama/Slide/pull/2345
@@ -113,6 +116,7 @@
       - https://github.com/vector-im/riot-android/issues/994
       - https://github.com/criticalmaps/criticalmaps-android/issues/93
       - https://github.com/servalproject/batphone/issues/106
+      - https://github.com/redsolution/xabber-android/issues/529
   references:
     - title: The State of Mobile XMPP in 2016
       authors: Daniel Gultsch
@@ -120,6 +124,12 @@
     - title: GSoC - Alternative Push Notification Transport
       year: 2018
       url: https://github.com/matrix-org/GSoC/blob/master/IDEAS.md#alternative-push-notification-transport
+
+- name: Perform only on demand
+  related: pull over push
+  occurrences_android:
+    issues:
+      - https://github.com/redsolution/xabber-android/issues/174
 
 - name: Power Save mode
   description: provide an energy savior mode whenever the device enters a power save mode.
@@ -141,6 +151,7 @@
       - https://github.com/MarcelJurtz/LifeCounter/commit/508f991ea9b065d65314aa560635c45e42431668
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
       - https://github.com/samuelclay/NewsBlur/commit/8468a1c7c591376dbaea69fcf614dd6eb8450c92
+      - https://github.com/openfoodfacts/openfoodfacts-androidapp/commit/dd5e4650579a24950333815b435119ff031654a0
 
 
 - name: Lazy first - Defer
@@ -190,14 +201,17 @@
     - title: Does Wi-Fi Consume More Battery Power Than 3G or 4G/LTE?
       authors: Mitch Bartlett
       url: https://www.technipages.com/does-wi-fi-consume-more-battery-power-than-3g-or-4glte
+    - title: Modifying your Download Patterns Based on the Connectivity Type
+      url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
 
 - name: Surpress Logs
-  description: Use logging only when strictly necessary.
+  description: Avoid using intensive logging (< 1Hz).
   context:
   solution:
   occurrences_android:
     commits:
-      - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365
+      - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365 FAIL
+      - https://github.com/LibreShift/red-moon/commit/8bbc87dddad608d4c1cd17025100f6e6a971c39b
   references:
     - title: An exploratory study on assessing the energy impact of logging on Android applications
     - authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
@@ -211,10 +225,13 @@
   occurrences_android:
     issues:
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/379
+      - https://github.com/k9mail/k-9/issues/2295
+      - https://github.com/k9mail/k-9/issues/1577
     commits:
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/QuantumBadger/RedReader/commit/bae362a07f649dac39617a9ad748de86e0944dc2
       - https://github.com/ccrama/Slide/commit/070c2c6f1faf56bb486acb25fae1b9cc63c10702
+      - https://github.com/ge0rg/yaxim/commit/5544bed1ad30ab489d5854eeb380a6718132826e
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
@@ -232,6 +249,9 @@
       - https://github.com/Freeyourgadget/Gadgetbridge/commit/d1a62968f69ebb7dd6dd7cb273a06aa0761681a4
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/5491f315f6080f6ce9883638c5a7339c19a14828
       - https://github.com/redfish64/TinyTravelTracker/issues/49
+      - https://github.com/k9mail/k-9/commit/43c38a047feedda4720af5bfbc188a33f8dfaced
+      - https://github.com/federicoiosue/Omni-Notes/commit/9fe9db8d20f6323589026830e68927d8ad5c30d9
+      - https://github.com/federicoiosue/Omni-Notes/commit/bd3c96f2e87553a6c5d5b1a70e7e5d9b4565c20b
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
   references:
@@ -250,32 +270,49 @@
       - https://github.com/tananaev/traccar-client-android/issues/128
       - https://github.com/tananaev/traccar-client-android/issues/58
       - https://github.com/tananaev/traccar-client-android/issues/12
+      - https://github.com/servalproject/batphone/issues/20
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/OGRECave/ogre/commit/bb0763af64738504487fb94533d5682d361c8764
       - https://github.com/farmerbb/Taskbar/commit/ffd2d7fd676507219dbf0f3104ea50b35dd3c9ed
       - https://github.com/samuelclay/NewsBlur/commit/744ebd54a9014682999a21b665298e65a6a766ec
+      - https://github.com/ankidroid/Anki-Android/commit/9193806eb0546bf8d7c040ad40272d632b4d3e99
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy. (This might be more effective with power users.)
+  context: many times energy efficiency solutions provide a tradeoff between _power_ of features and power consumption. However, this tradeoff is different for different users.
   occurrences_android:
     issues:
       - https://github.com/redfish64/TinyTravelTracker/issues/49
       - https://github.com/redfish64/TinyTravelTracker/issues/17
       - https://github.com/TeamNewPipe/NewPipe/issues/1096
       - https://github.com/TeamNewPipe/NewPipe/issues/1059
+      - https://github.com/k9mail/k-9/issues/1563
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
       - https://github.com/proninyaroslav/libretorrent/commit/8dca82790bf631e913369027632924257dfe3ce4
+      - https://github.com/redsolution/xabber-android/commit/616411e3790ba4e04cbc96ae9a24ce8ba49e1027
+
+- name: Kill the app FIXME
+  description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
+  context: there is data connection but is low quality, which may result in battery drain for heavy data transfers.
+  occurrences_android:
+    issues:
+      - https://github.com/k9mail/k-9/issues/1066
+  references:
+    - title: Modifying your Download Patterns Based on the Connectivity Type
+      url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
+
 
 
 - name: No Ads
   occurrences_android:
-    issues: https://github.com/mozilla-mobile/focus-android/issues/2082
+    issues:
+      - https://github.com/mozilla-mobile/focus-android/issues/2082
 
-- name: Play on demand (is this anti pattern?)
+- name: Play on demand
   description: Do not automatically start playing media content.
   context:
   occurrences_android:
@@ -300,32 +337,32 @@
       - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
       - https://github.com/gateship-one/malp/commit/47914c186ada0f03d758b5d249e96e70fe51dfbf
+      - https://github.com/velazcod/Tinfoil-Facebook/commit/15c75847d51d8385595958bbe2449e8c4ba65e1e
     pull_requests:
       - https://github.com/mvglasow/satstat/pull/141
 
 - name: use alternative sensor sources
-  related: enough resolution
+  example: use data from accelerometer to infer whether gps should be updated
+  related:
+    - enough resolution
+    - Smart poller / dynamically adjust sync rate
   occurrences_android:
     issues:
       - https://github.com/tananaev/traccar-client-android/issues/288
 
-- name: Duty cycle
-  related:
-    - Enough resolution
-    - Decrease rate
-  occurrences_android:
-    issues:
-      - https://github.com/servalproject/batphone/issues/20
-
 - name: Reasonable timeout
   description: Interrupt tasks that are taking an abnormal time to execute
+  related:
+    - Polite poller
   occurrences_android:
+    commits:
+      - https://github.com/jroal/a2dpvolume/commit/7723d698b690b94e01380a4618cb55f700c724c3
     issues:
       - https://github.com/kontalk/androidclient/issues/405
 
 - name: Infer instead of asking
   description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
-  occurences_android:
+  occurrences_android:
     issues:
       - https://github.com/kontalk/androidclient/issues/378
 
@@ -335,6 +372,7 @@
     issues:
       - https://github.com/inorichi/tachiyomi/pull/1177
       - https://github.com/anthonycr/Lightning-Browser/issues/342
+      - https://github.com/philliphsu/ClockPlus/issues/14
 
 - name: Offline mode
   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
@@ -375,6 +413,14 @@
     issues:
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
 
+- name: Reduce graphic animations
+  description:
+  warning: Particularly important on e-ink devices.
+  occurrences_android:
+    issues:
+      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
+      - https://github.com/ankidroid/Anki-Android/issues/3022
+
 - name: Schedulle and Sleep
   description: use AlarmManager for updates, instead of using Wakelocks.
   related:
@@ -385,8 +431,8 @@
       - https://github.com/tananaev/traccar-client-android/issues/11
       - https://github.com/tananaev/traccar-client-android/issues/11
 
-- name: Kill the app optimizer (anti pattern)
-  description: most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
+- name: Kill the battery optimizer (anti pattern)
+  description: Most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
   occurrences_android:
     issues:
       - https://github.com/siacs/Conversations/issues/2775
@@ -399,6 +445,9 @@
       - https://github.com/michaelkourlas/voipms-sms-client/issues/137
       - https://github.com/termux/termux-app/issues/377
       - https://github.com/tananaev/traccar-client-android/issues/240
+      - https://github.com/LibreShift/red-moon/issues/213
+      - https://github.com/gsurrel/FacebookNotifications/issues/33
+      - https://github.com/erickok/transdroid/issues/417
     commits:
       - https://github.com/siacs/Conversations/commit/d5608cb4f3bd357e46513a38b8f3676049992dcc
       - https://github.com/siacs/Conversations/commit/e6a9829dd2b275f80231b19930fbb75b209f4c2e
@@ -412,6 +461,8 @@
       - https://github.com/jackpal/Android-Terminal-Emulator/commit/c40111ffeb3523cede1d76731901b7cb73c7dca0
       - https://github.com/kontalk/androidclient/commit/391f01742ef8c618499ef6dd02d02b35b669d14d
       - https://github.com/fython/Blackbulb/commit/aee784223b1860759381d269f9572bad01189607
+      - https://github.com/etesync/android/commit/d675fb961ea67b665c6e0ead3e6e84c9297a7d8c
+      - https://github.com/redsolution/xabber-android/commit/725be496fee04402685e1a129249414e0a6867f8
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
