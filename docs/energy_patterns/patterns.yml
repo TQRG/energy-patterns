@@ -166,6 +166,7 @@
       - https://github.com/syncthing/syncthing-android/issues/602
       - https://github.com/syncthing/syncthing-android/issues/511
       - https://github.com/splondike/polipoid/issues/3
+      - https://github.com/jensstein/oandbackup/issues/131
     commits:
       - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/50f77c4ff25e80299a25a5bbd8742a3a1391e5f4
@@ -174,6 +175,7 @@
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/d6714de9ce2b22749ccb794509016b0aac9c0480
       - https://github.com/inorichi/tachiyomi/commit/b1b97c19d4311ccd2222dff8de26e9a499fe63e5
       - https://github.com/bottiger/SoundWaves/commit/9d6f91f17f555cf78bb439ad756ea63cad964f63
+      - https://github.com/AntennaPod/AntennaPod/commit/1b9c96bc7664adeb12ffd0267c76a4667b25311f
     pull_requests:
       - https://github.com/nextcloud/android/pull/1527
   references:
@@ -193,6 +195,8 @@
       - https://github.com/syncthing/syncthing-android/issues/549
       - https://github.com/syncthing/syncthing-android/issues/511
       - https://github.com/ppareit/swiftp/issues/94
+      - https://github.com/maxpower47/PinDroid/issues/31
+      - https://github.com/drpout/boilr/issues/243
     commits:
       - https://github.com/Telegram-FOSS-Team/Telegram-FOSS/commit/644fc7ccea9deee3686dc9c824893baa4ce4bef6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -295,16 +299,24 @@
       - https://github.com/proninyaroslav/libretorrent/commit/8dca82790bf631e913369027632924257dfe3ce4
       - https://github.com/redsolution/xabber-android/commit/616411e3790ba4e04cbc96ae9a24ce8ba49e1027
 
-- name: Kill the app FIXME
+- name: Kill the app FIXME (anti pattern?)
   description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
   context: there is data connection but is low quality, which may result in battery drain for heavy data transfers.
   occurrences_android:
     issues:
       - https://github.com/k9mail/k-9/issues/1066
   references:
-    - title: Modifying your Download Patterns Based on the Connectivity Type
+    - title: Modifying your Download Patterns Based on the Connectivity Type FIXME
       url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
+    - title: Closing apps to save your battery only makes things worse
+      url:  https://www.wired.com/2016/03/closing-apps-save-battery-makes-things-worse/
 
+- name: Stop on Demand
+  description: Provide users with means to stop battery intensive operations.
+  occurrences_android:
+    issues:
+      - https://github.com/jensstein/oandbackup/issues/102
+      - https://github.com/jensstein/oandbackup/issues/97
 
 
 - name: No Ads
@@ -368,11 +380,14 @@
 
 - name: no screen
   description: whenever possible allow interaction without using the display.
+  related:
+    - Close immediately
   occurrences_android:
     issues:
       - https://github.com/inorichi/tachiyomi/pull/1177
       - https://github.com/anthonycr/Lightning-Browser/issues/342
       - https://github.com/philliphsu/ClockPlus/issues/14
+      - https://github.com/xbmc/Kore/issues/157
 
 - name: Offline mode
   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
@@ -406,6 +421,9 @@
       - https://github.com/ccrama/Slide/pull/2347
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/vijai1996/screenrecorder/pull/16
+      - https://github.com/SecUSo/privacy-friendly-qr-scanner/pull/19
+      - https://github.com/ligi/SCR/pull/5
+      - https://github.com/klausw/hackerskeyboard/pull/540
 
 - name: Offload heavy operations
   description:
@@ -422,7 +440,7 @@
       - https://github.com/ankidroid/Anki-Android/issues/3022
 
 - name: Schedulle and Sleep
-  description: use AlarmManager for updates, instead of using Wakelocks.
+  description: use AlarmManager for updates, instead of using Wakelocks, Services.
   related:
     - Close Immediately
   occurrences_android:
@@ -430,6 +448,16 @@
       - https://github.com/tananaev/traccar-client-android/issues/240
       - https://github.com/tananaev/traccar-client-android/issues/11
       - https://github.com/tananaev/traccar-client-android/issues/11
+      - https://github.com/indywidualny/FaceSlim/issues/212
+    pull_requests:
+      - https://github.com/klausw/hackerskeyboard/pull/539
+
+- name: Manual Sync, On Demand
+  description: Perform tasks only when the user specifically asks.
+  occurrences_android:
+    issues:
+      - https://github.com/drpout/boilr/issues/128
+
 
 - name: Kill the battery optimizer (anti pattern)
   description: Most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
@@ -463,6 +491,7 @@
       - https://github.com/fython/Blackbulb/commit/aee784223b1860759381d269f9572bad01189607
       - https://github.com/etesync/android/commit/d675fb961ea67b665c6e0ead3e6e84c9297a7d8c
       - https://github.com/redsolution/xabber-android/commit/725be496fee04402685e1a129249414e0a6867f8
+      - https://github.com/httpdispatch/MissedNotificationsReminder/commit/09255c310dfd429c3e7907a284c054923c3fb814
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
