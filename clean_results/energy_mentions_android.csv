@@ -526,7 +526,6 @@ antennapod,AntennaPod,https://github.com/AntennaPod/AntennaPod/issues/373,373,[1
 klausw,hackerskeyboard,https://github.com/klausw/hackerskeyboard/pull/540,540,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request
 klausw,hackerskeyboard,https://github.com/klausw/hackerskeyboard/pull/539,539,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request
 httpdispatch,MissedNotificationsReminder,https://github.com/httpdispatch/MissedNotificationsReminder/commit/09255c310dfd429c3e7907a284c054923c3fb814,09255c310dfd429c3e7907a284c054923c3fb814,- Added battery optimization disabled check for Android 6 platform,commit_message
-
 httpdispatch,MissedNotificationsReminder,https://github.com/httpdispatch/MissedNotificationsReminder/issues/1,1,"Regarding 2 minutes it may be device restriction to do not allow waking very often (reduce battery usage) but not sure. You may read the log and search for ""schedule reminder"" records and their timestamps. Differrence will be the real interval.",pull_request
 tgwizard,sls,https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3,0741384d6dc33c010ade3d5a2b9a77a186e99ad3,"split options into On battery and Plugged in sections. Much refactoring, moving code between classes.",commit_message
 tgwizard,sls,https://github.com/tgwizard/sls/commit/3d17aa5e142fd24a0f420571d6d10eb086a46d77,3d17aa5e142fd24a0f420571d6d10eb086a46d77,"version 1.1.10, fixed crash on sd-card unmount + advanced option to always submit when connected to a power source",commit_message
@@ -547,7 +546,9 @@ khertan,ForRunners,https://github.com/khertan/ForRunners/issues/64,64,"In fact I
 khertan,ForRunners,https://github.com/khertan/ForRunners/issues/59,59,Too high battery consumption,pull_request
 khertan,ForRunners,https://github.com/khertan/ForRunners/issues/54,54,"For historical reason, during a run the distance is calculated with a minimum power, to not drain too much battery and power, so there is no filtering like in session view. But as the filtering switch to a more efficient KalmanFilter, i ll implement it also for the ""run"" view.",pull_request
 khertan,ForRunners,https://github.com/khertan/ForRunners/issues/46,46,"Also note that Android 6/7s ""battery optimisation"" can cause the same problem, but also here you can use a permission to ask the user to turn it off (with one tap by just answering a question). See [doze](https://developer.android.com/training/monitoring-device-state/doze-standby.html).",pull_request
-Utyff,pMetro,https://github.com/Utyff/pMetro/pull/15,15,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request
+Utyff,pMetro,https://github.com/Utyff/pMetro/pull/15,15,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.
+",pull_request
+
 Sensirion,SmartGadget-Android,https://github.com/Sensirion/SmartGadget-Android/pull/38,38,"I am developing a tool to automatically refactor Android applications with the goal of improving energy efficiency.",pull_request
 siacs,VoiceRecorder,https://github.com/siacs/VoiceRecorder/issues/16,16,"# STE: Low power audio - enable ULP mode",pull_request
 bpellin,keepassdroid,https://github.com/bpellin/keepassdroid/issues/190,190,"My galaxy nexus phone is using a database that has  #100K rounds and it seems to be almost instantaneous when decrypting my database/saving it. I also have the cpu set at 920Mhz isntead of the default 1.2ghz to increase battery life.",pull_request

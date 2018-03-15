@@ -79,6 +79,17 @@
       - https://github.com/redfish64/TinyTravelTracker/pull/59
       - https://github.com/ccrama/Slide/pull/2347
 
+- name: good enough processing
+  related:
+    - Enough resolution
+    - Affordable
+  description: when dealing with real time processing sometimes the results do not need to be perfect. Wait until a session ends to do a more accurate processing.
+  example: calculating distance while running
+  occurrences_android:
+    issues:
+      - https://github.com/khertan/ForRunners/issues/54
+
+
 - name: Close Immediately
   description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen, in which voice commands can replace it.
   occurrences_android:
@@ -97,6 +108,7 @@
     pull_requests:
       - https://github.com/redfish64/TinyTravelTracker/pull/58
       - https://github.com/ccrama/Slide/pull/2345
+      - https://github.com/lllllT/AtmosphereLogger/pull/3
 
 - name: Open Immediately Before
   description: Only open resources if will be immediately necessary.
@@ -176,6 +188,8 @@
       - https://github.com/inorichi/tachiyomi/commit/b1b97c19d4311ccd2222dff8de26e9a499fe63e5
       - https://github.com/bottiger/SoundWaves/commit/9d6f91f17f555cf78bb439ad756ea63cad964f63
       - https://github.com/AntennaPod/AntennaPod/commit/1b9c96bc7664adeb12ffd0267c76a4667b25311f
+      - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
+      - https://github.com/tgwizard/sls/commit/3d17aa5e142fd24a0f420571d6d10eb086a46d77
     pull_requests:
       - https://github.com/nextcloud/android/pull/1527
   references:
@@ -258,6 +272,7 @@
       - https://github.com/federicoiosue/Omni-Notes/commit/bd3c96f2e87553a6c5d5b1a70e7e5d9b4565c20b
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
+      - https://github.com/tgwizard/sls/pull/340
   references:
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
@@ -298,6 +313,7 @@
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
       - https://github.com/proninyaroslav/libretorrent/commit/8dca82790bf631e913369027632924257dfe3ce4
       - https://github.com/redsolution/xabber-android/commit/616411e3790ba4e04cbc96ae9a24ce8ba49e1027
+      - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
 
 - name: Kill the app FIXME (anti pattern?)
   description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
@@ -397,6 +413,7 @@
   occurrences_android:
     issues:
       - https://github.com/hidroh/materialistic/issues/659
+      - https://github.com/nilsbraden/ttrss-reader-fork/issues/156
 
 - name: Smart poller / dynamically adjust sync rate
   description: Analyze history of a feed to understand how often it is updated. Automatically adjust update times based on that.
@@ -409,6 +426,7 @@
     issues:
       - https://github.com/nextcloud/android/issues/2130
       - https://github.com/redfish64/TinyTravelTracker/issues/54
+      - https://github.com/tgwizard/sls/issues/384
 
 - name: Obsolete
   related:
@@ -424,6 +442,8 @@
       - https://github.com/SecUSo/privacy-friendly-qr-scanner/pull/19
       - https://github.com/ligi/SCR/pull/5
       - https://github.com/klausw/hackerskeyboard/pull/540
+      - https://github.com/koelleChristian/trickytripper/pull/27
+      - https://github.com/Utyff/pMetro/pull/15
 
 - name: Offload heavy operations
   description:
@@ -476,6 +496,8 @@
       - https://github.com/LibreShift/red-moon/issues/213
       - https://github.com/gsurrel/FacebookNotifications/issues/33
       - https://github.com/erickok/transdroid/issues/417
+      - https://github.com/httpdispatch/MissedNotificationsReminder/issues/1
+      - https://github.com/khertan/ForRunners/issues/46
     commits:
       - https://github.com/siacs/Conversations/commit/d5608cb4f3bd357e46513a38b8f3676049992dcc
       - https://github.com/siacs/Conversations/commit/e6a9829dd2b275f80231b19930fbb75b209f4c2e
