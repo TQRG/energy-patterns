@@ -105,6 +105,8 @@
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
       - https://github.com/LibreShift/red-moon/commit/12fdc2fe2785468b9c6b426a499004479d2d383d
+      - https://github.com/M66B/NetGuard/commit/223de55f58484101cde7629dca810acdff5d785f
+      - https://github.com/M66B/NetGuard/commit/fd614bcbd7738ef9f3179ce5a2fb2efe2c05defb
     pull_requests:
       - https://github.com/redfish64/TinyTravelTracker/pull/58
       - https://github.com/ccrama/Slide/pull/2345
@@ -129,6 +131,7 @@
       - https://github.com/criticalmaps/criticalmaps-android/issues/93
       - https://github.com/servalproject/batphone/issues/106
       - https://github.com/redsolution/xabber-android/issues/529
+      - https://github.com/openbmap/radiocells-scanner-android/issues/166
   references:
     - title: The State of Mobile XMPP in 2016
       authors: Daniel Gultsch
@@ -164,9 +167,16 @@
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
       - https://github.com/samuelclay/NewsBlur/commit/8468a1c7c591376dbaea69fcf614dd6eb8450c92
       - https://github.com/openfoodfacts/openfoodfacts-androidapp/commit/dd5e4650579a24950333815b435119ff031654a0
+      - https://github.com/openbmap/radiocells-scanner-android/commit/cd8c6835f2a74b7e2723ff0589cb401ce8b141c9
+      - https://github.com/M66B/NetGuard/commit/2d36e908e111144afa23278b4fcf9869cc6cfae9
+      - https://github.com/M66B/NetGuard/commit/2e70a038970d6efe9f74e5719e7648f91de30498
+      - https://github.com/mozilla/MozStumbler/commit/b09b2f8334f5005fb81132d6f403854feefc35e0
+      - https://github.com/mozilla/MozStumbler/commit/6ea026894de111a0e8c374c69a5521ac15d1179e
 
 
 - name: Lazy first - Defer
+  related:
+    - Power Awareness
   description: Delay battery intensive operations until the device is connected to a charger. (or reduce intensity/ frequency)
   context: There are operations that do not have high priority and do not need to execute immediately (e.g., backup data in the cloud). However, these operations can be intensive and thus drain energy.
   solution: Delay intensive operations until the device is connected to a charger. Since whenever the device is connected to power, the battery might be running low, it might be advisable to wait until the power save mode is deactivated (and/or until a pre-defined battery level is reached).
@@ -179,6 +189,7 @@
       - https://github.com/syncthing/syncthing-android/issues/511
       - https://github.com/splondike/polipoid/issues/3
       - https://github.com/jensstein/oandbackup/issues/131
+      - https://github.com/mozilla/MozStumbler/issues/1305
     commits:
       - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/50f77c4ff25e80299a25a5bbd8742a3a1391e5f4
@@ -196,6 +207,21 @@
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
 
+- name: Power Awareness
+  related:
+    - Lazy first - Defer
+  description: Have a different behavior when device is connected/disconnected to a power station, or has different battery levels.
+  occurrences_android:
+    commits:
+      - https://github.com/futurice/meeting-room-tablet/commit/cd716f9a09df7614d8ff1f5665d885aec9717116
+      - https://github.com/mozilla/MozStumbler/commit/565008c1163a15655d35a4f15b6f83eb01a01036
+      - https://github.com/mozilla/MozStumbler/commit/6b8dc2d19b129d4dbdbca18b2d20075c7aeefd9f
+      - https://github.com/mozilla/MozStumbler/commit/464117dde4f4d9e706096be7426a798c601736f4
+      - https://github.com/mozilla/MozStumbler/commit/fd88ba51601a577741e1e3ed5ae4f2c42d1b782b
+      - https://github.com/mozilla/MozStumbler/commit/3e80b94e7b6f19d5320a46005dc8537c82416b83
+
+
+
 - name: WiFi over Cellular (lazy first - defer)
   description: Delay(/disable) heavy data connections until the device is connected to a WiFi network.
   context: Data needs to be syncronized with a server but it is not high priority and can be delayed.
@@ -211,6 +237,7 @@
       - https://github.com/ppareit/swiftp/issues/94
       - https://github.com/maxpower47/PinDroid/issues/31
       - https://github.com/drpout/boilr/issues/243
+      - https://github.com/Etuldan/spaRSS/issues/27
     commits:
       - https://github.com/Telegram-FOSS-Team/Telegram-FOSS/commit/644fc7ccea9deee3686dc9c824893baa4ce4bef6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -230,6 +257,10 @@
     commits:
       - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365 FAIL
       - https://github.com/LibreShift/red-moon/commit/8bbc87dddad608d4c1cd17025100f6e6a971c39b
+      - https://github.com/M66B/NetGuard/commit/2d36e908e111144afa23278b4fcf9869cc6cfae9
+      - https://github.com/M66B/NetGuard/commit/2e70a038970d6efe9f74e5719e7648f91de30498
+    issues:
+      - https://github.com/mozilla/MozStumbler/issues/1357
   references:
     - title: An exploratory study on assessing the energy impact of logging on Android applications
     - authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
@@ -238,18 +269,23 @@
 
 - name: Lazy First — Coalesce / (e.g., Inexact Schedulling)
   description: Batch multiple operations, instead of putting the device into an active state many times.
-  context: Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time.
-  solution: Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode).
+  context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
+  solution: Combine different operations in a single one.
+  example: Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource.
+
   occurrences_android:
     issues:
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/379
       - https://github.com/k9mail/k-9/issues/2295
       - https://github.com/k9mail/k-9/issues/1577
+      - https://github.com/mozilla/MozStumbler/issues/1435
     commits:
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/QuantumBadger/RedReader/commit/bae362a07f649dac39617a9ad748de86e0944dc2
       - https://github.com/ccrama/Slide/commit/070c2c6f1faf56bb486acb25fae1b9cc63c10702
       - https://github.com/ge0rg/yaxim/commit/5544bed1ad30ab489d5854eeb380a6718132826e
+      - https://github.com/TheFakeMontyOnTheRun/knightsofalentejo/commit/e9406ef60df1e8b2c843859d3f52b797c3b0d9d1
+      - https://github.com/fixme-lausanne/MyHackerspace/commit/37221fccbced3af90984fa6ce5a5da8b7b551121
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
@@ -270,6 +306,7 @@
       - https://github.com/k9mail/k-9/commit/43c38a047feedda4720af5bfbc188a33f8dfaced
       - https://github.com/federicoiosue/Omni-Notes/commit/9fe9db8d20f6323589026830e68927d8ad5c30d9
       - https://github.com/federicoiosue/Omni-Notes/commit/bd3c96f2e87553a6c5d5b1a70e7e5d9b4565c20b
+      - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/tgwizard/sls/pull/340
@@ -297,6 +334,8 @@
       - https://github.com/farmerbb/Taskbar/commit/ffd2d7fd676507219dbf0f3104ea50b35dd3c9ed
       - https://github.com/samuelclay/NewsBlur/commit/744ebd54a9014682999a21b665298e65a6a766ec
       - https://github.com/ankidroid/Anki-Android/commit/9193806eb0546bf8d7c040ad40272d632b4d3e99
+      - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
+      - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy. (This might be more effective with power users.)
@@ -308,12 +347,22 @@
       - https://github.com/TeamNewPipe/NewPipe/issues/1096
       - https://github.com/TeamNewPipe/NewPipe/issues/1059
       - https://github.com/k9mail/k-9/issues/1563
+      - https://github.com/HoraApps/LeafPic/issues/250
+      - https://github.com/Etuldan/spaRSS/issues/27
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
       - https://github.com/proninyaroslav/libretorrent/commit/8dca82790bf631e913369027632924257dfe3ce4
       - https://github.com/redsolution/xabber-android/commit/616411e3790ba4e04cbc96ae9a24ce8ba49e1027
       - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
+      - https://github.com/mozilla/MozStumbler/commit/0f415d3bfec9168dbaf34172cd8c430eb5ef7dc5
+      - https://github.com/mozilla/MozStumbler/commit/6672264de28560725a29ca7925a3452aaaa37477
+      - https://github.com/mozilla/MozStumbler/commit/1797407a535911c0dc5a57e1e5a8d77c88f89f3a
+      - https://github.com/mozilla/MozStumbler/commit/63122cfd7f255f9e72199eb3784901aa01204cc5
+      - https://github.com/mozilla/MozStumbler/commit/6e3c81239183963e6e41009d45a55e37be26dc3d
+      - https://github.com/mozilla/MozStumbler/commit/2132e036ab1edb234c723783d8c4b4939c57abbc
+      - https://github.com/mozilla/MozStumbler/commit/4b4f96047a8e20a44e4359ce246231eba78f24fa
+      - https://github.com/mozilla/MozStumbler/commit/40a29fb6c01e99350bdd19cdb9727be740dde4b5
 
 - name: Kill the app FIXME (anti pattern?)
   description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
@@ -347,6 +396,15 @@
     issues:
       - https://github.com/mozilla-mobile/focus-android/issues/2003
 
+- name: Exchange only what is strictly necessarily
+  related:
+    - Lazy First — reduce
+  description: When syncronizing with a server, provide or request the smallest portion of data that is required for a given operation.
+  occurrences_android:
+    issues:
+      - https://github.com/mozilla-mobile/focus-android/issues/2003
+
+
 - name: Enough resolution
   description: Choose high accuracy data collection only when strictly necessary.
   context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS)
@@ -366,10 +424,11 @@
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
       - https://github.com/gateship-one/malp/commit/47914c186ada0f03d758b5d249e96e70fe51dfbf
       - https://github.com/velazcod/Tinfoil-Facebook/commit/15c75847d51d8385595958bbe2449e8c4ba65e1e
+      - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
     pull_requests:
       - https://github.com/mvglasow/satstat/pull/141
 
-- name: use alternative sensor sources
+- name: use alternative sensor sources Sensor fusion
   example: use data from accelerometer to infer whether gps should be updated
   related:
     - enough resolution
@@ -377,6 +436,9 @@
   occurrences_android:
     issues:
       - https://github.com/tananaev/traccar-client-android/issues/288
+      - https://github.com/mozilla/MozStumbler/issues/1108
+    commits:
+      - https://github.com/mozilla/MozStumbler/commit/fa3042a5cb6594e2acfe2744a9bc0a6c897f83db
 
 - name: Reasonable timeout
   description: Interrupt tasks that are taking an abnormal time to execute
@@ -404,6 +466,8 @@
       - https://github.com/anthonycr/Lightning-Browser/issues/342
       - https://github.com/philliphsu/ClockPlus/issues/14
       - https://github.com/xbmc/Kore/issues/157
+      - https://github.com/i-p-tel/sipdroid/issues/709
+      - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
 
 - name: Offline mode
   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
@@ -444,6 +508,7 @@
       - https://github.com/klausw/hackerskeyboard/pull/540
       - https://github.com/koelleChristian/trickytripper/pull/27
       - https://github.com/Utyff/pMetro/pull/15
+      - https://github.com/Sensirion/SmartGadget-Android/pull/38
 
 - name: Offload heavy operations
   description:
@@ -458,6 +523,7 @@
     issues:
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/ankidroid/Anki-Android/issues/3022
+      - https://github.com/HoraApps/LeafPic/issues/250
 
 - name: Schedulle and Sleep
   description: use AlarmManager for updates, instead of using Wakelocks, Services.
