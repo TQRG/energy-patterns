@@ -271,7 +271,7 @@
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Combine different operations in a single one.
-  example: Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource.
+  example: "Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource."
 
   occurrences_android:
     issues:
