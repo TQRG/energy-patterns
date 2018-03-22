@@ -25,9 +25,11 @@
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/mpcjanssen/simpletask-android/issues/694
       - https://github.com/vishesh/sealnote/issues/47
+      - https://github.com/yeriomin/YalpStore/issues/10
     commits:
       - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
       - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
+      - https://github.com/yeriomin/YalpStore/commit/34b5f82e8a1093d8a1cc5ca669ff435d65643625
     pull_requests:
       -
   occurrences_ios:
@@ -107,6 +109,7 @@
       - https://github.com/badaix/snapcast/issues/82
       - https://github.com/jannispinter/jaws/issues/4
       - https://github.com/geometer/FBReaderJ/issues/162
+      - https://github.com/PaulWoitaschek/Voice/issues/490
     commits:
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
@@ -120,6 +123,7 @@
       - https://github.com/redfish64/TinyTravelTracker/pull/58
       - https://github.com/ccrama/Slide/pull/2345
       - https://github.com/lllllT/AtmosphereLogger/pull/3
+      - https://github.com/greenaddress/GreenBits/pull/199
 
 - name: Open Immediately Before
   description: Only open/start resources/services if they will be immediately necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
@@ -310,6 +314,7 @@
       - https://github.com/k9mail/k-9/issues/1577
       - https://github.com/mozilla/MozStumbler/issues/1435
       - https://github.com/google/ExoPlayer/issues/2083
+      - https://github.com/ZeeRooo/MaterialFBook/issues/57
     commits:
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/QuantumBadger/RedReader/commit/bae362a07f649dac39617a9ad748de86e0944dc2
@@ -569,6 +574,7 @@
       - https://github.com/koelleChristian/trickytripper/pull/27
       - https://github.com/Utyff/pMetro/pull/15
       - https://github.com/Sensirion/SmartGadget-Android/pull/38
+      - https://github.com/greenaddress/GreenBits/pull/200
 
 - name: Offload heavy operations
   description:
@@ -642,6 +648,9 @@
       - https://github.com/etesync/android/commit/d675fb961ea67b665c6e0ead3e6e84c9297a7d8c
       - https://github.com/redsolution/xabber-android/commit/725be496fee04402685e1a129249414e0a6867f8
       - https://github.com/httpdispatch/MissedNotificationsReminder/commit/09255c310dfd429c3e7907a284c054923c3fb814
+    pull_requests:
+      - https://github.com/microg/android_packages_apps_GmsCore/pull/197
+      - https://github.com/microg/android_packages_apps_UnifiedNlp/pull/100
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
