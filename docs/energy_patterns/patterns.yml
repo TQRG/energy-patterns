@@ -25,9 +25,11 @@
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/mpcjanssen/simpletask-android/issues/694
       - https://github.com/vishesh/sealnote/issues/47
+      - https://github.com/yeriomin/YalpStore/issues/10
     commits:
       - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
       - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
+      - https://github.com/yeriomin/YalpStore/commit/34b5f82e8a1093d8a1cc5ca669ff435d65643625
     pull_requests:
       -
   occurrences_ios:
@@ -45,7 +47,7 @@
 - name: Polite poller
   description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
   context:
-  solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth). Eventually stop retrying.
+  solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth). Eventually stop retrying. (also it can wait until context changes (e.g., network status))
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
@@ -54,10 +56,11 @@
     commits:
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
       - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
+      - https://github.com/jamienicol/episodes/commit/e004294d1b2a4d05c49157f1ddec32c0071345a5
 
 - name: Affordable
   description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete. (TODO Obsolete layour param)
-  context: When displaying real-time information, the data presented to the user has to be constantly updated. However, depending on the view that is being displayed to the user, this data might not be entirely presented or useful. The same happens when the app goes to background. Since the data quickly becomes obsolete the phone is using resources unnecessarily. Another context -- too many notifications for somethinf a user might not be interested. another exemple, notifications are disabled, so information that would fire that notification does not need to be fetched.
+  context: When displaying real-time information, the data presented to the user has to be constantly updated. However, depending on the view that is being displayed to the user, this data might not be entirely presented or useful. The same happens when the app goes to background. Since the data quickly becomes obsolete the phone is using resources unnecessarily. Another context -- too many notifications for somethinf a user might not be interested. another example, notifications are disabled, so information that would fire that notification does not need to be fetched.
   solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data which is visible to the user. FIXME
   example:
   occurrences_android:
@@ -74,6 +77,8 @@
       - https://github.com/osmandapp/Osmand/commit/59c8b5d39cf2c0361d6f688d75e19f2786a4cbae
       - https://github.com/chaitan94/RedReader/commit/a774cab934ce24a5fa028e65841ab71523f5ed2c
       - https://github.com/mpcjanssen/simpletask-android/commit/13b615b26b0fe05be1ac6330d02b116d604b4a6a
+      - https://github.com/Zanshinmu/Wifi-Fixer/commit/049fc6f740b2d6a6da20e85271f1a1f6a9a841e8
+      - https://github.com/shadowsocks/shadowsocks-android/commit/8dcfd5a8c5afca445ea21eaaea962c01e5c63eb5
     pull_requests:
       - https://github.com/vitas/beaconloc/pull/13
       - https://github.com/redfish64/TinyTravelTracker/pull/59
@@ -90,8 +95,8 @@
       - https://github.com/khertan/ForRunners/issues/54
 
 
-- name: Close Immediately
-  description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen, in which voice commands can replace it.
+- name: Close Immediately ASAP
+  description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen, in which voice commands can replace it. Also, lower wakelock time
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/104
@@ -101,19 +106,33 @@
       - https://github.com/TwidereProject/Twidere-Android/issues/935
       - https://github.com/tananaev/traccar-client-android/issues/128
       - https://github.com/tananaev/traccar-client-android/issues/11
+      - https://github.com/badaix/snapcast/issues/82
+      - https://github.com/jannispinter/jaws/issues/4
+      - https://github.com/geometer/FBReaderJ/issues/162
+      - https://github.com/PaulWoitaschek/Voice/issues/490
     commits:
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
       - https://github.com/LibreShift/red-moon/commit/12fdc2fe2785468b9c6b426a499004479d2d383d
       - https://github.com/M66B/NetGuard/commit/223de55f58484101cde7629dca810acdff5d785f
       - https://github.com/M66B/NetGuard/commit/fd614bcbd7738ef9f3179ce5a2fb2efe2c05defb
+      - https://github.com/GrahamBlanshard/WiseRadar/commit/7c35abb8512bb89b65750175e4ab07c26a813677
+      - https://github.com/daneren2005/Subsonic/commit/8ac7e0f2fec8f1ba475696b4d1bf2d7065eae2f9
+      - https://github.com/shadowsocks/shadowsocks-android/commit/418ae2151c62d7ab352e15d942669cec82fdb923
     pull_requests:
       - https://github.com/redfish64/TinyTravelTracker/pull/58
       - https://github.com/ccrama/Slide/pull/2345
       - https://github.com/lllllT/AtmosphereLogger/pull/3
+      - https://github.com/greenaddress/GreenBits/pull/199
 
 - name: Open Immediately Before
-  description: Only open resources if will be immediately necessary.
+  description: Only open/start resources/services if they will be immediately necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
+  occurrences_android:
+    issues:
+      - https://github.com/cSploit/android/issues/396
+    commits:
+      - https://github.com/signalapp/Signal-Android/commit/cb9f225f5962d399f48b65d5f855e11f146cbbcb
+      - https://github.com/shadowsocks/shadowsocks-android/commit/418ae2151c62d7ab352e15d942669cec82fdb923
 
 - name: Push over Poll FIXME
   description: don't do active query for new messages and wait for push notification from mail server (not shure if this works stable in every use case).
@@ -132,6 +151,7 @@
       - https://github.com/servalproject/batphone/issues/106
       - https://github.com/redsolution/xabber-android/issues/529
       - https://github.com/openbmap/radiocells-scanner-android/issues/166
+      - https://github.com/signalapp/Signal-Android/issues/1187
   references:
     - title: The State of Mobile XMPP in 2016
       authors: Daniel Gultsch
@@ -172,6 +192,9 @@
       - https://github.com/M66B/NetGuard/commit/2e70a038970d6efe9f74e5719e7648f91de30498
       - https://github.com/mozilla/MozStumbler/commit/b09b2f8334f5005fb81132d6f403854feefc35e0
       - https://github.com/mozilla/MozStumbler/commit/6ea026894de111a0e8c374c69a5521ac15d1179e
+      - https://github.com/mridang/microchip/commit/592c2cafd5bc4519cdcaa0a81aaac3e98dd808f6
+      - https://github.com/mridang/gasflow/commit/12b231abbb7ce7fd0e7bd9f403655b1d1079de45
+      - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
 
 
 - name: Lazy first - Defer
@@ -190,6 +213,7 @@
       - https://github.com/splondike/polipoid/issues/3
       - https://github.com/jensstein/oandbackup/issues/131
       - https://github.com/mozilla/MozStumbler/issues/1305
+      - https://github.com/google/ExoPlayer/issues/3040
     commits:
       - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
       - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/50f77c4ff25e80299a25a5bbd8742a3a1391e5f4
@@ -201,6 +225,7 @@
       - https://github.com/AntennaPod/AntennaPod/commit/1b9c96bc7664adeb12ffd0267c76a4667b25311f
       - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
       - https://github.com/tgwizard/sls/commit/3d17aa5e142fd24a0f420571d6d10eb086a46d77
+      - https://github.com/thasmin/Podax/issues/122
     pull_requests:
       - https://github.com/nextcloud/android/pull/1527
   references:
@@ -210,7 +235,7 @@
 - name: Power Awareness
   related:
     - Lazy first - Defer
-  description: Have a different behavior when device is connected/disconnected to a power station, or has different battery levels.
+  description: Have a different behavior when device is connected/disconnected to a power station, or has different battery levels. Also applies for awarenes of device's battery characteristics.
   occurrences_android:
     commits:
       - https://github.com/futurice/meeting-room-tablet/commit/cd716f9a09df7614d8ff1f5665d885aec9717116
@@ -219,7 +244,16 @@
       - https://github.com/mozilla/MozStumbler/commit/464117dde4f4d9e706096be7426a798c601736f4
       - https://github.com/mozilla/MozStumbler/commit/fd88ba51601a577741e1e3ed5ae4f2c42d1b782b
       - https://github.com/mozilla/MozStumbler/commit/3e80b94e7b6f19d5320a46005dc8537c82416b83
+      - https://github.com/einmalfel/PodListen/commit/58efebd8d9b30690cf4dab44794b94c9b4c9fc38
+      - https://github.com/einmalfel/PodListen/commit/2ed5a655b1901f3c98d6837ecd17fa779688a9bc
+      - https://github.com/Himmele/Quickdroid/commit/bc0e87457a87b6b5288356a98dd95f7337b6d760
+      - https://github.com/Himmele/Quickdroid/commit/755f5cd23708bbdbe76fe50ee46412a1c15a9ab7
 
+- name: Reduce size
+  description: when transmitting data, reduce the size of it as much as possible. E.g., use binary zipped messages.
+  occurrences_android:
+    commits:
+      - https://github.com/shadowsocks/shadowsocks-android/commit/6bff4f1a441ee83dca7f71da5f062c80fcc24681,6bff4f1a441ee83dca7f71da5f062c80fcc24681
 
 
 - name: WiFi over Cellular (lazy first - defer)
@@ -259,6 +293,7 @@
       - https://github.com/LibreShift/red-moon/commit/8bbc87dddad608d4c1cd17025100f6e6a971c39b
       - https://github.com/M66B/NetGuard/commit/2d36e908e111144afa23278b4fcf9869cc6cfae9
       - https://github.com/M66B/NetGuard/commit/2e70a038970d6efe9f74e5719e7648f91de30498
+      - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
     issues:
       - https://github.com/mozilla/MozStumbler/issues/1357
   references:
@@ -271,14 +306,15 @@
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Combine different operations in a single one.
-  example: "Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource."
-
+  example: "Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource. Anothete.g., ask for location while setting 'notification responsiveness' with a reasonable delay."
   occurrences_android:
     issues:
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/379
       - https://github.com/k9mail/k-9/issues/2295
       - https://github.com/k9mail/k-9/issues/1577
       - https://github.com/mozilla/MozStumbler/issues/1435
+      - https://github.com/google/ExoPlayer/issues/2083
+      - https://github.com/ZeeRooo/MaterialFBook/issues/57
     commits:
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/QuantumBadger/RedReader/commit/bae362a07f649dac39617a9ad748de86e0944dc2
@@ -286,6 +322,7 @@
       - https://github.com/ge0rg/yaxim/commit/5544bed1ad30ab489d5854eeb380a6718132826e
       - https://github.com/TheFakeMontyOnTheRun/knightsofalentejo/commit/e9406ef60df1e8b2c843859d3f52b797c3b0d9d1
       - https://github.com/fixme-lausanne/MyHackerspace/commit/37221fccbced3af90984fa6ce5a5da8b7b551121
+      - https://github.com/spacecowboy/NotePad/commit/4184f949e1baf41547fd8181d89b59368c15f257
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
@@ -307,6 +344,7 @@
       - https://github.com/federicoiosue/Omni-Notes/commit/9fe9db8d20f6323589026830e68927d8ad5c30d9
       - https://github.com/federicoiosue/Omni-Notes/commit/bd3c96f2e87553a6c5d5b1a70e7e5d9b4565c20b
       - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
+      - https://github.com/shadowsocks/shadowsocks-android/commit/179aab80942fb258ded3714d14d1fa1716fddce2
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/tgwizard/sls/pull/340
@@ -327,6 +365,8 @@
       - https://github.com/tananaev/traccar-client-android/issues/58
       - https://github.com/tananaev/traccar-client-android/issues/12
       - https://github.com/servalproject/batphone/issues/20
+      - https://github.com/Phantast/smartnavi/issues/15
+      - https://github.com/google/ExoPlayer/issues/1140
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
@@ -349,6 +389,7 @@
       - https://github.com/k9mail/k-9/issues/1563
       - https://github.com/HoraApps/LeafPic/issues/250
       - https://github.com/Etuldan/spaRSS/issues/27
+      - https://github.com/signalapp/Signal-Android/issues/6391
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -363,6 +404,19 @@
       - https://github.com/mozilla/MozStumbler/commit/2132e036ab1edb234c723783d8c4b4939c57abbc
       - https://github.com/mozilla/MozStumbler/commit/4b4f96047a8e20a44e4359ce246231eba78f24fa
       - https://github.com/mozilla/MozStumbler/commit/40a29fb6c01e99350bdd19cdb9727be740dde4b5
+      - https://github.com/einmalfel/PodListen/commit/2ed5a655b1901f3c98d6837ecd17fa779688a9bc
+      - https://github.com/geometer/FBReaderJ/commit/87e6e7fad6d3189174d04b2060fcf1222289c863
+      - https://github.com/thasmin/Podax/issues/122
+
+- name: Report to the user
+  description: let the user know what is the effect of power management in it UX
+  example: 'alert that saving power mode is activated; alert when a battery intensive operation will be performed'
+  related: user knows best
+  occurrences_android:
+    commits:
+      - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
+      - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
+
 
 - name: Kill the app FIXME (anti pattern?)
   description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
@@ -407,7 +461,8 @@
 
 - name: Enough resolution
   description: Choose high accuracy data collection only when strictly necessary.
-  context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS)
+  context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS, surfaces over textures)
+  example: use cell towers for location
   solution:
   occurrences_android:
     issues:
@@ -419,6 +474,9 @@
       - https://github.com/mvglasow/satstat/issues/140
       - https://github.com/tananaev/traccar-client-android/issues/308
       - https://github.com/tananaev/traccar-client-android/issues/288
+      - https://github.com/Phantast/smartnavi/issues/15
+      - https://github.com/google/ExoPlayer/issues/3843
+      - https://github.com/google/ExoPlayer/issues/3477
     commits:
       - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
@@ -441,12 +499,14 @@
       - https://github.com/mozilla/MozStumbler/commit/fa3042a5cb6594e2acfe2744a9bc0a6c897f83db
 
 - name: Reasonable timeout
-  description: Interrupt tasks that are taking an abnormal time to execute
+  description: Interrupt tasks that are taking an abnormal time to execute. Provide a reasonable timeout for tasks or wakelocks.
   related:
     - Polite poller
   occurrences_android:
     commits:
       - https://github.com/jroal/a2dpvolume/commit/7723d698b690b94e01380a4618cb55f700c724c3
+      - https://github.com/daneren2005/Subsonic/commit/8ac7e0f2fec8f1ba475696b4d1bf2d7065eae2f9
+      - https://github.com/klassm/andFHEM/commit/05a2e63a51c5f75651451ce8f336c84d0dbfca32
     issues:
       - https://github.com/kontalk/androidclient/issues/405
 
@@ -468,6 +528,7 @@
       - https://github.com/xbmc/Kore/issues/157
       - https://github.com/i-p-tel/sipdroid/issues/709
       - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
+      - https://github.com/signalapp/Signal-Android/issues/6258
 
 - name: Offline mode
   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
@@ -493,9 +554,13 @@
       - https://github.com/tgwizard/sls/issues/384
 
 - name: Obsolete
+  description: remove properties that do not have any effect.
+  example: obsolete params in views
   related:
     - Affordable
   occurrences_android:
+    commits:
+      - https://github.com/grzegorznittner/chanu/commit/2640dc50ab8150341da30bc4d282f8ac8f5aa4c5
     pull_requests:
       - https://github.com/SecUSo/privacy-friendly-sudoku/pull/19
       - https://github.com/vitas/beaconloc/pull/13
@@ -509,6 +574,7 @@
       - https://github.com/koelleChristian/trickytripper/pull/27
       - https://github.com/Utyff/pMetro/pull/15
       - https://github.com/Sensirion/SmartGadget-Android/pull/38
+      - https://github.com/greenaddress/GreenBits/pull/200
 
 - name: Offload heavy operations
   description:
@@ -520,6 +586,8 @@
   description:
   warning: Particularly important on e-ink devices.
   occurrences_android:
+    commits:
+      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
     issues:
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/ankidroid/Anki-Android/issues/3022
@@ -580,6 +648,9 @@
       - https://github.com/etesync/android/commit/d675fb961ea67b665c6e0ead3e6e84c9297a7d8c
       - https://github.com/redsolution/xabber-android/commit/725be496fee04402685e1a129249414e0a6867f8
       - https://github.com/httpdispatch/MissedNotificationsReminder/commit/09255c310dfd429c3e7907a284c054923c3fb814
+    pull_requests:
+      - https://github.com/microg/android_packages_apps_GmsCore/pull/197
+      - https://github.com/microg/android_packages_apps_UnifiedNlp/pull/100
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
