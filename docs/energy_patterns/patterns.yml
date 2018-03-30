@@ -26,6 +26,7 @@
       - https://github.com/mpcjanssen/simpletask-android/issues/694
       - https://github.com/vishesh/sealnote/issues/47
       - https://github.com/yeriomin/YalpStore/issues/10
+      - https://github.com/Etuldan/spaRSS/issues/34
     commits:
       - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
       - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
@@ -53,6 +54,7 @@
       - https://github.com/deltachat/deltachat-android/issues/186
       - https://github.com/nextcloud/android/issues/1561
       - https://github.com/vector-im/riot-android/issues/882
+      - https://github.com/kenkendk/android-bluez-ime/issues/62
     commits:
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
       - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
@@ -71,6 +73,8 @@
       - https://github.com/vector-im/riot-android/issues/1848
       - https://github.com/ukanth/afwall/issues/649
       - https://github.com/QuantumBadger/RedReader/issues/204
+      - https://github.com/openbmap/radiocells-scanner-android/issues/175
+      - https://github.com/ubergeek42/weechat-android/issues/73
     commits:
       - https://github.com/greenaddress/GreenBits/commit/e16925c2231a0f8ef82636b3f7df9b69316ab53a
       - https://github.com/greenaddress/GreenBits/commit/1d5da879a71da8060d5ad6a784d318f7f0c63515
@@ -96,7 +100,7 @@
 
 
 - name: Close Immediately ASAP
-  description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen, in which voice commands can replace it. Also, lower wakelock time
+  description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen. Also, lower wakelock time
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/104
@@ -110,6 +114,8 @@
       - https://github.com/jannispinter/jaws/issues/4
       - https://github.com/geometer/FBReaderJ/issues/162
       - https://github.com/PaulWoitaschek/Voice/issues/490
+      - https://github.com/openbmap/radiocells-scanner-android/issues/105
+      - https://github.com/mozilla/MozStumbler/issues/1069
     commits:
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
@@ -124,6 +130,7 @@
       - https://github.com/ccrama/Slide/pull/2345
       - https://github.com/lllllT/AtmosphereLogger/pull/3
       - https://github.com/greenaddress/GreenBits/pull/199
+      - https://github.com/mozilla/MozStumbler/pull/1074
 
 - name: Open Immediately Before
   description: Only open/start resources/services if they will be immediately necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
@@ -174,6 +181,8 @@
     issues:
       - https://github.com/markusfisch/ShaderEditor/commit/6f278fb920072f85c6fc23a30724127b99333a7f
       - https://github.com/AnySoftKeyboard/AnySoftKeyboard/issues/463
+      - https://github.com/mozilla/MozStumbler/issues/1109
+      - https://github.com/mozilla/MozStumbler/issues/1069
     commits:
       - https://github.com/nextcloud/android/commit/8bc432027e0d33e8043cf40192203203a40ca29c
       - https://github.com/nextcloud/android/commit/ef7900a6a470469e2bce57b1458747dd9053afd1
@@ -248,12 +257,24 @@
       - https://github.com/einmalfel/PodListen/commit/2ed5a655b1901f3c98d6837ecd17fa779688a9bc
       - https://github.com/Himmele/Quickdroid/commit/bc0e87457a87b6b5288356a98dd95f7337b6d760
       - https://github.com/Himmele/Quickdroid/commit/755f5cd23708bbdbe76fe50ee46412a1c15a9ab7
+    issues:
+      - https://github.com/mozilla/MozStumbler/issues/1175
+      - https://github.com/mozilla/MozStumbler/issues/41
+    pull_requests:
+      - https://github.com/mozilla/MozStumbler/pull/67
 
 - name: Reduce size
   description: when transmitting data, reduce the size of it as much as possible. E.g., use binary zipped messages.
   occurrences_android:
     commits:
       - https://github.com/shadowsocks/shadowsocks-android/commit/6bff4f1a441ee83dca7f71da5f062c80fcc24681,6bff4f1a441ee83dca7f71da5f062c80fcc24681
+    issues:
+      - https://github.com/mozilla/MozStumbler/issues/406
+  references:
+    - url: https://stackoverflow.com/questions/3065920/is-gzip-compression-useful-for-mobile-devices
+    - title: Reducing battery consumption of data polling and pushing techniques on Android using GZip
+      url: http://ieeexplore.ieee.org/document/7409011/
+      authors: Sirapat Boonkrong, Pham Cao Dinh
 
 
 - name: WiFi over Cellular (lazy first - defer)
@@ -272,6 +293,7 @@
       - https://github.com/maxpower47/PinDroid/issues/31
       - https://github.com/drpout/boilr/issues/243
       - https://github.com/Etuldan/spaRSS/issues/27
+      - https://github.com/mozilla/MozStumbler/issues/1466
     commits:
       - https://github.com/Telegram-FOSS-Team/Telegram-FOSS/commit/644fc7ccea9deee3686dc9c824893baa4ce4bef6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -296,6 +318,8 @@
       - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
     issues:
       - https://github.com/mozilla/MozStumbler/issues/1357
+    pull_requests:
+      - https://github.com/M66B/NetGuard/pull/505
   references:
     - title: An exploratory study on assessing the energy impact of logging on Android applications
     - authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
@@ -306,7 +330,7 @@
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Combine different operations in a single one.
-  example: "Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource. Anothete.g., ask for location while setting 'notification responsiveness' with a reasonable delay."
+  example: "Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource. Anothete.g., ask for location while setting 'notification responsiveness' with a reasonable delay." ANOTHER EXAMPLE: colect location data only when other app collects it as well.
   occurrences_android:
     issues:
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/379
@@ -315,6 +339,7 @@
       - https://github.com/mozilla/MozStumbler/issues/1435
       - https://github.com/google/ExoPlayer/issues/2083
       - https://github.com/ZeeRooo/MaterialFBook/issues/57
+      - https://github.com/mozilla/MozStumbler/issues/1466
     commits:
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
       - https://github.com/QuantumBadger/RedReader/commit/bae362a07f649dac39617a9ad748de86e0944dc2
@@ -323,14 +348,20 @@
       - https://github.com/TheFakeMontyOnTheRun/knightsofalentejo/commit/e9406ef60df1e8b2c843859d3f52b797c3b0d9d1
       - https://github.com/fixme-lausanne/MyHackerspace/commit/37221fccbced3af90984fa6ce5a5da8b7b551121
       - https://github.com/spacecowboy/NotePad/commit/4184f949e1baf41547fd8181d89b59368c15f257
+    pull_requests:
+      - https://github.com/mozilla/MozStumbler/pull/1251
+      - https://github.com/mozilla/MozStumbler/pull/737
+      - https://github.com/mozilla/MozStumbler/pull/413
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
+    - title: "DevBytes: Efficient Data Transfers - Batching, Bundling, and SyncAdapters"
+      url: https://www.youtube.com/watch?v=5onKZcJyJwI
 
 - name: Lazy First — reduce
-  description: Are there redundant operations your app can cut out? For example, can it cache downloaded data instead of repeatedly waking up the radio to re-download the data?
+  description: Are there redundant operations your app can cut out? For example, can it cache downloaded data instead of repeatedly waking up the radio to re-download the data? Verify if there is any update before downloading.
   related:
     - Affordable
   occurrences_android:
@@ -345,6 +376,7 @@
       - https://github.com/federicoiosue/Omni-Notes/commit/bd3c96f2e87553a6c5d5b1a70e7e5d9b4565c20b
       - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
       - https://github.com/shadowsocks/shadowsocks-android/commit/179aab80942fb258ded3714d14d1fa1716fddce2
+      - https://github.com/fixme-lausanne/MyHackerspace/issues/33
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/tgwizard/sls/pull/340
@@ -367,6 +399,9 @@
       - https://github.com/servalproject/batphone/issues/20
       - https://github.com/Phantast/smartnavi/issues/15
       - https://github.com/google/ExoPlayer/issues/1140
+      - https://github.com/drpout/boilr/issues/131
+      - https://github.com/mozilla/MozStumbler/issues/1055
+      - https://github.com/mozilla/MozStumbler/issues/21
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
@@ -376,6 +411,8 @@
       - https://github.com/ankidroid/Anki-Android/commit/9193806eb0546bf8d7c040ad40272d632b4d3e99
       - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
       - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
+    pull_requests:
+      - https://github.com/mozilla/MozStumbler/pull/264
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy. (This might be more effective with power users.)
@@ -390,6 +427,9 @@
       - https://github.com/HoraApps/LeafPic/issues/250
       - https://github.com/Etuldan/spaRSS/issues/27
       - https://github.com/signalapp/Signal-Android/issues/6391
+      - https://github.com/openbmap/radiocells-scanner-android/issues/79
+      - https://github.com/mozilla/MozStumbler/issues/1386
+      - https://github.com/mozilla/MozStumbler/issues/353
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -407,15 +447,23 @@
       - https://github.com/einmalfel/PodListen/commit/2ed5a655b1901f3c98d6837ecd17fa779688a9bc
       - https://github.com/geometer/FBReaderJ/commit/87e6e7fad6d3189174d04b2060fcf1222289c863
       - https://github.com/thasmin/Podax/issues/122
+    pull_requests:
+      - https://github.com/mozilla/MozStumbler/pull/1706
+      - https://github.com/mozilla/MozStumbler/pull/1419
+      - https://github.com/mozilla/MozStumbler/pull/1261
 
-- name: Report to the user
-  description: let the user know what is the effect of power management in it UX
+- name: Inform Users
+  description: Let the user know it the app is doing any battery intensive operation. let the user know what is the effect of power management in it UX
   example: 'alert that saving power mode is activated; alert when a battery intensive operation will be performed'
   related: user knows best
   occurrences_android:
+    pull_requests:
+      - https://github.com/mozilla/MozStumbler/pull/307
+      - https://github.com/mozilla/MozStumbler/pull/262
     commits:
       - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
+
 
 
 - name: Kill the app FIXME (anti pattern?)
@@ -477,6 +525,7 @@
       - https://github.com/Phantast/smartnavi/issues/15
       - https://github.com/google/ExoPlayer/issues/3843
       - https://github.com/google/ExoPlayer/issues/3477
+      - https://github.com/mozilla/MozStumbler/issues/21
     commits:
       - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
@@ -485,9 +534,10 @@
       - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
     pull_requests:
       - https://github.com/mvglasow/satstat/pull/141
+      - https://github.com/mozilla/MozStumbler/pull/14
 
 - name: use alternative sensor sources Sensor fusion
-  example: use data from accelerometer to infer whether gps should be updated
+  example: use data from accelerometer to infer whether location should be updated
   related:
     - enough resolution
     - Smart poller / dynamically adjust sync rate
@@ -495,11 +545,21 @@
     issues:
       - https://github.com/tananaev/traccar-client-android/issues/288
       - https://github.com/mozilla/MozStumbler/issues/1108
+      - https://github.com/mozilla/MozStumbler/issues/1664
+      - https://github.com/mozilla/MozStumbler/issues/1394
+      - https://github.com/mozilla/MozStumbler/issues/1290
+      - https://github.com/mozilla/MozStumbler/issues/1107
+      - https://github.com/mozilla/MozStumbler/issues/584
     commits:
       - https://github.com/mozilla/MozStumbler/commit/fa3042a5cb6594e2acfe2744a9bc0a6c897f83db
+    pull_requests:
+      - https://github.com/mozilla/MozStumbler/pull/1270
+  references:
+    - title: Movement Detection for Power-Efficient Smartphone WLAN Localization
+      url: https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/ishafer/pubs/localization-mswim10.pdf
 
 - name: Reasonable timeout
-  description: Interrupt tasks that are taking an abnormal time to execute. Provide a reasonable timeout for tasks or wakelocks.
+  description: Interrupt tasks that are taking an abnormal time to execute. Provide a reasonable timeout for tasks or wakelocks. (also used in alarms when the user forgets to turn it off)
   related:
     - Polite poller
   occurrences_android:
@@ -509,6 +569,8 @@
       - https://github.com/klassm/andFHEM/commit/05a2e63a51c5f75651451ce8f336c84d0dbfca32
     issues:
       - https://github.com/kontalk/androidclient/issues/405
+      - https://github.com/kraigs-android/kraigsandroid/issues/52
+      - https://github.com/drpout/boilr/issues/140
 
 - name: Infer instead of asking
   description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
@@ -592,6 +654,7 @@
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/ankidroid/Anki-Android/issues/3022
       - https://github.com/HoraApps/LeafPic/issues/250
+      - https://github.com/Etuldan/spaRSS/issues/11
 
 - name: Schedulle and Sleep
   description: use AlarmManager for updates, instead of using Wakelocks, Services.
@@ -611,6 +674,7 @@
   occurrences_android:
     issues:
       - https://github.com/drpout/boilr/issues/128
+      - https://github.com/drpout/boilr/issues/131
 
 
 - name: Kill the battery optimizer (anti pattern)

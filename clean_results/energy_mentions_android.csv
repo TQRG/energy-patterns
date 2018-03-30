@@ -841,9 +841,7 @@ microg,android_packages_apps_UnifiedNlp,https://github.com/microg/android_packag
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/121,121,There is a timeout to make it stop after 10 minutes.  Otherwise you risk killing the battery by leaving the screen on.  Perhaps you should just press the snooze button?  You can do this forever if you like...,Issue
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/95,95,otherwise it will bog down the CPU and quickly drain the battery. ,Issue
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/78,78,"E.g. AlarmDroid and stock clock show the icon on the right, like WiFi, battery ",Issue
-
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/60,60,"Alarm fails except for tiny vibrate, screen backlight won't turn on, power consumption rockets",Issue
-
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/52,52,killing your battery.,Issue
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/16,16,Incredible) and removed battery.  Next time alarm was triggered it seemed to ,Issue
 kraigs-android,kraigsandroid,https://github.com/kraigs-android/kraigsandroid/issues/11,11,I'll try to test with older batteryminder versions also to try to figure out ,Issue
@@ -871,11 +869,9 @@ n76,wifi_backend,https://github.com/n76/wifi_backend/issues/41,41,"A big issue w
 n76,wifi_backend,https://github.com/n76/wifi_backend/issues/37,37,"• Yes, the WiFi backend will always be on the recent location users. The WiFi backend does a ""passive"" location lookup request. Basically that says that it is requesting a location update from any source (GPS, network, etc.) but don't actually start the GPS or network location subsystems. If any other app requests those services, then the WiFi backend will get the results too. The end result is that if no other app requests those services the WiFi backend will simply be registered as a listener but no other overhead (battery use, CPU cycles, etc.) are being used.",Issue
 n76,wifi_backend,https://github.com/n76/wifi_backend/issues/7,7,It will use updates from the GPS if some other app is actually got the GPS turned on and is using it. It will not actually turn on the GPS itself (the intent was to keep power usage low and running the GPS is a power intensive operation).,Issue
 n76,wifi_backend,https://github.com/n76/wifi_backend/issues/1,1,High battery consumption even though location is disabled,Issue
-M66B,NetGuard,https://github.com/M66B/NetGuard/pull/505,505,No logs on power saving mode,Issue
 M66B,NetGuard,https://github.com/M66B/NetGuard/pull/464,464,"When does this appear? I hope not every time NetGuard reapplies settings or such, those happen a lot, specially when changing network (types), dozing, powersaving and what not.",Issue
 M66B,NetGuard,https://github.com/M66B/NetGuard/pull/295,295,AFWall+ will use less battery.,Issue
 M66B,NetGuard,https://github.com/M66B/NetGuard/pull/505,505,No logs on power saving mode,PullRequest
-liato,android-bankdroid,https://github.com/liato/android-bankdroid/issues/109,109,Tasker/Locale are powerful automation tools. Would be great to have a possiblity to use them to setup sync based on locations/times/states/etc.,Issue
 liato,android-bankdroid,https://github.com/liato/android-bankdroid/pull/633,633,https://github.com/walles/batterylogger/blob/master/src/main/java/com/gmail/walles/johan/batterylogger/LoggingUtils.java,PullRequest
 nextgis,android_gisapp,https://github.com/nextgis/android_gisapp/issues/209,209,"Add setting to turn off geolocation completely, no circles, no marker on the map, no GPS acquisition and energy consumption",Issue
 onyxbits,remotekeyboard,https://github.com/onyxbits/remotekeyboard/issues/23,23,"Although I - for security reason - think that the latter is okay, the former would be a useful feature, but if it might have a bad effect on the battery, it should be optional.",Issue
@@ -1013,6 +1009,7 @@ kenkendk,android-bluez-ime,https://github.com/kenkendk/android-bluez-ime/issues/
 kenkendk,android-bluez-ime,https://github.com/kenkendk/android-bluez-ime/issues/19,19,http://www.dealextreme.com/p/msi-bgp100-bluetooth-gamepad-1-aaa-battery-included,Issue
 Zanshinmu,Wifi-Fixer,https://github.com/Zanshinmu/Wifi-Fixer/issues/27,27,Excessive battery use in scan mode,Issue
 Zanshinmu,Wifi-Fixer,https://github.com/Zanshinmu/Wifi-Fixer/issues/10,10,Wifi is staying on even when screen is off on Galaxy S3 and draining battery,Issue
+
 eidottermihi,rpicheck,https://github.com/eidottermihi/rpicheck/issues/131,131,"I don't want the widget checking every 3 min, it is pretty impactful on my battery. I would like it if we could set the interval to every 5, 10, 30, or 60 min, or once a day, or not at all and only update manually.",Issue
 janosgyerik,bluetoothviewer,https://github.com/janosgyerik/bluetoothviewer/issues/4,4,"At the moment, testing the app is not possible without connecting to a real bluetooth device that broadcasts ascii data when connected. Even when you have such a device at hand, testing is not very convenient: you have to switch on the bluetooth device, and you probably have to recharge its battery too from time to time.",Issue
 frankmorgner,vsmartcard,https://github.com/frankmorgner/vsmartcard/issues/44,44,00000036 eventhandler.c:372:EHStatusHandlerThread() powerState: POWER_STATE_POWERED,Issue
