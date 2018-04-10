@@ -27,12 +27,14 @@
       - https://github.com/vishesh/sealnote/issues/47
       - https://github.com/yeriomin/YalpStore/issues/10
       - https://github.com/Etuldan/spaRSS/issues/34
+      - https://github.com/douzifly/clear-todolist/issues/3
+      - https://github.com/daneren2005/Subsonic/issues/121
     commits:
       - https://github.com/ligi/SurvivalManual/commit/3b7c3b33ac6562878cd2ac628b9f33c64670a6d3
       - https://github.com/markusfisch/ShaderEditor/commit/27628f615cf97688f40f601c0ea315bb60f0db91
       - https://github.com/yeriomin/YalpStore/commit/34b5f82e8a1093d8a1cc5ca669ff435d65643625
     pull_requests:
-      -
+      - https://github.com/rfc2822/GfxTablet/pull/73
   occurrences_ios:
     issues:
     commits:
@@ -75,6 +77,7 @@
       - https://github.com/QuantumBadger/RedReader/issues/204
       - https://github.com/openbmap/radiocells-scanner-android/issues/175
       - https://github.com/ubergeek42/weechat-android/issues/73
+      - https://github.com/freeotp/freeotp-android/issues/24
     commits:
       - https://github.com/greenaddress/GreenBits/commit/e16925c2231a0f8ef82636b3f7df9b69316ab53a
       - https://github.com/greenaddress/GreenBits/commit/1d5da879a71da8060d5ad6a784d318f7f0c63515
@@ -159,6 +162,7 @@
       - https://github.com/redsolution/xabber-android/issues/529
       - https://github.com/openbmap/radiocells-scanner-android/issues/166
       - https://github.com/signalapp/Signal-Android/issues/1187
+      - https://github.com/glesik/wifireminders/issues/5
   references:
     - title: The State of Mobile XMPP in 2016
       authors: Daniel Gultsch
@@ -402,6 +406,8 @@
       - https://github.com/drpout/boilr/issues/131
       - https://github.com/mozilla/MozStumbler/issues/1055
       - https://github.com/mozilla/MozStumbler/issues/21
+      - https://github.com/lkorth/screen-notifications/issues/15
+      - https://github.com/nbenm/ImapNote2/issues/12
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
@@ -430,6 +436,8 @@
       - https://github.com/openbmap/radiocells-scanner-android/issues/79
       - https://github.com/mozilla/MozStumbler/issues/1386
       - https://github.com/mozilla/MozStumbler/issues/353
+      - https://github.com/eidottermihi/rpicheck/issues/131
+      - https://github.com/cSploit/android/issues/229
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -460,6 +468,7 @@
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/307
       - https://github.com/mozilla/MozStumbler/pull/262
+      - https://github.com/abarisain/dmix/pull/416
     commits:
       - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
@@ -571,6 +580,7 @@
       - https://github.com/kontalk/androidclient/issues/405
       - https://github.com/kraigs-android/kraigsandroid/issues/52
       - https://github.com/drpout/boilr/issues/140
+      - https://github.com/frankmorgner/vsmartcard/issues/22
 
 - name: Infer instead of asking
   description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
@@ -591,6 +601,7 @@
       - https://github.com/i-p-tel/sipdroid/issues/709
       - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
       - https://github.com/signalapp/Signal-Android/issues/6258
+      - https://github.com/ThibaudM/timelapse-sony/issues/14
 
 - name: Offline mode
   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
@@ -649,6 +660,7 @@
   warning: Particularly important on e-ink devices.
   occurrences_android:
     commits:
+      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
       - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
     issues:
       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
@@ -715,6 +727,7 @@
     pull_requests:
       - https://github.com/microg/android_packages_apps_GmsCore/pull/197
       - https://github.com/microg/android_packages_apps_UnifiedNlp/pull/100
+      - https://github.com/wiglenet/wigle-wifi-wardriving/pull/115
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
