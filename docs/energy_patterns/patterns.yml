@@ -48,7 +48,7 @@
       url: http://ieeexplore.ieee.org/abstract/document/7965245/
 
 - name: Polite poller
-  description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
+  description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource. Same when resource is unavailable.
   context:
   solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth). Eventually stop retrying. (also it can wait until context changes (e.g., network status))
   occurrences_android:
@@ -57,6 +57,7 @@
       - https://github.com/nextcloud/android/issues/1561
       - https://github.com/vector-im/riot-android/issues/882
       - https://github.com/kenkendk/android-bluez-ime/issues/62
+      - https://github.com/klassm/andFHEM/issues/444
     commits:
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
       - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
@@ -78,6 +79,7 @@
       - https://github.com/openbmap/radiocells-scanner-android/issues/175
       - https://github.com/ubergeek42/weechat-android/issues/73
       - https://github.com/freeotp/freeotp-android/issues/24
+      - https://github.com/klassm/andFHEM/issues/1183
     commits:
       - https://github.com/greenaddress/GreenBits/commit/e16925c2231a0f8ef82636b3f7df9b69316ab53a
       - https://github.com/greenaddress/GreenBits/commit/1d5da879a71da8060d5ad6a784d318f7f0c63515
@@ -86,6 +88,8 @@
       - https://github.com/mpcjanssen/simpletask-android/commit/13b615b26b0fe05be1ac6330d02b116d604b4a6a
       - https://github.com/Zanshinmu/Wifi-Fixer/commit/049fc6f740b2d6a6da20e85271f1a1f6a9a841e8
       - https://github.com/shadowsocks/shadowsocks-android/commit/8dcfd5a8c5afca445ea21eaaea962c01e5c63eb5
+      - https://github.com/klassm/andFHEM/commit/612a9010544d602b1e60da92c0c5af1cc155159b
+      - https://github.com/klassm/andFHEM/commit/05a2e63a51c5f75651451ce8f336c84d0dbfca32
     pull_requests:
       - https://github.com/vitas/beaconloc/pull/13
       - https://github.com/redfish64/TinyTravelTracker/pull/59
@@ -119,6 +123,7 @@
       - https://github.com/PaulWoitaschek/Voice/issues/490
       - https://github.com/openbmap/radiocells-scanner-android/issues/105
       - https://github.com/mozilla/MozStumbler/issues/1069
+      - https://github.com/telecapoland/jamendo-android/issues/38
     commits:
       - https://github.com/deltachat/deltachat-android/commit/ba1b5211a2167809c7b92cad64f2a65247669f0a
       - https://github.com/vanilla-music/vanilla/commit/0e60e51128519f1d44ceaa204b592b62595f81e2
@@ -581,6 +586,7 @@
       - https://github.com/kraigs-android/kraigsandroid/issues/52
       - https://github.com/drpout/boilr/issues/140
       - https://github.com/frankmorgner/vsmartcard/issues/22
+      - https://github.com/abarisain/dmix/issues/3
 
 - name: Infer instead of asking
   description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
@@ -667,6 +673,22 @@
       - https://github.com/ankidroid/Anki-Android/issues/3022
       - https://github.com/HoraApps/LeafPic/issues/250
       - https://github.com/Etuldan/spaRSS/issues/11
+      - https://github.com/aarddict/android/issues/28
+
+- name:
+  description:
+  warning: Particularly important on e-ink devices.
+  occurrences_android:
+    commits:
+      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
+      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
+    issues:
+      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
+      - https://github.com/ankidroid/Anki-Android/issues/3022
+      - https://github.com/HoraApps/LeafPic/issues/250
+      - https://github.com/Etuldan/spaRSS/issues/11
+      - https://github.com/aarddict/android/issues/28
+
 
 - name: Schedulle and Sleep
   description: use AlarmManager for updates, instead of using Wakelocks, Services.
