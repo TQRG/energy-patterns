@@ -95,17 +95,6 @@
       - https://github.com/redfish64/TinyTravelTracker/pull/59
       - https://github.com/ccrama/Slide/pull/2347
 
-- name: good enough processing
-  related:
-    - Enough resolution
-    - Affordable
-  description: when dealing with real time processing sometimes the results do not need to be perfect. Wait until a session ends to do a more accurate processing.
-  example: calculating distance while running
-  occurrences_android:
-    issues:
-      - https://github.com/khertan/ForRunners/issues/54
-
-
 - name: Close Immediately ASAP
   description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen. Also, lower wakelock time
   occurrences_android:
@@ -175,12 +164,6 @@
     - title: GSoC - Alternative Push Notification Transport
       year: 2018
       url: https://github.com/matrix-org/GSoC/blob/master/IDEAS.md#alternative-push-notification-transport
-
-- name: Perform only on demand
-  related: pull over push
-  occurrences_android:
-    issues:
-      - https://github.com/redsolution/xabber-android/issues/174
 
 - name: Power Save mode
   description: provide an energy savior mode whenever the device enters a power save mode.
@@ -273,12 +256,14 @@
       - https://github.com/mozilla/MozStumbler/pull/67
 
 - name: Reduce size
-  description: when transmitting data, reduce the size of it as much as possible. E.g., use binary zipped messages.
+  description: when transmitting data, reduce its size as much as possible. Avoid sending unnecessary data. Exchange only what is strictly necessary.
+  example: use binary zipped messages
   occurrences_android:
     commits:
       - https://github.com/shadowsocks/shadowsocks-android/commit/6bff4f1a441ee83dca7f71da5f062c80fcc24681,6bff4f1a441ee83dca7f71da5f062c80fcc24681
     issues:
       - https://github.com/mozilla/MozStumbler/issues/406
+      - https://github.com/mozilla-mobile/focus-android/issues/2003
   references:
     - url: https://stackoverflow.com/questions/3065920/is-gzip-compression-useful-for-mobile-devices
     - title: Reducing battery consumption of data polling and pushing techniques on Android using GZip
@@ -479,19 +464,6 @@
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
 
 
-
-- name: Kill the app FIXME (anti pattern?)
-  description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
-  context: there is data connection but is low quality, which may result in battery drain for heavy data transfers.
-  occurrences_android:
-    issues:
-      - https://github.com/k9mail/k-9/issues/1066
-  references:
-    - title: Modifying your Download Patterns Based on the Connectivity Type FIXME
-      url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
-    - title: Closing apps to save your battery only makes things worse
-      url:  https://www.wired.com/2016/03/closing-apps-save-battery-makes-things-worse/
-
 - name: Stop on Demand
   description: Provide users with means to stop battery intensive operations.
   occurrences_android:
@@ -500,31 +472,10 @@
       - https://github.com/jensstein/oandbackup/issues/97
 
 
-- name: No Ads
-  occurrences_android:
-    issues:
-      - https://github.com/mozilla-mobile/focus-android/issues/2082
-
-- name: Play on demand
-  description: Do not automatically start playing media content.
-  context:
-  occurrences_android:
-    issues:
-      - https://github.com/mozilla-mobile/focus-android/issues/2003
-
-- name: Exchange only what is strictly necessarily
-  related:
-    - Lazy First — reduce
-  description: When syncronizing with a server, provide or request the smallest portion of data that is required for a given operation.
-  occurrences_android:
-    issues:
-      - https://github.com/mozilla-mobile/focus-android/issues/2003
-
-
 - name: Enough resolution
-  description: Choose high accuracy data collection only when strictly necessary.
-  context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS, surfaces over textures)
-  example: use cell towers for location
+  description: Collect or provide high accuracy data only when strictly necessary.
+  context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS, surfaces over textures, distance calculation)
+  example: use cell towers for location; calculate overall distance during a running session
   solution:
   occurrences_android:
     issues:
@@ -540,6 +491,7 @@
       - https://github.com/google/ExoPlayer/issues/3843
       - https://github.com/google/ExoPlayer/issues/3477
       - https://github.com/mozilla/MozStumbler/issues/21
+      - https://github.com/khertan/ForRunners/issues/54
     commits:
       - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
@@ -625,13 +577,6 @@
     commits:
       - https://github.com/samuelclay/NewsBlur/commit/71b746a48daa687fb94339d21fb5cd00bf229c2f
 
-- name: Permanent notification (anti pattern)
-  occurrences_android:
-    issues:
-      - https://github.com/nextcloud/android/issues/2130
-      - https://github.com/redfish64/TinyTravelTracker/issues/54
-      - https://github.com/tgwizard/sls/issues/384
-
 - name: Obsolete
   description: remove properties that do not have any effect.
   example: obsolete params in views
@@ -675,21 +620,6 @@
       - https://github.com/Etuldan/spaRSS/issues/11
       - https://github.com/aarddict/android/issues/28
 
-- name:
-  description:
-  warning: Particularly important on e-ink devices.
-  occurrences_android:
-    commits:
-      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
-      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
-    issues:
-      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
-      - https://github.com/ankidroid/Anki-Android/issues/3022
-      - https://github.com/HoraApps/LeafPic/issues/250
-      - https://github.com/Etuldan/spaRSS/issues/11
-      - https://github.com/aarddict/android/issues/28
-
-
 - name: Schedulle and Sleep
   description: use AlarmManager for updates, instead of using Wakelocks, Services.
   related:
@@ -709,7 +639,19 @@
     issues:
       - https://github.com/drpout/boilr/issues/128
       - https://github.com/drpout/boilr/issues/131
+      - https://github.com/redsolution/xabber-android/issues/174
 
+- name: No Ads
+  occurrences_android:
+    issues:
+      - https://github.com/mozilla-mobile/focus-android/issues/2082
+
+- name: Play on demand
+  description: Do not automatically start playing media content.
+  context:
+    occurrences_android:
+      issues:
+        - https://github.com/mozilla-mobile/focus-android/issues/2003
 
 - name: Kill the battery optimizer (anti pattern)
   description: Most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
@@ -753,3 +695,22 @@
   references:
     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
+
+- name: Permanent notification (anti pattern)
+  occurrences_android:
+    issues:
+      - https://github.com/nextcloud/android/issues/2130
+      - https://github.com/redfish64/TinyTravelTracker/issues/54
+      - https://github.com/tgwizard/sls/issues/384
+
+- name: Kill the app FIXME (anti pattern?)
+  description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
+  context: there is data connection but is low quality, which may result in battery drain for heavy data transfers.
+  occurrences_android:
+    issues:
+      - https://github.com/k9mail/k-9/issues/1066
+  references:
+    - title: Modifying your Download Patterns Based on the Connectivity Type FIXME
+      url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
+    - title: Closing apps to save your battery only makes things worse
+      url:  https://www.wired.com/2016/03/closing-apps-save-battery-makes-things-worse/
