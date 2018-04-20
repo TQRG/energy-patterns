@@ -1,4 +1,4 @@
-- name: Dark UI  colors
+- name: Dark UI colors
   description: Provide a dark UI color theme in order to save battery on devices with AMOLED screens.
   context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen can have a big impact on battery life.
   solution: Some mobile devices are shipped with AMOLED screens, which are more energy savior when displaying dark colors. Provide a UI with dark background colors, while preserving the contrast of foreground elements. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).

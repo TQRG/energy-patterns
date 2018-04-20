@@ -40,10 +40,10 @@
 
 
       <div id='patterns-list-placeholder' class='container'>
-        <script id="pattern-template" type="text/x-handlebars-template">
+        <script id="patterns-list-template" type="text/x-handlebars-template">
           <div class="list-group">
           {{#each this}}
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a href="#/patterns/{{name}}" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1" style="color:#155724">{{name}}</h5>
               <small>{{total_occurrences this}} occurrences</small>
@@ -55,6 +55,42 @@
         </script>
       </div>
 
+      <div id='pattern-show-placeholder' class='container'>
+        <script id="pattern-show-template" type="text/x-handlebars-template">
+          <h1>
+            {{name}}
+          </h1>
+          <p class='lead'>{{description}}</p>
+          <h3>Context</h3>
+          <p>{{context}}</p>
+          <h3>Solution</h3>
+          <p>{{solution}}</p>
+          <h3>Occurences</h3>
+          {{#if occurrences_android}}
+          <h4>Android</h4>
+            {{#if occurrences_android.issues}}
+              <h5>Issues</h5>
+              {{{list_occurrences occurrences_android.issues}}}
+            {{/if}}
+            {{#if occurrences_android.pull_requests}}
+              <h5>Pull Requests</h5>
+              {{{list_occurrences occurrences_android.pull_requests}}}
+            {{/if}}
+            {{#if occurrences_android.commits}}
+              <h5>Commits</h5>
+              {{{list_occurrences occurrences_android.commits}}}
+            {{/if}}
+          {{/if}}
+          {{#if occurrences_ios}}
+          <h4>iOS</h4>
+          {{/if}}
+
+
+
+        </script>
+      </div>
+
+
 
 <hr>
       <footer class='container'>
@@ -65,6 +101,7 @@
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="node_modules/js-yaml/dist/js-yaml.min.js"></script>
         <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+        <script src="https://rawgit.com/flatiron/director/master/build/director.min.js"></script>
         <script src="main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
