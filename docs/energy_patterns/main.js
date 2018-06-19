@@ -40,20 +40,36 @@
             });
             return html.html();
           });
+          
+          Handlebars.registerHelper("escape_pattern_name", function(name) {
+              return name.replace(/ /g, '_');
+          });
 
           var listPatterns = function () {
-            var source   = document.getElementById("patterns-list-template").innerHTML;
-            var template = Handlebars.compile(source);
-            var html = template(patterns);
-            $("#patterns-list-placeholder").html(html);
+            if (window.patterns_list_template === undefined){
+              var source = document.getElementById("patterns-list-template").innerHTML;
+              window.patterns_list_template = Handlebars.compile(source);
+            }
+            var html = window.patterns_list_template(patterns);
+            $("#main-content").html(html);
+          }
+          
+          var notfound = function(){
+            listPatterns()
+          }
+          
+          var unescape_pattern_name = function(name){
+              return name.replace(/_/g, ' ');
           }
 
           var viewPattern = function (name) {
-            var patternData = patterns.find(x => x['name'] == unescape(name))
-            var source   = document.getElementById("pattern-show-template").innerHTML;
-            var template = Handlebars.compile(source);
-            var html = template(patternData);
-            $("#pattern-show-placeholder").html(html);
+            var patternData = patterns.find(x => x['name'] == unescape_pattern_name(name));
+            if (window.pattern_show_template === undefined){
+              var source = document.getElementById("pattern-show-template").innerHTML;
+              window.pattern_show_template = Handlebars.compile(source);
+            }
+            var html = window.pattern_show_template(patternData);
+            $("#main-content").html(html);
           };
 
           var routes = {
@@ -61,8 +77,18 @@
             '/patterns/:name': viewPattern
           };
 
-          var router = Router(routes).configure({'notfound':listPatterns});
+          var router = Router(routes).configure({'notfound':notfound});
+          if(location.hash == ""){
+            if(history.pushState) {
+                history.pushState(null, null, '#/');
+            }
+            else {
+                location.hash = '#/';
+            }  
+          }
           router.init();
+          
+          console.log('ok')
         });
     });
 }());

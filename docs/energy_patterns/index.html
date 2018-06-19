@@ -37,13 +37,15 @@
     </div>
 <!-- Large modal -->
 
-
+      <div id="main-content" class='container'>
+        
+      </div>
 
       <div id='patterns-list-placeholder' class='container'>
         <script id="patterns-list-template" type="text/x-handlebars-template">
           <div class="list-group">
           {{#each this}}
-          <a href="#/patterns/{{name}}" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a href="/#/patterns/{{escape_pattern_name name}}" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1" style="color:#155724">{{name}}</h5>
               <small>{{total_occurrences this}} occurrences</small>
@@ -57,6 +59,7 @@
 
       <div id='pattern-show-placeholder' class='container'>
         <script id="pattern-show-template" type="text/x-handlebars-template">
+          <a href='/#/'>&larr; show all patterns</a>
           <h1>
             {{name}}
           </h1>
