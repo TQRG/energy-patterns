@@ -45,7 +45,7 @@
         <script id="patterns-list-template" type="text/x-handlebars-template">
           <div class="list-group">
           {{#each this}}
-          <a href="/#/patterns/{{escape_pattern_name name}}" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a href="#/patterns/{{escape_pattern_name name}}" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1" style="color:#155724">{{name}}</h5>
               <small>{{total_occurrences this}} occurrences</small>
