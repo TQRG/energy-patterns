@@ -1,7 +1,7 @@
 - name: Dark UI colors
-  description: Provide a dark UI color theme in order to save battery on devices with AMOLED screens.
-  context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen can have a big impact on battery life.
-  solution: Some mobile devices are shipped with AMOLED screens, which are more energy savior when displaying dark colors. Provide a UI with dark background colors, while preserving the contrast of foreground elements. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).
+  description: Provide a dark UI color theme to save battery on devices with AMOLED screens.
+  context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen (e.g., reading apps) can have a big impact on battery life.
+  solution: Provide a UI with dark background colors. This is particularly benificial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).
   example:
   occurrences_android:
     issues:
@@ -46,11 +46,10 @@
     - authors: Linares-Vásquez M, Bernal-Cárdenas C, Bavota G, Oliveto R, Di Penta M, Poshyvanyk D.
       title: "GEMMA: multi-objective optimization of energy consumption of GUIs in Android apps."
       url: http://ieeexplore.ieee.org/abstract/document/7965245/
-
-- name: Polite poller
-  description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource. Same when resource is unavailable.
-  context:
-  solution: Enlarge (user configurable) interval to renew push connection and check for new messages actively after connection is established (either linear or exponential growth). Eventually stop retrying. (also it can wait until context changes (e.g., network status))
+- name: Dynamic retry delay
+  description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
+  context: The mobile app has some features that require collecting data from other resources (e.g., update information from server). However, in same cases if the resource is unavailable, the app will unnecessarily try to connect the resource for a number of times, leading to unnecessary power consumption.
+  solution: Increase update interval after each failed connection. It can be either a linear or exponential growth. Update interval can be reset upon a successful connection or a given change in the context (e.g., network status)).
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
@@ -62,12 +61,11 @@
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
       - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
       - https://github.com/jamienicol/episodes/commit/e004294d1b2a4d05c49157f1ddec32c0071345a5
-
-- name: Affordable
-  description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete. (TODO Obsolete layour param)
-  context: When displaying real-time information, the data presented to the user has to be constantly updated. However, depending on the view that is being displayed to the user, this data might not be entirely presented or useful. The same happens when the app goes to background. Since the data quickly becomes obsolete the phone is using resources unnecessarily. Another context -- too many notifications for somethinf a user might not be interested. another example, notifications are disabled, so information that would fire that notification does not need to be fetched.
-  solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data which is visible to the user. FIXME
-  example:
+- name: Avoid unnecessary work
+  description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete.
+  context: Mobile apps have to perform a number of tasks simultaneously. There are cases in which the result of those tasks is not visible (e.g., the UI is presenting other pieces of information), or the result is not necessarily relevant to the user. This is particularly critical when apps go to the background. Since the data quickly becomes obsolete, the phone is using resources unnecessarily.
+  solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data that is visible to the user.
+  example: Consider a time series plot that needs to display real-time data. The plot has to be constantly updated — if the user scrolls down a UI view and the plot becomes hidden, the app should cease drawing operations related with the plot.
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
@@ -94,16 +92,20 @@
       - https://github.com/vitas/beaconloc/pull/13
       - https://github.com/redfish64/TinyTravelTracker/pull/59
       - https://github.com/ccrama/Slide/pull/2347
-
-- name: Close Immediately ASAP
-  description: Close/Release resources immediately after they are not necessary. E.g., Wakelocks. The same applies to the Screen. Also, lower wakelock time
+- name: Close Immediately
+  related:
+    - Open Only When Necessary
+  description: Release resources or services as soon as possible (e.g., wakelocks, screen).
+  context: Mobile apps use a number of resources that can be manually closed after use. While active, these resources are ready to respond to requests from the app and require extra power consumption.
+  solution: Make sure resources are inactive when they are not necessary by manually closing them.
+  example: When an app goes to background, make sure wakelocks are properly released.
   occurrences_android:
     issues:
-      - https://github.com/deltachat/deltachat-android/issues/104
       - https://github.com/osmandapp/Osmand/issues/3727
       - https://github.com/andstatus/andstatus/issues/467
       - https://github.com/ctodobom/OpenNoteScanner/issues/87
       - https://github.com/TwidereProject/Twidere-Android/issues/935
+      - https://github.com/deltachat/deltachat-android/issues/104
       - https://github.com/tananaev/traccar-client-android/issues/128
       - https://github.com/tananaev/traccar-client-android/issues/11
       - https://github.com/badaix/snapcast/issues/82
@@ -128,9 +130,12 @@
       - https://github.com/lllllT/AtmosphereLogger/pull/3
       - https://github.com/greenaddress/GreenBits/pull/199
       - https://github.com/mozilla/MozStumbler/pull/1074
-
-- name: Open Immediately Before
-  description: Only open/start resources/services if they will be immediately necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
+- name: Open Only When Necessary
+  related:
+    - Close Immediately
+  description: Open/start resources/services only when they are strictly necessary.
+  context: Some resources require to be manually opened before use. It might be tempting to open necessary resources at the beginning of some task (e.g., upon the creation of an activity). However, resources will be actively waiting for requests, and consequently spending more energy.
+  solution: Open resources only when necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
   occurrences_android:
     issues:
       - https://github.com/cSploit/android/issues/396
@@ -138,10 +143,11 @@
       - https://github.com/signalapp/Signal-Android/commit/cb9f225f5962d399f48b65d5f855e11f146cbbcb
       - https://github.com/shadowsocks/shadowsocks-android/commit/418ae2151c62d7ab352e15d942669cec82fdb923
 
-- name: Push over Poll FIXME
-  description: don't do active query for new messages and wait for push notification from mail server (not shure if this works stable in every use case).
-  context:
-  solution: Note -- this is a big challenge amongst FOSS apps since there is no good alternative for Firebase Cloud Messaging (former Google Cloud Messaging) that is open source and can easily be self hosted in the community.
+- name: Push over Poll
+  description: Use push notifications to receive updates from resources, instead of actively querying resources (i.e., polling).
+  context: Mobile apps need to get updates from resources (e.g., from server). One way of checking for updates is by periodically query those resources. However, this will insurge into several requests that will return no update, leading to unnecessary energy consumption.
+  solution: Use push notifications to get updates from resources. Note -- this is a big challenge amongst FOSS apps since there is no good open source alternative for Firebase Cloud Messaging (former Google Cloud Messaging).
+  example: In a messaging app, instead of actively check for new messages, the app can subscribe push notifications.
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
@@ -166,9 +172,12 @@
       url: https://github.com/matrix-org/GSoC/blob/master/IDEAS.md#alternative-push-notification-transport
 
 - name: Power Save mode
-  description: provide an energy savior mode whenever the device enters a power save mode.
-  context: Whenever the battery is running low the device can enter a power save mode to assure users can extend the battery life until the device is connected to a charging station or reaches a reasonable power level. In some systems, this mode can be manually activated by users.
-  solution: implement a mode in which the app will use less resources while providing the minimum functionality that is indispensible to the user. This can include deactivating some features, reducing update intervals, or deactivating animated effects in the UI.
+  related:
+    - Power Awareness
+  description: Provide an energy savior mode in which user experience can drop for the sake of better energy efficiency.
+  context: Whenever the device battery is running low, users want to avoid losing connectivity before they reach a power charging station. If the device shuts down, users might miss important calls or will not be able to do an important task. Still, apps might be running unimportant tasks that will reduce battery life in this critical context.
+  solution: The app provides a power save mode in which it uses less resources while providing the minimum functionality that is indispensible to the user. It can be activated manually or upon some power events (e.g., when battery reaches a given level). User experience can drop for the sake of energy efficiency.
+  example: Deactivate some features, reduce update intervals, or deactivate animated effects in the UI.
   occurrences_android:
     issues:
       - https://github.com/markusfisch/ShaderEditor/commit/6f278fb920072f85c6fc23a30724127b99333a7f
@@ -196,47 +205,13 @@
       - https://github.com/mridang/microchip/commit/592c2cafd5bc4519cdcaa0a81aaac3e98dd808f6
       - https://github.com/mridang/gasflow/commit/12b231abbb7ce7fd0e7bd9f403655b1d1079de45
       - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
-
-
-- name: Lazy first - Defer
-  related:
-    - Power Awareness
-  description: Delay battery intensive operations until the device is connected to a charger. (or reduce intensity/ frequency)
-  context: There are operations that do not have high priority and do not need to execute immediately (e.g., backup data in the cloud). However, these operations can be intensive and thus drain energy.
-  solution: Delay intensive operations until the device is connected to a charger. Since whenever the device is connected to power, the battery might be running low, it might be advisable to wait until the power save mode is deactivated (and/or until a pre-defined battery level is reached).
-  occurrences_android:
-    issues:
-      - https://github.com/nextcloud/android/issues/1803
-      - https://github.com/haiwen/seadroid/issues/604
-      - https://github.com/haiwen/seadroid/issues/270
-      - https://github.com/syncthing/syncthing-android/issues/602
-      - https://github.com/syncthing/syncthing-android/issues/511
-      - https://github.com/splondike/polipoid/issues/3
-      - https://github.com/jensstein/oandbackup/issues/131
-      - https://github.com/mozilla/MozStumbler/issues/1305
-      - https://github.com/google/ExoPlayer/issues/3040
-    commits:
-      - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
-      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/50f77c4ff25e80299a25a5bbd8742a3a1391e5f4
-      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/cc7511bf5207f36ff7bd2fcf5cdb410bf041f05e
-      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/9834af0a3970f02dad737d42b9ba0c719f9a29c6
-      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/d6714de9ce2b22749ccb794509016b0aac9c0480
-      - https://github.com/inorichi/tachiyomi/commit/b1b97c19d4311ccd2222dff8de26e9a499fe63e5
-      - https://github.com/bottiger/SoundWaves/commit/9d6f91f17f555cf78bb439ad756ea63cad964f63
-      - https://github.com/AntennaPod/AntennaPod/commit/1b9c96bc7664adeb12ffd0267c76a4667b25311f
-      - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
-      - https://github.com/tgwizard/sls/commit/3d17aa5e142fd24a0f420571d6d10eb086a46d77
-      - https://github.com/thasmin/Podax/issues/122
-    pull_requests:
-      - https://github.com/nextcloud/android/pull/1527
-  references:
-    - title: Android Developer Guides — Optimizing for Battery Life
-      url: https://developer.android.com/topic/performance/power/index.html
-
 - name: Power Awareness
   related:
-    - Lazy first - Defer
-  description: Have a different behavior when device is connected/disconnected to a power station, or has different battery levels. Also applies for awarenes of device's battery characteristics.
+    - Power Save mode
+  description: Have a different behavior when device is connected/disconnected to a power station, or has different battery levels.
+  context: There are some features that are not strictly necessary to users although they improve user experience (e.g., UI animations). Moreover, there are operations that do not have high priority and do not need to execute immediately (e.g., backup data in the cloud).
+  solution: Enable or disable tasks or features according to power status. Since when the device is connected to power, the battery might still be running low, it might be advisable to wait until a pre-defined battery level is reached (or the power save mode is deactivated).
+  example: Delay intensive operations such as cloud syncing or image processing until the device is connected to a charger.
   occurrences_android:
     commits:
       - https://github.com/futurice/meeting-room-tablet/commit/cd716f9a09df7614d8ff1f5665d885aec9717116
@@ -249,15 +224,40 @@
       - https://github.com/einmalfel/PodListen/commit/2ed5a655b1901f3c98d6837ecd17fa779688a9bc
       - https://github.com/Himmele/Quickdroid/commit/bc0e87457a87b6b5288356a98dd95f7337b6d760
       - https://github.com/Himmele/Quickdroid/commit/755f5cd23708bbdbe76fe50ee46412a1c15a9ab7
+      - https://github.com/syncthing/syncthing-android/commit/c1d5bcc4cdb02eb40ab60030f304515682ba4ba3
+      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/50f77c4ff25e80299a25a5bbd8742a3a1391e5f4
+      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/cc7511bf5207f36ff7bd2fcf5cdb410bf041f05e
+      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/9834af0a3970f02dad737d42b9ba0c719f9a29c6
+      - https://github.com/bitcoin-wallet/bitcoin-wallet/commit/d6714de9ce2b22749ccb794509016b0aac9c0480
+      - https://github.com/inorichi/tachiyomi/commit/b1b97c19d4311ccd2222dff8de26e9a499fe63e5
+      - https://github.com/bottiger/SoundWaves/commit/9d6f91f17f555cf78bb439ad756ea63cad964f63
+      - https://github.com/AntennaPod/AntennaPod/commit/1b9c96bc7664adeb12ffd0267c76a4667b25311f
+      - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
+      - https://github.com/tgwizard/sls/commit/3d17aa5e142fd24a0f420571d6d10eb086a46d77
+      - https://github.com/thasmin/Podax/issues/122
     issues:
       - https://github.com/mozilla/MozStumbler/issues/1175
       - https://github.com/mozilla/MozStumbler/issues/41
+      - https://github.com/nextcloud/android/issues/1803
+      - https://github.com/haiwen/seadroid/issues/604
+      - https://github.com/haiwen/seadroid/issues/270
+      - https://github.com/syncthing/syncthing-android/issues/602
+      - https://github.com/syncthing/syncthing-android/issues/511
+      - https://github.com/splondike/polipoid/issues/3
+      - https://github.com/jensstein/oandbackup/issues/131
+      - https://github.com/mozilla/MozStumbler/issues/1305
+      - https://github.com/google/ExoPlayer/issues/3040
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/67
-
-- name: Reduce size
-  description: when transmitting data, reduce its size as much as possible. Avoid sending unnecessary data. Exchange only what is strictly necessary.
-  example: use binary zipped messages
+      - https://github.com/nextcloud/android/pull/1527
+  references:
+    - title: Android Developer Guides — Optimizing for Battery Life
+      url: https://developer.android.com/topic/performance/power/index.html
+- name: Reduce Size
+  description: When transmitting data, reduce its size as much as possible.
+  context: Data transmition is a common operation in mobile apps. However, such operations are energy greedy and the time of transmission should reduced as much as possible.
+  solution: Use data compression when possible and avoid sending unnecessary data. Exchange only what is strictly necessary.
+  example: When performing HTTP requests use gzip content encoding to compress data.
   occurrences_android:
     commits:
       - https://github.com/shadowsocks/shadowsocks-android/commit/6bff4f1a441ee83dca7f71da5f062c80fcc24681,6bff4f1a441ee83dca7f71da5f062c80fcc24681
@@ -269,12 +269,11 @@
     - title: Reducing battery consumption of data polling and pushing techniques on Android using GZip
       url: http://ieeexplore.ieee.org/document/7409011/
       authors: Sirapat Boonkrong, Pham Cao Dinh
-
-
-- name: WiFi over Cellular (lazy first - defer)
-  description: Delay(/disable) heavy data connections until the device is connected to a WiFi network.
-  context: Data needs to be syncronized with a server but it is not high priority and can be delayed.
-  solution: Data connections using cellular networks are usually more battery intensive than connections using WiFi.  Low priority operations that require a data connection to exchange considerable amounts of data should be delayed until a WiFi connection is available.
+- name: WiFi over Cellular
+  related: Power Awareness
+  description: Delay or disable heavy data connections until the device is connected to a WiFi network.
+  context: Data needs to be syncronized with a server but it is not urgent and can be delayed.
+  solution: Data connections using cellular networks are usually more battery intensive than connections using WiFi. Low priority operations that require a data connection to exchange considerable amounts of data should be delayed until a WiFi connection is available.
   occurrences_android:
     issues:
       - https://github.com/nextcloud/android/issues/1626
@@ -298,11 +297,12 @@
       url: https://www.technipages.com/does-wi-fi-consume-more-battery-power-than-3g-or-4glte
     - title: Modifying your Download Patterns Based on the Connectivity Type
       url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
-
 - name: Surpress Logs
+  related:
+    - Avoid unnecessary work
   description: Avoid using intensive logging (< 1Hz).
-  context:
-  solution:
+  context: Developers resort to logging in their mobile apps to ensure their correct behavior and simplofy bug reporting. However, logging operations are creating overhead on energy consumption without creating value to the end user.
+  solution: Avoid using intensive logging, and keeping rates below one message per second.
   occurrences_android:
     commits:
       - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365 FAIL
@@ -319,8 +319,8 @@
     - authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
     - url: https://link.springer.com/article/10.1007/s10664-017-9545-x
     - position: Not necessary when logs are generated at rates of ≤ 1 message per second
-
-- name: Lazy First — Coalesce / (e.g., Inexact Schedulling)
+- name: Batch Operations
+  aka: Lazy First — Coalesce, Inexact Schedulling
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Combine different operations in a single one.
@@ -354,10 +354,14 @@
     - title: "DevBytes: Efficient Data Transfers - Batching, Bundling, and SyncAdapters"
       url: https://www.youtube.com/watch?v=5onKZcJyJwI
 
-- name: Lazy First — reduce
-  description: Are there redundant operations your app can cut out? For example, can it cache downloaded data instead of repeatedly waking up the radio to re-download the data? Verify if there is any update before downloading.
+- name: Cache
+  aka: Lazy First — reduce
+  description: Avoid performing unnecessary operations by using cache mechanisms.
+  context: Typically mobile apps present data to users that is collect from a remote server. However, it may happen that the same data is being collected from the server multiple times.
+  solution: Implement chaching mechanisms to temporarly store data from server. In addition, verify whethere there is an update before downloading all data.
+  example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures everytime a given profile is opened, use data that was locally stored from earlier visits.
   related:
-    - Affordable
+    - Avoid unnecessary work
   occurrences_android:
     issues:
       - https://github.com/bfabiszewski/ulogger-android/issues/8
@@ -527,7 +531,7 @@
 - name: Reasonable timeout
   description: Interrupt tasks that are taking an abnormal time to execute. Provide a reasonable timeout for tasks or wakelocks. (also used in alarms when the user forgets to turn it off)
   related:
-    - Polite poller
+    - Dynamic retry delay
   occurrences_android:
     commits:
       - https://github.com/jroal/a2dpvolume/commit/7723d698b690b94e01380a4618cb55f700c724c3
@@ -581,7 +585,7 @@
   description: remove properties that do not have any effect.
   example: obsolete params in views
   related:
-    - Affordable
+    - Avoid unnecessary work
   occurrences_android:
     commits:
       - https://github.com/grzegorznittner/chanu/commit/2640dc50ab8150341da30bc4d282f8ac8f5aa4c5
