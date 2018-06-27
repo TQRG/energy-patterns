@@ -358,7 +358,7 @@
   aka: Lazy First — reduce
   description: Avoid performing unnecessary operations by using cache mechanisms.
   context: Typically mobile apps present data to users that is collect from a remote server. However, it may happen that the same data is being collected from the server multiple times.
-  solution: Implement chaching mechanisms to temporarly store data from server. In addition, verify whethere there is an update before downloading all data.
+  solution: Implement chaching mechanisms to temporarly store data from server. In addition, verify whether there is an update before downloading all data.
   example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures everytime a given profile is opened, use data that was locally stored from earlier visits.
   related:
     - Avoid unnecessary work
@@ -381,11 +381,12 @@
   references:
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
-
 - name: Decrease rate
-  description: Increase time between syncs/sensor reads and/or allow users to specify their preferred sync delays. This can also depend on context (dynamic).
   related:
     - Enough resolution
+  description: Increase time between syncs/sensor reads as much as possible.
+  context: Mobile apps have to periodically perform operations. If a the time between two executions is small, the app will be executing operations more often. In some cases, even if operations are executed more often, it will not affect users' perception.
+  solution:  Increase the delay between operations to find the minimal interval that do not compromise user experience. This delay can also depend on context, or can be defined by users.
   occurrences_android:
     issues:
       - https://github.com/opacapp/opacclient/issues/492
@@ -413,10 +414,11 @@
       - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/264
-
 - name: User knows best
-  description: Allow users to enable/disable certain features in order to save energy. (This might be more effective with power users.)
-  context: many times energy efficiency solutions provide a tradeoff between _power_ of features and power consumption. However, this tradeoff is different for different users.
+  description: Allow users to enable/disable certain features in order to save energy.
+  context: Energy efficiency solutions often provide a tradeoff between features and power consumption. However, this tradeoff is different for different users. I.e., some users might be okay with less features but better energy efficiency, and vice versa.
+  solution: Allow users to customize their preferences regarding energy critical features. Since this might be more intuitive for power users, mobile apps should provide by optimal preferences by default for regular users.
+  example: Consider a mail client for pop3 accounts as example. In some cases, users are not expecting any urgent message and are okay with checking for new mail in no less than 10 minutes for the sake of energy efficiency. On the other hand, there are cases in which users are waiting for urgent messages and would like to check for messages every two minutes. Since there is no automatic mechanism to infer the optimal update interval, allowing users to define it is the best option.
   occurrences_android:
     issues:
       - https://github.com/redfish64/TinyTravelTracker/issues/49
@@ -453,11 +455,13 @@
       - https://github.com/mozilla/MozStumbler/pull/1706
       - https://github.com/mozilla/MozStumbler/pull/1419
       - https://github.com/mozilla/MozStumbler/pull/1261
-
 - name: Inform Users
-  description: Let the user know it the app is doing any battery intensive operation. let the user know what is the effect of power management in it UX
-  example: 'alert that saving power mode is activated; alert when a battery intensive operation will be performed'
-  related: user knows best
+  description: Let the user know if the app is doing any battery intensive operation.
+  context: There are specific use cases in mobile apps that can be energy greedy. On the other hand some features might be dropping user experience in order to improve energy efficiency. If users do not know what to expect from the app, they might think that the mobile app is no behaving correctly.
+  solution: Let users know about battery intensive operations or energy management features. Properly flag this information in the user interface (e.g., alerts).
+  example: Examples include alerting users when the saving power mode is active, and alerting when a battery intensive operation is executed.
+  related:
+    - User knows best
   occurrences_android:
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/307
@@ -466,21 +470,11 @@
     commits:
       - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
-
-
-- name: Stop on Demand
-  description: Provide users with means to stop battery intensive operations.
-  occurrences_android:
-    issues:
-      - https://github.com/jensstein/oandbackup/issues/102
-      - https://github.com/jensstein/oandbackup/issues/97
-
-
 - name: Enough resolution
   description: Collect or provide high accuracy data only when strictly necessary.
-  context: (screen resolution, location services precision, sensor sample rate, graphics refresh rate - FPS, surfaces over textures, distance calculation)
-  example: use cell towers for location; calculate overall distance during a running session
-  solution:
+  context: When collecting or displaying data, it is tempting to use high resolutions. The problem of using data with high resolution is that its collection and manipulation require more resources (e.g., memory, processing capacity, etc.). As a consequence, energy consumption.
+  solution: For every use case, find the optimal resolution value that is required to provide the intended user experience.
+  example: Consider a running app that is able to record running sessions. While  the user is running, the app presents the current overall distance in real-time. While calculating the most accurate value of the total distance would provide the correct information, it would require precise real-time processing of GPS or accelerometer sensors, which can be energy greedy. Instead, a lightweight method could be used to estimate this information with lower but reasonable accuracy. In the end of the session, the accurate results would still processed, but without real-time constraints. Other examples include optimizing image resolution, use graphic with surfaces instead of textures, etc.
   occurrences_android:
     issues:
       - https://github.com/vanilla-music/vanilla/issues/620
@@ -505,9 +499,8 @@
     pull_requests:
       - https://github.com/mvglasow/satstat/pull/141
       - https://github.com/mozilla/MozStumbler/pull/14
-
-- name: use alternative sensor sources Sensor fusion
-  example: use data from accelerometer to infer whether location should be updated
+- name: Sensor Fusion
+  example: Use data from accelerometer to infer whether location should be updated
   related:
     - enough resolution
     - Smart poller / dynamically adjust sync rate
@@ -544,6 +537,13 @@
       - https://github.com/frankmorgner/vsmartcard/issues/22
       - https://github.com/abarisain/dmix/issues/3
 
+- name: Stop on Demand
+  description: Provide users with means to stop battery intensive operations.
+  occurrences_android:
+    issues:
+      - https://github.com/jensstein/oandbackup/issues/102
+      - https://github.com/jensstein/oandbackup/issues/97
+
 - name: Infer instead of asking
   description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
   occurrences_android:
@@ -556,7 +556,6 @@
     - Close immediately
   occurrences_android:
     issues:
-      - https://github.com/inorichi/tachiyomi/pull/1177
       - https://github.com/anthonycr/Lightning-Browser/issues/342
       - https://github.com/philliphsu/ClockPlus/issues/14
       - https://github.com/xbmc/Kore/issues/157
@@ -564,6 +563,9 @@
       - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
       - https://github.com/signalapp/Signal-Android/issues/6258
       - https://github.com/ThibaudM/timelapse-sony/issues/14
+    pull_requests:
+      - https://github.com/inorichi/tachiyomi/pull/1177
+
 
 - name: Offline mode
   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
