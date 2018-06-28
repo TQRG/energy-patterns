@@ -5,8 +5,8 @@ import time
 import click
 
 SKIP_CATEGORIES = frozenset({
-    'apple-tv',
-    'apple-watch',
+    # 'apple-tv',
+    # 'apple-watch',
 })
 
 def parse_gh_link(url):

@@ -1,0 +1,797 @@
+title,user,project_name,stars
+Artsy Shows,artsy,Emergence,354
+EX Player,IGRSoft,exTVPlayer,17
+Provenance,Provenance-Emu,Provenance,3433
+UitzendingGemist by jeffkreeftmeijer,jeffkreeftmeijer,UitzendingGemist,71
+WWDCTV,azzoor,WWDCTV,419
+BaiduFM,belm,BaiduFM-Swift,577
+RedditWatch,opensourceios,RedditWatch,0
+Bither,bither,bither-ios,177
+Brew,contentful,ContentfulWatchKitExample,72
+Bus Today,JohnWong,bus-today,49
+Calculator by noodlewerk,noodlewerk,Apple_Watch_Calculator,13
+Calculator by mukeshthawani,mukeshthawani,Calculator,6
+Cherry,kenshin03,Cherry,374
+Connectivity Demo,swilliams,watchkit-connectivity-demo,22
+CoolSpot,neonichu,CoolSpot,30
+Cortado,lazerwalker,cortado,162
+Done,FancyPixel,done-swift,117
+FlickrWatch,jazzychad,FlickrWatch,7
+GrandCentralBoard,macoscope,GrandCentralBoard,210
+Gulps,FancyPixel,gulps,974
+heartrate,coolioxlr,watchOS-2-heartrate,327
+HighStreet,GetHighstreet,HighstreetWatchApp,356
+React Native Hacker News,G2Jose,ReactNative-HackerNews,40
+HN Reader,Dimillian,SwiftHN,1554
+Impulse,Jasdev,Impulse,22
+KTPomodoro,kenshin03,KTPomodoro,36
+Natural Language Clock,chadkeck,Natural-Language-Clock,35
+OnTime,D-32,OnTime,41
+Parties for WWDC,genadyo,WWDC,362
+PhoneBattery,opensourceios,PhoneBattery,0
+PhotoWatch,dropbox,PhotoWatch,86
+Soon,sandofsky,soon,64
+WatchKit-Apps,kostiakoval,WatchKit-Apps,1080
+Watchman,DanToml,Watchman,57
+WatchNotes,azamsharp,WatchNotes,80
+watchOS-2-Sampler,shu223,watchOS-2-Sampler,1024
+WatchPics,D-32,WatchPics,85
+WatchSnake,davidcairns,-WatchSnake,32
+WatchStocks,G2Jose,WatchStocks,8
+Wunderschnell,contentful-graveyard,Wunderschnell,8
+Brave,brave,browser-ios,832
+Endless Browser,jcs,endless,175
+Firefox,mozilla-mobile,firefox-ios,8035
+Frameless,stakes,Frameless,636
+Actor,actorapp,actor-platform,3240
+BLEMeshChat,chrisballinger,BLEMeshChat,380
+Quick Chat,aslanyanhaik,Quick-Chat,1341
+WhatsUp,satishbabariya,WhatsUp,28
+MeetPoint App,MeetPoint-App,meetpoint-ios,3
+Potter Pics,surayashivji,PotterPics,124
+Chats,acani,Chats,2050
+ChatSecure,ChatSecure,ChatSecure-iOS,2615
+Colloquy,colloquy,colloquy,50
+IRCCloud,irccloud,ios,209
+M,Mynigma,M,40
+Mumble,mumble-voip,mumble-iphoneos,152
+Rocket.Chat,RocketChat,Rocket.Chat.iOS,465
+Signal,signalapp,Signal-iOS,3481
+surespot,surespot,surespot-ios,55
+Telegram,peter-iakovlev,Telegram,2197
+TextEthan,thii,TextEthan,48
+EventBlankApp,icanzilb,EventBlankApp,284
+Nortal TechDay 2015,mikkoj,NortalTechDay,232
+Parse 2013 Developer Day,ParsePlatform,ParseDeveloperDay,89
+RWDevCon,raywenderlich,RWDevCon-App,25
+try! Swift,opensourceios,trySwiftApp,0
+Valio Con 2014 Schedule,soffes,valio,267
+Adblock Fast,rocketshipapps,adblockfast,465
+Adblock Plus,adblockplus,adblockplussafariios,108
+BlockParty,krishkumar,BlockParty,664
+Firefox Focus,mozilla-mobile,focus-ios,748
+AppLove,snowpunch,AppLove,32
+Bequest,splinesoft,Bequest,63
+Codinator,DanilaVladi,codinator,30
+Charter,matthewpalmer,Charter,504
+CI2Go,ngs,ci2go,58
+Review Time,nthegedus,ReviewTime,142
+TLDR Man Page,freesuraj,TLDR,49
+GitHub-Swift,acmacalister,Github-Swift,27
+Monkey,coderyi,Monkey,1600
+MrCode,haolloyin,MrCode,447
+OctoPodium,nunogoncalves,iOS-OctoPodium,200
+BitStore,BitStore,BitStore-iOS,97
+Bread,breadwallet,breadwallet-ios,185
+Buck Tracker,hkalexling,Buck_Tracker,28
+Coins,nothingmagical,coins,171
+Concurrency,opensourceios,Concurrency,0
+doughwallet,peritus,doughwallet,20
+Savings Assistant,chrisamanse,savings-assistant,12
+TodayStocks,premnirmal,TodayStocks,37
+Argent,argent-os,argent-ios,24
+ToThePenny,vanyaland,ToThePenny,61
+Concentration game (翻翻看),geek5nan,FanFanSwift,198
+2048,austinzheng,iOS-2048,273
+The Spin Zone,opensourceios,Spin-Zone,2
+2048,austinzheng,swift-2048,2703
+Alienblast,etamity,AlienBlast,7
+Bridges,zgrossbart,bridges,161
+Canabalt,ericjohnson,canabalt-ios,1554
+CardsAgainst,jpsim,CardsAgainst,461
+Chess,mjcuva,Chess,14
+CodeCombat,codecombat,codecombat-ios,45
+Chuck,moowahaha,Chuck,3
+Doom Classic,id-Software,DOOM-iOS,513
+DOOM Classic 2,id-Software,DOOM-IOS2,202
+Dungeon Crawl,CliffsDover,crawl,25
+Five In A Row (五子棋),WelkinXie,FiveInARow,15
+FlappySwift,fullstackio,FlappySwift,8663
+Conway's Game of Life,yonbergman,swift-gameoflife,62
+Gorillas,Lyndir,Gorillas,243
+GrubbyWorm,gamechina,GrubbyWorm,43
+littlego,herzbube,littlego,75
+MUDRammer,splinesoft,MUDRammer,54
+Mission999,whunmr,Mission999,7
+Orbit7,Aaron-A,Orbit7,110
+Sakura Fly,cl7,Sakura-Fly,52
+SceneKitFrogger,devindazzle,SceneKitFrogger,89
+Spare Parts,adamwulf,spare-parts-app,14
+Stick-Hero-Swift,phpmaple,Stick-Hero-Swift,400
+Wolfenstein 3D,id-Software,Wolf3D-iOS,343
+Arex,a2,arex,99
+AsthmaHealth,ResearchKit,AsthmaHealth,93
+Depressed,DerLobi,Depressed,74
+GlucoSuccess,ResearchKit,GlucoSuccess,88
+HealthKit~Swift,Darktt,HealthKit-Swift,77
+Jim,kylejm,Jim,49
+LogU,brettalcox,logU-swift,16
+mPower,ResearchKit,mPower,78
+MyHeartCounts,ResearchKit,MyHeartCounts,43
+rTracker,rob-miller,rTracker,13
+Share The Journey,ResearchKit,ShareTheJourney,70
+Speak,opensourceios,speakability,0
+AA-Keyboard,sonsongithub,AAKeyboard,103
+ClickWheelKeyboard,b3ll,ClickWheelKeyboard,23
+Link Keyboard : My Links Everywhere,ayushgoel,LinkKeyboard,6
+SwiftSnake,caleb0,SwiftSnake,14
+Snake Classic,PiXeL16,SnakeClassic,16
+Hodor,jonomuller,Hodor-Keyboard,103
+NaughtyKeyboard,Palleas,NaughtyKeyboard,586
+Slidden,Brimizer,Slidden,557
+Alarm,ChrisChares,swift-alarm,191
+Doppio,chroman,Doppio,579
+DoctorNearby,vincezzh,doctornearby-ios,7
+EatNow,callzhang,Eat-Now,33
+GeoTappy,GeoTappy,GeoTappy-iOS,28
+HopperBus,TosinAF,HopperBus-iOS,71
+iBeaconTasks,TomekB,iBeaconTasks,116
+Locative,LocativeHQ,Locative-iOS,209
+Moves,neonichu,Places,40
+OneBusAway,OneBusAway,onebusaway-iphone,197
+OwnTracks,owntracks,ios,149
+ParkenDD,kiliankoe,ParkenDD,39
+pathlogger,eugenpirogoff,pathlogger,60
+PebCiti,joemasilotti,PebCiti,20
+Startups - Mapped In Israel,sugarso,MappedInIsrael,28
+Swift-Walk-Tracker,kevinvanderlugt,Swift-Walk-Tracker,112
+Smart Traveller (UberGuide),hACKbUSTER,UberGuide-iOS,266
+VisitBCN,maurovc,visitBCN,13
+360 VR Player,hanton,HTY360Player,1757
+AudioKit ROM Player,AudioKit,ROMPlayer,281
+Artsy,artsy,eigen,2328
+Artsy Folio,artsy,energy,201
+CollageMaker,Azoft,CollageMaker-iOS,43
+ColorBlur,maurovc,ColorBlur,24
+ComicFlow,swisspol,ComicFlow,290
+DoubanFM,XVXVXXX,DoubanFM,467
+Dunk,naoyashiga,Dunk,887
+Eleven,opensourceios,Eleven,0
+Filterpedia,FlexMonkey,Filterpedia,1773
+Flickr-Search,alikaragoz,Flickr-Search,22
+KonaBot,hkalexling,KonaBot-iOS,26
+Longboxed,jayhickey,Longboxed-iOS,28
+Megabite,AaronRandall,Megabite,351
+movies,KMindeguia,movies,837
+OCiney,florent37,OCiney-iOS,236
+OpenPics,pj4533,OpenPics,68
+Selfie Stick,RF-Nelson,open-source-selfie-stick,28
+PhotoBrowser,MoZhouqi,PhotoBrowser,530
+Poppins,thoughtbot,poppins,112
+PhishOD,alecgorge,PhishOD-iOS,38
+PopcornTime,danylokostyshyn,popcorntime-ios,187
+prankPro,huijimuhe,prankPro,260
+Pugs,soffes,Pugs,51
+Revolved,Ciechan,Revolved,614
+SoundCloudSwift,pepibumur,SoundCloudSwift,487
+ASCII Art Generator,ijoshsmith,swift-ascii-art,227
+Swifteroid,eugenpirogoff,swifteroid,18
+SwiftFlickrApp,synboo,SwiftFlickrApp,354
+Swift Radio Pro,analogcode,Swift-Radio-Pro,2006
+SwiftSpace,FlexMonkey,SwiftSpace,132
+TechTavta,LUGM,TechTatva-15,6
+That Movie With,jayhickey,thatmoviewith,21
+Textbook,JohnWong,textbook,10
+Upupu,xcoo,upupu,41
+VLC,videolan,vlc,3906
+VoiceMemos,MoZhouqi,VoiceMemos,285
+xkcd,paulrehkugler,xkcd,39
+xkcd Open Source,mamaral,xkcd-Open-Source,206
+Designer News,MengTo,DesignerNewsApp,2349
+Feeds4U,EvgenyKarkan,Feeds4U,50
+GrinnellEvents,kvnbautista,Grinnell-Events-iOS,3
+Keinex tech blog,Keinex,Keinex-iOS,17
+NirZhihuDaily2.0,zpz1237,NirZhihuDaily2.0,1445
+Reddit,amitburst,reddit-demo,18
+RSSRead,ming1016,RSSRead,845
+TabDump,dkhamsing,TabDump,99
+The Oakland Post,aclissold,the-oakland-post,291
+v2ex,singro,v2ex,1863
+Hacker News Client,bonzoq,hniosreader,236
+HackerNews (Y),vetri02,HackerNews,31
+HackerNews,amitburst,HackerNews,1157
+Hackers,weiran,Hackers,329
+HN-App,NikantVohra,HackerNewsClient-iOS,80
+News/YC,bennyguitar,News-YC---iPhone,826
+news,grp,newsyc,1117
+Simple Reader,rnystrom,HackerNewsReader,232
+Coding,Coding,Coding-iOS,3243
+DuckDuckGo,duckduckgo,ios,421
+WhiteHouse,WhiteHouse,wh-app-ios,684
+Wikipedia,wikimedia,wikipedia-ios,1328
+WordPress,wordpress-mobile,WordPress-iOS,2288
+Cannonball,crashlytics,cannonball-ios,294
+CloudKit,Yalantis,CloudKit-Demo.Objective-C,119
+CloudKit,Yalantis,CloudKit-Demo.Swift,212
+Federal Data SDK,USDepartmentofLabor,Swift-Sample-App,12
+Furni,opensourceios,furni-ios,0
+HomeKit-Demo,KhaosT,HomeKit-Demo,293
+iOS 8 Sampler,shu223,iOS8-Sampler,3286
+iOS 9 Sampler,shu223,iOS-9-Sampler,3594
+Knock,MatheusCavalca,Knock,20
+Layer-Parse,kwkhaw,Layer-Parse-iOS-Swift-Example,128
+LayerPlayer,scotteg,LayerPlayer,1021
+LVMC,falkolab,LVMC-Demo-Alloy-App,4
+OpenShop.io,openshopio,openshop.io-ios,330
+Polls,apiaryio,polls-app,32
+Reusable Code,opensourceios,Swift-Reusable-Code,1
+RKGist,RestKit,RKGist,81
+SafariAutoLoginTest,mackuba,SafariAutoLoginTest,448
+Starship,kylef-archive,Starship,27
+StateRestorationDemo,shagedorn,StateRestorationDemo,37
+Swift-Demos,Lax,iOS-Swift-Demos,2482
+FreeOTP Authenticator,freeotp,freeotp-ios,112
+MasterPassword,Lyndir,MasterPassword,1120
+MiniKeePass,MiniKeePass,MiniKeePass,729
+SkeletonKey,chrishulbert,SkeletonKey,56
+ZeroStore,kylebshr,zerostore-ios,10
+Aozora,opensourceios,Aozora,11
+Peggsite,jenduf,GenericSocialApp,30
+StreetMusicMap,henriquevelloso,StreetMusicMap,7
+Yep,CatchChat,Yep,5672
+1Trackr,JerryHDev,1Trackr,3
+CloudKit-To-Do-List,anthonygeranio,CloudKit-To-Do-List,105
+MyAwesomeChecklist,imod,MyAwesomeChecklist,12
+RealmToDo,pietbrauer,RealmToDo,50
+Swift Off,opensourceios,swift-off-todo,0
+Todo,JakeLin,Todo,249
+Todo.txt,todotxt,todo.txt-ios,374
+eCortex,whymani005,cortex,3
+Tinylog,binarylevel,Tinylog-iOS,25
+Planc,aerlinn13,planc,0
+Lucid Weather Clock,wrutkowski,Lucid-Weather-Clock,52
+Pocket Forecast,appsquickly,Typhoon-Swift-Example,349
+RainMan,Aaron-A,Project-RainMan,687
+Sol,comyar,Sol,1377
+SmileWeather,liu044100,SmileWeather,457
+SwiftLanguageWeather,JakeLin,SwiftLanguageWeather,4736
+Tropos Weather,thoughtbot,Tropos,1447
+Weather by jsphkhan,jsphkhan,ReactNativeExamples,90
+WeatherMap,TakefiveInteractive,WeatherMap,287
+YoCelsius,YouXianMing,YoCelsius,2666
+PHPHub,Aufree,phphub-ios,1194
+ProMonster,usemobile,promonster-ios,9
+QiitaCollection,anzfactory,QiitaCollection,7
+A Menjar,maurovc,aMenjar,10
+bar,soffes,bar,58
+Be my eyes,opensourceios,bemyeyes-ios,0
+BlogQuest,irace,BlogQuest,10
+Borrowed Books,MatheusCavalca,RenovaLivrosUFRGS,4
+CardDecks,aharren,CardDecks,34
+ChineseZodiac,JakeLin,ChineseZodiac,157
+Colo,wongzigii,Colo,25
+DeckRocket,jpsim,DeckRocket,364
+EmotionNote Diary,Yogayu,EmotionNote,25
+GammaThingy,thomasfinch,GammaThingy,790
+GoodNight,anthonya1999,GoodNight,557
+GreatReader,semweb,GreatReader,575
+Hack Cancer Hackathon,HackCancer,iOS,7
+Hidrate,mjcuva,Hidrate,10
+iCopyPasta,alltheflow,iCopyPasta,21
+iContactU,rizal72,iContactU,139
+iGrades,maurovc,iGrades,12
+Jupp,dasdom,Jupp,17
+LidderbuchApp,AcelLuxembourg,LidderbuchApp,5
+Mirror++,nathunsmitty,MirrorPlusPlus,9
+my41,mperovic,my41,14
+OpenCB,opensourceios,OpenCB,0
+Onions,onionsapp,Onions-iOS,52
+Open States,openstates,openstates-ios,52
+ownCloud,owncloud,ios,549
+Phonetic,iAugux,Phonetic,546
+Population Clock,Netfilter-Com,PopulationClock,6
+Round & Split,lukhnos,roundandsplit,37
+Runner-Stats,hukun01,Runner-Stats,52
+Swiflytics,aciidb0mb3r,Swiflytics,39
+Tether,chrisballinger,Tether-iOS,144
+Theseus,lazerwalker,Theseus,706
+TheReservist,kimar,TheReservist,5
+TrollDrop,a2,TrollDrop,29
+VPN On,lexrus,VPNOn,3499
+Vinylogue,twocentstudios,vinylogue,103
+WaniKani,haawa799,WaniKani-iOS,46
+Words,soffes,words,44
+Yorkie,opensourceios,YorkieApp,0
+ForceSketch,FlexMonkey,ForceSketch,84
+Plum-O-Meter,FlexMonkey,Plum-O-Meter,494
+Malendar,croossin,Malendar,157
+Workdays,mpak,Workdays,13
+Edhita,tnantoka,edhita,962
+Textor,louisdh,textor,416
+SimpleMemo,lijuncode,SimpleMemo,263
+SwiftNote,mslathrop,SwiftNote,196
+Coffee Timer,ashfurrow,yourfirstswiftapp,64
+Fojusi,dasdom,Tomate,491
+TrackMyTime,EvgenyKarkan,TrackMyTime,23
+Tracker 4 Compassion,fokkezb,tracker,66
+DVD Collection Tracker,chrismiles,OrganisingCoreData,36
+Nested Lists,objcio,issue-4-full-core-data-application,165
+Tasks,mbcrump,TasksForSwiftWithPersistingData,17
+Vegan Lists UK,dsgriffin,vegan-lists-uk,4
+2CITY,2city,2CITY-iOS,14
+Anypic,opensourceios,Anypic,1
+Anypic,SwiftAnyPic,SwiftAnyPic,90
+AnyWall,opensourceios,AnyWall,1
+how-much,dkhamsing,how-much,15
+Parse-Challenge-App,TomekB,Parse-Challenge-App,127
+ParseStore,opensourceios,ParseStore,0
+NBA allyoop,wwayne,react-native-nba-app,1917
+Around Me,bgryszko,react-native-example,207
+Assemblies,buildreactnative,assemblies,309
+Calculator,benoitvallon,react-native-nw-react-calculator,4414
+Currency Converter,ashwinpreet,ReactNativeExamples,22
+Den,asamiller,den,430
+Dribbble,catalinmiron,react-native-dribbble-app,1875
+F8 2016,fbsamples,f8app,12436
+Facebook Login,brentvatne,react-native-login,688
+Finance,7kfpun,FinanceReactNative,1571
+Foreign Exchange,peralmq,ForeignExchangeApp,13
+Hacker News app by iSimar,iSimar,HackerNews-React-Native,3390
+Iceland Earthquakes,paranoida,IcelandEarthquakes,25
+iTunes Catalog Search,alexissan,ReactNativeWorkshop,50
+london-react,JoeStanton,london-react,52
+newswatch,bradoyler,newswatch-react-native,143
+PocketNode,mzabriskie,PocketNode,55
+Product Kitty,rkho,product-kitty,129
+Property Finder,ColinEberhardt,ReactNative-PropertyFinder,277
+Hacker News app by jsdf,jsdf,ReactNativeHackerNews,239
+RSS Reader,christopherdro,react-native-rss-reader,139
+Songkick,ArnaudRinquin,sk-react-native,101
+Spacepics,campezzi,react-native-spacepics,17
+Sudoku,christopherdro,react-native-sudoku,50
+To Do List,joemaddalone,react-native-todo,173
+Twitch,IFours,react-native-twitch,84
+Weather by JakeLin,JakeLin,ReactNativeWeather,15
+BrewMobile,brewfactory,BrewMobile,190
+C-41,ashfurrow,C-41,1959
+GitBucket,leichunfeng,MVVMReactiveCocoa,3356
+GroceryList,jspahrsummers,GroceryList,849
+HausClock,nottombrown,HausClock,46
+ReactiveHackerNews,syshen,ReactiveHackerNews,49
+ReactiveSwiftFlickrSearch,ColinEberhardt,ReactiveSwiftFlickrSearch,377
+SimpleAuth,calebd,SimpleAuth,1168
+SwiftRACGoogleImages,Adlai-Holler,SwiftRACGoogleImages,25
+GitHub API Client,tailec,boilerplate,339
+Kiosk,artsy,eidolon,2270
+Contacts,sebastianwr,VIPER-Persons,45
+Counter,mutualmobile,Counter,326
+Rambler&IT,rambler-digital-solutions,rambler-it-ios,259
+To do,objcio,issue-13-viper,761
+Toggl Timer,opensourceios,toggle-mobile,0
+RealmVideo,BalestraPatrick,RealmVideo,327
+ReactiveKitten,JensRavens,ReactiveKitten,19
+RailsCasts,spritlesoftware,railscasts-on-appletv,5
+MetricTime,DeveloperACE,MetricTime,2
+AppSales-Mobile,omz,AppSales-Mobile,1934
+Bancha,squallstar,bancha-ios-app,29
+Cheddar,nothingmagical,cheddar-ios,3088
+Everest,EverestOpenSource,Everest-iOS,90
+iOctocat,dennisreimann,ioctocat,1691
+LastFM,lastfm,lastfm-iphone,178
+Mume,opensourceios,Mume,0
+Pancake,Imaginea,pancake-ios,29
+Repo,ricburton,Repo,5
+SudokuResolv,Haoest,SudokuResolv,308
+Vim,applidium,Vim,499
+wikiHow,tderouin,wikiHow-iPhone-Application,79
+ActiveGS,ogoguel,activegs-ios,28
+RetroArch,libretro,RetroArch,2304
+MAME4iOS,yoshisuga,MAME4iOS,57
+DOSPad,litchie,dospad,151
+PPSSPP,hrydgard,ppsspp,3669
+FlappyBird clone - Scary Flight,EvgenyKarkan,ScaryFlight,22
+Google Feud,opensourceios,Google-Feud-iOS,0
+MiamiSunglasses,DeveloperACE,MiamiSunglasses,0
+nds4ios,raaxis,nds4ios,120
+iAmiga (iUAE),emufreak,iAmiga,29
+SwiftHub,sahandnayebaziz,StateView-Samples-SwiftHub,20
+Balloon Burst,jamiely,ios-balloon-burst,11
+Closebox,opensourceios,Closebox,0
+Sentiments,kyleweiner,Sentiments,161
+TSWeChat,hilen,TSWeChat,2836
+Colorblind,boostcode,ResearchKit-ColorBlind,9
+UitzendingGemist by 4np,4np,UitzendingGemist,46
+Fibonacc iClock,scribblemaniac,Fibonacc-iClock,2
+Chaty,LunarFlash,Chaty,335
+iCook TV,polydice,iCook-tvOS,52
+Tweetometer,BalestraPatrick,Tweetometer,79
+Neverlate,ayunav,Neverlate,24
+Telemat-tvOS,omichde,Telemat-tvOS,6
+NumberPad,bridger,NumberPad,75
+MAPS.ME,mapsme,omim,2678
+Castle Hassle,bryceredd,CastleHassle,117
+Skeleton Key,insurgentgames,Skeleton-Key-iOS,116
+Cryptose,insurgentgames,Cryptose,63
+Aeropack,insurgentgames,Aeropack,76
+teh internets,insurgentgames,teh-internets,60
+hoxChess,huygithub,hoxChess,31
+iLabyrinth,RolandasRazma,iLabyrinth,185
+Heredox,RolandasRazma,Heredox,33
+Pterodactyl Attack,shaunlebron,PterodactylAttack,31
+Neocom for EVE Online,mrdepth,Neocom,76
+Hostile Takeover,spiffcode,hostile-takeover,112
+AppSlate,Taehan-Kim,AppSlate,144
+Authenticator,mattrubin,authenticator,299
+CodeHub,CodeHubApp,CodeHub,15318
+Dragon Shout App 2,rblalock,dragon_shout_app_open_source,17
+Frotz,ifrotz,iosfrotz,25
+Inkpad,sprang,Inkpad,2561
+Wizard War,seanhess,wizardwar,561
+Prey,prey,prey-ios-client,235
+Prey,prey,prey-swift-client,11
+Radio Paradise,ilTofa,rposx,11
+Kodi,xbmc,xbmc,7077
+Kodi Remote,xbmc,xbmc,7077
+Antidote,Antidote-for-Tox,Antidote,322
+Tutanota,tutao,tutanota,1910
+Pisth,ColdGrub1384,Pisth,13
+Matomo,matomo-org,matomo-mobile-2,78
+Seafile Pro,haiwen,seafile-iOS,138
+OsmAnd Maps,osmandapp,Osmand,1469
+Habitica,HabitRPG,habitica-ios,179
+Kiwix,kiwix,apple,66
+FreeRDP,FreeRDP,FreeRDP,2415
+Minds,Minds,mobile,200
+Encryptr,SpiderOak,Encryptr,1505
+Spika,cloverstudio,Spika,487
+Onion Browser,OnionBrowser,OnionBrowser,970
+openHAB,openhab,openhab.ios,74
+Miataru,miataru,miataru-ios-client,9
+Wheelmap,sozialhelden,wheelmap-iphone2,8
+Ello,ello,ello-ios,685
+CodeBucket,thedillonb,CodeBucket,168
+Meme Maker,MemeMaker,Meme-Maker-iOS,37
+OpenIt,BalestraPatrick,OpenIt,109
+Awesome Swift iOS App,matteocrippa,awesome-swift-ios,21
+ABU,flexih,ABU,None
+Swift-Gif,pjchavarria,Swift-Gif,55
+Pictograph,MrAdamBoyd,Pictograph,16
+DownTube,MrAdamBoyd,DownTube,75
+Obědář,syky27,LunchGuy,5
+CaseAssistant,herrkaefer,CaseAssistant,136
+SwiftTextClock,MichMich,SwiftTextClock,32
+To Do List (Redux),uiheros,react-native-redux-todo-list,39
+SwiftBlog,BalestraPatrick,SwiftBlog,14
+American Chronicle,ryanipete,AmericanChronicle,14
+SaveTheDot,JakeLin,SaveTheDot,709
+RxMarbles,RxSwiftCommunity,RxMarbles,281
+Potatso,opensourceios,Potatso,0
+SIP Calculator,tirupati17,sip-calculator-swift,10
+Tagger,vanyaland,Tagger,26
+EMI Calculator,tirupati17,loan-emi-calculator-clean-swift,7
+My First Memory,Sajjon,SwiftIntro,56
+Mini vMac,zydeco,minivmac4ios,146
+Uncle Nagy's House,kenmickles,unh_tvos,3
+Abby's Cycle,jc4p,abby-healthkit,11
+Traccar Client,traccar,traccar-client-ios,96
+Traccar Manager,traccar,traccar-manager-ios,26
+2048,danqing,2048,1006
+Swab,pkamb,swab,3
+Blahker,ethanhuang13,blahker,78
+SHMUP,fabiensanglard,Shmup,200
+Themoji,themoji,ios,35
+Blink,blinksh,blink,1849
+Count It,PiXeL16,CountItApp,47
+Send To Me,PiXeL16,SendToMe,15
+Tob,JRock007,Tob,44
+DropColour,elpassion,DropColour-iOS,107
+Scholars of WWDC,WWDCScholars,iOS-app,49
+YaleMobile,kiokoo,YaleMobile,12
+Find My Bus NJ,findmybusnj,findmybusnj-swift,40
+NBAreact,jbkuczma,NBAreact,76
+Dono,opensourceios,dono-ios,0
+Post Manager,TomekB,PostManager,60
+Upcoming Movies,vanyaland,UpcomingMovies,17
+Hackfoldr,hackfoldr,hackfoldr-iOS,18
+RaceMe,enochng1,RaceMe,575
+LobsterApp,rhysforyou,LobsterApp,10
+Riot,vector-im,riot-ios,251
+Wire,wireapp,wire-ios,2396
+Conway's Game of Life (Vie),fabienwarniez,Vie,4
+Celluloid Photo Editing extension,100mango,Celluloid,542
+Master,Kjuly,iPokeMon,424
+osia,dkhamsing,osia,25
+MovieDict,lurado,MovieDict,6
+Facemotion,remirobert,Facemotion,125
+awesome-macOS,iCHAIT,awesome-macOS,7744
+open-source-android-apps,pcqpcq,open-source-android-apps,6978
+Munch,opensourceios,Munch,0
+Screenshotter,rsattar,screenshotter,78
+S.I.T. (雕刻时光),flexih,Cafe,22
+PixPic,Yalantis,PixPic,1028
+AlzPrevent,BBBInc,AlzPrevent-ios,8
+Good Living Guide: home snacks gifts beauty shopping..,hrscy,DanTang,584
+Communiqué,zadr,Communique,11
+Adler Planetarium Navigation & Tour,lucasqiu,Adler-Mobile-App,5
+Californication,vanyaland,Californication,35
+Tip Calculator,tirupati17,tip-calculator-auto-layout-viper-objective-c,2
+QR Blank,kahopoon,QR-Blank,23
+Simplenote,automattic,simplenote-ios,1476
+youtube-iOS,aslanyanhaik,youtube-iOS,1869
+30 days of React Native demos,fangwei716,30-days-of-react-native,4659
+HeartControl,thomaspaulmann,HeartControl,137
+Tenere News Reader,yavuz,Tenere,17
+OpenStreetView,openstreetcam,ios,29
+Pi,opensourceios,Pi,4
+Giraffe,evgeniyd,Giraffe,34
+iOS 10 Day by Day,ShinobiControls,iOS10-day-by-day,629
+AppRTC,ISBX,apprtc-ios,970
+iCepa,iCepa,iCepa,402
+Coffee Ratio,jmp9c,Coffee-Ratio,11
+Protocol-Oriented MVVM Examples,vanyaland,MVVM-Example,37
+pokevision,Morhaus,rn-pokevision,41
+AlcatrazTour,haranicle,AlcatrazTour,60
+Rewatch,Palleas,Rewatch,6
+pokemon-map,bakery,pokemon-map,26
+RxTodo,devxoul,RxTodo,943
+Vapor Chat,vapor-community,chat-ios-example,47
+Calvin and Hobbes Comic Viewer,sciencemanx,Calvin-and-Hobbes-Viewer,1
+Pocket Trailer,ptsochantaris,trailer,578
+Contributions for GitHub,JustinFincher,GitHubContributionsiOS,339
+S.C.P-Asylum-Fail,cpo007,S.C.P-Asylum-Fail,4
+iOSAppsInfo,wujianguo,iOSAppsInfo,166
+tpg offline,tpgoffline,tpg-offline-iOS,11
+Grove,kylebshr,grove-ios,8
+Currency Converter,tirupati17,currency-converter-swift3.0-viper,149
+Knuff,KnuffApp,Knuff-iOS,32
+Lunchify,sallar,lunchify-swift,32
+ESCapey,brianmichel,ESCapey,234
+Retriever,cyanzhong,Retriever,945
+Bat Loves Bugs,xyclos,BatLovesBugs,5
+DrugsNRock,biou,DrugsNRock,10
+FinalFighter,sebcode,FinalFighter-iphone,12
+Frogatto & Friends,frogatto,frogatto,375
+Green Mahjong,danbeck,green-mahjong,43
+Light-Jockey,jmfieldman,Light-Jockey,16
+Lumio,sephine,lumio,166
+LunarCore,cyanzhong,LunarCore,654
+News,vanyaland,News,10
+Alphabet-Blocks,insurgentgames,Alphabet-Blocks,107
+VIPER-SWIFT,mutualmobile,VIPER-SWIFT,393
+Space Zero,xyclos,space_squared,2
+Articles,pedrohperalta,Articles-iOS-VIPER,179
+Cepp,filipealva,Cepp,9
+Monal,anurodhp,Monal,139
+pass,davidjb,pass-ios,68
+try! Swift NYC,tryswift,trySwiftNYC,137
+Mergel,snazzware,Mergel,7
+Jasonette,Jasonette,JASONETTE-iOS,5051
+iperf,ndfred,iperf-ios,17
+Dash,Kapeli,Dash-iOS,6490
+Fetch,TryFetch,Fetch,76
+AirCheck,lojals,AirCheck,10
+CodeSprint,chauvincent,CodeSprint-iOS,19
+Homepok,iAlexander,Homepok,5
+NWPusher,noodlewerk,NWPusher,4221
+movieapp,JuneDomingo,movieapp,1257
+apnagent-ios,logicalparadox,apnagent-ios,45
+OpenClien,kewlbear,OpenClien,25
+TaskPaper,jessegrosjean,NOTTaskPaperForIOS,507
+Letters,jessegrosjean,letters.iphone,31
+Alien Blue,alienblue,AlienBlue,314
+theNews,TosinAF,thenews-objc,20
+Kickstarter,kickstarter,ios-oss,5994
+Monotone Delay,jkandzi,Monotone-Delay,9
+Vesper,brentsimmons,Vesper,337
+Marvel Comics,thiagolioy,marvelapp,128
+Pickery,Performador,Pickery,4
+Loose Leaf,adamwulf,loose-leaf,354
+Standard Notes,standardnotes,mobile,206
+Popular Movies,vanyaland,Popular-Movies,11
+MeetupOrganizer,ayunav,MeetupOrganizer,18
+Steps,gizmosachin,Steps,24
+DailyFeed,paulsumit1993,DailyFeed,51
+RealmTasks,realm,realm-tasks,347
+Listr,etchsaleh,Listr,7
+prox,mozilla-mobile,prox,22
+MobileTerminal,steventroughtonsmith,MobileTerminal,143
+Artist,orta,Relay-Artist-Example,15
+OMDB,gnithin,appceleratorOMDB,0
+Keybase,keybase,client,3666
+ooniprobe,TheTorProject,ooniprobe-ios,34
+5 Calls,5calls,ios,102
+4clock,nicolapps,4clock,2
+RxCurrency,inkyfox,RxCurrency_iOS,46
+try! Swift Tokyo,tryswift,trySwiftAppFinal,196
+WWDC Family iOS,3lvis,ios,36
+WWDCast,sgl0v,WWDCast,1
+Awesome ML,eugenebokhan,Awesome-ML,21
+Terrarium,penk,terrarium-app,201
+Blear,sindresorhus,blear,213
+Bíóhúsið,birkir,kvikmyndr-app,21
+TodayMind,cyanzhong,TodayMind,753
+花灰,lexrus,Huahui,140
+RealmPop,realm,RealmPop,37
+graygram,devxoul,graygram-ios,136
+BoardBank,richardxyx,BoardBank,135
+Giovanni,gabrieloc,GIOVANNI,688
+IBCalculator,JakeLin,IBCalculator,55
+github-issues,chriseidhof,github-issues,198
+Calculator by BalestraPatrick,BalestraPatrick,AppleWatchCalculator,134
+WatchNote,ezefranca,WatchNote,112
+Prayer in English,Flinesoft,Prayer,7
+WWDC Family React Native,wwdc-family,app,184
+Canvas,usecanvas,ios-v1,116
+LivelyGIFs,KrisYu,LivelyGIFs,65
+CrimeMapper,swwol,CrimeMapper,9
+11t,jeroensmeets,mastodon-app,74
+tootbot,tootbot,tootbot,20
+420! Alarm,efremidze,Alarm,11
+Tic-tac-toe,ijoshsmith,swift-tic-tac-toe,49
+Retro Skate,intere,retro-skate-tvOS,4
+Morse,ijoshsmith,swift-morse-code,5
+Forecast,richardxyx,Forecast,12
+GitHub Contributions,remirobert,Github-contributions,32
+Stopwatch,toggl,stopwatch,13
+Superday,opensourceios,superday,0
+Toshi,toshiapp,toshi-ios-client,118
+AppleWatchProductHunt,BalestraPatrick,AppleWatchProductHunt,10
+Helio Workstation,helio-fm,helio-workstation,1234
+Reviewery,vadymmarkov,reviewery-mobile,13
+Expo Client,expo,expo,3405
+boilerplate,tailec,boilerplate,339
+Krypton,kryptco,krypton-ios,201
+Drrrible,devxoul,Drrrible,325
+Prodigal Music Player,SpongeBobSun,Prodigal-iOS,16
+Northern California Cherry Blossom Festival,keitaito,NCCBF-iOS,7
+fudge,FredericJacobs,fudge,11
+Toggl Timer,toggl,mobileapp,68
+Product Catalogue,contentful,product-catalogue-swift,2
+Pinterest,ivsall2012,AHPinterest,37
+Compass,zntfdr,Compass,27
+Santa Tracker,keitaito,RealmSantaTracker,3
+Quickstart Samples,firebase,quickstart-ios,1108
+4Pets,feliborgez,4pets,5
+Triggy,jnordberg,triggy,10
+Papr,jdisho,Papr,350
+MechaHamster,google,mechahamster,89
+Whatsapp clone,VctrySam,whatsapp,1179
+Snapchat clone,VctrySam,SnapChat,539
+Pokemon Go clone,VctrySam,Pokemon,208
+Tinder clone,VctrySam,Tinder,550
+Twitter clone,VctrySam,Twitter,126
+AirBnb clone,VctrySam,AirBnb,372
+FC Barcelona clone,VctrySam,FCBarca,56
+PokeDB,satya164,PocketGear,157
+Pass,mssun,passforios,430
+Major Input,rlwimi,major-input,36
+Easy Diceware,cfdrake,easy-diceware,10
+TKeyboard,music4kid,TKeyboard,802
+CoinTracker,gregheo,CoinTracker,7
+ZeitSuche,niftycode,ZeitSuche_iOS,1
+MyWeight History,diogot,MyWeight,44
+lobsters-reader,cfdrake,lobsters-reader,3
+hexclock,cfdrake,hexclock,3
+Thoughtless,macgeekpro,Thoughtless,8
+AssociationBot,alexsosn,AssociationBot,11
+notGIF,atuooo,notGIF,79
+EconoApp,viniciusvieir,EconoApp,4
+Game of War clone,shankqr,4xMobileGame,31
+GitHawk,GitHawkApp,GitHawk,1006
+PassDrop,chadaustin,passdrop,20
+SimpleWeather,rnystrom,SimpleWeather,72
+NearbyWeather,erikmartens,NearbyWeather,17
+Gitify,manosim,gitify-mobile,81
+CastVideos,googlecast,CastVideos-ios,50
+CamShift,shihongzhi,CamShift-on-iOS,16
+GitPoint,gitpoint,git-point,3595
+PencilAnnotator,kevinzhangftw,PencilAnnotator,8
+Messenger,relatedcode,Messenger,3052
+Reading List,AndrewBennet,readinglist,52
+FuseCloud,fusetools,FuseCloud,68
+iStockcheck,AndrewBennet,iStockcheck,6
+Pokedex,yoha,Pokedex,0
+ZXing,zxing,zxing,18750
+Battle for Wesnoth,dailin,wesnoth_ios,19
+audiograph,tkzic,audiograph,415
+AntiMap,trentbrooks,AntiMap,177
+ColorCipher,obviousjim,ColorCipher,11
+climbers,haqu,climbers,292
+CamLingual,yoshiokatsuneo,camlingual_iphone,126
+Fresh-Food-Finder,triceam,Fresh-Food-Finder,154
+Dragon Shout,rblalock,dragon_shout_app_open_source,17
+Dollar Bets,Rich86man,Dollar-Bets,44
+Dicershaker,millenomi,diceshaker,127
+DWA Mobile,DesktopWebAnalytics,DWA_Mobile,12
+gbible,photokandyStudios,gbible,40
+MapBox Earth,mapbox,mapbox-earth,113
+Mugician,rfielding,Mugician,83
+NatsuLion,takuma104,ntlniph,523
+packlog,jdg,packlog,68
+PlainNote,vkoser,PlainNote,100
+Shuttle-Tracker,AbstractedSheep,Shuttle-Tracker,25
+SparkleShare,darvin,SparkleShare-iOS,43
+tweedie,aanon4,tweedie,50
+tweejump,haqu,tweejump,566
+warpedAR,Trevorrwarduk,warpedAR-Open-Source,43
+fosdem,leonhandreke,fosdem,48
+Scratch,johnmci,Scratch.app.for.iOS,93
+keyacid,keyacid,keyacid-iOS,7
+awesome-arkit,olucurious,awesome-arkit,4390
+Crosses-n-Ous,jVirus,ios-spritekit-tic-tac-toe,7
+SeeFood,kingreza,SeeFood,403
+iOS 11 by Examples,artemnovichkov,iOS-11-by-Examples,3197
+MADBike,alexruperez,MADBike,18
+Radium Web Browser,SlayterDev,RadiumBrowser,26
+Parse Dashboard,nathantannar4,Parse-Dashboard-for-iOS,40
+Crystal Clipboard,jzzocc,crystal-clipboard-ios,8
+AlohaGIF,michaello,Aloha,40
+Awesome Mobile Conference,aweconf,iOS,2
+SBSAnimoji,simonbs,SBSAnimoji,753
+SharedImages,crspybits,SharedImages,3
+Animoji Studio,insidegui,AnimojiStudio,846
+mosaix,shelly,mosaix,30
+Exchanger,vkaltyrin,exchanger,2
+ReviewMonitor,RishabhTayal,ReviewMonitor,109
+iOSDesignPatternSamples,marty-suzuki,iOSDesignPatternSamples,372
+OpenTerm,louisdh,openterm,1053
+Glucosio,Glucosio,glucosio-ios,40
+Shadertweak,opensourceios,Shadertweak,239
+Buglife,Buglife,Buglife-iOS,429
+iPokeGo,istornz,iPokeGo,655
+Face Landmarks Detection,mattlawer,FaceLandmarksDetection,69
+MajorKey,KrauseFx,MajorKey,78
+Stocks-iOS,MauriceArikoglu,stocks-ios,5
+wallabag,wallabag,ios-app,54
+BitPrice,Bruno-Furtado,bitprice-ios,15
+iOSSwiftMetalCamera,bradley,iOSSwiftMetalCamera,74
+ChainReactApp,infinitered,ChainReactApp,359
+Snowflake,bartonhammond,snowflake,4145
+iVim,terrychou,iVim,96
+Reminders,tiagomartinho,Reminders,233
+CutTheNotch,Naituw,CutTheNotch,85
+The Wave - A Jeep Marketplace,xYello,ThePost,23
+Go Flashcards,roymckenzie,Go-Flashcards,12
+Cozy Drive,cozy,cozy-drive,22
+SUSI AI,fossasia,susi_iOS,566
+Bitrise,toshi0383,Bitrise-iOS,71
+OpenStack Foundation Summit,OpenStack-mobile,summit-app-ios,31
+Trust,TrustWallet,trust-wallet-ios,658
+Oh My Plane,softdevstory,OhMyPlane,8
+Evolution,Evolution-App,iOS,136
+RaceRunner,vermont42,RaceRunner,26
+Conjugar,vermont42,Conjugar,5
+Nextcloud,nextcloud,ios,263
+Nextcloud Talk,nextcloud,talk-ios,8
+Padlock,padlock,padlock,655
+Pastebin Mobile,jonluca,PasteBinApp,9
+Ciao,clintonwoo,ciao,5
+Locations for LOST,AdrienVillez,LOST-Location,7
+Local Storage,geberl,swift-localstorage,5
+Queue'd Music,rldaulton,queued-music,29
+TLS Inspector,certificate-helper,tls-inspector,48
+Beam,awkward,beam,82
+Adguard,AdguardTeam,AdguardForiOS,246
+MetaX,Ckitakishi,MetaX,8
+FSNotes,glushchenko,fsnotes,600
+Smart Wallet,novinfard,SmartWallet,2
+Boostnote,BoostIO,boostnote-mobile,514
+SnowHaze,snowhaze,SnowHaze-iOS,4
+Transcription Helper,novinfard,TranscriptionHelper,1
+Recast,cuappdev,podcast-ios,167
+FityIt,txaiwieser,FityIt,19
+Mojilist,thiagoricieri,Mojilist,41
+Wei Wallet,popshootjapan,WeiWallet-iOS,87
+Bitwarden,bitwarden,mobile,426
+Nightguard,nightscout,nightguard,29
+Falcon Messenger,RMizin,FalconMessenger,22
