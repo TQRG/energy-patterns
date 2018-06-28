@@ -148,7 +148,7 @@
   occurrences_android:
     issues:
       - https://github.com/deltachat/deltachat-android/issues/186
-      - https://github.com/nextcloud/android/issues/1654 FIXME
+      - https://github.com/nextcloud/android/issues/1654
       - https://github.com/bailuk/AAT/issues/12
       - https://github.com/commons-app/apps-android-commons/issues/871
       - https://github.com/vector-im/riot-android/issues/616
@@ -263,6 +263,8 @@
       - https://github.com/mozilla-mobile/focus-android/issues/2003
   references:
     - url: https://stackoverflow.com/questions/3065920/is-gzip-compression-useful-for-mobile-devices
+      title: Is gzip compression useful for mobile devices?
+      authors: Stackoverflow.
     - title: Reducing battery consumption of data polling and pushing techniques on Android using GZip
       url: http://ieeexplore.ieee.org/document/7409011/
       authors: Sirapat Boonkrong, Pham Cao Dinh
@@ -294,6 +296,7 @@
       url: https://www.technipages.com/does-wi-fi-consume-more-battery-power-than-3g-or-4glte
     - title: Modifying your Download Patterns Based on the Connectivity Type
       url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
+      authors: Android SDK Documentation
 - name: Surpress Logs
   related:
     - Avoid unnecessary work
@@ -313,9 +316,9 @@
       - https://github.com/M66B/NetGuard/pull/505
   references:
     - title: An exploratory study on assessing the energy impact of logging on Android applications
-    - authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
-    - url: https://link.springer.com/article/10.1007/s10664-017-9545-x
-    - position: Not necessary when logs are generated at rates of ≤ 1 message per second
+      authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
+      url: https://link.springer.com/article/10.1007/s10664-017-9545-x
+      position: Not necessary when logs are generated at rates of ≤ 1 message per second
 - name: Batch Operations
   aka: Lazy First — Coalesce, Inexact Schedulling
   description: Batch multiple operations, instead of putting the device into an active state many times.
@@ -346,10 +349,13 @@
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
+      authors: Android SDK Documentation
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
+      authors: Android SDK Documentation
     - title: "DevBytes: Efficient Data Transfers - Batching, Bundling, and SyncAdapters"
       url: https://www.youtube.com/watch?v=5onKZcJyJwI
+      authors: Android Developers Youtube Channel.
 
 - name: Cache
   aka: Lazy First — reduce
@@ -376,8 +382,9 @@
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/tgwizard/sls/pull/340
   references:
-    - title: Android Developer Guides — Optimizing for Battery Life
+    - title: Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
+      authors: Android Developer Guides.
 - name: Decrease rate
   related:
     - Enough resolution
@@ -521,6 +528,7 @@
   references:
     - title: Movement Detection for Power-Efficient Smartphone WLAN Localization
       url: https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/ishafer/pubs/localization-mswim10.pdf
+      authors: Ilari Shafer, Mark L. Chang.
 
 - name: Kill abnormal tasks
   description: Provide means of interrupting energy greedy operations (e.g., using timeouts, or users input)

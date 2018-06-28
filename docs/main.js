@@ -33,11 +33,23 @@
           });
 
           Handlebars.registerHelper("list_occurrences", function(occurrences_list) {
-            var html = $('<ul></ul>');//.addClass('list-group');
-            occurrences_list.forEach(function(element){
-              html.append($("<li>- <a href='"+element+"' target='_blank'>"+element+"</a></li>"));//.addClass('list-group-item'));
-            });
-            return '<ul class="list-unstyled">'+html.html()+'</ul>';
+            if(occurrences_list != undefined){
+              var html = $('<ul></ul>');//.addClass('list-group');
+              occurrences_list.forEach(function(element){
+                html.append($("<li>- <a href='"+element+"' target='_blank'>"+element+"</a></li>"));//.addClass('list-group-item'));
+              });
+              return '<ul class="list-unstyled">'+html.html()+'</ul>';
+            }
+          });
+          
+          Handlebars.registerHelper("list_references", function(references_list) {
+            if(references_list != undefined){
+              var html = $('<ul></ul>');
+              references_list.forEach(function(element){
+                html.append($("<li class='small'>- "+element.authors+" <a href='"+element.url+"' target='_blank'>"+element.title+"</a></li>"));//.addClass('list-group-item'));
+              });
+              return '<ul class="list-unstyled">'+html.html()+'</ul>';
+            }
           });
           
           Handlebars.registerHelper("escape_pattern_name", function(name) {

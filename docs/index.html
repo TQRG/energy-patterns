@@ -73,13 +73,16 @@
           <p>{{context}}</p>
           <h3>Solution</h3>
           <p>{{solution}}</p>
+          {{#if references}}
+          <h3>References</h3>
+          {{{list_references references}}}
+          {{/if}}
           <h3>Occurences</h3>
           {{#if occurrences_android}}
           <h4>
             <ion-icon name="logo-android"></ion-icon>
             Android
           </h4>
-            {{#if occurrences_android.issues}}
               <div class="card">
                 <h6 class="card-header">
                   <ion-icon name="alert"></ion-icon>
@@ -87,10 +90,11 @@
                 </h6>
                 <div class="card-body">
                   {{{list_occurrences occurrences_android.issues}}}
+            {{#unless occurrences_android.issues}}
+              <em class='text-muted'>No issues.</em>
+            {{/unless}}
                 </div>
               </div>
-            {{/if}}
-            {{#if occurrences_android.pull_requests}}
               <div class="card">
                 <h6 class="card-header">
                   <ion-icon name="git-pull-request"></ion-icon>
@@ -98,10 +102,12 @@
                 </h6>
                 <div class="card-body">
                   {{{list_occurrences occurrences_android.pull_requests}}}
+            {{#unless occurrences_android.pull_requests}}
+              <em class='text-muted'>No pull requests.</em>
+            {{/unless}}
+            
                 </div>
               </div>
-            {{/if}}
-            {{#if occurrences_android.commits}}
               <div class="card">
                 <h6 class="card-header">
                   <ion-icon name="git-commit"></ion-icon>
@@ -109,9 +115,11 @@
                 </h6>
                 <div class="card-body">
                   {{{list_occurrences occurrences_android.commits}}}
+                  {{#unless occurrences_android.commits}}
+                    <em class='text-muted'>No pull commits.</em>
+                  {{/unless}}
                 </div>
               </div>
-            {{/if}}
           {{/if}}
           {{#if occurrences_ios}}
           <h4>
