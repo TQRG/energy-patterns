@@ -33,7 +33,6 @@
           });
 
           Handlebars.registerHelper("list_occurrences", function(occurrences_list) {
-            console.log(occurrences_list)
             var html = $('<ul></ul>').addClass('list-group');
             occurrences_list.forEach(function(element){
               html.append($("<li><a href='"+element+"'>"+element+"</a></li>").addClass('list-group-item'));
@@ -58,6 +57,13 @@
             listPatterns()
           }
           
+          var scroll_to_top = function(){
+            // For Safari
+            document.body.scrollTop = 0;
+            // For Chrome, Firefox, IE and Opera
+            document.documentElement.scrollTop = 0;
+          }
+          
           var unescape_pattern_name = function(name){
               return name.replace(/_/g, ' ');
           }
@@ -77,7 +83,7 @@
             '/patterns/:name': viewPattern
           };
 
-          var router = Router(routes).configure({'notfound':notfound});
+          var router = Router(routes).configure({'notfound':notfound, 'on': scroll_to_top});
           if(location.hash == ""){
             if(history.pushState) {
                 history.pushState(null, null, '#/');
@@ -86,9 +92,7 @@
                 location.hash = '#/';
             }  
           }
-          router.init();
-          
-          console.log('ok')
+          router.init()
         });
     });
 }());
