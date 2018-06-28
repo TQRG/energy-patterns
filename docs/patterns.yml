@@ -324,7 +324,7 @@
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Combine different operations in a single one.
-  example: "Use Job Schedulling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occuring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constanlly exiting sleep mode (or doze mode). Another example: execute only if another task is using the required resource. Anothete.g., ask for location while setting 'notification responsiveness' with a reasonable delay." ANOTHER EXAMPLE: colect location data only when other app collects it as well.
+  example: "Use Job Scheduling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occurring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constantly exiting sleep mode (or doze mode). Other examples: execute only if another task is using the required resource; ask for location while setting 'notification responsiveness' with a reasonable delay; collect location data only when other app collects it as well."
   occurrences_android:
     issues:
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/379
@@ -361,7 +361,7 @@
   aka: Lazy First — reduce
   description: Avoid performing unnecessary operations by using cache mechanisms.
   context: Typically mobile apps present data to users that is collect from a remote server. However, it may happen that the same data is being collected from the server multiple times.
-  solution: Implement chaching mechanisms to temporarly store data from server. In addition, verify whether there is an update before downloading all data.
+  solution: Implement caching mechanisms to temporarly store data from server. In addition, verify whether there is an update before downloading all data.
   example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures everytime a given profile is opened, use data that was locally stored from earlier visits.
   related:
     - Avoid unnecessary work
