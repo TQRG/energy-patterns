@@ -75,6 +75,7 @@
       - https://github.com/ukanth/afwall/issues/649
       - https://github.com/QuantumBadger/RedReader/issues/204
       - https://github.com/openbmap/radiocells-scanner-android/issues/175
+      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
       - https://github.com/ubergeek42/weechat-android/issues/73
       - https://github.com/freeotp/freeotp-android/issues/24
       - https://github.com/klassm/andFHEM/issues/1183
@@ -386,7 +387,8 @@
     - Enough resolution
   description: Increase time between syncs/sensor reads as much as possible.
   context: Mobile apps have to periodically perform operations. If a the time between two executions is small, the app will be executing operations more often. In some cases, even if operations are executed more often, it will not affect users' perception.
-  solution:  Increase the delay between operations to find the minimal interval that do not compromise user experience. This delay can also depend on context, or can be defined by users.
+  solution:  Increase the delay between operations to find the minimal interval that do not compromise user experience. This delay can be manually tuned by developers or defined by users. More sophisticated solutions can aso use context (e.g., time of the day, history data, etc.) to infer the optimal update rate.
+  example: Consider a news app that collects news from different sources, each one having its own thread. Some news sources might have new content only once a week, while others might be updated every hour. Instead of updating all threads at the same rate, use data from previous updates to infer the optimal update rate of these threads. Connect to the source only if new updates are expected.
   occurrences_android:
     issues:
       - https://github.com/opacapp/opacclient/issues/492
@@ -412,6 +414,7 @@
       - https://github.com/ankidroid/Anki-Android/commit/9193806eb0546bf8d7c040ad40272d632b4d3e99
       - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
       - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
+      - https://github.com/samuelclay/NewsBlur/commit/71b746a48daa687fb94339d21fb5cd00bf229c2f
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/264
 - name: User knows best
@@ -500,10 +503,12 @@
       - https://github.com/mvglasow/satstat/pull/141
       - https://github.com/mozilla/MozStumbler/pull/14
 - name: Sensor Fusion
-  example: Use data from accelerometer to infer whether location should be updated
+  description: Use data from low power sensors to infer whether new data needs to be collected from high power sensors
+  context: Mobile apps provide features that require reading data or executing operations in different sensors or components. Such operations can be energy greedy, causing high power consumption. Thus, they should be called as less times as possible.
+  solution: Use complementaray data low power sensors to assure whether a given energy-greedy operation needs to be executed.
+  example: Use accelerometer to infer whether GPS location should be updated.
   related:
     - enough resolution
-    - Smart poller / dynamically adjust sync rate
   occurrences_android:
     issues:
       - https://github.com/tananaev/traccar-client-android/issues/288
@@ -521,10 +526,11 @@
     - title: Movement Detection for Power-Efficient Smartphone WLAN Localization
       url: https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/ishafer/pubs/localization-mswim10.pdf
 
-- name: Reasonable timeout
-  description: Interrupt tasks that are taking an abnormal time to execute. Provide a reasonable timeout for tasks or wakelocks. (also used in alarms when the user forgets to turn it off)
-  related:
-    - Dynamic retry delay
+- name: Kill abnormal tasks
+  description: Provide means of interrupting energy greedy operations (e.g., using timeouts, or users input)
+  context: Mobile apps might feature operations that can be unexpectedly energy greedy (e.g., taking a long time to execute).
+  solution: Provide a reasonable timeout for tasks or wakelocks. Alternatively provide an intuitive way of interrupting those tasks.
+  example: In a mobile app that features an alarm clock, set a reasonable timeout for the duration of the alarm.. In case the user is not able to turn it off it will not drain the battery.
   occurrences_android:
     commits:
       - https://github.com/jroal/a2dpvolume/commit/7723d698b690b94e01380a4618cb55f700c724c3
@@ -536,187 +542,176 @@
       - https://github.com/drpout/boilr/issues/140
       - https://github.com/frankmorgner/vsmartcard/issues/22
       - https://github.com/abarisain/dmix/issues/3
-
-- name: Stop on Demand
-  description: Provide users with means to stop battery intensive operations.
-  occurrences_android:
-    issues:
       - https://github.com/jensstein/oandbackup/issues/102
       - https://github.com/jensstein/oandbackup/issues/97
 
-- name: Infer instead of asking
-  description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
-  occurrences_android:
-    issues:
-      - https://github.com/kontalk/androidclient/issues/378
-
-- name: no screen
-  description: whenever possible allow interaction without using the display.
-  related:
-    - Close immediately
-  occurrences_android:
-    issues:
-      - https://github.com/anthonycr/Lightning-Browser/issues/342
-      - https://github.com/philliphsu/ClockPlus/issues/14
-      - https://github.com/xbmc/Kore/issues/157
-      - https://github.com/i-p-tel/sipdroid/issues/709
-      - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
-      - https://github.com/signalapp/Signal-Android/issues/6258
-      - https://github.com/ThibaudM/timelapse-sony/issues/14
-    pull_requests:
-      - https://github.com/inorichi/tachiyomi/pull/1177
-
-
-- name: Offline mode
-  description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
-  related:
-    - Lazy First (Reduce)
-    - Lazy First (Coalesce)
-  occurrences_android:
-    issues:
-      - https://github.com/hidroh/materialistic/issues/659
-      - https://github.com/nilsbraden/ttrss-reader-fork/issues/156
-
-- name: Smart poller / dynamically adjust sync rate
-  description: Analyze history of a feed to understand how often it is updated. Automatically adjust update times based on that.
-  occurrences_android:
-    commits:
-      - https://github.com/samuelclay/NewsBlur/commit/71b746a48daa687fb94339d21fb5cd00bf229c2f
-
-- name: Obsolete
-  description: remove properties that do not have any effect.
-  example: obsolete params in views
-  related:
-    - Avoid unnecessary work
-  occurrences_android:
-    commits:
-      - https://github.com/grzegorznittner/chanu/commit/2640dc50ab8150341da30bc4d282f8ac8f5aa4c5
-    pull_requests:
-      - https://github.com/SecUSo/privacy-friendly-sudoku/pull/19
-      - https://github.com/vitas/beaconloc/pull/13
-      - https://github.com/redfish64/TinyTravelTracker/pull/59
-      - https://github.com/ccrama/Slide/pull/2347
-      - https://github.com/bfabiszewski/ulogger-android/pull/20
-      - https://github.com/vijai1996/screenrecorder/pull/16
-      - https://github.com/SecUSo/privacy-friendly-qr-scanner/pull/19
-      - https://github.com/ligi/SCR/pull/5
-      - https://github.com/klausw/hackerskeyboard/pull/540
-      - https://github.com/koelleChristian/trickytripper/pull/27
-      - https://github.com/Utyff/pMetro/pull/15
-      - https://github.com/Sensirion/SmartGadget-Android/pull/38
-      - https://github.com/greenaddress/GreenBits/pull/200
-
-- name: Offload heavy operations
-  description:
-  occurrences_android:
-    issues:
-      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
-
-- name: Reduce graphic animations
-  description:
-  warning: Particularly important on e-ink devices.
-  occurrences_android:
-    commits:
-      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
-      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
-    issues:
-      - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
-      - https://github.com/ankidroid/Anki-Android/issues/3022
-      - https://github.com/HoraApps/LeafPic/issues/250
-      - https://github.com/Etuldan/spaRSS/issues/11
-      - https://github.com/aarddict/android/issues/28
-
-- name: Schedulle and Sleep
-  description: use AlarmManager for updates, instead of using Wakelocks, Services.
-  related:
-    - Close Immediately
-  occurrences_android:
-    issues:
-      - https://github.com/tananaev/traccar-client-android/issues/240
-      - https://github.com/tananaev/traccar-client-android/issues/11
-      - https://github.com/tananaev/traccar-client-android/issues/11
-      - https://github.com/indywidualny/FaceSlim/issues/212
-    pull_requests:
-      - https://github.com/klausw/hackerskeyboard/pull/539
-
-- name: Manual Sync, On Demand
-  description: Perform tasks only when the user specifically asks.
-  occurrences_android:
-    issues:
-      - https://github.com/drpout/boilr/issues/128
-      - https://github.com/drpout/boilr/issues/131
-      - https://github.com/redsolution/xabber-android/issues/174
-
-- name: No Ads
-  occurrences_android:
-    issues:
-      - https://github.com/mozilla-mobile/focus-android/issues/2082
-
-- name: Play on demand
-  description: Do not automatically start playing media content.
-  context:
-    occurrences_android:
-      issues:
-        - https://github.com/mozilla-mobile/focus-android/issues/2003
-
-- name: Kill the battery optimizer (anti pattern)
-  description: Most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
-  occurrences_android:
-    issues:
-      - https://github.com/siacs/Conversations/issues/2775
-      - https://github.com/siacs/Conversations/issues/1725
-      - https://github.com/Freeyourgadget/Gadgetbridge/issues/782
-      - https://github.com/Freeyourgadget/Gadgetbridge/issues/564
-      - https://github.com/julian-klode/dns66/issues/166
-      - https://github.com/romannurik/muzei/issues/207
-      - https://github.com/romannurik/muzei/issues/190
-      - https://github.com/michaelkourlas/voipms-sms-client/issues/137
-      - https://github.com/termux/termux-app/issues/377
-      - https://github.com/tananaev/traccar-client-android/issues/240
-      - https://github.com/LibreShift/red-moon/issues/213
-      - https://github.com/gsurrel/FacebookNotifications/issues/33
-      - https://github.com/erickok/transdroid/issues/417
-      - https://github.com/httpdispatch/MissedNotificationsReminder/issues/1
-      - https://github.com/khertan/ForRunners/issues/46
-    commits:
-      - https://github.com/siacs/Conversations/commit/d5608cb4f3bd357e46513a38b8f3676049992dcc
-      - https://github.com/siacs/Conversations/commit/e6a9829dd2b275f80231b19930fbb75b209f4c2e
-      - https://github.com/siacs/Conversations/commit/aa6955a0d687c0310d69658d0a68facb798daaf6
-      - https://github.com/siacs/Conversations/commit/c296d6f4466e2616432660bb01465f3746e1bb65
-      - https://github.com/quarck/CalendarNotification/commit/118d6802e539e10c0fabd0f968de8e57ed2446e0
-      - https://github.com/deltachat/deltachat-android/commit/e2225be331d4c041510b988d03f171b7532a1355
-      - https://github.com/deltachat/deltachat-android/commit/b941b9e21a2787308755f092ce92ca048bdbcd84
-      - https://github.com/syncthing/syncthing-android/commit/31721af0c3a00e4a9a2434e50f34
-      - https://github.com/syncthing/syncthing-android/commit/f005fcd1d2b0d197eab706a2d5a36520f7f2ff82
-      - https://github.com/jackpal/Android-Terminal-Emulator/commit/c40111ffeb3523cede1d76731901b7cb73c7dca0
-      - https://github.com/kontalk/androidclient/commit/391f01742ef8c618499ef6dd02d02b35b669d14d
-      - https://github.com/fython/Blackbulb/commit/aee784223b1860759381d269f9572bad01189607
-      - https://github.com/etesync/android/commit/d675fb961ea67b665c6e0ead3e6e84c9297a7d8c
-      - https://github.com/redsolution/xabber-android/commit/725be496fee04402685e1a129249414e0a6867f8
-      - https://github.com/httpdispatch/MissedNotificationsReminder/commit/09255c310dfd429c3e7907a284c054923c3fb814
-    pull_requests:
-      - https://github.com/microg/android_packages_apps_GmsCore/pull/197
-      - https://github.com/microg/android_packages_apps_UnifiedNlp/pull/100
-      - https://github.com/wiglenet/wigle-wifi-wardriving/pull/115
-  references:
-    - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
-      url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
-
-- name: Permanent notification (anti pattern)
-  occurrences_android:
-    issues:
-      - https://github.com/nextcloud/android/issues/2130
-      - https://github.com/redfish64/TinyTravelTracker/issues/54
-      - https://github.com/tgwizard/sls/issues/384
-
-- name: Kill the app FIXME (anti pattern?)
-  description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
-  context: there is data connection but is low quality, which may result in battery drain for heavy data transfers.
-  occurrences_android:
-    issues:
-      - https://github.com/k9mail/k-9/issues/1066
-  references:
-    - title: Modifying your Download Patterns Based on the Connectivity Type FIXME
-      url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
-    - title: Closing apps to save your battery only makes things worse
-      url:  https://www.wired.com/2016/03/closing-apps-save-battery-makes-things-worse/
+# - name: no screen
+#   description: whenever possible allow interaction without using the display.
+#   related:
+#     - Close immediately
+#   occurrences_android:
+#     issues:
+#       - https://github.com/anthonycr/Lightning-Browser/issues/342
+#       - https://github.com/philliphsu/ClockPlus/issues/14
+#       - https://github.com/xbmc/Kore/issues/157
+#       - https://github.com/i-p-tel/sipdroid/issues/709
+#       - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
+#       - https://github.com/signalapp/Signal-Android/issues/6258
+#       - https://github.com/ThibaudM/timelapse-sony/issues/14
+#     pull_requests:
+#       - https://github.com/inorichi/tachiyomi/pull/1177
+#
+#
+# - name: Obsolete
+#   description: remove properties that do not have any effect.
+#   example: obsolete params in views
+#   related:
+#     - Avoid unnecessary work
+#   occurrences_android:
+#     commits:
+#       - https://github.com/grzegorznittner/chanu/commit/2640dc50ab8150341da30bc4d282f8ac8f5aa4c5
+#     pull_requests:
+#       - https://github.com/SecUSo/privacy-friendly-sudoku/pull/19
+#       - https://github.com/vitas/beaconloc/pull/13
+#       - https://github.com/redfish64/TinyTravelTracker/pull/59
+#       - https://github.com/ccrama/Slide/pull/2347
+#       - https://github.com/bfabiszewski/ulogger-android/pull/20
+#       - https://github.com/vijai1996/screenrecorder/pull/16
+#       - https://github.com/SecUSo/privacy-friendly-qr-scanner/pull/19
+#       - https://github.com/ligi/SCR/pull/5
+#       - https://github.com/klausw/hackerskeyboard/pull/540
+#       - https://github.com/koelleChristian/trickytripper/pull/27
+#       - https://github.com/Utyff/pMetro/pull/15
+#       - https://github.com/Sensirion/SmartGadget-Android/pull/38
+#       - https://github.com/greenaddress/GreenBits/pull/200
+#
+#
+#
+# - name: Infer instead of asking
+#   description: Some data can be calculated by the phone instead of asking the server (E.g, Time since message was sent)
+#   occurrences_android:
+#     issues:
+#       - https://github.com/kontalk/androidclient/issues/378
+#
+# - name: Offline mode
+#   description: Allow users to download content upfront so that this information does not need to be downloaded each time and/or separately.
+#   related:
+#     - Lazy First (Reduce)
+#     - Lazy First (Coalesce)
+#   occurrences_android:
+#     issues:
+#       - https://github.com/hidroh/materialistic/issues/659
+#       - https://github.com/nilsbraden/ttrss-reader-fork/issues/156
+#
+# - name: Offload heavy operations
+#   description:
+#   occurrences_android:
+#     issues:
+#       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
+#
+# - name: Reduce graphic animations
+#   description:
+#   warning: Particularly important on e-ink devices.
+#   occurrences_android:
+#     commits:
+#       - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
+#     issues:
+#       - https://github.com/ankidroid/Anki-Android/issues/3022
+#       - https://github.com/HoraApps/LeafPic/issues/250
+#       - https://github.com/Etuldan/spaRSS/issues/11
+#       - https://github.com/aarddict/android/issues/28
+#
+# - name: Schedulle and Sleep
+#   description: use AlarmManager for updates, instead of using Wakelocks, Services.
+#   related:
+#     - Close Immediately
+#   occurrences_android:
+#     issues:
+#       - https://github.com/tananaev/traccar-client-android/issues/240
+#       - https://github.com/tananaev/traccar-client-android/issues/11
+#       - https://github.com/tananaev/traccar-client-android/issues/11
+#       - https://github.com/indywidualny/FaceSlim/issues/212
+#     pull_requests:
+#       - https://github.com/klausw/hackerskeyboard/pull/539
+#
+# - name: Manual Sync, On Demand
+#   description: Perform tasks only when the user specifically asks.
+#   occurrences_android:
+#     issues:
+#       - https://github.com/drpout/boilr/issues/128
+#       - https://github.com/drpout/boilr/issues/131
+#       - https://github.com/redsolution/xabber-android/issues/174
+#
+# - name: No Ads
+#   occurrences_android:
+#     issues:
+#       - https://github.com/mozilla-mobile/focus-android/issues/2082
+#
+# - name: Play on demand
+#   description: Do not automatically start playing media content.
+#   context:
+#     occurrences_android:
+#       issues:
+#         - https://github.com/mozilla-mobile/focus-android/issues/2003
+#
+# - name: Kill the battery optimizer (anti pattern)
+#   description: Most battery optimizers are actually app killers. However, very often users are not aware of the implications of battery optimiers that are running on their devices. Thus, users assume that apps are misfunctioning due to their poor quality.
+#   occurrences_android:
+#     issues:
+#       - https://github.com/siacs/Conversations/issues/2775
+#       - https://github.com/siacs/Conversations/issues/1725
+#       - https://github.com/Freeyourgadget/Gadgetbridge/issues/782
+#       - https://github.com/Freeyourgadget/Gadgetbridge/issues/564
+#       - https://github.com/julian-klode/dns66/issues/166
+#       - https://github.com/romannurik/muzei/issues/207
+#       - https://github.com/romannurik/muzei/issues/190
+#       - https://github.com/michaelkourlas/voipms-sms-client/issues/137
+#       - https://github.com/termux/termux-app/issues/377
+#       - https://github.com/tananaev/traccar-client-android/issues/240
+#       - https://github.com/LibreShift/red-moon/issues/213
+#       - https://github.com/gsurrel/FacebookNotifications/issues/33
+#       - https://github.com/erickok/transdroid/issues/417
+#       - https://github.com/httpdispatch/MissedNotificationsReminder/issues/1
+#       - https://github.com/khertan/ForRunners/issues/46
+#     commits:
+#       - https://github.com/siacs/Conversations/commit/d5608cb4f3bd357e46513a38b8f3676049992dcc
+#       - https://github.com/siacs/Conversations/commit/e6a9829dd2b275f80231b19930fbb75b209f4c2e
+#       - https://github.com/siacs/Conversations/commit/aa6955a0d687c0310d69658d0a68facb798daaf6
+#       - https://github.com/siacs/Conversations/commit/c296d6f4466e2616432660bb01465f3746e1bb65
+#       - https://github.com/quarck/CalendarNotification/commit/118d6802e539e10c0fabd0f968de8e57ed2446e0
+#       - https://github.com/deltachat/deltachat-android/commit/e2225be331d4c041510b988d03f171b7532a1355
+#       - https://github.com/deltachat/deltachat-android/commit/b941b9e21a2787308755f092ce92ca048bdbcd84
+#       - https://github.com/syncthing/syncthing-android/commit/31721af0c3a00e4a9a2434e50f34
+#       - https://github.com/syncthing/syncthing-android/commit/f005fcd1d2b0d197eab706a2d5a36520f7f2ff82
+#       - https://github.com/jackpal/Android-Terminal-Emulator/commit/c40111ffeb3523cede1d76731901b7cb73c7dca0
+#       - https://github.com/kontalk/androidclient/commit/391f01742ef8c618499ef6dd02d02b35b669d14d
+#       - https://github.com/fython/Blackbulb/commit/aee784223b1860759381d269f9572bad01189607
+#       - https://github.com/etesync/android/commit/d675fb961ea67b665c6e0ead3e6e84c9297a7d8c
+#       - https://github.com/redsolution/xabber-android/commit/725be496fee04402685e1a129249414e0a6867f8
+#       - https://github.com/httpdispatch/MissedNotificationsReminder/commit/09255c310dfd429c3e7907a284c054923c3fb814
+#     pull_requests:
+#       - https://github.com/microg/android_packages_apps_GmsCore/pull/197
+#       - https://github.com/microg/android_packages_apps_UnifiedNlp/pull/100
+#       - https://github.com/wiglenet/wigle-wifi-wardriving/pull/115
+#   references:
+#     - title: Optimizing for Doze and App Standby -— Acceptable Use Cases for Whitelisting
+#       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html#whitelisting-cases
+#
+# - name: Permanent notification (anti pattern)
+#   occurrences_android:
+#     issues:
+#       - https://github.com/nextcloud/android/issues/2130
+#       - https://github.com/redfish64/TinyTravelTracker/issues/54
+#       - https://github.com/tgwizard/sls/issues/384
+#
+# - name: Kill the app FIXME (anti pattern?)
+#   description: Provide users with means to easily kill the app. FIXME can we even consider this. it sounds like bad practice.
+#   context: there is data connection but is low quality, which may result in battery drain for heavy data transfers.
+#   occurrences_android:
+#     issues:
+#       - https://github.com/k9mail/k-9/issues/1066
+#   references:
+#     - title: Modifying your Download Patterns Based on the Connectivity Type FIXME
+#       url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
+#     - title: Closing apps to save your battery only makes things worse
+#       url:  https://www.wired.com/2016/03/closing-apps-save-battery-makes-things-worse/
