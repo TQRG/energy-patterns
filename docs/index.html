@@ -10,7 +10,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Energy Patterns for Mobile Apps</title>
+        <title>
+          Energy Patterns for Mobile Apps
+        </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -24,7 +26,10 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron jumbotron-fluid" style="background-color:#c3e6cb">
       <div class="container">
-        <h1>Energy Patterns for Mobile Apps</h1>
+        <h1>
+          <ion-icon name="ios-leaf"></ion-icon>
+          Energy Patterns for Mobile Apps
+        </h1>
         <p>We are a group of researchers from
           <a href='http://idss.inesc-id.pt' target='_blank'>INESC-ID</a>
           creating an <strong>open catalogue of energy-related patterns in mobile applications</strong>.
@@ -70,22 +75,49 @@
           <p>{{solution}}</p>
           <h3>Occurences</h3>
           {{#if occurrences_android}}
-          <h4>Android</h4>
+          <h4>
+            <ion-icon name="logo-android"></ion-icon>
+            Android
+          </h4>
             {{#if occurrences_android.issues}}
-              <h5>Issues</h5>
-              {{{list_occurrences occurrences_android.issues}}}
+              <div class="card">
+                <h6 class="card-header">
+                  <ion-icon name="alert"></ion-icon>
+                  Issues
+                </h6>
+                <div class="card-body">
+                  {{{list_occurrences occurrences_android.issues}}}
+                </div>
+              </div>
             {{/if}}
             {{#if occurrences_android.pull_requests}}
-              <h5>Pull Requests</h5>
-              {{{list_occurrences occurrences_android.pull_requests}}}
+              <div class="card">
+                <h6 class="card-header">
+                  <ion-icon name="git-pull-request"></ion-icon>
+                  Pull Requests
+                </h6>
+                <div class="card-body">
+                  {{{list_occurrences occurrences_android.pull_requests}}}
+                </div>
+              </div>
             {{/if}}
             {{#if occurrences_android.commits}}
-              <h5>Commits</h5>
-              {{{list_occurrences occurrences_android.commits}}}
+              <div class="card">
+                <h6 class="card-header">
+                  <ion-icon name="git-commit"></ion-icon>
+                  Commits
+                </h6>
+                <div class="card-body">
+                  {{{list_occurrences occurrences_android.commits}}}
+                </div>
+              </div>
             {{/if}}
           {{/if}}
           {{#if occurrences_ios}}
-          <h4>iOS</h4>
+          <h4>
+            <ion-icon name="logo-apple"></ion-icon>
+            iOS
+          </h4>
           {{/if}}
 
 
@@ -106,6 +138,7 @@
         <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
         <script src="https://rawgit.com/flatiron/director/master/build/director.min.js"></script>
         <script src="main.js"></script>
+        <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <!-- <script>

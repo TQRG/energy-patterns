@@ -35,10 +35,6 @@
       - https://github.com/yeriomin/YalpStore/commit/34b5f82e8a1093d8a1cc5ca669ff435d65643625
     pull_requests:
       - https://github.com/rfc2822/GfxTablet/pull/73
-  occurrences_ios:
-    issues:
-    commits:
-    pull_requests:
   references:
     - authors: Agolli T, Pollock L, Clause J.
       title: Investigating decreasing energy usage in mobile apps via indistinguishable color changes.
