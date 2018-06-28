@@ -33,11 +33,11 @@
           });
 
           Handlebars.registerHelper("list_occurrences", function(occurrences_list) {
-            var html = $('<ul></ul>').addClass('list-group');
+            var html = $('<ul></ul>');//.addClass('list-group');
             occurrences_list.forEach(function(element){
-              html.append($("<li><a href='"+element+"'>"+element+"</a></li>").addClass('list-group-item'));
+              html.append($("<li><a href='"+element+"' target='_blank'>"+element+"</a></li>"));//.addClass('list-group-item'));
             });
-            return html.html();
+            return '<ul>'+html.html()+'</ul>';
           });
           
           Handlebars.registerHelper("escape_pattern_name", function(name) {
