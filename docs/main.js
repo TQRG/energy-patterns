@@ -63,6 +63,7 @@
             }
             var html = window.patterns_list_template(patterns);
             $("#main-content").html(html);
+            $(".extra").show();
           }
           
           var notfound = function(){
@@ -88,6 +89,7 @@
             }
             var html = window.pattern_show_template(patternData);
             $("#main-content").html(html);
+            $('.extra').hide()
           };
 
           var routes = {
