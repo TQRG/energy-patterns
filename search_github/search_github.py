@@ -5,6 +5,8 @@ import csv
 import re
 import time
 from random import randrange
+from random import randint
+from time import sleep
 
 from itertools import chain
 
@@ -58,24 +60,25 @@ def analyze_repo(user, project, retry=120):
     try:
         repo = get_repo(user, project)
         commits = repo.get_commits()
-        # for commit in commits:
-        #     commit_message = commit.commit.message
-        #     match = regexEnergy.search(commit_message)
-        #     if match:
-        #         print('----------------')
-        #         print("Repo {}/{}".format(user, repo))
-        #         print(commit_message)
-        #         print(commit.html_url)
-        #         result.append({
-        #             'user': user,
-        #             'repo': project,
-        #             'url': commit.html_url,
-        #             'ref': commit.sha,
-        #             'match': match.group(0),
-        #             'contribution_type': 'commit_message'
-        #         })
-        pull_requests = repo.get_pulls(state='closed')
-        issues = repo.get_issues(state='closed')
+        for commit in commits:
+            commit_message = commit.commit.message
+            match = regexEnergy.search(commit_message)
+            if match:
+                print('----------------')
+                print("Repo {}/{}".format(user, repo))
+                print(commit_message)
+                print(commit.html_url)
+                result.append({
+                    'user': user,
+                    'repo': project,
+                    'url': commit.html_url,
+                    'ref': commit.sha,
+                    'match': match.group(0),
+                    'contribution_type': 'commit_message'
+                })
+        pull_requests = repo.get_pulls(state='all')
+        issues_all = repo.get_issues(state='all') # somehow also collects PRs
+        issues = (issue for issue in issues_all if issue.pull_request is None)
         for subject in chain(issues, pull_requests):
             content = "\n".join([
                 subject.title,
@@ -108,18 +111,32 @@ def analyze_repo(user, project, retry=120):
                 type=click.Path(dir_okay=False))
 @click.argument('output_path', default="results.csv",
                 type=click.Path(dir_okay=False))
+@click.option('history', type=click.Path(dir_okay=False))
 @click.command()
-def main(input_path, output_path):
+def main(input_path, output_path, history):
     """Process github repos."""
+    history_list: = None
+    if history:
+        with open(input_path, 'r') as history_file:
+            history_list: = history_file.read().splitlines()
+    
     with open(input_path, 'r') as input_file:
         csv_reader = csv.DictReader(input_file)
         for app in csv_reader:
             try:
+                app_uri = "{}/{}".format(app['user'], app['project_name'])
                 click.secho(
-                    'Processing {}/{}'.format(app['user'],
-                                              app['project_name']),
+                    'Processing {}'.format(app_uri),
                     fg='blue'
                 )
+                if history_list and
+                    app_uri
+                    not in history_list:
+                    click.secho(
+                        'History: {} already processed'.format(app_uri),
+                        fg='green'
+                    )
+                    continue
                 results = analyze_repo(app['user'], app['project_name'])
                 with open(output_path, 'a') as output_file:
                     csv_writer = csv.DictWriter(
@@ -128,16 +145,19 @@ def main(input_path, output_path):
                     )
                     csv_writer.writerows(results)
 
-            except GithubException:
+            except GithubException as exception:
+                print(exception)
+                print(exception.args)
                 print("Skipping repo {}/{}: not found."
                       "".format(app['user'], app['project_name']))
+            time.sleep(randint(1,10))
 
 
 def exit_gracefully(start_time):
     exit_time = time.time()
     duration = exit_time - start_time
     click.secho(
-        "Physalia automators exited in {:.2f} minutes.".format(duration/60),
+        "Script exited in {:.2f} minutes.".format(duration/60),
         fg='green'
     )
 
