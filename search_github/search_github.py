@@ -6,7 +6,6 @@ import re
 import time
 from random import randrange
 from random import randint
-from time import sleep
 
 from itertools import chain
 
@@ -111,15 +110,15 @@ def analyze_repo(user, project, retry=120):
                 type=click.Path(dir_okay=False))
 @click.argument('output_path', default="results.csv",
                 type=click.Path(dir_okay=False))
-@click.option('history', type=click.Path(dir_okay=False))
+@click.option('--history', type=click.Path(dir_okay=False))
 @click.command()
 def main(input_path, output_path, history):
     """Process github repos."""
-    history_list: = None
+    history_list = None
     if history:
-        with open(input_path, 'r') as history_file:
-            history_list: = history_file.read().splitlines()
-    
+        with open(history, 'r') as history_file:
+            history_list = history_file.read().splitlines()
+
     with open(input_path, 'r') as input_file:
         csv_reader = csv.DictReader(input_file)
         for app in csv_reader:
@@ -129,9 +128,7 @@ def main(input_path, output_path, history):
                     'Processing {}'.format(app_uri),
                     fg='blue'
                 )
-                if history_list and
-                    app_uri
-                    not in history_list:
+                if history_list and (app_uri in history_list):
                     click.secho(
                         'History: {} already processed'.format(app_uri),
                         fg='green'
@@ -144,13 +141,23 @@ def main(input_path, output_path, history):
                         fieldnames=CSV_HEADER
                     )
                     csv_writer.writerows(results)
+                if history:
+                    with open(history, 'a') as history_file:
+                        history_file.write(app_uri+"\n")
 
             except GithubException as exception:
                 print(exception)
                 print(exception.args)
-                print("Skipping repo {}/{}: not found."
-                      "".format(app['user'], app['project_name']))
-            time.sleep(randint(1,10))
+                print("Skipping repo {}/{}: {}.".format(
+                    app['user'],
+                    app['project_name'],
+                    exception.data['message']
+                ))
+                if exception.status == 403:
+                    #sleep 1--2minutes
+                    time.sleep(randint(60, 120))
+            #pretend this is not a bot
+            time.sleep(randint(1, 10))
 
 
 def exit_gracefully(start_time):
