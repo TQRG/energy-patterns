@@ -32,7 +32,7 @@ with open('./config.json') as config_file:
 
 # regex to match commit messages
 PATTERN_ENERGY = "(.*(energy).*)|(.*(battery).*)|(.*(power).*)"
-regexEnergy = re.compile(PATTERN_ENERGY)
+regexEnergy = re.compile(PATTERN_ENERGY, re.IGNORECASE)
 
 _github_api = None
 def get_github_api():
@@ -170,10 +170,10 @@ def exit_gracefully(start_time):
 
 
 if __name__ == '__main__':
-    start_time = time.time()
+    START_TIME = time.time()
     try:
         main()
     except KeyboardInterrupt:
         pass
     finally:
-        exit_gracefully(start_time)
+        exit_gracefully(START_TIME)
