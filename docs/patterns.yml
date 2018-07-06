@@ -35,6 +35,9 @@
       - https://github.com/yeriomin/YalpStore/commit/34b5f82e8a1093d8a1cc5ca669ff435d65643625
     pull_requests:
       - https://github.com/rfc2822/GfxTablet/pull/73
+  occurrences_ios:
+    issues:
+      - https://github.com/ChatSecure/ChatSecure-iOS/issues/31
   references:
     - authors: Agolli T, Pollock L, Clause J.
       title: Investigating decreasing energy usage in mobile apps via indistinguishable color changes.
@@ -57,10 +60,11 @@
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
       - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
       - https://github.com/jamienicol/episodes/commit/e004294d1b2a4d05c49157f1ddec32c0071345a5
+
 - name: Avoid unnecessary work
   description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete.
   context: Mobile apps have to perform a number of tasks simultaneously. There are cases in which the result of those tasks is not visible (e.g., the UI is presenting other pieces of information), or the result is not necessarily relevant to the user. This is particularly critical when apps go to the background. Since the data quickly becomes obsolete, the phone is using resources unnecessarily.
-  solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data that is visible to the user.
+  solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data that is visible or valuable to the user.
   example: Consider a time series plot that needs to display real-time data. The plot has to be constantly updated — if the user scrolls down a UI view and the plot becomes hidden, the app should cease drawing operations related with the plot.
   occurrences_android:
     issues:
@@ -89,7 +93,14 @@
       - https://github.com/vitas/beaconloc/pull/13
       - https://github.com/redfish64/TinyTravelTracker/pull/59
       - https://github.com/ccrama/Slide/pull/2347
-- name: Close Immediately
+  occurrences_ios:
+    pull_requests:
+      - https://github.com/LocativeHQ/Locative-iOS/pull/45
+    issues:
+      - https://github.com/owntracks/ios/issues/367
+      - https://github.com/FokkeZB/Tracker/issues/4
+
+- name: Race-to-idle
   related:
     - Open Only When Necessary
   description: Release resources or services as soon as possible (e.g., wakelocks, screen).
@@ -127,9 +138,15 @@
       - https://github.com/lllllT/AtmosphereLogger/pull/3
       - https://github.com/greenaddress/GreenBits/pull/199
       - https://github.com/mozilla/MozStumbler/pull/1074
+  occurrences_ios:
+    issues:
+      - https://github.com/LocativeHQ/Locative-iOS/issues/50
+    commit_message:
+      - https://github.com/videolan/vlc/commit/2d099490eefa3cebc22279d00791b9d1d7c0b2ba
+
 - name: Open Only When Necessary
   related:
-    - Close Immediately
+    - Race-to-idle
   description: Open/start resources/services only when they are strictly necessary.
   context: Some resources require to be manually opened before use. It might be tempting to open necessary resources at the beginning of some task (e.g., upon the creation of an activity). However, resources will be actively waiting for requests, and consequently spending more energy.
   solution: Open resources only when necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
@@ -160,6 +177,9 @@
       - https://github.com/openbmap/radiocells-scanner-android/issues/166
       - https://github.com/signalapp/Signal-Android/issues/1187
       - https://github.com/glesik/wifireminders/issues/5
+  occurrences_ios:
+    issues:
+      - https://github.com/ChatSecure/ChatSecure-iOS/issues/533
   references:
     - title: The State of Mobile XMPP in 2016
       authors: Daniel Gultsch
@@ -202,6 +222,10 @@
       - https://github.com/mridang/microchip/commit/592c2cafd5bc4519cdcaa0a81aaac3e98dd808f6
       - https://github.com/mridang/gasflow/commit/12b231abbb7ce7fd0e7bd9f403655b1d1079de45
       - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
+  occurrences_ios:
+    issues:
+      - https://github.com/ChatSecure/ChatSecure-iOS/issues/31
+      - https://github.com/owntracks/ios/issues/436
 - name: Power Awareness
   related:
     - Power Save mode
@@ -247,6 +271,14 @@
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/67
       - https://github.com/nextcloud/android/pull/1527
+  occurrences_ios:
+    issues:
+      - https://github.com/ChatSecure/ChatSecure-iOS/commit/8f50bdd9e6c35742d96eea703b2f58051ca6784d
+      - https://github.com/owntracks/ios/issues/467
+      - https://github.com/owntracks/ios/issues/377
+      - https://github.com/owncloud/ios/issues/271
+    commits:
+      - https://github.com/ChatSecure/ChatSecure-iOS/commit/8f50bdd9e6c35742d96eea703b2f58051ca6784d
   references:
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
@@ -289,7 +321,9 @@
     commits:
       - https://github.com/Telegram-FOSS-Team/Telegram-FOSS/commit/644fc7ccea9deee3686dc9c824893baa4ce4bef6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
-    pull_requests:
+  occurrences_ios:
+    issues:
+      - https://github.com/owncloud/ios/issues/271
   references:
     - title: Does Wi-Fi Consume More Battery Power Than 3G or 4G/LTE?
       authors: Mitch Bartlett
@@ -346,6 +380,9 @@
       - https://github.com/mozilla/MozStumbler/pull/1251
       - https://github.com/mozilla/MozStumbler/pull/737
       - https://github.com/mozilla/MozStumbler/pull/413
+  occurrences_ios:
+    commits:
+      - https://github.com/videolan/vlc/commit/7655d6c889d2425c1fd4615f7e2692df1a47470c
   references:
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
@@ -381,17 +418,21 @@
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/tgwizard/sls/pull/340
+  occurrences_ios:
+    commits:
+      - https://github.com/videolan/vlc/commit/6c643e6f18f93d79f7ff0f6f294d89f18e182fbb
   references:
     - title: Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
       authors: Android Developer Guides.
+
 - name: Decrease rate
   related:
     - Enough resolution
   description: Increase time between syncs/sensor reads as much as possible.
   context: Mobile apps have to periodically perform operations. If a the time between two executions is small, the app will be executing operations more often. In some cases, even if operations are executed more often, it will not affect users' perception.
   solution:  Increase the delay between operations to find the minimal interval that do not compromise user experience. This delay can be manually tuned by developers or defined by users. More sophisticated solutions can aso use context (e.g., time of the day, history data, etc.) to infer the optimal update rate.
-  example: Consider a news app that collects news from different sources, each one having its own thread. Some news sources might have new content only once a week, while others might be updated every hour. Instead of updating all threads at the same rate, use data from previous updates to infer the optimal update rate of these threads. Connect to the source only if new updates are expected.
+  example: Consider a news app that collects news from different sources, each one having its own thread. Some news sources might have new content only once a week, while others might be updated every hour. Instead of updating all threads at the same rate, use data from previous updates to infer the optimal update rate of these threads. Connect to the news source only if new updates are expected. Other examples include decreasing number of frames per second in graphics animations.
   occurrences_android:
     issues:
       - https://github.com/opacapp/opacclient/issues/492
@@ -420,6 +461,11 @@
       - https://github.com/samuelclay/NewsBlur/commit/71b746a48daa687fb94339d21fb5cd00bf229c2f
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/264
+  occurrences_ios:
+    commits:
+      - https://github.com/videolan/vlc/commit/e76e8639d48f1b33e239082521c9e6319af86379
+      - https://github.com/videolan/vlc/commit/7655d6c889d2425c1fd4615f7e2692df1a47470c
+
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy.
   context: Energy efficiency solutions often provide a tradeoff between features and power consumption. However, this tradeoff is different for different users. I.e., some users might be okay with less features but better energy efficiency, and vice versa.
@@ -461,6 +507,14 @@
       - https://github.com/mozilla/MozStumbler/pull/1706
       - https://github.com/mozilla/MozStumbler/pull/1419
       - https://github.com/mozilla/MozStumbler/pull/1261
+  occurrences_ios:
+    issues:
+      - https://github.com/ChatSecure/ChatSecure-iOS/issues/483
+      - https://github.com/owntracks/ios/issues/448
+      - https://github.com/owntracks/ios/issues/436
+      - https://github.com/owntracks/ios/issues/434
+      - https://github.com/owntracks/ios/issues/234
+
 - name: Inform Users
   description: Let the user know if the app is doing any battery intensive operation.
   context: There are specific use cases in mobile apps that can be energy greedy. On the other hand some features might be dropping user experience in order to improve energy efficiency. If users do not know what to expect from the app, they might think that the mobile app is no behaving correctly.
@@ -476,11 +530,12 @@
     commits:
       - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
+
 - name: Enough resolution
   description: Collect or provide high accuracy data only when strictly necessary.
-  context: When collecting or displaying data, it is tempting to use high resolutions. The problem of using data with high resolution is that its collection and manipulation require more resources (e.g., memory, processing capacity, etc.). As a consequence, energy consumption.
+  context: When collecting or displaying data, it is tempting to use high resolutions. The problem of using data with high resolution is that its collection and manipulation require more resources (e.g., memory, processing capacity, etc.). As a consequence, energy consumption increases unnecessarily.
   solution: For every use case, find the optimal resolution value that is required to provide the intended user experience.
-  example: Consider a running app that is able to record running sessions. While  the user is running, the app presents the current overall distance in real-time. While calculating the most accurate value of the total distance would provide the correct information, it would require precise real-time processing of GPS or accelerometer sensors, which can be energy greedy. Instead, a lightweight method could be used to estimate this information with lower but reasonable accuracy. In the end of the session, the accurate results would still processed, but without real-time constraints. Other examples include optimizing image resolution, use graphic with surfaces instead of textures, etc.
+  example: Consider a running app that is able to record running sessions. While  the user is running, the app presents the current overall distance in real-time. While calculating the most accurate value of the total distance would provide the correct information, it would require precise real-time processing of GPS or accelerometer sensors, which can be energy greedy. Instead, a lightweight method could be used to estimate this information with lower but reasonable accuracy. In the end of the session, the accurate results would still processed, but without real-time constraints. Other examples include optimizing image resolution, using graphic with surfaces instead of textures, etc.
   occurrences_android:
     issues:
       - https://github.com/vanilla-music/vanilla/issues/620
@@ -505,13 +560,22 @@
     pull_requests:
       - https://github.com/mvglasow/satstat/pull/141
       - https://github.com/mozilla/MozStumbler/pull/14
+  occurrences_ios:
+    issues:
+      - https://github.com/owntracks/ios/issues/507
+      - https://github.com/libretro/RetroArch/issues/5174
+    commits:
+      - https://github.com/mapsme/omim/commit/6551a4d11b40d2a1cdb8649a6ebdec3ee19a4cd6
+      - https://github.com/mapsme/omim/commit/54968deac9dd8b3c62f5c0d6cdd5c4b1ee561d0c
+      - https://github.com/mapsme/omim/commit/22272f5cd15ce1e9828ef2af15101c54f99a3669
+
 - name: Sensor Fusion
+  related:
+    - enough resolution
   description: Use data from low power sensors to infer whether new data needs to be collected from high power sensors
   context: Mobile apps provide features that require reading data or executing operations in different sensors or components. Such operations can be energy greedy, causing high power consumption. Thus, they should be called as less times as possible.
   solution: Use complementaray data low power sensors to assure whether a given energy-greedy operation needs to be executed.
   example: Use accelerometer to infer whether GPS location should be updated.
-  related:
-    - enough resolution
   occurrences_android:
     issues:
       - https://github.com/tananaev/traccar-client-android/issues/288
@@ -548,6 +612,21 @@
       - https://github.com/abarisain/dmix/issues/3
       - https://github.com/jensstein/oandbackup/issues/102
       - https://github.com/jensstein/oandbackup/issues/97
+  occurrences_ios:
+    pull_requests:
+      - https://github.com/mozilla-mobile/firefox-ios/pull/2728
+
+- name: Rely on the OS FIXME (nome estranho)
+  description: Avoid using your own implementation by relying on services already provided by the OS.
+  occurrences_ios:
+    issues:
+      - https://github.com/owntracks/ios/issues/507
+      - https://github.com/ChatSecure/ChatSecure-iOS/issues/483
+      - https://github.com/owntracks/ios/issues/431
+      - https://github.com/owntracks/ios/issues/327
+      - https://github.com/owntracks/ios/issues/119
+      - https://github.com/owncloud/ios/issues/13
+
 
 # - name: no screen
 #   description: whenever possible allow interaction without using the display.
@@ -628,7 +707,7 @@
 # - name: Schedulle and Sleep
 #   description: use AlarmManager for updates, instead of using Wakelocks, Services.
 #   related:
-#     - Close Immediately
+#     - Race-to-idle
 #   occurrences_android:
 #     issues:
 #       - https://github.com/tananaev/traccar-client-android/issues/240
@@ -638,13 +717,22 @@
 #     pull_requests:
 #       - https://github.com/klausw/hackerskeyboard/pull/539
 #
-# - name: Manual Sync, On Demand
-#   description: Perform tasks only when the user specifically asks.
-#   occurrences_android:
-#     issues:
-#       - https://github.com/drpout/boilr/issues/128
-#       - https://github.com/drpout/boilr/issues/131
-#       - https://github.com/redsolution/xabber-android/issues/174
+- name: Manual Sync, On Demand
+  related:
+    - User knows best
+  description: Perform tasks only when the user specifically asks.
+  example: In a beacon monitoring app, there are occasions in which the user does not neet to keep track of her/his beacons. Allow the user to start/stop monitoring manually.
+  occurrences_android:
+    issues:
+      - https://github.com/drpout/boilr/issues/128
+      - https://github.com/drpout/boilr/issues/131
+      - https://github.com/redsolution/xabber-android/issues/174
+  occurrences_ios:
+    issues:
+      - https://github.com/owntracks/ios/issues/434
+      - https://github.com/owntracks/ios/issues/426
+      - https://github.com/owncloud/ios/issues/511
+      - https://github.com/FokkeZB/Tracker/issues/4
 #
 # - name: No Ads
 #   occurrences_android:
