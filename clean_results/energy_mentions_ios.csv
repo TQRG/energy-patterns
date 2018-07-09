@@ -175,7 +175,6 @@ mapsme,omim,https://github.com/mapsme/omim/issues/85,85,- You waste less CPU/bat
 mapsme,omim,https://github.com/mapsme/omim/pull/7119,7119,Turn off AA by energy saving issues,PullRequest
 mapsme,omim,https://github.com/mapsme/omim/pull/6992,6992,[RELEASE ONLY] Turn off antialiasing by energy-saving issues,PullRequest
 mapsme,omim,https://github.com/mapsme/omim/pull/1289,1289,"del: Removed ""Will drain battery"" subtitle.",PullRequest
-
 mapsme,omim,https://github.com/mapsme/omim/pull/995,995,Limited FPS in F&R routing mode to reduce energy consumption,PullRequest
 mrdepth,Neocom,https://github.com/mrdepth/Neocom/issues/37,37,App drains battery super fast,Issue
 seanhess,wizardwar,https://github.com/seanhess/wizardwar/commit/97d9bcad125f32cee6efd2c1f5db9d897668122f,97d9bcad125f32cee6efd2c1f5db9d897668122f,screwing around with facebook. power dying,commit_message
@@ -200,6 +199,7 @@ traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/
 traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/4,4,"The new version works perfect. i remark though, I put the refresh timing on 900 but the app really eats my battery. Is there any improvement on energy optimisation possible or is it just Apple?",Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/commit/1d8be86358c8114396c5320a869e24d0bf3985d9,1d8be86358c8114396c5320a869e24d0bf3985d9,BugFix: Reduce battery usage.,commit_message
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1643,1643,The bug seems to happen after the device died because of low battery like at https://github.com/matrix-org/riot-ios-rageshakes/issues/835.,Issue
+
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1476,1476,background battery usage unacceptably high,Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1315,1315,Since build ~1930 the app seems to use much more CPU & battery and is much less responsive when typing,Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1110,1110,Riot IOS requires having power (level 50?) for adding local aliases,Issue

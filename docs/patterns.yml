@@ -3,6 +3,7 @@
   context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen (e.g., reading apps) can have a big impact on battery life.
   solution: Provide a UI with dark background colors. This is particularly benificial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).
   example:
+  figure: dark_ui_colors.svg
   occurrences_android:
     issues:
       - https://github.com/rdoeffinger/Dictionary/issues/43
@@ -47,6 +48,7 @@
       title: "GEMMA: multi-objective optimization of energy consumption of GUIs in Android apps."
       url: http://ieeexplore.ieee.org/abstract/document/7965245/
 - name: Dynamic retry delay
+  figure: dynamic_retry_delay.svg
   description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
   context: The mobile app has some features that require collecting data from other resources (e.g., update information from server). However, in same cases if the resource is unavailable, the app will unnecessarily try to connect the resource for a number of times, leading to unnecessary power consumption.
   solution: Increase update interval after each failed connection. It can be either a linear or exponential growth. Update interval can be reset upon a successful connection or a given change in the context (e.g., network status)).
@@ -162,6 +164,9 @@
   occurrences_ios:
     issues:
       - https://github.com/mapsme/omim/issues/7223
+      - https://github.com/traccar/traccar-client-ios/issues/64
+    commits:
+      - https://github.com/vector-im/riot-ios/commit/1d8be86358c8114396c5320a869e24d0bf3985d9
 
 - name: Push over Poll
   description: Use push notifications to receive updates from resources, instead of actively querying resources (i.e., polling).
@@ -475,9 +480,11 @@
       - https://github.com/videolan/vlc/commit/7655d6c889d2425c1fd4615f7e2692df1a47470c
     issues:
       - https://github.com/mapsme/omim/issues/3090
+      - https://github.com/traccar/traccar-client-ios/issues/47
     pull_requests:
       - https://github.com/mapsme/omim/pull/7119
       - https://github.com/mapsme/omim/pull/6992
+      - https://github.com/mapsme/omim/pull/995
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy.
@@ -528,6 +535,8 @@
       - https://github.com/owntracks/ios/issues/434
       - https://github.com/owntracks/ios/issues/234
       - https://github.com/mapsme/omim/issues/4346
+      - https://github.com/traccar/traccar-client-ios/issues/52
+      - https://github.com/traccar/traccar-client-ios/issues/40
 
 - name: Inform Users
   description: Let the user know if the app is doing any battery intensive operation.
@@ -583,6 +592,7 @@
       - https://github.com/libretro/RetroArch/issues/5174
       - https://github.com/mapsme/omim/issues/7563
       - https://github.com/mapsme/omim/issues/7117
+      - https://github.com/traccar/traccar-client-ios/issues/52
     commits:
       - https://github.com/mapsme/omim/commit/6551a4d11b40d2a1cdb8649a6ebdec3ee19a4cd6
       - https://github.com/mapsme/omim/commit/54968deac9dd8b3c62f5c0d6cdd5c4b1ee561d0c
@@ -639,6 +649,8 @@
       - https://github.com/mozilla-mobile/firefox-ios/pull/2728
 
 - name: Rely on the OS FIXME (nome estranho)
+  related:
+    - Batch Operations
   description: Avoid using your own implementation by relying on services already provided by the OS.
   occurrences_ios:
     issues:
