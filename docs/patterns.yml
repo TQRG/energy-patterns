@@ -38,6 +38,7 @@
   occurrences_ios:
     issues:
       - https://github.com/ChatSecure/ChatSecure-iOS/issues/31
+      - https://github.com/mapsme/omim/issues/3903
   references:
     - authors: Agolli T, Pollock L, Clause J.
       title: Investigating decreasing energy usage in mobile apps via indistinguishable color changes.
@@ -99,6 +100,7 @@
     issues:
       - https://github.com/owntracks/ios/issues/367
       - https://github.com/FokkeZB/Tracker/issues/4
+      - https://github.com/mapsme/omim/issues/3694
 
 - name: Race-to-idle
   related:
@@ -141,6 +143,7 @@
   occurrences_ios:
     issues:
       - https://github.com/LocativeHQ/Locative-iOS/issues/50
+      - https://github.com/mapsme/omim/issues/5110
     commit_message:
       - https://github.com/videolan/vlc/commit/2d099490eefa3cebc22279d00791b9d1d7c0b2ba
 
@@ -149,13 +152,16 @@
     - Race-to-idle
   description: Open/start resources/services only when they are strictly necessary.
   context: Some resources require to be manually opened before use. It might be tempting to open necessary resources at the beginning of some task (e.g., upon the creation of an activity). However, resources will be actively waiting for requests, and consequently spending more energy.
-  solution: Open resources only when necessary. This also avoids activating resources that will never be used (cb9f225f5962d399f48b65d5f855e11f146cbbcb).
+  solution: Open resources only when necessary. This also avoids activating resources that will never be used (https://github.com/signalapp/Signal-Android/commit/cb9f225f5962d399f48b65d5f855e11f146cbbcb).
   occurrences_android:
     issues:
       - https://github.com/cSploit/android/issues/396
     commits:
       - https://github.com/signalapp/Signal-Android/commit/cb9f225f5962d399f48b65d5f855e11f146cbbcb
       - https://github.com/shadowsocks/shadowsocks-android/commit/418ae2151c62d7ab352e15d942669cec82fdb923
+  occurrences_ios:
+    issues:
+      - https://github.com/mapsme/omim/issues/7223
 
 - name: Push over Poll
   description: Use push notifications to receive updates from resources, instead of actively querying resources (i.e., polling).
@@ -226,6 +232,7 @@
     issues:
       - https://github.com/ChatSecure/ChatSecure-iOS/issues/31
       - https://github.com/owntracks/ios/issues/436
+      - https://github.com/mapsme/omim/issues/3391
 - name: Power Awareness
   related:
     - Power Save mode
@@ -279,6 +286,7 @@
       - https://github.com/owncloud/ios/issues/271
     commits:
       - https://github.com/ChatSecure/ChatSecure-iOS/commit/8f50bdd9e6c35742d96eea703b2f58051ca6784d
+      - https://github.com/mapsme/omim/commit/0fb80668de892062d349b9048cf5bd7541f94bcf
   references:
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
@@ -465,6 +473,11 @@
     commits:
       - https://github.com/videolan/vlc/commit/e76e8639d48f1b33e239082521c9e6319af86379
       - https://github.com/videolan/vlc/commit/7655d6c889d2425c1fd4615f7e2692df1a47470c
+    issues:
+      - https://github.com/mapsme/omim/issues/3090
+    pull_requests:
+      - https://github.com/mapsme/omim/pull/7119
+      - https://github.com/mapsme/omim/pull/6992
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy.
@@ -514,6 +527,7 @@
       - https://github.com/owntracks/ios/issues/436
       - https://github.com/owntracks/ios/issues/434
       - https://github.com/owntracks/ios/issues/234
+      - https://github.com/mapsme/omim/issues/4346
 
 - name: Inform Users
   description: Let the user know if the app is doing any battery intensive operation.
@@ -530,6 +544,9 @@
     commits:
       - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
+  occurrences_ios:
+    issues:
+      - https://github.com/mapsme/omim/issues/1883
 
 - name: Enough resolution
   description: Collect or provide high accuracy data only when strictly necessary.
@@ -564,6 +581,8 @@
     issues:
       - https://github.com/owntracks/ios/issues/507
       - https://github.com/libretro/RetroArch/issues/5174
+      - https://github.com/mapsme/omim/issues/7563
+      - https://github.com/mapsme/omim/issues/7117
     commits:
       - https://github.com/mapsme/omim/commit/6551a4d11b40d2a1cdb8649a6ebdec3ee19a4cd6
       - https://github.com/mapsme/omim/commit/54968deac9dd8b3c62f5c0d6cdd5c4b1ee561d0c
@@ -589,6 +608,9 @@
       - https://github.com/mozilla/MozStumbler/commit/fa3042a5cb6594e2acfe2744a9bc0a6c897f83db
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/1270
+  occurrences_ios:
+    commits:
+      - https://github.com/mapsme/omim/commit/0fb80668de892062d349b9048cf5bd7541f94bcf
   references:
     - title: Movement Detection for Power-Efficient Smartphone WLAN Localization
       url: https://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/ishafer/pubs/localization-mswim10.pdf
@@ -628,22 +650,28 @@
       - https://github.com/owncloud/ios/issues/13
 
 
-# - name: no screen
-#   description: whenever possible allow interaction without using the display.
-#   related:
-#     - Close immediately
-#   occurrences_android:
-#     issues:
-#       - https://github.com/anthonycr/Lightning-Browser/issues/342
-#       - https://github.com/philliphsu/ClockPlus/issues/14
-#       - https://github.com/xbmc/Kore/issues/157
-#       - https://github.com/i-p-tel/sipdroid/issues/709
-#       - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
-#       - https://github.com/signalapp/Signal-Android/issues/6258
-#       - https://github.com/ThibaudM/timelapse-sony/issues/14
-#     pull_requests:
-#       - https://github.com/inorichi/tachiyomi/pull/1177
-#
+- name: No screen interaction
+  related:
+    - Race-to-idle
+  description: Whenever possible allow interaction without using the display.
+  context: There are apps that require a continuous usage of the screen. However, there are use cases in which the screen can be replaced by less power intensive alternatives.
+  solution: Allow users to interact with the app using alternative interfaces (e.g., audio).
+  example: In a navigation app, there are use cases in which users might be only using audio instructions and do not need the screen to be on all the time. This pattern is commonly adopted by audio players that use the the earphone buttons to play/pause or skip songs.
+  occurrences_android:
+    issues:
+      - https://github.com/anthonycr/Lightning-Browser/issues/342
+      - https://github.com/philliphsu/ClockPlus/issues/14
+      - https://github.com/xbmc/Kore/issues/157
+      - https://github.com/i-p-tel/sipdroid/issues/709
+      - https://github.com/rosenpin-deprecated/More-For-GO/issues/23
+      - https://github.com/signalapp/Signal-Android/issues/6258
+      - https://github.com/ThibaudM/timelapse-sony/issues/14
+    pull_requests:
+      - https://github.com/inorichi/tachiyomi/pull/1177
+  occurrences_ios:
+   issues:
+     - https://github.com/mapsme/omim/issues/930
+
 #
 # - name: Obsolete
 #   description: remove properties that do not have any effect.
