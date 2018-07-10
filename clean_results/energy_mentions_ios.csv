@@ -199,14 +199,10 @@ traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/
 traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/4,4,"The new version works perfect. i remark though, I put the refresh timing on 900 but the app really eats my battery. Is there any improvement on energy optimisation possible or is it just Apple?",Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/commit/1d8be86358c8114396c5320a869e24d0bf3985d9,1d8be86358c8114396c5320a869e24d0bf3985d9,BugFix: Reduce battery usage.,commit_message
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1643,1643,The bug seems to happen after the device died because of low battery like at https://github.com/matrix-org/riot-ios-rageshakes/issues/835.,Issue
-
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1476,1476,background battery usage unacceptably high,Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1315,1315,Since build ~1930 the app seems to use much more CPU & battery and is much less responsive when typing,Issue
-vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1110,1110,Riot IOS requires having power (level 50?) for adding local aliases,Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/849,849,"On phone; see 10% battery warning popup; go back into app; video doesn't always resume. (it worked on 20%, but not on 10% warning)",Issue
 vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/692,692,Video calls destroy battery life,Issue
-vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/498,498,Need to make it clearer that the memberlist badges map to powerlevels,Issue
-vector-im,riot-ios,https://github.com/vector-im/riot-ios/pull/1781,1781,Room: Inform user when they cannot post to a room because of low power level,PullRequest
 wireapp,wire-ios,https://github.com/wireapp/wire-ios/issues/2084,2084,"Wire is running a lot in the background (as can be seen in iOS's battery usage info. This is even the case, when there are barely no messages incoming or being sent.",Issue
 wireapp,wire-ios,https://github.com/wireapp/wire-ios/issues/1879,1879,"I tried turning off the power-saving mode and turning on the background process for wire.",Issue
 wireapp,wire-ios,https://github.com/wireapp/wire-ios/issues/1626,1626,"Of course a Black mode would have to be an option, such as the dark mode. Take both Twitterrific and Apollo for example. And again, this would primarily be for the iPhone X, as it would save battery life 🙃![GitHawk Upload by malicioustoker](https://i.imgur.com/AJlBoTC.jpg)![GitHawk Upload by malicioustoker](https://i.imgur.com/FFexpsg.jpg)",Issue
@@ -219,7 +215,6 @@ ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/commit/6e83eb82fb
 ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/281,281,"This is most probably related to the forced recreation of the windows when the system wakes up, which was done to cater for dark mode updates while the system was in power-nap.",Issue
 ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/260,260,"From what you're describing, it sounds as if the app is receiving a dark mode notification while in power-nap but somehow never gets the notification that dark mode is now off in the morning.",Issue
 ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/259,259,Since upgrading to the latest version I am seeing a huge spike in CPU usage from Trailer (sometimes up to 200% +). Is this expected with some new threading? This causes my fans to go haywire and limits my battery.,Issue
-ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/238,238,"If you have more suggestions on the search stuff (or anything else) please _do_ open new issues, I have the feeling that it can become far more powerful with simple-and-direct changes like this one :+1: ",Issue
 ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/224,224,Pocket (watchOS) rapidly consumes battery when added as a complication,Issue
 ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/211,211,"I'm guessing it is sleep-related in some way, specifically with network availability. Most probably, in fact, related to failed syncs during power-nap which has been known to wreak havoc in the past with sync.",Issue
 ptsochantaris,trailer,https://github.com/ptsochantaris/trailer/issues/96,96,"Version 1.1.0 is up now.  It is identical to the BETA3 except compiled with optimisations to keep it smaller, speedier and using less power.",Issue
@@ -235,6 +230,7 @@ wwdc-family,app,https://github.com/wwdc-family/app/commit/09f0d8042721473b145ddb
 wwdc-family,app,https://github.com/wwdc-family/app/commit/ccf9f48193db0f2e0433aecd2511220cb29d68a5,ccf9f48193db0f2e0433aecd2511220cb29d68a5,"Make distance filter higher, to reduce battery usage",commit_message
 wwdc-family,app,https://github.com/wwdc-family/app/issues/47,47,"No. When app continued its high battery use, and when it proved impossible to build the app, I lost interest in the project.",Issue
 wwdc-family,app,https://github.com/wwdc-family/app/issues/44,44,"Are you sure you're running the latest version? As battery usage has been significantly improved in the last few betas... It's now hardly noticeable (definitely not as significant as 53%, which I also had in beta 54 or so)",Issue
+
 wwdc-family,app,https://github.com/wwdc-family/app/issues/23,23,Reduce battery usage,Issue
 wwdc-family,app,https://github.com/wwdc-family/app/pull/36,36,"Make distance filter higher, to reduce battery usage",PullRequest
 jeroensmeets,mastodon-app,https://github.com/jeroensmeets/mastodon-app/commit/1819cfb3ffaebbeeee2db27417c8ac9b2bf3ceb2,1819cfb3ffaebbeeee2db27417c8ac9b2bf3ceb2,working on battery usage on Android when app is asleep,commit_message
