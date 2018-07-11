@@ -47,6 +47,7 @@
     - authors: Linares-Vásquez M, Bernal-Cárdenas C, Bavota G, Oliveto R, Di Penta M, Poshyvanyk D.
       title: "GEMMA: multi-objective optimization of energy consumption of GUIs in Android apps."
       url: http://ieeexplore.ieee.org/abstract/document/7965245/
+
 - name: Dynamic retry delay
   figure: dynamic_retry_delay.svg
   description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
@@ -65,6 +66,11 @@
       - https://github.com/mpcjanssen/simpletask-android/commit/1b674be880439bb176c285509efbd96629270f70
       - https://github.com/k9mail/k-9/commit/86f3b28f79509d1a4d613eb39f60603e08579ea3
       - https://github.com/jamienicol/episodes/commit/e004294d1b2a4d05c49157f1ddec32c0071345a5
+  occurrences_ios:
+    pull_requests:
+      - https://github.com/wordpress-mobile/WordPress-iOS/pull/7226
+    commits:
+      - https://github.com/wordpress-mobile/WordPress-iOS/commit/b879d00ebd5b4d3cfb554aea472da52dbab5e333
 
 - name: Avoid unnecessary work
   description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete.
@@ -102,6 +108,8 @@
     pull_requests:
       - https://github.com/LocativeHQ/Locative-iOS/pull/45
       - https://github.com/istornz/iPokeGo/pull/113
+      - https://github.com/toggl/mobileapp/pull/1418
+      - https://github.com/keybase/client/pull/8017
     issues:
       - https://github.com/owntracks/ios/issues/367
       - https://github.com/FokkeZB/Tracker/issues/4
@@ -156,6 +164,7 @@
       - https://github.com/videolan/vlc/commit/2d099490eefa3cebc22279d00791b9d1d7c0b2ba
     pull_requests:
        - https://github.com/toshiapp/toshi-ios-client/pull/803
+       - https://github.com/toggl/mobileapp/pull/1418
 
 - name: Open Only When Necessary
   related:
@@ -216,7 +225,7 @@
     - Power Awareness
   description: Provide an energy savior mode in which user experience can drop for the sake of better energy efficiency.
   context: Whenever the device battery is running low, users want to avoid losing connectivity before they reach a power charging station. If the device shuts down, users might miss important calls or will not be able to do an important task. Still, apps might be running unimportant tasks that will reduce battery life in this critical context.
-  solution: The app provides a power save mode in which it uses less resources while providing the minimum functionality that is indispensible to the user. It can be activated manually or upon some power events (e.g., when battery reaches a given level). User experience can drop for the sake of energy efficiency.
+  solution: The app provides a power save mode in which it uses less resources while providing the minimum functionality that is indispensible to the user. It can be activated manually or upon some power events (e.g., when battery reaches a given level). User experience can drop for the sake of energy efficiency. Note, this is enforced in iOS for some use cases if the apps use the BackgroundSync APIs.
   example: Deactivate some features, reduce update intervals, or deactivate animated effects in the UI.
   occurrences_android:
     issues:
@@ -250,6 +259,8 @@
       - https://github.com/ChatSecure/ChatSecure-iOS/issues/31
       - https://github.com/owntracks/ios/issues/436
       - https://github.com/mapsme/omim/issues/3391
+    commits:
+      - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
 - name: Power Awareness
   related:
     - Power Save mode
@@ -459,6 +470,7 @@
       - https://github.com/mozilla-mobile/prox/pull/272
     issues:
       - https://github.com/istornz/iPokeGo/issues/222
+      - https://github.com/wordpress-mobile/WordPress-iOS/issues/904
   references:
     - title: Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
@@ -487,6 +499,7 @@
       - https://github.com/mozilla/MozStumbler/issues/21
       - https://github.com/lkorth/screen-notifications/issues/15
       - https://github.com/nbenm/ImapNote2/issues/12
+      - https://github.com/hrydgard/ppsspp/issues/9046
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
@@ -512,6 +525,7 @@
       - https://github.com/mapsme/omim/pull/6992
       - https://github.com/mapsme/omim/pull/995
       - https://github.com/istornz/iPokeGo/pull/113
+      - https://github.com/keybase/client/pull/7032
 
 - name: User knows best
   description: Allow users to enable/disable certain features in order to save energy.
@@ -533,6 +547,7 @@
       - https://github.com/mozilla/MozStumbler/issues/353
       - https://github.com/eidottermihi/rpicheck/issues/131
       - https://github.com/cSploit/android/issues/229
+      - https://github.com/hrydgard/ppsspp/issues/9046
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -590,6 +605,9 @@
       - https://github.com/mapsme/omim/issues/1883
     commits:
       - https://github.com/ptsochantaris/trailer/commit/6e83eb82fbdf8a9049817c7a1cb7dd2bf2520fba
+      - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
+    pull_requests:
+      - https://github.com/hrydgard/ppsspp/pull/9044
 
 - name: Enough resolution
   description: Collect or provide high accuracy data only when strictly necessary.
@@ -699,6 +717,9 @@
   related:
     - Batch Operations
   description: Avoid using your own implementation by relying on services already provided by the OS.
+  occurrences_android:
+    issues:
+      - https://github.com/hrydgard/ppsspp/issues/9046
   occurrences_ios:
     issues:
       - https://github.com/owntracks/ios/issues/507
@@ -780,6 +801,9 @@
 #   occurrences_android:
 #     issues:
 #       - https://github.com/SecUSo/privacy-friendly-sudoku/issues/8
+#   occurrences_ios:
+#     issues:
+#       - https://github.com/keybase/client/issues/10510
 #
 # - name: Reduce graphic animations
 #   description:
