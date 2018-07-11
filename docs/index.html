@@ -117,11 +117,49 @@
                 </div>
               </div>
           {{/if}}
+<!--Occurrences iOS -->
           {{#if occurrences_ios}}
           <h4>
             <ion-icon name="logo-apple"></ion-icon>
             iOS
           </h4>
+              <div class="card">
+                <h6 class="card-header">
+                  <ion-icon name="alert"></ion-icon>
+                  Issues
+                </h6>
+                <div class="card-body">
+                  {{{list_occurrences occurrences_ios.issues}}}
+            {{#unless occurrences_ios.issues}}
+              <em class='text-muted'>No issues.</em>
+            {{/unless}}
+                </div>
+              </div>
+              <div class="card">
+                <h6 class="card-header">
+                  <ion-icon name="git-pull-request"></ion-icon>
+                  Pull Requests
+                </h6>
+                <div class="card-body">
+                  {{{list_occurrences occurrences_ios.pull_requests}}}
+            {{#unless occurrences_ios.pull_requests}}
+              <em class='text-muted'>No pull requests.</em>
+            {{/unless}}
+            
+                </div>
+              </div>
+              <div class="card">
+                <h6 class="card-header">
+                  <ion-icon name="git-commit"></ion-icon>
+                  Commits
+                </h6>
+                <div class="card-body">
+                  {{{list_occurrences occurrences_ios.commits}}}
+                  {{#unless occurrences_ios.commits}}
+                    <em class='text-muted'>No pull commits.</em>
+                  {{/unless}}
+                </div>
+              </div>
           {{/if}}
 
 
