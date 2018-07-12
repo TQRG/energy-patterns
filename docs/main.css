@@ -16,7 +16,10 @@ a{
   padding-bottom: 30px;
 }
 
-
+.illustration{
+  max-width: 300px;
+  max-height: 300px;
+}
 
 
 

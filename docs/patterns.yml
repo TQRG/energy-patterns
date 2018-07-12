@@ -3,7 +3,7 @@
   context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen (e.g., reading apps) can have a big impact on battery life.
   solution: Provide a UI with dark background colors. This is particularly benificial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).
   example:
-  figure: dark_ui_colors.svg
+  figure: dark_ui_colors_2.svg
   occurrences_android:
     issues:
       - https://github.com/rdoeffinger/Dictionary/issues/43

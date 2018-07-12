@@ -64,6 +64,9 @@
           <h1>
             {{name}}
           </h1>
+          {{#if figure}}
+          <img src="./illustrations/{{figure}}" class="float-right illustration" alt="{{name}}">
+          {{/if}}
           <p class='lead'>{{description}}</p>
           <h3>Context</h3>
           <p>{{context}}</p>
