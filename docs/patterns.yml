@@ -264,16 +264,13 @@
       - https://github.com/owntracks/ios/issues/436
       - https://github.com/mapsme/omim/issues/3391
     commits:
-<<<<<<< HEAD
+      - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
       - https://github.com/shu223/iOS-9-Sampler/commit/dda0c41929351a780cbbef6ba62eb3232aa6ffed
   references:
     - title: Energy Efficiency Guide for iOS Apps – React to Low Power Mode on iPhones
       url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/LowPowerMode.html
       authors: Apple Developer Documention Archive
 
-=======
-      - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
->>>>>>> 98d5a6f1faa0cd53d2598e3eb06b79eb90a3caa5
 - name: Power Awareness
   related:
     - Power Save mode
@@ -516,11 +513,8 @@
       - https://github.com/mozilla/MozStumbler/issues/21
       - https://github.com/lkorth/screen-notifications/issues/15
       - https://github.com/nbenm/ImapNote2/issues/12
-<<<<<<< HEAD
       - https://github.com/tananaev/traccar-client-android/issues/288
-=======
       - https://github.com/hrydgard/ppsspp/issues/9046
->>>>>>> 98d5a6f1faa0cd53d2598e3eb06b79eb90a3caa5
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
       - https://github.com/QuantumBadger/RedReader/commit/9cd375c374e8754d7ec021ea197a962be4d4fd9b
