@@ -804,6 +804,8 @@
 #   occurrences_ios:
 #     issues:
 #       - https://github.com/keybase/client/issues/10510
+#   references:
+#     - title: Facilitating the Implementation of Adaptive Cloud Offloading to Improve the Energy Efficiency of Mobile Applications
 #
 # - name: Reduce graphic animations
 #   description:
