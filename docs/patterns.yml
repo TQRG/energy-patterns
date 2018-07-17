@@ -72,7 +72,7 @@
     commits:
       - https://github.com/wordpress-mobile/WordPress-iOS/commit/b879d00ebd5b4d3cfb554aea472da52dbab5e333
 
-- name: Avoid unnecessary work
+- name: Avoid extraneous work
   description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete.
   context: Mobile apps have to perform a number of tasks simultaneously. There are cases in which the result of those tasks is not visible (e.g., the UI is presenting other pieces of information), or the result is not necessarily relevant to the user. This is particularly critical when apps go to the background. Since the data quickly becomes obsolete, the phone is using resources unnecessarily.
   solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data that is visible or valuable to the user.
@@ -117,6 +117,10 @@
     commits:
       - https://github.com/anurodhp/Monal/commit/06047f09bb95353944b35a10d2665457cbde1fa7
       - https://github.com/jeroensmeets/mastodon-app/commit/1819cfb3ffaebbeeee2db27417c8ac9b2bf3ceb2
+  references:
+    - title: Energy Efficiency Guide for iOS Apps – Avoid Extraneous Graphics and Animations
+      url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/AvoidExtraneousGraphicsAndAnimations.html
+      authors: Apple Developer Documention Archive
 
 - name: Race-to-idle
   related:
@@ -261,6 +265,12 @@
       - https://github.com/mapsme/omim/issues/3391
     commits:
       - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
+      - https://github.com/shu223/iOS-9-Sampler/commit/dda0c41929351a780cbbef6ba62eb3232aa6ffed
+  references:
+    - title: Energy Efficiency Guide for iOS Apps – React to Low Power Mode on iPhones
+      url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/LowPowerMode.html
+      authors: Apple Developer Documention Archive
+
 - name: Power Awareness
   related:
     - Power Save mode
@@ -304,6 +314,7 @@
       - https://github.com/jensstein/oandbackup/issues/131
       - https://github.com/mozilla/MozStumbler/issues/1305
       - https://github.com/google/ExoPlayer/issues/3040
+      - https://github.com/tananaev/traccar-client-android/issues/308
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/67
       - https://github.com/nextcloud/android/pull/1527
@@ -371,10 +382,13 @@
     - title: Modifying your Download Patterns Based on the Connectivity Type
       url: https://developer.android.com/training/efficient-downloads/connectivity_patterns.html
       authors: Android SDK Documentation
+    - title: Energy Efficiency Guide for iOS Apps – Energy and Networking
+      url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/EnergyandNetworking.html
+      authors: Apple Developer Documention Archive
 
 - name: Surpress Logs
   related:
-    - Avoid unnecessary work
+    - Avoid extraneous work
   description: Avoid using intensive logging (< 1Hz).
   context: Developers resort to logging in their mobile apps to ensure their correct behavior and simplofy bug reporting. However, logging operations are creating overhead on energy consumption without creating value to the end user.
   solution: Avoid using intensive logging, and keeping rates below one message per second.
@@ -445,7 +459,7 @@
   solution: Implement caching mechanisms to temporarly store data from server. In addition, verify whether there is an update before downloading all data.
   example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures everytime a given profile is opened, use data that was locally stored from earlier visits.
   related:
-    - Avoid unnecessary work
+    - Avoid extraneous work
     - Reduce size
   occurrences_android:
     issues:
@@ -491,14 +505,15 @@
       - https://github.com/tananaev/traccar-client-android/issues/128
       - https://github.com/tananaev/traccar-client-android/issues/58
       - https://github.com/tananaev/traccar-client-android/issues/12
+      - https://github.com/tananaev/traccar-client-android/issues/308
       - https://github.com/servalproject/batphone/issues/20
-      - https://github.com/Phantast/smartnavi/issues/15
       - https://github.com/google/ExoPlayer/issues/1140
       - https://github.com/drpout/boilr/issues/131
       - https://github.com/mozilla/MozStumbler/issues/1055
       - https://github.com/mozilla/MozStumbler/issues/21
       - https://github.com/lkorth/screen-notifications/issues/15
       - https://github.com/nbenm/ImapNote2/issues/12
+      - https://github.com/tananaev/traccar-client-android/issues/288
       - https://github.com/hrydgard/ppsspp/issues/9046
     commits:
       - https://github.com/vector-im/riot-android/commit/14fdf5e69e8633f2736aea71be1820649f81c1df
@@ -512,6 +527,7 @@
       - https://github.com/samuelclay/NewsBlur/commit/71b746a48daa687fb94339d21fb5cd00bf229c2f
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/264
+      - https://github.com/mvglasow/satstat/pull/141
   occurrences_ios:
     commits:
       - https://github.com/videolan/vlc/commit/e76e8639d48f1b33e239082521c9e6319af86379
@@ -600,6 +616,7 @@
     commits:
       - https://github.com/hrydgard/ppsspp/commit/27286d09499e0103e90c8b1f3e483834afc86786
       - https://github.com/hrydgard/ppsspp/commit/1f7a137926050deff4c05063f09275463c1cd2f4
+      - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
   occurrences_ios:
     issues:
       - https://github.com/mapsme/omim/issues/1883
@@ -620,36 +637,19 @@
       - https://github.com/osmandapp/Osmand/issues/3556
       - https://github.com/redfish64/TinyTravelTracker/issues/60
       - https://github.com/redfish64/TinyTravelTracker/issues/52
-      - https://github.com/criticalmaps/criticalmaps-android/issues/116
       - https://github.com/mvglasow/satstat/issues/140
-      - https://github.com/tananaev/traccar-client-android/issues/308
-      - https://github.com/tananaev/traccar-client-android/issues/288
-      - https://github.com/Phantast/smartnavi/issues/15
-      - https://github.com/google/ExoPlayer/issues/3843
-      - https://github.com/google/ExoPlayer/issues/3477
       - https://github.com/mozilla/MozStumbler/issues/21
       - https://github.com/khertan/ForRunners/issues/54
     commits:
-      - https://github.com/caarmen/network-monitor/commit/e502952d5c7792df83446e08eea84c106f11ec5d
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/debbb570662343b5a74b11057d1b67d257e6f95f
-      - https://github.com/gateship-one/malp/commit/47914c186ada0f03d758b5d249e96e70fe51dfbf
-      - https://github.com/velazcod/Tinfoil-Facebook/commit/15c75847d51d8385595958bbe2449e8c4ba65e1e
       - https://github.com/Berlin-Vegan/berlin-vegan-guide/commit/4eb4c6745584e7f7ac016a34f86838092ba244f3
     pull_requests:
-      - https://github.com/mvglasow/satstat/pull/141
       - https://github.com/mozilla/MozStumbler/pull/14
   occurrences_ios:
     issues:
       - https://github.com/owntracks/ios/issues/507
-      - https://github.com/libretro/RetroArch/issues/5174
-      - https://github.com/mapsme/omim/issues/7563
-      - https://github.com/mapsme/omim/issues/7117
       - https://github.com/traccar/traccar-client-ios/issues/52
-      - https://github.com/expo/expo/issues/538
     commits:
-      - https://github.com/mapsme/omim/commit/6551a4d11b40d2a1cdb8649a6ebdec3ee19a4cd6
-      - https://github.com/mapsme/omim/commit/54968deac9dd8b3c62f5c0d6cdd5c4b1ee561d0c
-      - https://github.com/mapsme/omim/commit/22272f5cd15ce1e9828ef2af15101c54f99a3669
       - https://github.com/wwdc-family/app/commit/09f0d8042721473b145ddb96ada83dc03b019a57
       - https://github.com/wwdc-family/app/commit/ccf9f48193db0f2e0433aecd2511220cb29d68a5
       - https://github.com/wwdc-family/app/issues/44
@@ -673,8 +673,11 @@
       - https://github.com/mozilla/MozStumbler/issues/1290
       - https://github.com/mozilla/MozStumbler/issues/1107
       - https://github.com/mozilla/MozStumbler/issues/584
+      - https://github.com/criticalmaps/criticalmaps-android/issues/116
+      - https://github.com/Phantast/smartnavi/issues/15
     commits:
       - https://github.com/mozilla/MozStumbler/commit/fa3042a5cb6594e2acfe2744a9bc0a6c897f83db
+      - https://github.com/velazcod/Tinfoil-Facebook/commit/15c75847d51d8385595958bbe2449e8c4ba65e1e
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/1270
   occurrences_ios:
@@ -753,13 +756,14 @@
   occurrences_ios:
    issues:
      - https://github.com/mapsme/omim/issues/930
+     - https://github.com/signalapp/Signal-iOS/issues/854
 
 #
 # - name: Obsolete
 #   description: remove properties that do not have any effect.
 #   example: obsolete params in views
 #   related:
-#     - Avoid unnecessary work
+#     - Avoid extraneous work
 #   occurrences_android:
 #     commits:
 #       - https://github.com/grzegorznittner/chanu/commit/2640dc50ab8150341da30bc4d282f8ac8f5aa4c5
@@ -807,17 +811,43 @@
 #   references:
 #     - title: Facilitating the Implementation of Adaptive Cloud Offloading to Improve the Energy Efficiency of Mobile Applications
 #
-# - name: Reduce graphic animations
-#   description:
-#   warning: Particularly important on e-ink devices.
-#   occurrences_android:
-#     commits:
-#       - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
-#     issues:
-#       - https://github.com/ankidroid/Anki-Android/issues/3022
-#       - https://github.com/HoraApps/LeafPic/issues/250
-#       - https://github.com/Etuldan/spaRSS/issues/11
-#       - https://github.com/aarddict/android/issues/28
+- name: Avoid Extraneous Graphics and Animations
+  related: enough resolution
+  description: Graphics and animations are really important to improve user experience. However, they can also be battery intensive – use them with moderation.
+  context:
+  solution:
+  example: Use lower frame rates for animations whenever possible. For example, a high frame rate may make sense during game play, but a lower frame rate may be sufficient for a menu screen. Use a high frame rate only when the user experience calls for it.
+  warning: Particularly important on e-ink devices. TODO - Review 'Enough Resolution'.
+  occurrences_android:
+    commits:
+      - https://github.com/freeotp/freeotp-android/commit/7f02f57572149f243be526788987aced6a6626ba
+      - https://github.com/gateship-one/malp/commit/47914c186ada0f03d758b5d249e96e70fe51dfbf
+    issues:
+      - https://github.com/ankidroid/Anki-Android/issues/3022
+      - https://github.com/HoraApps/LeafPic/issues/250
+      - https://github.com/Etuldan/spaRSS/issues/11
+      - https://github.com/aarddict/android/issues/28
+      - https://github.com/libretro/RetroArch/issues/3138
+      - https://github.com/mapsme/omim/issues/7563
+      - https://github.com/mapsme/omim/issues/7117
+      - https://github.com/google/ExoPlayer/issues/3843
+      - https://github.com/google/ExoPlayer/issues/3477
+  occurrences_ios:
+    issues:
+      - https://github.com/libretro/RetroArch/issues/5174
+      - https://github.com/expo/expo/issues/538
+    pull_requests:
+      - https://github.com/mapsme/omim/pull/7119
+      - https://github.com/mapsme/omim/pull/6992
+      - https://github.com/mapsme/omim/pull/995
+    commits:
+      - https://github.com/mapsme/omim/commit/6551a4d11b40d2a1cdb8649a6ebdec3ee19a4cd6
+      - https://github.com/mapsme/omim/commit/54968deac9dd8b3c62f5c0d6cdd5c4b1ee561d0c
+      - https://github.com/mapsme/omim/commit/22272f5cd15ce1e9828ef2af15101c54f99a3669
+  references:
+    - title: Energy Efficiency Guide for iOS Apps – Avoid Extraneous Graphics and Animations
+      url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/AvoidExtraneousGraphicsAndAnimations.html
+      authors: Apple Developer Documention Archive
 #
 # - name: Schedulle and Sleep
 #   description: use AlarmManager for updates, instead of using Wakelocks, Services.

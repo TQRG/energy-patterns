@@ -121,7 +121,6 @@ libretro,RetroArch,https://github.com/libretro/RetroArch/issues/6830,6830,"When 
 libretro,RetroArch,https://github.com/libretro/RetroArch/issues/6786,6786,"Currently there are power options shown when HAVE_LAKKA is defined (#2660)",Issue
 libretro,RetroArch,https://github.com/libretro/RetroArch/issues/5909,5909,"The screensaver suspend option only prevents an actual screensaver program from starting up, which is not related to any other power management technique like display brightness adjustment for example.",Issue
 libretro,RetroArch,https://github.com/libretro/RetroArch/issues/5174,5174,"When you are setting up a low-power device or one without good video driver support, it is often necessary to disable the menu shaders for performance reasons. Once you turn off the shaders, the Menu Color Theme option no longer works -- the only color scheme is White text on an Orange/Red background.",Issue
-
 libretro,RetroArch,https://github.com/libretro/RetroArch/issues/4693,4693,"This would be handy for power saving on multi-monitor KMS setups.",Issue
 libretro,RetroArch,https://github.com/libretro/RetroArch/issues/3149,3149,I'll add that this feature would have the benefit of consuming significantly less power in devices with OLED displays.,Issue
 libretro,RetroArch,https://github.com/libretro/RetroArch/issues/3138,3138,"I would also like to see an option to disable the mouse when using overlays. Besides being useful for input, overlays are also useful for adding scanlines via a .png. This provides an alternative to using shaders, which benefits low powered platforms like the Raspberry Pi. ",Issue
@@ -154,7 +153,6 @@ mapsme,omim,https://github.com/mapsme/omim/commit/bec0606842ceae4307a5c5a0ac5998
 mapsme,omim,https://github.com/mapsme/omim/commit/0fb80668de892062d349b9048cf5bd7541f94bcf,0fb80668de892062d349b9048cf5bd7541f94bcf,"[yota] Remove GPS if not found, consider battery level.",commit_message
 mapsme,omim,https://github.com/mapsme/omim/commit/f7a65eea22c22ecdd70f44fb8a4a4bc589b0a175,f7a65eea22c22ecdd70f44fb8a4a4bc589b0a175,"[styles] Add normal colors for ""power"" area objects.",commit_message
 mapsme,omim,https://github.com/mapsme/omim/issues/8030,8030,"This app isn't exactly easy on the battery, is it? 😌",Issue
-mapsme,omim,https://github.com/mapsme/omim/issues/7563,7563,"I've disabled 3D buildings because it's a giant battery drain. Yes, even on my Galaxy S7. Plus there's hardly anything 3D about them. They just get a bit of a shade. Whooptiedoo.",Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/7223,7223,"Starting recently, every time I open Maps.me there’s the popup asking me to enable location services. It’s really quite annoying to be asked to do that every time when you just want to look something up. Especially also if you deactivated GPS to preserve battery etc.",Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/7117,7117,Little rendering details that may cause unneeded battery drainage,Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/5268,5268,drain more battery.,Issue
@@ -165,7 +163,7 @@ mapsme,omim,https://github.com/mapsme/omim/issues/3903,3903,The reason is that I
 mapsme,omim,https://github.com/mapsme/omim/issues/3714,3714,For both power management and data management (which may means cost) reasons please add a global parameter to switch on/off the Booking feature.,Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/3694,3694,(It took me a while to understand that this was the cause of the battery drain I was experiencing.),Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/3493,3493,Hi! Thanks for reporting. We are looking for a compromise between accuracy and battery consumption. Such manipulation with location services can lead to excessive battery consumption. Anyway we understand your problem and do our best to resolve it.,Issue
-mapsme,omim,https://github.com/mapsme/omim/issues/3391,3391,"I don't know what is very power consuming, display update, gps access, but I often have battery life issues while driving. Phone switch off in the middle of the road (while charging, plugged to a 2A charger, consuming about 800mA, measured) ",Issue
+mapsme,omim,https://github.com/mapsme/omim/issues/3391,3391,Add Low Power Consumption mode,Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/3090,3090,Potential energy saving idea,Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/2979,2979,But mainly if you are honest you will have several situations where you can not see the city sign directly which means you need to break the vehicle which uses power.,Issue
 mapsme,omim,https://github.com/mapsme/omim/issues/1883,1883,"It probably would not hurt to add a confirmation bubble with something like ""This can use a lot of battery"". Many people might not notice GPS icon is still on, and be surprised when their phones die  ",Issue
@@ -350,6 +348,16 @@ hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/7242,7242,"It's differ
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/6655,6655,"> I found a graphic glitch while playing everybody's golf 2: when u fill the power bar to shoot the screen goes black until the power bar returns to its initial position, i tried with the latest builds from v. 0.9.9 and still happens and i tried to configure the emulator in many ways but with the same result.",Issue
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/6617,6617,"It's 100% expected that block transfers will reduce performance, but they only reduce it where the PSP game interacts with memory in a way that seems to require it (which is not often in most games.)  These interactions may or may not always actually result in any useful change in gameplay, depending on how well the game is written.  For example, iirc FF4 pulls down a copy of the framebuffer every frame, but only uses this for battle transitions.  Most of the time it's just wasting battery power on a real PSP.",Issue
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/6454,6454,Sleep mode/power switch functionality discussion,Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/6424,6424,Hmm.  I wonder if we could use 50% of the texture height (due to power of two)... or at least 25%.  What is the size of the texture it uses at 040cd000?,Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/6333,6333,Well my issue isnt the fact that my pc isnt powerful enough but it does not work ,Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/5918,5918,"You can use ""force real time sync"" to keep your cpu at full power.",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/5833,5833,"I think in your case, since you're running the emulator off your internal HDD, what you can do instead is to ensure your drive is not going into power-saving mode:-",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/5562,5562,"4. Draw this 5 different times, e.g. 1 in the center and 4 each direction - each at 20% power.  Blend these together into one blurry out of focus version of the bright areas.",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/4080,4080,"Can you try with vertex cache off? I have issues with flickering geometry when it is on, although the geometry issues seem restricted to the far plane. Playing this on 0.9.5 and it works fine except for native saves not being recognised on reboot (already raised separately). Also, the slight ghosting around the geometry seems to be from the base game itself, probably a trick to fake antialising on the small screen while saving processing power.",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/3775,3775,have to remove or put back the battery. Please eliminate this error.,Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/3472,3472,"When energy is not enough ,will pop up words with triangle button.Then freeze",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/3089,3089,"Confirmed, there's a massive speed penalty in Gran Turismo now, once in-game. My rig is getting 71% and below, and I have a 3.8ghz 3930k + GTX 670(and no, they're not in power saver mode). The commit listed is correct. With vertex cache on the speed goes back up to 100%, but it still shouldn't be this slow.",Issue
+raaxis,nds4ios,https://github.com/raaxis/nds4ios/commit/ecc7a4f406e5ecd1ae8f5a367daf1e14674679b8,ecc7a4f406e5ecd1ae8f5a367daf1e14674679b8,put save states in battery directory,commit_message
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/4080,4080,"Can you try with vertex cache off? I have issues with flickering geometry when it is on, although the geometry issues seem restricted to the far plane. Playing this on 0.9.5 and it works fine except for native saves not being recognised on reboot (already raised separately). Also, the slight ghosting around the geometry seems to be from the base game itself, probably a trick to fake antialising on the small screen while saving processing power.",Issue
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/3775,3775,have to remove or put back the battery. Please eliminate this error.,Issue
 emufreak,iAmiga,https://github.com/emufreak/iAmiga/issues/39,39,Setting for reducing battery drain,Issue
@@ -371,3 +379,103 @@ TheTorProject,ooniprobe-ios,https://github.com/TheTorProject/ooniprobe-ios/issue
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/1392,1392,"Looks like we can do some fun stuff with function replacement then. Although regarding the memset, most games are able to reach fullspeed when only playing videos even on weak devices so at most that would be a small battery savings.",Issue
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/pull/9044,9044,Tweak wording to clarify battery save message,PullRequest
 hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/pull/396,396,"I did this a while ago and was worried it'd break things.  Never got around to testing it and finally did, everything seems fine (my games at least.)  Also it passes the power/power test.",PullRequest
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/pull/177,177,"Please accept hrydgard/pspautotests#24 first, as this updates pspautotests.  Note that power/power is now failing, but only because of the new test (I have pending changes to fix that, though.)",PullRequest
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/pull/36,36,Make the power tests pass,PullRequest
+brave,browser-ios,https://github.com/brave/browser-ios/issues/555,555,Battery drain while using Brave,Issue
+ChatSecure,ChatSecure-iOS,https://github.com/ChatSecure/ChatSecure-iOS/issues/883,883,"On the iPhone, Background App Refresh is enabled and all Notification options are enabled for ChatSecure. Low Power Mode is off. Any other settings I should check? I have tried Logout/Login, restarting the phone, reinstalling the app.",Issue
+signalapp,Signal-iOS,https://github.com/signalapp/Signal-iOS/issues/2243,2243,"Settings -> Battery > Last 24 hours is now showing:",Issue
+signalapp,Signal-iOS,https://github.com/signalapp/Signal-iOS/issues/1329,1329,Low Power Mode prevents registration,Issue
+signalapp,Signal-iOS,https://github.com/signalapp/Signal-iOS/issues/854,854,Turn Off Screen During a Call to Conserve Battery,Issue
+bonzoq,hniosreader,https://github.com/bonzoq/hniosreader/issues/2,2,Battery Consumption,Issue
+shu223,iOS-9-Sampler,https://github.com/shu223/iOS-9-Sampler/commit/dda0c41929351a780cbbef6ba62eb3232aa6ffed,dda0c41929351a780cbbef6ba62eb3232aa6ffed,"Added ""Low Power Mode"" example.",commit_message
+thomasfinch,GammaThingy,https://github.com/thomasfinch/GammaThingy/issues/37,37,I guess that the deamon also only checks for the time and if necessary triggers a switch (and also plays a transition animation) location data is only fetched from inside the f.lux application because it's data only needed once. That should mean the deamon does for obvious reasons no battery intensive operation like network tasks or using gps. If we stick to the same approach VOIP or AUDIO should be no bigger Battery problem then f.lux itself.,Issue
+owncloud,ios,https://github.com/owncloud/ios/issues/158,158,Battery Performance,Issue
+owncloud,ios,https://github.com/owncloud/ios/issues/152,152,- Battery performance when in background. ,Issue
+mapsme,omim,https://github.com/mapsme/omim/commit/04b47f6b62812fb2838eae201f113ebf70dc92b8,04b47f6b62812fb2838eae201f113ebf70dc92b8,[android] remove BatteryStatusReceiver.,commit_message
+mapsme,omim,https://github.com/mapsme/omim/pull/6195,6195,"Здесь, помимо сharging status, еще и уровень заряда батареи берется из интента. Получается, что если мы подписку на сервис батареи перенесем внутрь BatteryState, то нам придется 2 раза подписываться, 1-й раз для получения уровня заряда и 2-ой - для получения статуса.
+",PullRequest
+mapsme,omim,https://github.com/mapsme/omim/pull/5656,5656,https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/PrioritizeWorkWithQoS.html,PullRequest
+prey,prey-ios-client,https://github.com/prey/prey-ios-client/commit/0a8b0a9105f492adaa5441df8108441044b0eade,0a8b0a9105f492adaa5441df8108441044b0eade,Added Event: Battery Status,commit_message
+Antidote-for-Tox,Antidote,https://github.com/Antidote-for-Tox/Antidote/issues/191,191,See https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html#//apple_ref/doc/uid/TP40015243-CH30-SW1,Issue
+matomo-org,matomo-mobile-2,https://github.com/matomo-org/matomo-mobile-2/issues/5359,5359,"The weird thing is, it’s much harder to reproduce when plugged in to USB. I’m not sure what that means, except that the Battery Optimizer in Android 6+ isn’t enabled when the device is plugged in to a power supply. Also makes it harder to debug.",Issue
+openhab,openhab.ios,https://github.com/openhab/openhab.ios/issues/77,77,"Number mqttAndreaBattery ""Andrea's iPhone Battery [%d %%]"" (PresenceAndrea)",Issue
+traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/58,58,"Battery is above 90%.
+",Issue
+traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/35,35,"So the only reason is Apple politics about privacy? Technically for personal use do I just have to enable ""voip"" background mode to the [main plist](https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/Art/xcode_project_capabilities_backgroundmodes_2x.png) to add?",Issue
+traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/31,31,iOS Battery Level always 0,Issue
+traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/15,15,ios app Battery level support,Issue
+traccar,traccar-client-ios,https://github.com/traccar/traccar-client-ios/issues/14,14,Frequency vs Battery life ,Issue
+vector-im,riot-ios,https://github.com/vector-im/riot-ios/issues/1522,1522,"Oct  6 11:34:15 Matthews-iPhone assertiond[66] <Notice>: Updating PowerAssertion on Riot:3303
+",Issue
+Kjuly,iPokeMon,https://github.com/Kjuly/iPokeMon/commit/0fd58c5f11802aea5d3269c605311522329f39cf,0fd58c5f11802aea5d3269c605311522329f39cf,|kLocationServiceLowBatteryMode| to |LOCATION_SERVICE_LOW_BATTERY_MODE|,commit_message
+pcqpcq,open-source-android-apps,https://github.com/pcqpcq/open-source-android-apps/commit/8108614306b22ed67984941b857c7ec03f9eb24b,8108614306b22ed67984941b857c7ec03f9eb24b,add BetterBatteryStats by @asksven,commit_message
+frogatto,frogatto,https://github.com/frogatto/frogatto/commit/f08fa0f44feb7bc1a18457f1afce8bf0e521a5e2,f08fa0f44feb7bc1a18457f1afce8bf0e521a5e2,Energy bar,commit_message
+frogatto,frogatto,https://github.com/frogatto/frogatto/issues/316,316,**Conveyance Challenge #2 (Timed Race + Target Practice w/ Energy Shot)**,Issue
+mozilla-mobile,prox,https://github.com/mozilla-mobile/prox/issues/601,601,| Battery | 56% Unplugged |,Issue
+wwdc-family,app,https://github.com/wwdc-family/app/issues/44,44,Battery Usage,Issue
+expo,expo,https://github.com/expo/expo/issues/1827,1827,"I've discovered that Huawei has built in a ""feature"" called Protected Apps, that can be accessed from the phone settings (Battery Manager > Protected Apps). This allows elected apps to keep running after the screen is turned off.
+",Issue
+expo,expo,https://github.com/expo/expo/issues/1339,1339,"Hi there - that error (`Location services are disabled`) is thrown if no location providers are available, i.e. the user has turned off location services on their device entirely. In this case, there is no way for an app to programmatically get any location information from the device. It sounds like what you want is to switch location services to the ""Battery saving"" mode, rather than turning them off entirely - have you tried that? https://support.google.com/accounts/answer/3467281?hl=en that should switch it to the network provider.",Issue
+expo,expo,https://github.com/expo/expo/issues/946,946,The location is only tracked when the location track mode is in **High accuracy** or **Battery saver**,Issue
+expo,expo,https://github.com/expo/expo/issues/426,426,"Hello, all I'm trying to debug this - what I came across is that if you have location mode set (in system settings) set to GPS only location won't be gathered (not sure if at all or for example in buildings? that's where I am testing). What's more, even Google Maps app won't show your location. Setting this to High accuracy or Battery saving everything works.
+",Issue
+GitHawkApp,GitHawk,https://github.com/GitHawkApp/GitHawk/issues/224,224,"Background fetch is largely undocumented, however a few of tips I've come across are things like Application Launch times and Energy Usage.
+",Issue
+nextcloud,ios,https://github.com/nextcloud/ios/issues/215,215,"Low Battery without power supply the Upload in background is blocked or very very very slow.
+",Issue
+bitwarden,mobile,https://github.com/bitwarden/mobile/issues/273,273,[Bug] High Battery Use - Android App,Issue
+bitwarden,mobile,https://github.com/bitwarden/mobile/issues/66,66,"1. Battery optimization OFF for bitwarden
+",Issue
+bitwarden,mobile,https://github.com/bitwarden/mobile/issues/51,51,"Battery between (5% -15%)
+",Issue
+nightscout,nightguard,https://github.com/nightscout/nightguard/issues/24,24,"The first hours was with Low Power Mode Off, the last were with Low Power Mode On. Didn't seem to make any difference... ",Issue
+libretro,RetroArch,https://github.com/libretro/RetroArch/commit/c1f16e156e497c50671a4d34b72d46e3381cc2cd,c1f16e156e497c50671a4d34b72d46e3381cc2cd,Add Power Management submenu,commit_message
+libretro,RetroArch,https://github.com/libretro/RetroArch/commit/33254862a6f182d98b4d5254557455a314625de7,33254862a6f182d98b4d5254557455a314625de7,Change 'Using Power' to 'Discharging',commit_message
+libretro,RetroArch,https://github.com/libretro/RetroArch/commit/7e0395970e2c65dbdf8794444c34ec6997fe9ec2,7e0395970e2c65dbdf8794444c34ec6997fe9ec2,Add Power Source to System Information,commit_message
+libretro,RetroArch,https://github.com/libretro/RetroArch/issues/6844,6844,"- Power source
+",Issue
+libretro,RetroArch,https://github.com/libretro/RetroArch/issues/6214,6214,"[libretro INFO]  Battery-backed: Yes
+",Issue
+libretro,RetroArch,https://github.com/libretro/RetroArch/issues/1491,1491,"You mean my Laptop enters powersave mode when there is not enough usage? This could be right, however even after I selected my High Performance profile it appears to do some Power Saving (seems to improve a little but it still only runs at 48FPS). I wonder why RA doesn't create enough usage to run on a good framerate like 60FPS (I'm not someone who knows much about ressources etc. so pls don't rage at me) ",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/commit/e680aa79cfd6d18684c945c902095c326621143a,e680aa79cfd6d18684c945c902095c326621143a,Implement a basic scePowerGetBatteryLifeTime().,commit_message
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/commit/92f5ed82e679dc991577fa4fb06c289ee151f784,92f5ed82e679dc991577fa4fb06c289ee151f784,Cleanup some functions in scePower.,commit_message
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/commit/9bc7385502d3c933b3417a515065dcd4d844dd62,9bc7385502d3c933b3417a515065dcd4d844dd62,Power test working,commit_message
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/11170,11170,"Battery life 47% = 60%~67% fps
+",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/10669,10669,"Battery drain is more because now ppsspp is faster on OpenGl, 2 cores use more battery.",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/10142,10142,"`FeedbackIncludeCRC = Note: Battery will be used to send a disc CRC` ??
+",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/9359,9359,"WlanPowerSave = False
+",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/8992,8992,PowerSaveModeReceiver crashes on Android,Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/8966,8966,"Play God eater 2 1.0 pop up with black screen with ""WARNING:Battery save mode is on""",Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/8044,8044,WlanPowerSave = False,Issue
+hrydgard,ppsspp,https://github.com/hrydgard/ppsspp/issues/3568,3568,WlanPowerSave = False,Issue
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/4a7e3af190e03f6f9cf6576e2a395c8374d140f0,4a7e3af190e03f6f9cf6576e2a395c8374d140f0,DPMSSupport: add return value to PlatformSpecificDisablePowerSaving(),commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/9bf7140ccf765c42713e384ad5b9982b63a362bb,9bf7140ccf765c42713e384ad5b9982b63a362bb,FIX: [win10] Battery values are nillable,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/8f0e82e0b9f44341670adc5d5db59edda780858b,8f0e82e0b9f44341670adc5d5db59edda780858b,FIX: [win10] Battery values are nillable,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/31618f3ba0b275d2239b0eb2d490fdad9ff3e970,31618f3ba0b275d2239b0eb2d490fdad9ff3e970,Peripherals: Fix c/p error when Power-Off was added to the Peripheral API,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/af3698bfa3c471a1b3156323ad4269cc4ef1dc8b,af3698bfa3c471a1b3156323ad4269cc4ef1dc8b,"[PVR] Trac #17374: enabled ""PVR -> Power saving -> Wakeup command"" setting is not called",commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/cc8828205e3a2770938b211c996d4b887c876280,cc8828205e3a2770938b211c996d4b887c876280,[powermanager] CPowerManager::OnWake: force close busy dialog.,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/9fe618d20cd9536b0856ea5354d7c8f2b94b56eb,9fe618d20cd9536b0856ea5354d7c8f2b94b56eb,- OnPowerSavingActivated,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/dccbe3f71f3dbfe2d571c47e391bf038ca476420,dccbe3f71f3dbfe2d571c47e391bf038ca476420,[PowerManager] Possible leak in public function. The pointer 'm_instance' is not deallocated before it is allocated.,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/68a65f290ad6b739497cde43584f6becc21a1ced,68a65f290ad6b739497cde43584f6becc21a1ced,[application] Moved call to PVRManager::SetWakeupCommand in PowerManager::OnSleep for execute it when a actual suspend/hibernate occurs.,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/67bf67d28e70908ff5a41fc55ec95ed27260996a,67bf67d28e70908ff5a41fc55ec95ed27260996a,[PowerManager] Show dialog busy only when processing OnSleep.,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/348dcf5a0152616b4609c85aaa6bb8e5bc4501f1,348dcf5a0152616b4609c85aaa6bb8e5bc4501f1,[linux] only query OnLowBattery property query if needed,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/d9da17184d2ab980b1f5002740b7c1d1c6dfa0a8,d9da17184d2ab980b1f5002740b7c1d1c6dfa0a8,[linux] only query OnLowBattery property query if needed,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/commit/ac6dbddd17789734b6c0957f5d35d34964592552,ac6dbddd17789734b6c0957f5d35d34964592552,added expose BatteryLevel for progress bars,commit_message
+xbmc,xbmc,https://github.com/xbmc/xbmc/pull/11838,11838,"I added an option in the `System` -> `Power Saving` menu to disable initialization of the operating system's screen saver while Kodi is running.
+",PullRequest
+xbmc,xbmc,https://github.com/xbmc/xbmc/pull/2017,2017,This PR changes that behaviour to use whatever is defined in Power saving > Shutdown function.,PullRequest
+wordpress-mobile,WordPress-iOS,https://github.com/wordpress-mobile/WordPress-iOS/issues/5889,5889,        <key>com.apple.CoreDuet.BatterySaver.Hours</key>,Issue
+wordpress-mobile,WordPress-iOS,https://github.com/wordpress-mobile/WordPress-iOS/issues/4427,4427,- first we uploaded the image: this is time and resource consuming (I'm thinking Power and Data),Issue
+osmandapp,Osmand,https://github.com/osmandapp/Osmand/issues/4326,4326,"- Battery dies out way too far (roughly 1% per minute)
+",Issue
+osmandapp,Osmand,https://github.com/osmandapp/Osmand/issues/4238,4238,"It's a good car 2A charger and it can really output 2A. I tested it by using AccuBattery app.
+",Issue
+osmandapp,Osmand,https://github.com/osmandapp/Osmand/issues/3751,3751,Battery issue in 2.6,Issue
+osmandapp,Osmand,https://github.com/osmandapp/Osmand/issues/2528,2528,"Battery usage could be misleading especially after you mentioned ""turn off GPS"". It is possible that application battery usage reveals more historical data over time.",Issue
+osmandapp,Osmand,https://github.com/osmandapp/Osmand/issues/1685,1685,It appeared that a Android-setting (Energy-saving) was causing the problems.,Issue
+osmandapp,Osmand,https://github.com/osmandapp/Osmand/issues/1399,1399,"Since there's a auto screen on feature, should there not be an accompanying screen 'off' feature?  Power saving between navigation points.",Issue
+keybase,client,https://github.com/keybase/client/issues/4003,4003,Yeah it's hard to tell what in the kernel is causing cpu usage. Also sometimes the samples in Activity Monitor can be misleading cause they are snapshots. Energy usage for a process might be a greater indicator for measure if a process is using lots of resources over time.,Issue
+keybase,client,https://github.com/keybase/client/issues/2459,2459,Extreme Power Usage,Issue
