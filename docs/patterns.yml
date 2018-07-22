@@ -47,6 +47,11 @@
     - authors: Linares-Vásquez M, Bernal-Cárdenas C, Bavota G, Oliveto R, Di Penta M, Poshyvanyk D.
       title: "GEMMA: multi-objective optimization of energy consumption of GUIs in Android apps."
       url: http://ieeexplore.ieee.org/abstract/document/7965245/
+    - authors: Ding Li, Angelica Huyen Tran, and William G. J. Halfond
+      title: Making Web Applications More Energy Efficient for OLED Smartphones
+      url: https://dl.acm.org/citation.cfm?id=2568321
+    - title: "Nyx: A Display Energy Optimizer for Mobile Web Apps"
+      authors: Ding Li, Angelica Huyen Tran, and William G. J. Halfond.
 
 - name: Dynamic retry delay
   figure: dynamic_retry_delay.svg
