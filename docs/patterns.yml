@@ -335,6 +335,9 @@
   references:
     - title: Android Developer Guides — Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
+    - url: https://dl.acm.org/citation.cfm?id=2901748
+      title: "How android app developers manage power consumption?: an empirical study by mining power management commits"
+      authors: Lingfeng Bao, David Lo, Xin Xia, Xinyu Wang, and Cong Tian
 
 - name: Reduce Size
   description: When transmitting data, reduce its size as much as possible.
@@ -420,7 +423,7 @@
   aka: Lazy First — Coalesce, Inexact Schedulling
   description: Batch multiple operations, instead of putting the device into an active state many times.
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
-  solution: Combine different operations in a single one.
+  solution: Bundle multiple operations in a single one.
   example: "Use Job Scheduling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occurring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constantly exiting sleep mode (or doze mode). Other examples: execute only if another task is using the required resource; ask for location while setting 'notification responsiveness' with a reasonable delay; collect location data only when other app collects it as well."
   occurrences_android:
     issues:
@@ -447,6 +450,9 @@
     commits:
       - https://github.com/videolan/vlc/commit/7655d6c889d2425c1fd4615f7e2692df1a47470c
   references:
+    - title: An Investigation into Energy-Saving Programming Practices for Android Smartphone App Development
+      url: https://doi.org/10.1145/2593743.2593750
+      authors: Ding Li and William G. J. Halfond
     - title: Optimizing for Doze and App Standby
       url: https://developer.android.com/training/monitoring-device-state/doze-standby.html
       authors: Android SDK Documentation
