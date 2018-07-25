@@ -197,6 +197,7 @@
       - https://github.com/toshiapp/toshi-ios-client/pull/68
 
 - name: Push over Poll
+  figure: push_not_poll.svg
   description: Use push notifications to receive updates from resources, instead of actively querying resources (i.e., polling).
   context: Mobile apps need to get updates from resources (e.g., from server). One way of checking for updates is by periodically query those resources. However, this will insurge into several requests that will return no update, leading to unnecessary energy consumption.
   solution: Use push notifications to get updates from resources. Note -- this is a big challenge amongst FOSS apps since there is no good open source alternative for Firebase Cloud Messaging (former Google Cloud Messaging).
@@ -230,6 +231,7 @@
       url: https://github.com/matrix-org/GSoC/blob/master/IDEAS.md#alternative-push-notification-transport
 
 - name: Power Save mode
+  figure: power_save_mode.svg
   related:
     - Power Awareness
   description: Provide an energy savior mode in which user experience can drop for the sake of better energy efficiency.
@@ -358,6 +360,7 @@
       url: http://ieeexplore.ieee.org/document/7409011/
       authors: Sirapat Boonkrong, Pham Cao Dinh
 - name: WiFi over Cellular
+  figure: wifi.svg
   related: Power Awareness
   description: Delay or disable heavy data connections until the device is connected to a WiFi network.
   context: Data needs to be syncronized with a server but it is not urgent and can be delayed.
