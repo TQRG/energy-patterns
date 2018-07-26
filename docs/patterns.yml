@@ -1,7 +1,7 @@
 - name: Dark UI colors
   description: Provide a dark UI color theme to save battery on devices with AMOLED screens.
   context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen (e.g., reading apps) can have a big impact on battery life.
-  solution: Provide a UI with dark background colors. This is particularly benificial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated upon a special trigger (e.g., when battery is running low).
+  solution: Provide a UI with dark background colors. This is particularly beneficial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated using a special trigger (e.g., when battery is running low).
   example:
   figure: dark_ui_colors_2.svg
   occurrences_android:
@@ -133,7 +133,22 @@
   description: Release resources or services as soon as possible (e.g., wakelocks, screen).
   context: Mobile apps use a number of resources that can be manually closed after use. While active, these resources are ready to respond to requests from the app and require extra power consumption.
   solution: Make sure resources are inactive when they are not necessary by manually closing them.
-  example: When an app goes to background, make sure wakelocks are properly released.
+  example: Implement handlers for events that are fired when the app goes to background, and release wake locks accordingly.
+  references:
+    - title: Understanding and Detecting Wake Lock Misuses for Android Applications
+      url: https://doi.org/10.1145/2950290.2950297
+      authors: Yepang Liu, Chang Xu, Shing-Chi Cheung, and Valerio Terragni
+    - title: Automated Re-factoring of Android Apps to Enhance Energy-efficiency
+      url: https://doi.org/10.1109/MobileSoft.2016.038
+      authors: Abhijeet Banerjee, Abhik Roychoudhury
+      year: 2016
+    - title: Performance-based Guidelines for Energy Efficient Mobile Applications
+      authors: Luis Cruz and Rui Abreu
+      url: https://doi.org/10.1109/MOBILESoft.2017.19
+      year: 2017
+    - title: "What is keeping my phone awake?: characterizing and detecting no-sleep energy bugs in smartphone apps"
+      authors: Abhinav Pathak	Purdue, Abhilash Jindal	Purdue, Y. Charlie Hu	Purdue, and Samuel P. Midkiff	Purdue
+      url: https://doi.org/10.1145/2307636.2307661
   occurrences_android:
     issues:
       - https://github.com/osmandapp/Osmand/issues/3727
@@ -169,7 +184,7 @@
     issues:
       - https://github.com/LocativeHQ/Locative-iOS/issues/50
       - https://github.com/mapsme/omim/issues/5110
-    commit_message:
+    commits:
       - https://github.com/videolan/vlc/commit/2d099490eefa3cebc22279d00791b9d1d7c0b2ba
     pull_requests:
        - https://github.com/toshiapp/toshi-ios-client/pull/803
@@ -195,6 +210,11 @@
       - https://github.com/vector-im/riot-ios/commit/1d8be86358c8114396c5320a869e24d0bf3985d9
     pull_requests:
       - https://github.com/toshiapp/toshi-ios-client/pull/68
+  references:
+    - title: Automated Re-factoring of Android Apps to Enhance Energy-efficiency
+      url: https://doi.org/10.1109/MobileSoft.2016.038
+      authors: Abhijeet Banerjee, Abhik Roychoudhury
+      year: 2016
 
 - name: Push over Poll
   figure: push_not_poll.svg
@@ -236,7 +256,7 @@
     - Power Awareness
   description: Provide an energy savior mode in which user experience can drop for the sake of better energy efficiency.
   context: Whenever the device battery is running low, users want to avoid losing connectivity before they reach a power charging station. If the device shuts down, users might miss important calls or will not be able to do an important task. Still, apps might be running unimportant tasks that will reduce battery life in this critical context.
-  solution: The app provides a power save mode in which it uses less resources while providing the minimum functionality that is indispensible to the user. It can be activated manually or upon some power events (e.g., when battery reaches a given level). User experience can drop for the sake of energy efficiency. Note, this is enforced in iOS for some use cases if the apps use the BackgroundSync APIs.
+  solution: The app provides a power save mode in which it uses less resources while providing the minimum functionality that is indispensable to the user. It can be activated manually or upon some power events (e.g., when battery reaches a given level). User experience can drop for the sake of energy efficiency. Note, this is enforced in iOS for some use cases if the apps use the BackgroundSync APIs.
   example: Deactivate some features, reduce update intervals, or deactivate animated effects in the UI.
   occurrences_android:
     issues:
@@ -343,8 +363,9 @@
 
 - name: Reduce Size
   description: When transmitting data, reduce its size as much as possible.
+  figure: reduce_size.svg
   context: Data transmition is a common operation in mobile apps. However, such operations are energy greedy and the time of transmission should reduced as much as possible.
-  solution: Use data compression when possible and avoid sending unnecessary data. Exchange only what is strictly necessary.
+  solution: Exchange only what is strictly necessary, avoiding sending unnecessary data. Use data compression when possible.
   example: When performing HTTP requests use gzip content encoding to compress data.
   occurrences_android:
     commits:
@@ -359,9 +380,11 @@
     - title: Reducing battery consumption of data polling and pushing techniques on Android using GZip
       url: http://ieeexplore.ieee.org/document/7409011/
       authors: Sirapat Boonkrong, Pham Cao Dinh
+
 - name: WiFi over Cellular
   figure: wifi.svg
-  related: Power Awareness
+  related:
+    - Power Awareness
   description: Delay or disable heavy data connections until the device is connected to a WiFi network.
   context: Data needs to be syncronized with a server but it is not urgent and can be delayed.
   solution: Data connections using cellular networks are usually more battery intensive than connections using WiFi. Low priority operations that require a data connection to exchange considerable amounts of data should be delayed until a WiFi connection is available.
@@ -396,12 +419,16 @@
     - title: Energy Efficiency Guide for iOS Apps – Energy and Networking
       url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/EnergyandNetworking.html
       authors: Apple Developer Documention Archive
+    - title: "What is eating up battery life on my SmartPhone: A case study"
+      url: https://doi.org/10.1109/ICEAC.2012.6471003
+      authors: Grace Metri, Abhishek Agrawal, Ramesh Peri, and Weisong Shi
+
 
 - name: Surpress Logs
   related:
     - Avoid extraneous work
   description: Avoid using intensive logging (< 1Hz).
-  context: Developers resort to logging in their mobile apps to ensure their correct behavior and simplofy bug reporting. However, logging operations are creating overhead on energy consumption without creating value to the end user.
+  context: Developers resort to logging in their mobile apps to ensure their correct behavior and simplify bug reporting. However, logging operations are creating overhead on energy consumption without creating value to the end user.
   solution: Avoid using intensive logging, and keeping rates below one message per second.
   occurrences_android:
     commits:
@@ -422,9 +449,11 @@
       authors: Shaiful Chowdhury, Silvia Di Nardo, Abram Hindle, Zhen Ming (Jack) Jiang
       url: https://link.springer.com/article/10.1007/s10664-017-9545-x
       position: Not necessary when logs are generated at rates of ≤ 1 message per second
+
 - name: Batch Operations
   aka: Lazy First — Coalesce, Inexact Schedulling
   description: Batch multiple operations, instead of putting the device into an active state many times.
+  figure: batch_operations.svg
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Bundle multiple operations in a single one.
   example: "Use Job Scheduling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occurring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constantly exiting sleep mode (or doze mode). Other examples: execute only if another task is using the required resource; ask for location while setting 'notification responsiveness' with a reasonable delay; collect location data only when other app collects it as well."
@@ -465,13 +494,21 @@
     - title: "DevBytes: Efficient Data Transfers - Batching, Bundling, and SyncAdapters"
       url: https://www.youtube.com/watch?v=5onKZcJyJwI
       authors: Android Developers Youtube Channel.
+    - title: Energy-aware performance evaluation of Android custom kernels
+      url: https://doi.org/10.1109/GREENS.2015.8
+      authors: Luis Corral, Anton B. Georgiev, Andrea Janes, and Stefan Kofler
+      year: 2015
+    - title: "DelayDroid: Reducing Tail-Time Energy by Refactoring Android Apps"
+      authors: Huaqian Cai, Ying Zhang, Zhi Jin, Xuanzhe Liu, and Gang Huang
+      url: https://doi.org/10.1145/2875913.2875915
+
 
 - name: Cache
   aka: Lazy First — reduce
   description: Avoid performing unnecessary operations by using cache mechanisms.
   context: Typically mobile apps present data to users that is collect from a remote server. However, it may happen that the same data is being collected from the server multiple times.
-  solution: Implement caching mechanisms to temporarly store data from server. In addition, verify whether there is an update before downloading all data.
-  example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures everytime a given profile is opened, use data that was locally stored from earlier visits.
+  solution: Implement caching mechanisms to temporarily store data from server. In addition, verify whether there is an update before downloading all data.
+  example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures every time a given profile is opened, use data that was locally stored from earlier visits.
   related:
     - Avoid extraneous work
     - Reduce size
@@ -503,14 +540,17 @@
     - title: Optimizing for Battery Life
       url: https://developer.android.com/topic/performance/power/index.html
       authors: Android Developer Guides.
+    - title: Saving Energy on Mobile Devices by Refactoring
+      url: http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.567.383
+      authors: Marion Gottschalk, Jan Jelschen, and Andreas Winter
 
 - name: Decrease rate
   related:
     - Enough resolution
   description: Increase time between syncs/sensor reads as much as possible.
   context: Mobile apps have to periodically perform operations. If a the time between two executions is small, the app will be executing operations more often. In some cases, even if operations are executed more often, it will not affect users' perception.
-  solution:  Increase the delay between operations to find the minimal interval that do not compromise user experience. This delay can be manually tuned by developers or defined by users. More sophisticated solutions can aso use context (e.g., time of the day, history data, etc.) to infer the optimal update rate.
-  example: Consider a news app that collects news from different sources, each one having its own thread. Some news sources might have new content only once a week, while others might be updated every hour. Instead of updating all threads at the same rate, use data from previous updates to infer the optimal update rate of these threads. Connect to the news source only if new updates are expected. Other examples include decreasing number of frames per second in graphics animations.
+  solution:  Increase the delay between operations to find the minimal interval that do not compromise user experience. This delay can be manually tuned by developers or defined by users. More sophisticated solutions can also use context (e.g., time of the day, history data, etc.) to infer the optimal update rate.
+  example: Consider a news app that collects news from different sources, each one having its own thread. Some news sources might have new content only once a week, while others might be updated every hour. Instead of updating all threads at the same rate, use data from previous updates to infer the optimal update rate of these threads. Connect to the news source only if new updates are expected.
   occurrences_android:
     issues:
       - https://github.com/opacapp/opacclient/issues/492
@@ -614,6 +654,10 @@
       - https://github.com/ptsochantaris/trailer/commit/6e83eb82fbdf8a9049817c7a1cb7dd2bf2520fba
     pull_requests:
       - https://github.com/istornz/iPokeGo/pull/113
+    references:
+      title: The Impact of User Choice on Energy Consumption
+      authors: Chenlei Zhang, Abram Hindle, and Daniel M. German
+      url: https://doi.org/10.1109/MS.2014.27
 
 - name: Inform Users
   description: Let the user know if the app is doing any battery intensive operation.
@@ -644,7 +688,7 @@
   description: Collect or provide high accuracy data only when strictly necessary.
   context: When collecting or displaying data, it is tempting to use high resolutions. The problem of using data with high resolution is that its collection and manipulation require more resources (e.g., memory, processing capacity, etc.). As a consequence, energy consumption increases unnecessarily.
   solution: For every use case, find the optimal resolution value that is required to provide the intended user experience.
-  example: Consider a running app that is able to record running sessions. While  the user is running, the app presents the current overall distance in real-time. While calculating the most accurate value of the total distance would provide the correct information, it would require precise real-time processing of GPS or accelerometer sensors, which can be energy greedy. Instead, a lightweight method could be used to estimate this information with lower but reasonable accuracy. In the end of the session, the accurate results would still processed, but without real-time constraints. Other examples include optimizing image resolution, using graphic with surfaces instead of textures, etc.
+  example: Consider a running app that is able to record running sessions. While  the user is running, the app presents the current overall distance in real-time. While calculating the most accurate value of the total distance would provide the correct information, it would require precise real-time processing of GPS or accelerometer sensors, which can be energy greedy. Instead, a lightweight method could be used to estimate this information with lower but reasonable accuracy. In the end of the session, the accurate results would still processed, but without real-time constraints.
   occurrences_android:
     issues:
       - https://github.com/vanilla-music/vanilla/issues/620
@@ -677,7 +721,7 @@
   description: Use data from low power sensors to infer whether new data needs to be collected from high power sensors
   context: Mobile apps provide features that require reading data or executing operations in different sensors or components. Such operations can be energy greedy, causing high power consumption. Thus, they should be called as less times as possible.
   solution: Use complementaray data low power sensors to assure whether a given energy-greedy operation needs to be executed.
-  example: Use accelerometer to infer whether GPS location should be updated.
+  example: Use accelerometer to infer whether the user has changed location. In the case that the user is in the same location, data from GPS does not need to be updated.
   occurrences_android:
     issues:
       - https://github.com/tananaev/traccar-client-android/issues/288
@@ -709,7 +753,7 @@
       authors: Apple's Core Location Documentation
 
 - name: Kill abnormal tasks
-  description: Provide means of interrupting energy greedy operations (e.g., using timeouts, or users input)
+  description: Provide means of interrupting energy greedy operations (e.g., using timeouts, or users input).
   context: Mobile apps might feature operations that can be unexpectedly energy greedy (e.g., taking a long time to execute).
   solution: Provide a reasonable timeout for tasks or wakelocks. Alternatively provide an intuitive way of interrupting those tasks.
   example: In a mobile app that features an alarm clock, set a reasonable timeout for the duration of the alarm.. In case the user is not able to turn it off it will not drain the battery.
@@ -730,23 +774,23 @@
     pull_requests:
       - https://github.com/mozilla-mobile/firefox-ios/pull/2728
 
-- name: Rely on the OS FIXME (nome estranho)
-  related:
-    - Batch Operations
-  description: Avoid using your own implementation by relying on services already provided by the OS.
-  occurrences_android:
-    issues:
-      - https://github.com/hrydgard/ppsspp/issues/9046
-  occurrences_ios:
-    issues:
-      - https://github.com/owntracks/ios/issues/507
-      - https://github.com/ChatSecure/ChatSecure-iOS/issues/483
-      - https://github.com/owntracks/ios/issues/431
-      - https://github.com/owntracks/ios/issues/327
-      - https://github.com/owntracks/ios/issues/119
-      - https://github.com/owncloud/ios/issues/13
-      - https://github.com/expo/expo/issues/1750
-      - https://github.com/expo/expo/issues/1170
+# - name: Rely on the OS FIXME (nome estranho)
+#   related:
+#     - Batch Operations
+#   description: Avoid using your own implementation by relying on services already provided by the OS.
+#   occurrences_android:
+#     issues:
+#       - https://github.com/hrydgard/ppsspp/issues/9046
+#   occurrences_ios:
+#     issues:
+#       - https://github.com/owntracks/ios/issues/507
+#       - https://github.com/ChatSecure/ChatSecure-iOS/issues/483
+#       - https://github.com/owntracks/ios/issues/431
+#       - https://github.com/owntracks/ios/issues/327
+#       - https://github.com/owntracks/ios/issues/119
+#       - https://github.com/owncloud/ios/issues/13
+#       - https://github.com/expo/expo/issues/1750
+#       - https://github.com/expo/expo/issues/1170
 
 
 - name: No screen interaction
@@ -828,9 +872,9 @@
 - name: Avoid Extraneous Graphics and Animations
   related: enough resolution
   description: Graphics and animations are really important to improve user experience. However, they can also be battery intensive – use them with moderation.
-  context:
-  solution:
-  example: Use lower frame rates for animations whenever possible. For example, a high frame rate may make sense during game play, but a lower frame rate may be sufficient for a menu screen. Use a high frame rate only when the user experience calls for it.
+  context: Mobile apps often feature impressive graphics and animations. However, they need to be properly tuned in order to prevent battery drain of users' devices. This is particularly critical in on e-ink devices.
+  solution: Study the importance of graphics and animations to the user experience. The improvement on user experience may not be sufficient to cover the overhead on energy consumption. Avoid using graphics animations or high quality graphics. Resort to low frame rates for animations when possible.
+  example: A high frame rate may make sense during game play, but a lower frame rate may be sufficient for a menu screen. Use a high frame rate only when the user experience calls for it.
   warning: Particularly important on e-ink devices. TODO - Review 'Enough Resolution'.
   occurrences_android:
     commits:
@@ -862,6 +906,9 @@
     - title: Energy Efficiency Guide for iOS Apps – Avoid Extraneous Graphics and Animations
       url: https://developer.apple.com/library/archive/documentation/Performance/Conceptual/EnergyGuide-iOS/AvoidExtraneousGraphicsAndAnimations.html
       authors: Apple Developer Documention Archive
+    - title: Content-centric energy management of mobile displays
+      authors: Dongwon Kim, Nohyun Jung, Yohan Chon, and Hojung Cha
+      url: https://doi.org/10.1109/TMC.2015.2467393
 #
 # - name: Schedulle and Sleep
 #   description: use AlarmManager for updates, instead of using Wakelocks, Services.
@@ -880,6 +927,8 @@
   related:
     - User knows best
   description: Perform tasks only when the user specifically asks.
+  context: Some tasks can be energy intensive but not strictly necessary for some use cases of the app.
+  solution: Provide a mechanism the UI (e.g., button) that allows users to trigger energy intensive tasks.
   example: In a beacon monitoring app, there are occasions in which the user does not neet to keep track of her/his beacons. Allow the user to start/stop monitoring manually.
   occurrences_android:
     issues:
