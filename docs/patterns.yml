@@ -254,7 +254,7 @@
   figure: power_save_mode.svg
   related:
     - Power Awareness
-  description: Provide an energy savior mode in which user experience can drop for the sake of better energy efficiency.
+  description: Provide an energy efficient mode in which user experience can drop for the sake of better energy usage.
   context: Whenever the device battery is running low, users want to avoid losing connectivity before they reach a power charging station. If the device shuts down, users might miss important calls or will not be able to do an important task. Still, apps might be running unimportant tasks that will reduce battery life in this critical context.
   solution: The app provides a power save mode in which it uses less resources while providing the minimum functionality that is indispensable to the user. It can be activated manually or upon some power events (e.g., when battery reaches a given level). User experience can drop for the sake of energy efficiency. Note, this is enforced in iOS for some use cases if the apps use the BackgroundSync APIs.
   example: Deactivate some features, reduce update intervals, or deactivate animated effects in the UI.

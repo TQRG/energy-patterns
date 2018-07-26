@@ -1,3 +1,4 @@
+user,repo,url,ref,match,type
 Provenance-Emu,Provenance,https://github.com/Provenance-Emu/Provenance/issues/694,694,"    - Lib retro fork. May or may not have useable additions. They focus on lower power and portable devices so at least worth keeping an eye on for patches.",Issue
 Provenance-Emu,Provenance,https://github.com/Provenance-Emu/Provenance/issues/599,599,I get an issues like this and this was due to a low battery level + a long distance from the Apple TV. try to make a full charge of the Nimbus and play closer if the issues continue.,Issue
 Provenance-Emu,Provenance,https://github.com/Provenance-Emu/Provenance/issues/569,569,- Investigate possibility to leave web UI running (at least on ATV since battery isn't a concern) if CPU usage is near 0 when no clients are connected.,Issue
@@ -72,7 +73,6 @@ videolan,vlc,https://github.com/videolan/vlc/commit/2d099490eefa3cebc22279d00791
 videolan,vlc,https://github.com/videolan/vlc/commit/e76e8639d48f1b33e239082521c9e6319af86379,e76e8639d48f1b33e239082521c9e6319af86379,macosx: fix drawing the search field at 60fps and wasting enormous amounts of battery when blinking (close #11067),commit_message
 videolan,vlc,https://github.com/videolan/vlc/commit/7655d6c889d2425c1fd4615f7e2692df1a47470c,7655d6c889d2425c1fd4615f7e2692df1a47470c,powersaving (marginally as there isn't network activity that often).,commit_message
 videolan,vlc,https://github.com/videolan/vlc/commit/e98d0a823f78f47eed42dad40e33dfd04816026d,e98d0a823f78f47eed42dad40e33dfd04816026d,It seems to be better for the machines with lying power-improvement,commit_message
-
 videolan,vlc,https://github.com/videolan/vlc/commit/97a7b7ec1790203a5872b292ce52fa0a8692e4d4,97a7b7ec1790203a5872b292ce52fa0a8692e4d4,dbus_screensaver: rename from power,commit_message
 videolan,vlc,https://github.com/videolan/vlc/commit/1e1f01298b1032e22087e9fefeef9fb272860724,1e1f01298b1032e22087e9fefeef9fb272860724,power: use non-blocking DBusPendingCall instead of short timeout,commit_message
 videolan,vlc,https://github.com/videolan/vlc/commit/11fdcca2be709bd5a74ed2e75c8d644dc1f094c6,11fdcca2be709bd5a74ed2e75c8d644dc1f094c6,power: probe D-Bus services and return error if none are found,commit_message
