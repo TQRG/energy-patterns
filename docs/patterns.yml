@@ -424,7 +424,7 @@
       authors: Grace Metri, Abhishek Agrawal, Ramesh Peri, and Weisong Shi
 
 
-- name: Surpress Logs
+- name: Suppress Logs
   related:
     - Avoid extraneous work
   description: Avoid using intensive logging (< 1Hz).
