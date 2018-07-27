@@ -77,6 +77,10 @@ def main():
         android_apps = set([_extract_app(mention[URL_COL]) for mention in android_mentions])
         results['android_total_apps'] = len(android_apps)
         
+        results['total_entries'] = len(android_mentions)+len(ios_mentions)
+        results['total_commits'] = results['ios_commits']+results['android_commits']
+        results['total_issues'] = results['ios_issues']+results['android_issues']
+        results['total_pull_requests'] = results['ios_pull_requests']+results['android_pull_requests']
 
     pprint(results)
 
