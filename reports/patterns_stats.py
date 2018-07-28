@@ -1,12 +1,22 @@
 """Parse yaml specification of patterns and export to latex."""
 
 import pprint as pp
-import yaml
 import csv
+import yaml
+
+import matplotlib
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['mathtext.fontset'] = 'cm'
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 YAML_FILE = '../docs/patterns.yml'
 IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
 ANDROID_CLEAN_SUBJECTS = '../clean_results/energy_mentions_android.csv'
+
+TOTAL_ANDROID_APPS = 1027
+TOTAL_IOS_APPS = 756
 
 def main():
     """Execute main script."""
@@ -45,6 +55,44 @@ def main():
             
             total_pull_requests = results['ios_pull_requests'] + results['android_pull_requests']
             print("Total subjects pull_requests: {}".format(total_pull_requests))
+            
+            patterns_map = {
+                'Avoid Extraneous Graphics and Animations': 'Avoid Extra. Graph. & Anim.'
+            }
+            patterns_labels = [
+                patterns_map.get(pattern.get('name'),pattern.get('name'))
+                for pattern in patterns
+            ]
+            patterns_count_ios = np.array([
+                len(pattern.get('occurrences_ios',{}).get('commits',[]))+
+                len(pattern.get('occurrences_ios',{}).get('pull_requests',[]))+
+                len(pattern.get('occurrences_ios',{}).get('issues',[]))
+                for pattern in patterns
+            ])
+            patterns_count_android = np.array([
+                len(pattern.get('occurrences_android',{}).get('commits',[]))+
+                len(pattern.get('occurrences_android',{}).get('pull_requests',[]))+
+                len(pattern.get('occurrences_android',{}).get('issues',[]))
+                for pattern in patterns
+            ])
+            fig, ax = plt.subplots()
+            width = 0.35
+            index = np.arange(len(patterns_labels))
+            rects1 = ax.bar(index-width/2, patterns_count_android/TOTAL_ANDROID_APPS, width, color='C2')
+            rects2 = ax.bar(index + width/2, patterns_count_ios/TOTAL_IOS_APPS, width, color='red')
+            ax.set_xticklabels(patterns_labels, rotation='vertical')
+            ax.set_xticks(range(len(patterns_labels)))
+            ax.spines['right'].set_visible(False)
+            ax.spines['top'].set_visible(False)
+            ax.spines['left'].set_visible(False)
+            ax.yaxis.grid(linestyle='dotted')
+            
+            ax.set_ylabel("$R$")
+            ax.set_xlabel("Energy Pattern")
+            ax.legend((rects1[0], rects2[0]), ('Android', 'iOS'))
+            
+            fig.tight_layout()
+            fig.savefig('pattern_prevalence.pdf')
             
         except yaml.YAMLError as exc:
             print(exc)

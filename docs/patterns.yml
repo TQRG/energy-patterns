@@ -1,4 +1,4 @@
-- name: Dark UI colors
+- name: Dark UI Colors
   description: Provide a dark UI color theme to save battery on devices with AMOLED screens.
   context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen (e.g., reading apps) can have a big impact on battery life.
   solution: Provide a UI with dark background colors. This is particularly beneficial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated using a special trigger (e.g., when battery is running low).
@@ -53,7 +53,7 @@
     - title: "Nyx: A Display Energy Optimizer for Mobile Web Apps"
       authors: Ding Li, Angelica Huyen Tran, and William G. J. Halfond.
 
-- name: Dynamic retry delay
+- name: Dynamic Retry Delay
   figure: dynamic_retry_delay.svg
   description: Whenever an attempt to access a resource has failed, increase the interval of time waited before asking access to that same resource.
   context: The mobile app has some features that require collecting data from other resources (e.g., update information from server). However, in same cases if the resource is unavailable, the app will unnecessarily try to connect the resource for a number of times, leading to unnecessary power consumption.
@@ -77,7 +77,7 @@
     commits:
       - https://github.com/wordpress-mobile/WordPress-iOS/commit/b879d00ebd5b4d3cfb554aea472da52dbab5e333
 
-- name: Avoid extraneous work
+- name: Avoid Extraneous Work
   description: Avoid performing tasks that are not visible/valuable to the user and/or quickly become obsolete.
   context: Mobile apps have to perform a number of tasks simultaneously. There are cases in which the result of those tasks is not visible (e.g., the UI is presenting other pieces of information), or the result is not necessarily relevant to the user. This is particularly critical when apps go to the background. Since the data quickly becomes obsolete, the phone is using resources unnecessarily.
   solution: Select a concise set of data that should be presented to the user and enable/disable update and processing tasks depending on their effect on the data that is visible or valuable to the user.
@@ -216,7 +216,7 @@
       authors: Abhijeet Banerjee, Abhik Roychoudhury
       year: 2016
 
-- name: Push over Poll
+- name: Push Over Poll
   figure: push_not_poll.svg
   description: Use push notifications to receive updates from resources, instead of actively querying resources (i.e., polling).
   context: Mobile apps need to get updates from resources (e.g., from server). One way of checking for updates is by periodically query those resources. However, this will insurge into several requests that will return no update, leading to unnecessary energy consumption.
@@ -250,7 +250,7 @@
       year: 2018
       url: https://github.com/matrix-org/GSoC/blob/master/IDEAS.md#alternative-push-notification-transport
 
-- name: Power Save mode
+- name: Power Save Mode
   figure: power_save_mode.svg
   related:
     - Power Awareness
@@ -300,7 +300,7 @@
 
 - name: Power Awareness
   related:
-    - Power Save mode
+    - Power Save Mode
   description: Have a different behavior when device is connected/disconnected to a power station, or has different battery levels.
   context: There are some features that are not strictly necessary to users although they improve user experience (e.g., UI animations). Moreover, there are operations that do not have high priority and do not need to execute immediately (e.g., backup data in the cloud).
   solution: Enable or disable tasks or features according to power status. Since when the device is connected to power, the battery might still be running low, it might be advisable to wait until a pre-defined battery level is reached (or the power save mode is deactivated).
@@ -381,7 +381,7 @@
       url: http://ieeexplore.ieee.org/document/7409011/
       authors: Sirapat Boonkrong, Pham Cao Dinh
 
-- name: WiFi over Cellular
+- name: WiFi Over Cellular
   figure: wifi.svg
   related:
     - Power Awareness
@@ -426,7 +426,7 @@
 
 - name: Suppress Logs
   related:
-    - Avoid extraneous work
+    - Avoid Extraneous Work
   description: Avoid using intensive logging (< 1Hz).
   context: Developers resort to logging in their mobile apps to ensure their correct behavior and simplify bug reporting. However, logging operations are creating overhead on energy consumption without creating value to the end user.
   solution: Avoid using intensive logging, and keeping rates below one message per second.
@@ -510,7 +510,7 @@
   solution: Implement caching mechanisms to temporarily store data from server. In addition, verify whether there is an update before downloading all data.
   example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures every time a given profile is opened, use data that was locally stored from earlier visits.
   related:
-    - Avoid extraneous work
+    - Avoid Extraneous Work
     - Reduce size
   occurrences_android:
     issues:
@@ -544,7 +544,7 @@
       url: http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.567.383
       authors: Marion Gottschalk, Jan Jelschen, and Andreas Winter
 
-- name: Decrease rate
+- name: Decrease Rate
   related:
     - Enough resolution
   description: Increase time between syncs/sensor reads as much as possible.
@@ -597,7 +597,7 @@
       - https://github.com/istornz/iPokeGo/pull/113
       - https://github.com/keybase/client/pull/7032
 
-- name: User knows best
+- name: User Knows Best
   description: Allow users to enable/disable certain features in order to save energy.
   context: Energy efficiency solutions often provide a tradeoff between features and power consumption. However, this tradeoff is different for different users. I.e., some users might be okay with less features but better energy efficiency, and vice versa.
   solution: Allow users to customize their preferences regarding energy critical features. Since this might be more intuitive for power users, mobile apps should provide by optimal preferences by default for regular users.
@@ -665,7 +665,7 @@
   solution: Let users know about battery intensive operations or energy management features. Properly flag this information in the user interface (e.g., alerts).
   example: Examples include alerting users when the saving power mode is active, and alerting when a battery intensive operation is executed.
   related:
-    - User knows best
+    - User Knows Best
   occurrences_android:
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/307
@@ -752,7 +752,7 @@
       url: https://developer.apple.com/documentation/corelocation/cllocationmanager
       authors: Apple's Core Location Documentation
 
-- name: Kill abnormal tasks
+- name: Kill Abnormal Tasks
   description: Provide means of interrupting energy greedy operations (e.g., using timeouts, or users input).
   context: Mobile apps might feature operations that can be unexpectedly energy greedy (e.g., taking a long time to execute).
   solution: Provide a reasonable timeout for tasks or wakelocks. Alternatively provide an intuitive way of interrupting those tasks.
@@ -821,7 +821,7 @@
 #   description: remove properties that do not have any effect.
 #   example: obsolete params in views
 #   related:
-#     - Avoid extraneous work
+#     - Avoid Extraneous Work
 #   occurrences_android:
 #     commits:
 #       - https://github.com/grzegorznittner/chanu/commit/2640dc50ab8150341da30bc4d282f8ac8f5aa4c5
@@ -925,7 +925,7 @@
 #
 - name: Manual Sync, On Demand
   related:
-    - User knows best
+    - User Knows Best
   description: Perform tasks only when the user specifically asks.
   context: Some tasks can be energy intensive but not strictly necessary for some use cases of the app.
   solution: Provide a mechanism the UI (e.g., button) that allows users to trigger energy intensive tasks.

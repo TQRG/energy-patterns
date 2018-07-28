@@ -1,3 +1,5 @@
 pygithub
 requests
 click
+pyyaml
+matplotlib
