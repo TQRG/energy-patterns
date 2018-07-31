@@ -43,7 +43,7 @@ def main():
 
             total_ios = sum(results[key] for key in ('ios_commits', 'ios_issues', 'ios_pull_requests'))
             print("Total subjects ios: {}".format(total_ios))
-
+            
             total_android = sum(results[key] for key in ('android_commits', 'android_issues', 'android_pull_requests'))
             print("Total subjects android: {}".format(total_android))
             
@@ -63,6 +63,16 @@ def main():
                 patterns_map.get(pattern.get('name'),pattern.get('name'))
                 for pattern in patterns
             ]
+            patterns_occurrences_ios = [
+                occurrence
+                for pattern in patterns
+                for occurrence in
+                pattern.get('occurrences_ios',{}).get('commits',[])+
+                pattern.get('occurrences_ios',{}).get('pull_requests',[])+
+                pattern.get('occurrences_ios',{}).get('issues',[])
+            ]
+            patterns_apps_ios_count = len(set(_extract_app(occurrence) for occurrence in patterns_occurrences_ios))
+            print("Number of iOS apps with patterns: {}".format(patterns_apps_ios_count))
             patterns_count_ios = np.array([
                 len(pattern.get('occurrences_ios',{}).get('commits',[]))+
                 len(pattern.get('occurrences_ios',{}).get('pull_requests',[]))+
@@ -75,6 +85,18 @@ def main():
                 len(pattern.get('occurrences_android',{}).get('issues',[]))
                 for pattern in patterns
             ])
+
+            patterns_occurrences_android = [
+                occurrence
+                for pattern in patterns
+                for occurrence in
+                pattern.get('occurrences_android',{}).get('commits',[])+
+                pattern.get('occurrences_android',{}).get('pull_requests',[])+
+                pattern.get('occurrences_android',{}).get('issues',[])
+                for pattern in patterns
+            ]
+            patterns_apps_android_count = len(set(_extract_app(occurrence) for occurrence in patterns_occurrences_android))
+            print("Number of Android apps with patterns: {}".format(patterns_apps_android_count))
             fig, ax = plt.subplots()
             width = 0.35
             index = np.arange(len(patterns_labels))
