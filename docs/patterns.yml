@@ -219,7 +219,7 @@
 - name: Push Over Poll
   figure: push_not_poll.svg
   description: Use push notifications to receive updates from resources, instead of actively querying resources (i.e., polling).
-  context: Mobile apps need to get updates from resources (e.g., from server). One way of checking for updates is by periodically query those resources. However, this will insurge into several requests that will return no update, leading to unnecessary energy consumption.
+  context: Mobile apps need to get updates from resources (e.g., from server). One way of checking for updates is by periodically query those resources. However, this will lead to several requests that will return no update, leading to unnecessary energy consumption.
   solution: Use push notifications to get updates from resources. Note -- this is a big challenge amongst FOSS apps since there is no good open source alternative for Firebase Cloud Messaging (former Google Cloud Messaging).
   example: In a messaging app, instead of actively check for new messages, the app can subscribe push notifications.
   occurrences_android:
@@ -456,7 +456,7 @@
   figure: batch_operations.svg
   context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Bundle multiple operations in a single one.
-  example: "Use Job Scheduling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occurring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constantly exiting sleep mode (or doze mode). Other examples: execute only if another task is using the required resource; ask for location while setting 'notification responsiveness' with a reasonable delay; collect location data only when other app collects it as well."
+  example: "Use Job Scheduling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occurring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constantly exiting sleep mode (or doze mode). Other examples: execute only if another task is using the required resource; ask for location while setting 'notification responsiveness' with a reasonable delay; try to collect location data when other apps are collecting it as well."
   occurrences_android:
     issues:
       - https://github.com/Freeyourgadget/Gadgetbridge/issues/379
