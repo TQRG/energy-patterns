@@ -72,6 +72,10 @@
           <p>{{context}}</p>
           <h3>Solution</h3>
           <p>{{solution}}</p>
+          {{#if example}}
+          <h3>Example</h3>
+          <p>{{example}}</p>
+          {{/if}}
           {{#if references}}
           <h3>References</h3>
           {{{list_references references}}}
