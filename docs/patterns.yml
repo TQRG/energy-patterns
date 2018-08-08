@@ -923,7 +923,7 @@
 #     pull_requests:
 #       - https://github.com/klausw/hackerskeyboard/pull/539
 #
-- name: Manual Sync, On Demand
+- name: Manual Sync - On Demand
   related:
     - User Knows Best
   description: Perform tasks only when the user specifically asks.
