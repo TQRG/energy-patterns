@@ -1,8 +1,8 @@
 - name: Dark UI Colors
   description: Provide a dark UI color theme to save battery on devices with AMOLED screens.
   context: Screen is one of the major source of power consumption on mobile devices. Apps that require heavy usage of screen (e.g., reading apps) can have a big impact on battery life.
-  solution: Provide a UI with dark background colors. This is particularly beneficial for mobile devices with AMOLED screens, which are more energy savior when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated using a special trigger (e.g., when battery is running low).
-  example:
+  solution: Provide a UI with dark background colors. This is particularly beneficial for mobile devices with AMOLED screens, which are more energy efficient when displaying dark colors. In some cases, it might be reasonable to allow users to choose between a light and a dark theme. The dark theme can also be activated using a special trigger (e.g., when battery is running low).
+  example: In a reading app, provide a theme with a dark background using light colors to display text. When compared to themes using light backgrounds, a dark background will have a higher number of dark pixels.
   figure: dark_ui_colors_2.svg
   occurrences_android:
     issues:
@@ -195,7 +195,8 @@
     - Race-to-idle
   description: Open/start resources/services only when they are strictly necessary.
   context: Some resources require to be manually opened before use. It might be tempting to open necessary resources at the beginning of some task (e.g., upon the creation of an activity). However, resources will be actively waiting for requests, and consequently spending more energy.
-  solution: Open resources only when necessary. This also avoids activating resources that will never be used (https://github.com/signalapp/Signal-Android/commit/cb9f225f5962d399f48b65d5f855e11f146cbbcb).
+  solution: Open resources only when necessary. This also avoids activating resources that will never be used.
+  example: In a mobile app for video calls, only start capturing video at the moment that it will be displayed to the user.
   occurrences_android:
     issues:
       - https://github.com/cSploit/android/issues/396
@@ -388,6 +389,7 @@
   description: Delay or disable heavy data connections until the device is connected to a WiFi network.
   context: Data needs to be syncronized with a server but it is not urgent and can be delayed.
   solution: Data connections using cellular networks are usually more battery intensive than connections using WiFi. Low priority operations that require a data connection to exchange considerable amounts of data should be delayed until a WiFi connection is available.
+  example: Consider a mobile app to organize photos that allows users to backup their photos in a cloud server. Use an API to check the availability of a WiFi connection and postpone cloud synchronizing in case it cannot be reached.
   occurrences_android:
     issues:
       - https://github.com/nextcloud/android/issues/1626
@@ -430,10 +432,11 @@
   description: Avoid using intensive logging (< 1Hz).
   context: Developers resort to logging in their mobile apps to ensure their correct behavior and simplify bug reporting. However, logging operations are creating overhead on energy consumption without creating value to the end user.
   solution: Avoid using intensive logging, and keeping rates below one message per second.
+  example: Disable logging when processing real-time data. If necessary enable only during debugging executions.
   occurrences_android:
     commits:
-      - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365 FAIL
       - https://github.com/LibreShift/red-moon/commit/8bbc87dddad608d4c1cd17025100f6e6a971c39b
+      - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365 FAIL
       - https://github.com/M66B/NetGuard/commit/2d36e908e111144afa23278b4fcf9869cc6cfae9
       - https://github.com/M66B/NetGuard/commit/2e70a038970d6efe9f74e5719e7648f91de30498
       - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
