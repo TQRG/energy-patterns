@@ -457,7 +457,7 @@
   aka: Lazy First — Coalesce, Inexact Schedulling
   description: Batch multiple operations, instead of putting the device into an active state many times.
   figure: batch_operations.svg
-  context: 1) Background tasks can be expensive. A given task needs to be eventually executed but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
+  context: 1) Background tasks can be expensive. A given task needs to be eventually executed, but it does not need to be executed in a specific time. 2) Executing operations separately might incurr in tail energy consumptions.
   solution: Bundle multiple operations in a single one.
   example: "Use Job Scheduling APIs (e.g., `android.app.job.JobScheduler`, Firebase JobDispatcher) that manage multiple background tasks occurring in a device. These APIs will guarantee that device will exit when there is a reasonable amount of work to do. It combines several multiple tasks to prevent the device from constantly exiting sleep mode (or doze mode). Other examples: execute only if another task is using the required resource; ask for location while setting 'notification responsiveness' with a reasonable delay; try to collect location data when other apps are collecting it as well."
   occurrences_android:
@@ -604,7 +604,7 @@
   description: Allow users to enable/disable certain features in order to save energy.
   context: Energy efficiency solutions often provide a tradeoff between features and power consumption. However, this tradeoff is different for different users. I.e., some users might be okay with less features but better energy efficiency, and vice versa.
   solution: Allow users to customize their preferences regarding energy critical features. Since this might be more intuitive for power users, mobile apps should provide by optimal preferences by default for regular users.
-  example: Consider a mail client for pop3 accounts as example. In some cases, users are not expecting any urgent message and are okay with checking for new mail in no less than 10 minutes for the sake of energy efficiency. On the other hand, there are cases in which users are waiting for urgent messages and would like to check for messages every two minutes. Since there is no automatic mechanism to infer the optimal update interval, allowing users to define it is the best option.
+  example: Consider a mail client for POP3 accounts as example. In some cases, users are not expecting any urgent message and are okay with checking for new mail in no less than 10 minutes for the sake of energy efficiency. On the other hand, there are cases in which users are waiting for urgent messages and would like to check for messages every two minutes. Since there is no automatic mechanism to infer the optimal update interval, the best option is to allow users to define it.
   occurrences_android:
     issues:
       - https://github.com/redfish64/TinyTravelTracker/issues/49
@@ -930,8 +930,8 @@
   related:
     - User Knows Best
   description: Perform tasks only when the user specifically asks.
-  context: Some tasks can be energy intensive but not strictly necessary for some use cases of the app.
-  solution: Provide a mechanism the UI (e.g., button) that allows users to trigger energy intensive tasks.
+  context: Some tasks can be energy intensive, but not strictly necessary for some use cases of the app.
+  solution: Provide a mechanism in the UI (e.g., button) that allows users to trigger energy intensive tasks.
   example: In a beacon monitoring app, there are occasions in which the user does not neet to keep track of her/his beacons. Allow the user to start/stop monitoring manually.
   occurrences_android:
     issues:
