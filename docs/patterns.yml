@@ -875,7 +875,7 @@
 - name: Avoid Extraneous Graphics and Animations
   related: enough resolution
   description: Graphics and animations are really important to improve user experience. However, they can also be battery intensive – use them with moderation.
-  context: Mobile apps often feature impressive graphics and animations. However, they need to be properly tuned in order to prevent battery drain of users' devices. This is particularly critical in on e-ink devices.
+  context: Mobile apps often feature impressive graphics and animations. However, they need to be properly tuned in order to prevent battery drain of users' devices. This is particularly critical in e-paper devices.
   solution: Study the importance of graphics and animations to the user experience. The improvement on user experience may not be sufficient to cover the overhead on energy consumption. Avoid using graphics animations or high quality graphics. Resort to low frame rates for animations when possible.
   example: A high frame rate may make sense during game play, but a lower frame rate may be sufficient for a menu screen. Use a high frame rate only when the user experience calls for it.
   warning: Particularly important on e-ink devices. TODO - Review 'Enough Resolution'.
@@ -932,7 +932,7 @@
   description: Perform tasks only when the user specifically asks.
   context: Some tasks can be energy intensive, but not strictly necessary for some use cases of the app.
   solution: Provide a mechanism in the UI (e.g., button) that allows users to trigger energy intensive tasks.
-  example: In a beacon monitoring app, there are occasions in which the user does not neet to keep track of her/his beacons. Allow the user to start/stop monitoring manually.
+  example: In a beacon monitoring app, there are situations in which the user does not need to keep track of her/his beacons. Allow the user to start/stop monitoring manually.
   occurrences_android:
     issues:
       - https://github.com/drpout/boilr/issues/128
