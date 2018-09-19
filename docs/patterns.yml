@@ -329,8 +329,8 @@
       - https://github.com/AntennaPod/AntennaPod/commit/1b9c96bc7664adeb12ffd0267c76a4667b25311f
       - https://github.com/tgwizard/sls/commit/0741384d6dc33c010ade3d5a2b9a77a186e99ad3
       - https://github.com/tgwizard/sls/commit/3d17aa5e142fd24a0f420571d6d10eb086a46d77
-      - https://github.com/thasmin/Podax/issues/122
     issues:
+      - https://github.com/thasmin/Podax/issues/122
       - https://github.com/mozilla/MozStumbler/issues/1175
       - https://github.com/mozilla/MozStumbler/issues/41
       - https://github.com/nextcloud/android/issues/1803
@@ -370,7 +370,7 @@
   example: When performing HTTP requests use gzip content encoding to compress data.
   occurrences_android:
     commits:
-      - https://github.com/shadowsocks/shadowsocks-android/commit/6bff4f1a441ee83dca7f71da5f062c80fcc24681,6bff4f1a441ee83dca7f71da5f062c80fcc24681
+      - https://github.com/shadowsocks/shadowsocks-android/commit/6bff4f1a441ee83dca7f71da5f062c80fcc24681
     issues:
       - https://github.com/mozilla/MozStumbler/issues/406
       - https://github.com/mozilla-mobile/focus-android/issues/2003
@@ -436,7 +436,7 @@
   occurrences_android:
     commits:
       - https://github.com/LibreShift/red-moon/commit/8bbc87dddad608d4c1cd17025100f6e6a971c39b
-      - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365 FAIL
+      - https://github.com/Freeyourgadget/Gadgetbridge/commit/c06ef3d260a8785b567743d51edcba8803195365
       - https://github.com/M66B/NetGuard/commit/2d36e908e111144afa23278b4fcf9869cc6cfae9
       - https://github.com/M66B/NetGuard/commit/2e70a038970d6efe9f74e5719e7648f91de30498
       - https://github.com/hrydgard/ppsspp/commit/372798e16c9bb4e2fa493ab2729ce48299d96f7d
@@ -518,16 +518,16 @@
   occurrences_android:
     issues:
       - https://github.com/bfabiszewski/ulogger-android/issues/8
+      - https://github.com/redfish64/TinyTravelTracker/issues/49
+      - https://github.com/fixme-lausanne/MyHackerspace/issues/33
     commits:
       - https://github.com/Freeyourgadget/Gadgetbridge/commit/d1a62968f69ebb7dd6dd7cb273a06aa0761681a4
       - https://github.com/00-Evan/shattered-pixel-dungeon/commit/5491f315f6080f6ce9883638c5a7339c19a14828
-      - https://github.com/redfish64/TinyTravelTracker/issues/49
       - https://github.com/k9mail/k-9/commit/43c38a047feedda4720af5bfbc188a33f8dfaced
       - https://github.com/federicoiosue/Omni-Notes/commit/9fe9db8d20f6323589026830e68927d8ad5c30d9
       - https://github.com/federicoiosue/Omni-Notes/commit/bd3c96f2e87553a6c5d5b1a70e7e5d9b4565c20b
       - https://github.com/fixme-lausanne/MyHackerspace/commit/d71df9b3962afaf38301dcef7199466281e7e48e
       - https://github.com/shadowsocks/shadowsocks-android/commit/179aab80942fb258ded3714d14d1fa1716fddce2
-      - https://github.com/fixme-lausanne/MyHackerspace/issues/33
     pull_requests:
       - https://github.com/bfabiszewski/ulogger-android/pull/20
       - https://github.com/tgwizard/sls/pull/340
@@ -621,6 +621,7 @@
       - https://github.com/eidottermihi/rpicheck/issues/131
       - https://github.com/cSploit/android/issues/229
       - https://github.com/hrydgard/ppsspp/issues/9046
+      - https://github.com/thasmin/Podax/issues/122
     commits:
       - https://github.com/tasks/tasks/commit/bec96f8ce66fe35f8e6c0032f82ae21abb59bde6
       - https://github.com/proninyaroslav/libretorrent/commit/c48bc2714555f50c01654dfed3dbcbfa1d3ef1b6
@@ -637,7 +638,6 @@
       - https://github.com/mozilla/MozStumbler/commit/40a29fb6c01e99350bdd19cdb9727be740dde4b5
       - https://github.com/einmalfel/PodListen/commit/2ed5a655b1901f3c98d6837ecd17fa779688a9bc
       - https://github.com/geometer/FBReaderJ/commit/87e6e7fad6d3189174d04b2060fcf1222289c863
-      - https://github.com/thasmin/Podax/issues/122
     pull_requests:
       - https://github.com/mozilla/MozStumbler/pull/1706
       - https://github.com/mozilla/MozStumbler/pull/1419
