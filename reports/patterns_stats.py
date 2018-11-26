@@ -9,7 +9,7 @@ matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['mathtext.fontset'] = 'cm'
 import matplotlib.pyplot as plt
 import numpy as np
-
+from android_category.android_category import get_app_category_from_repo_git
 
 YAML_FILE = '../docs/patterns.yml'
 IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
@@ -95,7 +95,8 @@ def main():
                 pattern.get('occurrences_android',{}).get('issues',[])
                 for pattern in patterns
             ]
-            patterns_apps_android_count = len(set(_extract_app(occurrence) for occurrence in patterns_occurrences_android))
+            apps_android = set(_extract_app(occurrence) for occurrence in patterns_occurrences_android)
+            patterns_apps_android_count = len(apps_android)
             print("Number of Android apps with patterns: {}".format(patterns_apps_android_count))
             fig, ax = plt.subplots()
             width = 0.35
@@ -116,6 +117,7 @@ def main():
             fig.tight_layout()
             fig.savefig('pattern_prevalence.pdf')
             
+            app_categories(apps_android, apps_ios)
         except yaml.YAMLError as exc:
             print(exc)
     
@@ -158,6 +160,14 @@ def _extract_app(github_url):
     """Extract app identifier from gihtub url"""
     splits = github_url.split('github.com/')[1].split('/')
     return splits[0]+"/"+splits[1]
+
+def _extract_repo_url(github_url):
+    return f"https://www.github.com/{_extract_app(github_url)}.git"
+
+def app_categories(apps_android, apps_ios):
+    """Reports for apps categories"""
+    android_categories = get_app_category_from_repo_git(apps_android) for app in apps_android]
+    print(android_categories)
 
 if __name__ == '__main__':
     main()
