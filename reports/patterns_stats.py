@@ -14,6 +14,8 @@ from android_category.android_category import get_app_category_from_repo_git
 YAML_FILE = '../docs/patterns.yml'
 IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
 ANDROID_CLEAN_SUBJECTS = '../clean_results/energy_mentions_android.csv'
+APPS_DATASET_FROID = '../fdroid_repos.csv'
+APPS_DATASET_EXTRA_ANDROID = '../extra_android_oss_repos.csv'
 
 TOTAL_ANDROID_APPS = 1027
 TOTAL_IOS_APPS = 756
@@ -166,15 +168,34 @@ def _extract_repo_url(github_url):
 
 def app_categories(apps_android, apps_ios):
     """Reports for apps categories"""
-    android_categories = []
-    for app in apps_android:
+    # android_categories = []
+    # for app in apps_android:
+    #     try:
+    #         android_categories.append(
+    #             get_app_category_from_repo_git(f"https://www.github.com/{app}.git")
+    #         )
+    #     except:
+    #         continue
+    # print(android_categories)
+    
+    
+    with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+        fdroid_apps = list(csv_reader)
+    categories_fdroid = [app['category'] for app in fdroid_apps]
+    with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+        extra_android_apps = list(csv_reader)
+    categories_extra_android = []
+    for app in extra_android_apps:
         try:
-            android_categories.append(
-                get_app_category_from_repo_git(f"https://www.github.com/{app}.git")
+            categories_extra_android.append(
+                get_app_category_from_repo_git(f"https://www.github.com/{app['user']}/{app['project_name']}.git")
             )
         except:
             continue
-    print(android_categories)
+    categories = categories_fdroid + categories_extra_android
+    print(categories)
 
 if __name__ == '__main__':
     main()
