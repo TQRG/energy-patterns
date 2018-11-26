@@ -4,3 +4,5 @@ click
 pyyaml
 matplotlib
 android-category>=0.0.4
+seaborn
+tabulate
