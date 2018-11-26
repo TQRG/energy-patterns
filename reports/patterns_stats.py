@@ -166,7 +166,7 @@ def _extract_repo_url(github_url):
 
 def app_categories(apps_android, apps_ios):
     """Reports for apps categories"""
-    android_categories = [get_app_category_from_repo_git(app) for app in apps_android]
+    android_categories = [get_app_category_from_repo_git(f"https://www.github.com/{app}.git") for app in apps_android]
     print(android_categories)
 
 if __name__ == '__main__':
