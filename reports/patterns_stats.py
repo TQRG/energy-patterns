@@ -117,7 +117,7 @@ def main():
             fig.tight_layout()
             fig.savefig('pattern_prevalence.pdf')
             
-            app_categories(apps_android, apps_ios)
+            app_categories(apps_android, [])
         except yaml.YAMLError as exc:
             print(exc)
     
