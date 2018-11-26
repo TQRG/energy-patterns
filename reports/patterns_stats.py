@@ -223,7 +223,7 @@ def app_categories(apps_android, apps_ios):
         csv_reader = csv.DictReader(csvfile)
         fdroid_apps = list(csv_reader)
     categories_fdroid = [app['category'] for app in fdroid_apps]
-    with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
+    with open(APPS_DATASET_EXTRA_ANDROID, 'r', newline='') as csvfile:
         csv_reader = csv.DictReader(csvfile)
         extra_android_apps = list(csv_reader)
     categories_extra_android = []
