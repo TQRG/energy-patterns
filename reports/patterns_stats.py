@@ -3,12 +3,16 @@
 import pprint as pp
 import csv
 import yaml
+import statistics
 
 import matplotlib
 matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['mathtext.fontset'] = 'cm'
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
+from tabulate import tabulate
+import tabulate as T
 from android_category.android_category import get_app_category_from_repo_git, APP_CATEGORY_CACHE
 
 YAML_FILE = '../docs/patterns.yml'
@@ -16,6 +20,7 @@ IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
 ANDROID_CLEAN_SUBJECTS = '../clean_results/energy_mentions_android.csv'
 APPS_DATASET_FROID = '../fdroid_repos.csv'
 APPS_DATASET_EXTRA_ANDROID = '../extra_android_oss_repos.csv'
+APPS_DATASET_IOS = '../oss_ios_apps/ios_apps_july_2018.csv'
 
 TOTAL_ANDROID_APPS = 1027
 TOTAL_IOS_APPS = 756
@@ -118,8 +123,8 @@ def main():
             
             fig.tight_layout()
             fig.savefig('pattern_prevalence.pdf')
-            
-            app_categories(apps_android, [])
+            report_stars()
+            # app_categories(apps_android, [])
         except yaml.YAMLError as exc:
             print(exc)
     
@@ -166,6 +171,41 @@ def _extract_app(github_url):
 def _extract_repo_url(github_url):
     return f"https://www.github.com/{_extract_app(github_url)}.git"
 
+def report_stars():
+    with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+        fdroid_apps = list(csv_reader)
+    with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+        extra_android_apps = list(csv_reader)
+    with open(APPS_DATASET_IOS, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+        ios_apps = list(csv_reader)
+    stars_android = [int(app['stars']) for app in fdroid_apps + extra_android_apps]
+    stars_ios = [int(app['stars']) for app in ios_apps if app['stars'] != 'None']
+    
+    stats = [_get_stats(stars_android), _get_stats(stars_ios)]
+    old_escape_rules = T.LATEX_ESCAPE_RULES
+    T.LATEX_ESCAPE_RULES = {'%': '\\%'}
+    table = tabulate(
+        stats,
+        headers='keys',
+        showindex=['iOS','Android'],
+        tablefmt='latex',
+        floatfmt=".1f",
+    )
+    T.LATEX_ESCAPE_RULES = old_escape_rules
+    with open("app_stars.tex", 'w') as f:
+        f.write(table)
+ 
+def _get_stats(sample):
+    return {
+        'Mean': statistics.mean(sample),
+        'Std': statistics.pstdev(sample),
+        'Min': min(sample),
+        'Max': max(sample),
+    }
+
 def app_categories(apps_android, apps_ios):
     """Reports for apps categories"""
     # android_categories = []
@@ -198,7 +238,7 @@ def app_categories(apps_android, apps_ios):
             APP_CATEGORY_CACHE.set_value(app_repo_url, category)
         categories_extra_android.append(category)
     categories = categories_fdroid + categories_extra_android
-    ax, figure = plt.subplots()
+    figure, ax = plt.subplots()
     sns.countplot(categories, ax=ax)
     figure.tight_layout()
     figure_path = 'android_app_categories.pdf'
