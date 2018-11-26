@@ -172,7 +172,7 @@ def app_categories(apps_android, apps_ios):
             android_categories.append(
                 get_app_category_from_repo_git(f"https://www.github.com/{app}.git"
             )
-        except:
+        except Exception:
             continue
     print(android_categories)
 
