@@ -95,7 +95,7 @@ def main():
                 pattern.get('occurrences_android',{}).get('issues',[])
                 for pattern in patterns
             ]
-            apps_android = set(_extract_app(occurrence) for occurrence in patterns_occurrences_android)
+            apps_android = list(set(_extract_app(occurrence) for occurrence in patterns_occurrences_android))
             patterns_apps_android_count = len(apps_android)
             print("Number of Android apps with patterns: {}".format(patterns_apps_android_count))
             fig, ax = plt.subplots()
