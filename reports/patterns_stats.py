@@ -9,7 +9,7 @@ matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['mathtext.fontset'] = 'cm'
 import matplotlib.pyplot as plt
 import numpy as np
-from android_category.android_category import get_app_category_from_repo_git
+from android_category.android_category import get_app_category_from_repo_git, APP_CATEGORY_CACHE
 
 YAML_FILE = '../docs/patterns.yml'
 IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
@@ -187,13 +187,16 @@ def app_categories(apps_android, apps_ios):
         csv_reader = csv.DictReader(csvfile)
         extra_android_apps = list(csv_reader)
     categories_extra_android = []
+    print(extra_android_apps)
     for app in extra_android_apps:
+        import pdb;pdb.set_trace()
+        app_repo_url = f"https://www.github.com/{app['user']}/{app['project_name']}.git"
         try:
-            categories_extra_android.append(
-                get_app_category_from_repo_git(f"https://www.github.com/{app['user']}/{app['project_name']}.git")
-            )
+            category = get_app_category_from_repo_git(app_repo_url)
         except:
-            continue
+            category = None
+            APP_CATEGORY_CACHE.set_value(app_repo_url, category)
+        categories_extra_android.append(category)
     categories = categories_fdroid + categories_extra_android
     ax, figure = plt.subplots()
     sns.countplot(categories, ax=ax)
