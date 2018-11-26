@@ -124,7 +124,7 @@ def main():
             fig.tight_layout()
             fig.savefig('pattern_prevalence.pdf')
             report_stars()
-            # app_categories(apps_android, [])
+            app_categories(apps_android, [])
         except yaml.YAMLError as exc:
             print(exc)
     
@@ -233,6 +233,7 @@ def app_categories(apps_android, apps_ios):
         try:
             category = get_app_category_from_repo_git(app_repo_url)
         except:
+            print(app_repo_url)
             category = None
             APP_CATEGORY_CACHE.set_value(app_repo_url, category)
         categories_extra_android.append(category)
