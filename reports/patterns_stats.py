@@ -189,7 +189,6 @@ def app_categories(apps_android, apps_ios):
     categories_extra_android = []
     print(extra_android_apps)
     for app in extra_android_apps:
-        import pdb;pdb.set_trace()
         app_repo_url = f"https://www.github.com/{app['user']}/{app['project_name']}.git"
         try:
             category = get_app_category_from_repo_git(app_repo_url)
