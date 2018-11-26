@@ -195,6 +195,11 @@ def app_categories(apps_android, apps_ios):
         except:
             continue
     categories = categories_fdroid + categories_extra_android
+    ax, figure = plt.subplots()
+    sns.countplot(categories, ax=ax)
+    figure.tight_layout()
+    figure_path = 'android_app_categories.pdf'
+    figure.savefig(figure_path)
     print(categories)
 
 if __name__ == '__main__':
