@@ -197,7 +197,7 @@ def report_stars():
         floatfmt=".1f",
     )
     T.LATEX_ESCAPE_RULES = old_escape_rules
-    with open("app_stars.tex", 'w') as f:
+    with open("reports/app_stars.tex", 'w') as f:
         f.write(table)
  
 def _get_stats(sample):
@@ -257,18 +257,18 @@ def app_categories(apps_android, apps_ios):
         ios_apps = list(csv_reader)
     ios_categories = [ios_category.get_category(app['user'], app['project_name']) for app in ios_apps]
     
-    figure, ax = plt.subplots()
+    figure, ax = plt.subplots(figsize=(4, 2))
     sns.countplot(android_categories, color='darkgreen', alpha=0.5, ax=ax)
     ax.xaxis.set_tick_params(rotation=90)
     figure.tight_layout()
-    figure_path = 'android_app_categories.pdf'
+    figure_path = 'reports/android_app_categories.pdf'
     figure.savefig(figure_path)
     print(set(ios_categories))
     figure, ax = plt.subplots()
     sns.countplot(ios_categories, color='red', alpha=0.5, ax=ax)
     ax.xaxis.set_tick_params(rotation=90)
     figure.tight_layout()
-    figure_path = 'ios_app_categories.pdf'
+    figure_path = 'reports/ios_app_categories.pdf'
     figure.savefig(figure_path)
 
 if __name__ == '__main__':
