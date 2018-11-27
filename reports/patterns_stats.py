@@ -110,8 +110,8 @@ def main():
             fig, ax = plt.subplots()
             width = 0.35
             index = np.arange(len(patterns_labels))
-            rects1 = ax.bar(index-width/2, patterns_count_android/TOTAL_ANDROID_APPS, width, color='C2')
-            rects2 = ax.bar(index + width/2, patterns_count_ios/TOTAL_IOS_APPS, width, color='red')
+            rects1 = ax.bar(index-width/2, patterns_count_android/TOTAL_ANDROID_APPS, width, color='C2', alpha=0.7)
+            rects2 = ax.bar(index + width/2, patterns_count_ios/TOTAL_IOS_APPS, width, color='red', alpha=0.7)
             ax.set_xticklabels(patterns_labels, rotation='vertical')
             ax.set_xticks(range(len(patterns_labels)))
             ax.spines['right'].set_visible(False)
@@ -124,7 +124,7 @@ def main():
             ax.legend((rects1[0], rects2[0]), ('Android', 'iOS'))
             
             fig.tight_layout()
-            fig.savefig('pattern_prevalence.pdf')
+            fig.savefig('reports/pattern_prevalence.pdf')
             report_stars()
             app_categories(apps_android, [])
         except yaml.YAMLError as exc:
@@ -204,6 +204,7 @@ def _get_stats(sample):
     return {
         'Mean': statistics.mean(sample),
         'Std': statistics.pstdev(sample),
+        'Median': statistics.median_high(sample),
         'Min': min(sample),
         'Max': max(sample),
     }
@@ -257,16 +258,26 @@ def app_categories(apps_android, apps_ios):
         ios_apps = list(csv_reader)
     ios_categories = [ios_category.get_category(app['user'], app['project_name']) for app in ios_apps]
     
-    figure, ax = plt.subplots(figsize=(4, 2))
-    sns.countplot(android_categories, color='darkgreen', alpha=0.5, ax=ax)
+    figure, ax = plt.subplots(figsize=(5, 4))
+    sns.countplot(android_categories, color='darkgreen', alpha=0.7, ax=ax)
     ax.xaxis.set_tick_params(rotation=90)
+    ax.set_ylabel('Count')
+    ax.yaxis.grid(linestyle='dotted', color='gray')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
     figure.tight_layout()
     figure_path = 'reports/android_app_categories.pdf'
     figure.savefig(figure_path)
     print(set(ios_categories))
-    figure, ax = plt.subplots()
-    sns.countplot(ios_categories, color='red', alpha=0.5, ax=ax)
+    figure, ax = plt.subplots(figsize=(5, 4))
+    sns.countplot(ios_categories, color='red', alpha=0.7, ax=ax)
     ax.xaxis.set_tick_params(rotation=90)
+    ax.set_ylabel('Count')
+    ax.yaxis.grid(linestyle='dotted', color='gray')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
     figure.tight_layout()
     figure_path = 'reports/ios_app_categories.pdf'
     figure.savefig(figure_path)
