@@ -15,6 +15,8 @@ from tabulate import tabulate
 import tabulate as T
 from android_category.android_category import get_app_category_from_repo_git, APP_CATEGORY_CACHE
 
+import ios_category
+
 YAML_FILE = '../docs/patterns.yml'
 IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
 ANDROID_CLEAN_SUBJECTS = '../clean_results/energy_mentions_android.csv'
@@ -217,33 +219,57 @@ def app_categories(apps_android, apps_ios):
     #     except:
     #         continue
     # print(android_categories)
-    
+    android_categories_map = {
+        'PRODUCTIVITY' : 'Time',
+        'MUSIC_AND_AUDIO' : 'Multimedia',
+        'GAME_CASUAL' : 'Games',
+        'COMMUNICATION' : 'Phone & SMS',
+        'ENTERTAINMENT' : 'Multimedia',
+        'BOOKS_AND_REFERENCE' : 'Reading',
+        'TOOLS' : 'System',
+        'BUSINESS' : 'Money',
+        'LIFESTYLE' : 'Sports & Health',
+    }
     
     with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
         csv_reader = csv.DictReader(csvfile)
         fdroid_apps = list(csv_reader)
-    categories_fdroid = [app['category'] for app in fdroid_apps]
+    categories_fdroid = [android_categories_map.get(app['category'], app['category']) for app in fdroid_apps]
     with open(APPS_DATASET_EXTRA_ANDROID, 'r', newline='') as csvfile:
         csv_reader = csv.DictReader(csvfile)
         extra_android_apps = list(csv_reader)
     categories_extra_android = []
-    print(extra_android_apps)
+    
     for app in extra_android_apps:
         app_repo_url = f"https://www.github.com/{app['user']}/{app['project_name']}.git"
         try:
-            category = get_app_category_from_repo_git(app_repo_url)
+            # category = get_app_category_from_repo_git(app_repo_url)
+            category = APP_CATEGORY_CACHE.get_value(app_repo_url)
+            category = android_categories_map.get(category, category)
         except:
             print(app_repo_url)
             category = None
             APP_CATEGORY_CACHE.set_value(app_repo_url, category)
         categories_extra_android.append(category)
-    categories = categories_fdroid + categories_extra_android
+    android_categories = categories_fdroid + categories_extra_android
+    with open(APPS_DATASET_IOS, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
+        ios_apps = list(csv_reader)
+    ios_categories = [ios_category.get_category(app['user'], app['project_name']) for app in ios_apps]
+    
     figure, ax = plt.subplots()
-    sns.countplot(categories, ax=ax)
+    sns.countplot(android_categories, color='darkgreen', alpha=0.5, ax=ax)
+    ax.xaxis.set_tick_params(rotation=90)
     figure.tight_layout()
     figure_path = 'android_app_categories.pdf'
     figure.savefig(figure_path)
-    print(categories)
+    print(set(ios_categories))
+    figure, ax = plt.subplots()
+    sns.countplot(ios_categories, color='red', alpha=0.5, ax=ax)
+    ax.xaxis.set_tick_params(rotation=90)
+    figure.tight_layout()
+    figure_path = 'ios_app_categories.pdf'
+    figure.savefig(figure_path)
 
 if __name__ == '__main__':
     main()
