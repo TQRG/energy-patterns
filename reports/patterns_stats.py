@@ -204,10 +204,10 @@ def _get_stats(sample):
     return {
         'Mean': int(statistics.mean(sample)),
         'Std': int(statistics.pstdev(sample)),
+        'Min': min(sample),
         '25%': int(np.percentile(sample, 25)),
         'Median': statistics.median_high(sample),
         '75%': int(np.percentile(sample, 75)),
-        'Min': min(sample),
         'Max': max(sample),
     }
 
