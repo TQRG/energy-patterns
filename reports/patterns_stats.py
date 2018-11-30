@@ -17,6 +17,7 @@ from android_category.android_category import get_app_category_from_repo_git, AP
 import pandas as pd
 
 import ios_category
+from forks import get_total_forks
 
 YAML_FILE = '../docs/patterns.yml'
 IOS_CLEAN_SUBJECTS = '../clean_results/energy_mentions_ios.csv'
@@ -187,14 +188,21 @@ def report_stars():
         ios_apps = list(csv_reader)
     stars_android = [int(app['stars']) for app in fdroid_apps + extra_android_apps]
     stars_ios = [int(app['stars']) for app in ios_apps if app['stars'] != 'None']
+    forks_android = [get_total_forks(app['user'], app['project']) for app in fdroid_apps + extra_android_apps]
+    forks_ios = [get_total_forks(app['user'], app['project']) for app in ios_apps]
     
-    stats = [_get_stats(stars_android), _get_stats(stars_ios)]
+    stats = [
+        {**_get_stats(stars_android), "Platform": "Android"},
+        {**_get_stats(stars_ios), "Platform": "iOS"},
+        {**_get_stats(forks_android), "Platform": "Android"},
+        {**_get_stats(forks_ios), "Platform": "iOS"},
+    ]
     old_escape_rules = T.LATEX_ESCAPE_RULES
     T.LATEX_ESCAPE_RULES = {'%': '\\%'}
     table = tabulate(
         stats,
         headers='keys',
-        showindex=['iOS','Android'],
+        showindex=['Stars', 'Stars', 'Forks', 'Forks'],
         tablefmt='latex',
         floatfmt=".1f",
     )
@@ -288,20 +296,19 @@ def app_categories(apps_android, apps_ios):
 
 def _get_all_pattern_occurrences(pattern):
     return (
-        pattern.get('occurrences_ios',{}).get('commits',[])+
-        pattern.get('occurrences_ios',{}).get('pull_requests',[])+
-        pattern.get('occurrences_ios',{}).get('issues',[])+
-        pattern.get('occurrences_android',{}).get('commits',[])+
-        pattern.get('occurrences_android',{}).get('pull_requests',[])+
-        pattern.get('occurrences_android',{}).get('issues',[])
+        pattern.get('occurrences_ios', {}).get('commits', [])+
+        pattern.get('occurrences_ios', {}).get('pull_requests', [])+
+        pattern.get('occurrences_ios', {}).get('issues', [])+
+        pattern.get('occurrences_android', {}).get('commits', [])+
+        pattern.get('occurrences_android', {}).get('pull_requests', [])+
+        pattern.get('occurrences_android', {}).get('issues', [])
     )
 
 def _get_name(pattern):
     patterns_map = {
         'Avoid Extraneous Graphics and Animations': 'Avoid Extra. Graph. & Anim.'
     }
-    return patterns_map.get(pattern.get('name'),pattern.get('name'))
-    
+    return patterns_map.get(pattern.get('name'), pattern.get('name'))
 
 def chord_diagram(patterns):
     apps_data = {}
@@ -323,16 +330,12 @@ def chord_diagram(patterns):
             chord_data.append(occurrences)
             chord_data_2.append((p1, p2, occurrences))
     chord_data = np.array(chord_data).reshape(len(pattern_names),len(pattern_names))
-    
+
     print(chord_data)
     np.savetxt("chord_data.csv", chord_data, delimiter=",")
     print(chord_data_2)
     pd.DataFrame(chord_data_2).to_csv('chord_data_2.csv', header=False, index=False)
     print(pattern_names)
-    
-    
-        
-    
 
 if __name__ == '__main__':
     main()
