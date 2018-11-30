@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- affinity group data, circle rotation, auto-resize svg image, chord function, configuration -->
+<title>Co-occurrences of Energy Patterns</title>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<style>
+
+#visual {
+    font: 18px serif;
+    font-weight: bold;
+}
+
+.chord path {
+    fill-opacity: .67;
+    stroke: #000;
+    stroke-width: .5px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+    #visual {
+        -webkit-user-select: none;
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    #visual { 
+        -webkit-user-select: none; 
+    }
+}
+</style>
+<body>
+
+<script>
+var visual = document.getElementById("visual");
+
+// shared ad blocks between 7-Up, A&W, Coke, Dr Pepper, Pepsi brands
+var matrix = [ 
+ [28,  2,  4,  2,  2,  3,  4,  4,  0,  1,  0,  0,  0,  2,  4,  1,  0,  1,  1,  3,  2,  0],
+ [ 2, 11,  4,  1,  0,  3,  1,  1,  0,  1,  0,  1,  2,  1,  1,  0,  0,  0,  1,  0,  0,  1],
+ [ 4,  4, 27, 10,  2,  5,  3,  2,  1,  1,  0,  2,  3,  5,  5,  1,  4,  1,  1,  1,  2,  2],
+ [ 2,  1, 10, 28,  3,  2,  4,  3,  2,  1,  3,  3,  3,  4,  5,  2,  4,  3,  1,  1,  1,  0],
+ [ 2,  0,  2,  3,  7,  1,  1,  1,  1,  0,  0,  0,  1,  2,  4,  1,  1,  1,  0,  2,  1,  0],
+ [ 3,  3,  5,  2,  1, 14,  3,  2,  0,  1,  0,  0,  0,  2,  4,  0,  0,  1,  0,  1,  0,  1],
+ [ 4,  1,  3,  4,  1,  3, 20,  7,  1,  4,  3,  1,  1,  4,  7,  3,  3,  2,  0,  1,  1,  1],
+ [ 4,  1,  2,  3,  1,  2,  7, 21,  1,  5,  1,  2,  1,  4,  7,  2,  2,  3,  1,  2,  2,  2],
+ [ 0,  0,  1,  2,  1,  0,  1,  1,  3,  1,  1,  1,  1,  1,  1,  1,  1,  1,  0,  0,  0,  1],
+ [ 1,  1,  1,  1,  0,  1,  4,  5,  1, 12,  1,  1,  1,  3,  4,  1,  2,  1,  1,  0,  1,  2],
+ [ 0,  0,  0,  3,  0,  0,  3,  1,  1,  1,  6,  2,  1,  2,  3,  3,  1,  1,  0,  0,  0,  0],
+ [ 0,  1,  2,  3,  0,  0,  1,  2,  1,  1,  2, 12,  4,  5,  2,  1,  1,  1,  0,  0,  1,  0],
+ [ 0,  2,  3,  3,  1,  0,  1,  1,  1,  1,  1,  4, 13,  3,  4,  0,  3,  0,  0,  0,  0,  0],
+ [ 2,  1,  5,  4,  2,  2,  4,  4,  1,  3,  2,  5,  3, 24,  6,  3,  5,  3,  1,  1,  3,  1],
+ [ 4,  1,  5,  5,  4,  4,  7,  7,  1,  4,  3,  2,  4,  6, 25,  4,  5,  2,  0,  2,  3,  2],
+ [ 1,  0,  1,  2,  1,  0,  3,  2,  1,  1,  3,  1,  0,  3,  4,  6,  1,  2,  1,  1,  1,  0],
+ [ 0,  0,  4,  4,  1,  0,  3,  2,  1,  2,  1,  1,  3,  5,  5,  1, 12,  2,  0,  0,  0,  1],
+ [ 1,  0,  1,  3,  1,  1,  2,  3,  1,  1,  1,  1,  0,  3,  2,  2,  2,  8,  0,  1,  1,  0],
+ [ 1,  1,  1,  1,  0,  0,  0,  1,  0,  1,  0,  0,  0,  1,  0,  1,  0,  0, 10,  0,  0,  1],
+ [ 3,  0,  1,  1,  2,  1,  1,  2,  0,  0,  0,  0,  0,  1,  2,  1,  0,  1,  0, 10,  1,  0],
+ [ 2,  0,  2,  1,  1,  0,  1,  2,  0,  1,  0,  1,  0,  3,  3,  1,  0,  1,  0,  1, 10,  0],
+ [ 0,  1,  2,  0,  0,  1,  1,  2,  1,  2,  0,  0,  0,  1,  2,  0,  1,  0,  1,  0,  0,  7]
+];
+
+var matrix = [ 
+ [28,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+ [ 0, 10,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1],
+ [ 0,  0, 27, 10,  0,  5,  0,  0,  0,  0,  0,  0,  0,  5,  5,  0,  0,  0,  0,  0,  0,  2],
+ [ 0,  0, 10, 28,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  5,  0,  0,  0,  0,  0,  0,  0],
+ [ 0,  0,  0,  0,  7,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+ [ 0,  0,  5,  0,  0, 10,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1],
+ [ 0,  0,  0,  0,  0,  0, 20,  7,  0,  0,  0,  0,  0,  0,  7,  0,  0,  0,  0,  0,  0,  1],
+ [ 0,  0,  0,  0,  0,  0,  7, 20,  0,  5,  0,  0,  0,  0,  7,  0,  0,  0,  0,  0,  0,  2],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1],
+ [ 0,  0,  0,  0,  0,  0,  0,  5,  0, 10,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  2],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  6,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 10,  0,  5,  0,  0,  0,  0,  0,  0,  0,  0],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 10,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+ [ 0,  0,  5,  0,  0,  0,  0,  0,  0,  0,  0,  5,  0, 20,  6,  0,  5,  0,  0,  0,  0,  1],
+ [ 0,  0,  5,  5,  0,  0,  7,  7,  0,  0,  0,  0,  0,  6, 25,  0,  5,  0,  0,  0,  0,  2],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  6,  0,  0,  0,  0,  0,  0],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  5,  5,  0, 10,  0,  0,  0,  0,  1],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  8,  0,  0,  0,  0],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 10,  0,  0,  1],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 10,  0,  0],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 10,  0],
+ [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  7]
+];
+
+var array = ['Dark UI Colors', 'Dynamic Retry Delay', 'Avoid Extraneous Work', 'Race-to-idle', 'Open Only When Necessary', 'Push Over Poll', 'Power Save Mode', 'Power Awareness', 'Reduce Size', 'WiFi Over Cellular', 'Suppress Logs', 'Batch Operations', 'Cache', 'Decrease Rate', 'User Knows Best', 'Inform Users', 'Enough resolution', 'Sensor Fusion', 'Kill Abnormal Tasks', 'No screen interaction', 'Avoid Extra. Graph. & Anim.', 'Manual Sync - On Demand']
+
+var rotation = -0.7;
+
+var colorArray = [
+  "#034e7b","#feb24c","#b10026","#238443","#fdbb84","#ffffb2","#fed976",
+  '#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+		  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
+		  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+		  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+		  '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
+
+var originalColor = ["#034e7b","#feb24c","#b10026","#238443","#fdbb84","#ffffb2","#fed976"];
+
+var chord_options = {
+    "gnames": array,
+    "rotation": rotation,
+  "colors": colorArray
+};
+
+    function Chord(container, options, matrix) {
+
+        // initialize the chord configuration variables
+        var config = {
+            width: 1024,
+            height: 1024,
+            rotation: 0,
+            textgap: 5,
+            colors: ["#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0", "#f0027f", "#bf5b17", "#666666"]
+        };
+        
+        // add options to the chord configuration object
+        if (options) {
+            extend(config, options);
+        }
+        
+        // set chord visualization variables from the configuration object
+        var offset = Math.PI * config.rotation,
+            width = config.width,
+            height = config.height,
+            textgap = config.textgap,
+            colors = config.colors;
+        
+        // set viewBox and aspect ratio to enable a resize of the visual dimensions 
+        var viewBoxDimensions = "0 0 " + width + " " + height,
+            aspect = width / height;
+        
+        if (config.gnames) {
+            gnames = config.gnames;
+        } else {
+            // make a list of names
+            gnames = [];
+            for (var i=97; i<matrix.length; i++) {
+                gnames.push(String.fromCharCode(i));
+            }
+        }
+
+        // start the d3 magic
+        var chord = d3.layout.chord()
+            .padding(.05)
+            .sortSubgroups(d3.descending)
+            .matrix(matrix);
+
+        var innerRadius = Math.min(width, height) * .31,
+            outerRadius = innerRadius * 1.1;
+
+        var fill = d3.scale.ordinal()
+            .domain(d3.range(matrix.length-1))
+            .range(colors);
+    
+        var svg = d3.select("body").append("svg")
+            .attr("id", "visual")
+            .attr("viewBox", viewBoxDimensions)
+            .attr("preserveAspectRatio", "xMinYMid")    // add viewBox and preserveAspectRatio
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        var g = svg.selectAll("g.group")
+            .data(chord.groups)
+          .enter().append("svg:g")
+            .attr("class", "group");
+
+        g.append("svg:path")
+            .style("fill", function(d) { return fill(d.index); })
+            .style("stroke", function(d) { return fill(d.index); })
+            .attr("id", function(d, i) { return "group" + d.index; })
+            .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius).startAngle(startAngle).endAngle(endAngle))
+            .on("mouseover", fade(.1))
+            .on("mouseout", fade(1));
+
+        g.append("svg:text")
+            .each(function(d) {d.angle = ((d.startAngle + d.endAngle) / 2) + offset; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+            .attr("transform", function(d) {
+                return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                    + "translate(" + (outerRadius + textgap) + ")"
+                    + (d.angle > Math.PI ? "rotate(180)" : "");
+              })
+            .text(function(d) { return gnames[d.index]; });
+
+        svg.append("g")
+            .attr("class", "chord")
+          .selectAll("path")
+            .data(chord.chords)
+          .enter().append("path")
+            .attr("d", d3.svg.chord().radius(innerRadius).startAngle(startAngle).endAngle(endAngle))
+            .style("fill", function(d) { return fill(d.source.index); })
+            .style("opacity", 1)
+          .append("svg:title")
+            .text(function(d) { 
+                return  d.source.value + "  " + gnames[d.source.index] + " shared with " + gnames[d.target.index]; 
+            });
+    
+        // helper functions start here
+        
+        function startAngle(d) {
+            return d.startAngle + offset;
+        }
+
+        function endAngle(d) {
+            return d.endAngle + offset;
+        }
+        
+        function extend(a, b) {
+            for( var i in b ) {
+                a[ i ] = b[ i ];
+            }
+        }
+
+        // Returns an event handler for fading a given chord group.
+        function fade(opacity) {
+            return function(g, i) {
+                svg.selectAll(".chord path")
+                    .filter(function(d) { return d.source.index != i && d.target.index != i; })
+                    .transition()
+                    .style("opacity", opacity);
+            };
+        }
+        
+        
+        window.onresize = function() {
+            var targetWidth = (window.innerWidth < width)? window.innerWidth : width;
+            
+            var svg = d3.select("#visual")
+                .attr("width", targetWidth)
+                .attr("height", targetWidth / aspect);
+        }
+
+        
+    }
+
+window.onload = function() {
+    Chord(visual, chord_options, matrix);
+}
+
+d3.select(self.frameElement).style("height", "600px");
+
+</script>
+<h1>Co-occurrences of Energy Patterns</h1>
+</body>
+</html>

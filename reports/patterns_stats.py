@@ -14,6 +14,7 @@ import numpy as np
 from tabulate import tabulate
 import tabulate as T
 from android_category.android_category import get_app_category_from_repo_git, APP_CATEGORY_CACHE
+import pandas as pd
 
 import ios_category
 
@@ -127,6 +128,7 @@ def main():
             fig.savefig('reports/pattern_prevalence.pdf')
             report_stars()
             app_categories(apps_android, [])
+            chord_diagram(patterns)
         except yaml.YAMLError as exc:
             print(exc)
     
@@ -283,6 +285,54 @@ def app_categories(apps_android, apps_ios):
     figure.tight_layout()
     figure_path = 'reports/ios_app_categories.pdf'
     figure.savefig(figure_path)
+
+def _get_all_pattern_occurrences(pattern):
+    return (
+        pattern.get('occurrences_ios',{}).get('commits',[])+
+        pattern.get('occurrences_ios',{}).get('pull_requests',[])+
+        pattern.get('occurrences_ios',{}).get('issues',[])+
+        pattern.get('occurrences_android',{}).get('commits',[])+
+        pattern.get('occurrences_android',{}).get('pull_requests',[])+
+        pattern.get('occurrences_android',{}).get('issues',[])
+    )
+
+def _get_name(pattern):
+    patterns_map = {
+        'Avoid Extraneous Graphics and Animations': 'Avoid Extra. Graph. & Anim.'
+    }
+    return patterns_map.get(pattern.get('name'),pattern.get('name'))
+    
+
+def chord_diagram(patterns):
+    apps_data = {}
+    for pattern in patterns:
+        for occurrence in _get_all_pattern_occurrences(pattern):
+            app = _extract_app(occurrence)
+            previous_patterns = apps_data.get(app, set())
+            if previous_patterns is None:
+                import pdb; pdb.set_trace()
+            previous_patterns.add(_get_name(pattern))
+            apps_data[app] = previous_patterns
+    print(apps_data)
+    pattern_names = [_get_name(pattern) for pattern in patterns]
+    chord_data = []
+    chord_data_2 = []
+    for i1, p1 in enumerate(pattern_names):
+        for i2, p2 in enumerate(pattern_names):
+            occurrences = len([1 for app_patterns in apps_data.values() if {p1, p2}.issubset(app_patterns)])
+            chord_data.append(occurrences)
+            chord_data_2.append((p1, p2, occurrences))
+    chord_data = np.array(chord_data).reshape(len(pattern_names),len(pattern_names))
+    
+    print(chord_data)
+    np.savetxt("chord_data.csv", chord_data, delimiter=",")
+    print(chord_data_2)
+    pd.DataFrame(chord_data_2).to_csv('chord_data_2.csv', header=False, index=False)
+    print(pattern_names)
+    
+    
+        
+    
 
 if __name__ == '__main__':
     main()
