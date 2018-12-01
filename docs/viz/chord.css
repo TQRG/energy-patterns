@@ -1,5 +1,5 @@
 #visual {
-    font: 18px serif;
+    font: 14px serif;
     font-weight: bold;
 }
 
@@ -52,11 +52,6 @@
     cursor: pointer;
 }
 
-
-
-
-
-
 .sidebar {
         grid-area: sidebar;
     }
@@ -80,6 +75,7 @@
         background-color: #fff;
         color: #444;
     }
+
 .box {
   background-color: #F0FFF0;
   color: #fff;
