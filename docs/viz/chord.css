@@ -51,3 +51,43 @@
     background: #4CAF50;
     cursor: pointer;
 }
+
+
+
+
+
+
+.sidebar {
+        grid-area: sidebar;
+    }
+
+    .content {
+        grid-area: content;
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+
+    .wrapper {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 120px  120px;
+        grid-template-areas:
+               "header  header"
+               "content content";
+        background-color: #fff;
+        color: #444;
+    }
+.box {
+  background-color: #F0FFF0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.header {
+  background-color: #A9A9A9;
+}

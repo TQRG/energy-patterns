@@ -7,10 +7,15 @@
 
 <body>
 
-  <h1>Co-occurrences of Energy Patterns</h1>
-    <div class='slidecontainer'>
-      <input type='range' min='0' max='0' value='0' class='slider' id='rangeSlider'>
-      <span id='filter_value'>0</span>
+    <div class="box header">
+      <h1>Co-occurrences of Energy Patterns</h1>
+        <div class='slidecontainer'>
+          <input type='range' min='0' max='0' value='0' class='slider' id='rangeSlider'>
+          <span id='filter_value'>0</span>
+        </div>
+    </div>
+    <div class="box content">
+      <svg/>
     </div>
 
   <script src='input.js'></script>
@@ -75,9 +80,9 @@
             .domain(d3.range(matrix.length-1))
             .range(colors);
 
-        d3.select('svg').remove();
+        d3.selectAll("svg > *").remove();
 
-        var svg = d3.select('body').append('svg')
+        var svg = d3.select('svg')
             .attr('id', 'visual')
             .attr('viewBox', viewBoxDimensions)
             .attr('preserveAspectRatio', 'xMinYMid')    // add viewBox and preserveAspectRatio
