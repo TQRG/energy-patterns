@@ -17,6 +17,8 @@ from android_category.android_category import get_app_category_from_repo_git, AP
 import pandas as pd
 
 import ios_category
+from ios_oss_parser import get_itunes_id
+import itunes_app_store as itunes
 from forks import get_total_forks
 
 YAML_FILE = '../docs/patterns.yml'
@@ -176,6 +178,9 @@ def _extract_app(github_url):
 def _extract_repo_url(github_url):
     return f"https://www.github.com/{_extract_app(github_url)}.git"
 
+def _remove_nulls(collection):
+    return [item for item in collection if item is not None]
+
 def report_stars():
     with open(APPS_DATASET_FROID, 'r', newline='') as csvfile:
         csv_reader = csv.DictReader(csvfile)
@@ -188,21 +193,32 @@ def report_stars():
         ios_apps = list(csv_reader)
     stars_android = [int(app['stars']) for app in fdroid_apps + extra_android_apps]
     stars_ios = [int(app['stars']) for app in ios_apps if app['stars'] != 'None']
-    forks_android = [get_total_forks(app['user'], app['project']) for app in fdroid_apps + extra_android_apps]
-    forks_ios = [get_total_forks(app['user'], app['project']) for app in ios_apps]
+    forks_android = _remove_nulls([get_total_forks(app['user'], app['project_name']) for app in fdroid_apps + extra_android_apps])
+    forks_ios = _remove_nulls([get_total_forks(app['user'], app['project_name']) for app in ios_apps])
+    # forks_android = _remove_nulls([get_total_forks(app['user'], app['project_name']) for app in fdroid_apps + extra_android_apps])
+    ios_itunes_ids = _remove_nulls([get_itunes_id(app['user'], app['project_name']) for app in ios_apps])
+    print(f"From {len(ios_apps)} ios apps, {len(ios_itunes_ids)} are available on iOS App Store.")
+    reviews_counts_android = [int(float(app['rating_count'])) for app in fdroid_apps + extra_android_apps if app['rating_count']]
+    reviews_counts_ios = _remove_nulls([itunes.get_reviews_count(itunes_id) for itunes_id in ios_itunes_ids])    
+    reviews_values_android = [int(float(app['rating_value'])) for app in fdroid_apps + extra_android_apps if app['rating_value']]
+    reviews_values_ios = _remove_nulls([itunes.get_reviews_avg(itunes_id) for itunes_id in ios_itunes_ids])    
     
     stats = [
-        {**_get_stats(stars_android), "Platform": "Android"},
-        {**_get_stats(stars_ios), "Platform": "iOS"},
-        {**_get_stats(forks_android), "Platform": "Android"},
-        {**_get_stats(forks_ios), "Platform": "iOS"},
+        {"Platform": "Android", **_get_stats(stars_android)},
+        {"Platform": "iOS", **_get_stats(stars_ios)},
+        {"Platform": "Android", **_get_stats(forks_android)},
+        {"Platform": "iOS", **_get_stats(forks_ios)},
+        {"Platform": "Android", **_get_stats(reviews_counts_android)},
+        {"Platform": "iOS", **_get_stats(reviews_counts_ios)},
+        {"Platform": "Android", **_get_stats(reviews_values_android)},
+        {"Platform": "iOS", **_get_stats(reviews_values_ios)},
     ]
     old_escape_rules = T.LATEX_ESCAPE_RULES
     T.LATEX_ESCAPE_RULES = {'%': '\\%'}
     table = tabulate(
         stats,
         headers='keys',
-        showindex=['Stars', 'Stars', 'Forks', 'Forks'],
+        showindex=['Stars', 'Stars', 'Forks', 'Forks', 'Number of Reviews', 'Number of Reviews', 'Rating', 'Rating'],
         tablefmt='latex',
         floatfmt=".1f",
     )
@@ -212,12 +228,12 @@ def report_stars():
  
 def _get_stats(sample):
     return {
-        'Mean': int(statistics.mean(sample)),
-        'Std': int(statistics.pstdev(sample)),
+        'Mean': statistics.mean(sample),
+        'Std': statistics.pstdev(sample),
         'Min': min(sample),
-        '25%': int(np.percentile(sample, 25)),
+        '25%': np.percentile(sample, 25),
         'Median': statistics.median_high(sample),
-        '75%': int(np.percentile(sample, 75)),
+        '75%': np.percentile(sample, 75),
         'Max': max(sample),
     }
 
@@ -331,9 +347,7 @@ def chord_diagram(patterns):
             chord_data_2.append((p1, p2, occurrences))
     chord_data = np.array(chord_data).reshape(len(pattern_names),len(pattern_names))
 
-    print(chord_data)
     np.savetxt("chord_data.csv", chord_data, delimiter=",")
-    print(chord_data_2)
     pd.DataFrame(chord_data_2).to_csv('chord_data_2.csv', header=False, index=False)
     print(pattern_names)
 
