@@ -197,12 +197,12 @@ def report_stars():
     forks_ios = _remove_nulls([get_total_forks(app['user'], app['project_name']) for app in ios_apps])
     # forks_android = _remove_nulls([get_total_forks(app['user'], app['project_name']) for app in fdroid_apps + extra_android_apps])
     ios_itunes_ids = _remove_nulls([get_itunes_id(app['user'], app['project_name']) for app in ios_apps])
-    print(f"From {len(ios_apps)} ios apps, {len(ios_itunes_ids)} are available on iOS App Store.")
     reviews_counts_android = [int(float(app['rating_count'])) for app in fdroid_apps + extra_android_apps if app['rating_count']]
     reviews_counts_ios = _remove_nulls([itunes.get_reviews_count(itunes_id) for itunes_id in ios_itunes_ids])    
     reviews_values_android = [int(float(app['rating_value'])) for app in fdroid_apps + extra_android_apps if app['rating_value']]
     reviews_values_ios = _remove_nulls([itunes.get_reviews_avg(itunes_id) for itunes_id in ios_itunes_ids])    
-    
+    print(f"From {len(fdroid_apps + extra_android_apps)} android apps, {len(reviews_values_android)} are available on Google Play Store.")
+    print(f"From {len(ios_apps)} ios apps, {len(reviews_values_ios)} are available on iOS App Store.")
     stats = [
         {"Platform": "Android", **_get_stats(stars_android)},
         {"Platform": "iOS", **_get_stats(stars_ios)},
@@ -297,7 +297,6 @@ def app_categories(apps_android, apps_ios):
     figure.tight_layout()
     figure_path = 'reports/android_app_categories.pdf'
     figure.savefig(figure_path)
-    print(set(ios_categories))
     figure, ax = plt.subplots(figsize=(5, 4))
     sns.countplot(ios_categories, color='red', alpha=0.7, ax=ax)
     ax.xaxis.set_tick_params(rotation=90)
@@ -336,7 +335,6 @@ def chord_diagram(patterns):
                 import pdb; pdb.set_trace()
             previous_patterns.add(_get_name(pattern))
             apps_data[app] = previous_patterns
-    print(apps_data)
     pattern_names = [_get_name(pattern) for pattern in patterns]
     chord_data = []
     chord_data_2 = []
@@ -349,7 +347,6 @@ def chord_diagram(patterns):
 
     np.savetxt("chord_data.csv", chord_data, delimiter=",")
     pd.DataFrame(chord_data_2).to_csv('chord_data_2.csv', header=False, index=False)
-    print(pattern_names)
 
 if __name__ == '__main__':
     main()
