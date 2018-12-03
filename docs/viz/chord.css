@@ -1,3 +1,9 @@
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 #visual {
     font: 14px serif;
     font-weight: bold;
@@ -24,7 +30,7 @@
 
 .slider {
     -webkit-appearance: none;
-    width: 25%;
+    width: 90%;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -53,28 +59,16 @@
 }
 
 .sidebar {
-        grid-area: sidebar;
-    }
+    grid-area: sidebar;
+}
 
-    .content {
-        grid-area: content;
-    }
+.content {
+    grid-area: content;
+}
 
-    .header {
-        grid-area: header;
-    }
-
-
-    .wrapper {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-columns: 120px  120px;
-        grid-template-areas:
-               "header  header"
-               "content content";
-        background-color: #fff;
-        color: #444;
-    }
+.header {
+    grid-area: header;
+}
 
 .box {
   background-color: #F0FFF0;
@@ -84,6 +78,15 @@
   font-size: 150%;
 }
 
+.content {
+    height: 100%;
+    padding-bottom: 0;
+}
+
 .header {
-  background-color: #A9A9A9;
+  background-color: #eee;
+  color: black;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
