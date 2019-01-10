@@ -663,6 +663,7 @@
       url: https://doi.org/10.1109/MS.2014.27
 
 - name: Inform Users
+  figure: inform_users.svg
   description: Let the user know if the app is doing any battery intensive operation.
   context: There are specific use cases in mobile apps that can be energy greedy. On the other hand some features might be dropping user experience in order to improve energy efficiency. If users do not know what to expect from the mobile app, they might think it is not behaving correctly.
   solution: Let users know about battery intensive operations or energy management features. Properly flag this information in the user interface (e.g., alerts).
