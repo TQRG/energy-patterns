@@ -512,6 +512,7 @@
   context: Typically mobile apps present data to users that is collect from a remote server. However, it may happen that the same data is being collected from the server multiple times.
   solution: Implement caching mechanisms to temporarily store data from server. In addition, verify whether there is an update before downloading all data.
   example: Consider a social network app that shows other users' profiles. Instead of downloading basic information and profile pictures every time a given profile is opened, use data that was locally stored from earlier visits.
+  figure: cache.svg
   related:
     - Avoid Extraneous Work
     - Reduce size
