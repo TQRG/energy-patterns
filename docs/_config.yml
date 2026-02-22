@@ -1,7 +1,15 @@
 title: Energy Patterns for Mobile Apps
 description: An open catalogue of energy-related patterns in mobile applications
 baseurl: "" # empty for local dev; overridden by GitHub Actions
-url: ""
+url: "https://tqrg.github.io"
+
+author: Luis Cruz
+twitter:
+  username: luismcruz
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 permalink: pretty
 

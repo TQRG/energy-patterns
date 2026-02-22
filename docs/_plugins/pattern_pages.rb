@@ -23,9 +23,10 @@ module Jekyll
       process(@name)
       read_yaml(File.join(base, "_layouts"), "pattern.html")
 
-      data["pattern"]   = pattern
-      data["title"]     = pattern["name"]
-      data["permalink"] = "/patterns/#{Jekyll::Utils.slugify(pattern["name"])}/"
+      data["pattern"]     = pattern
+      data["title"]       = pattern["name"]
+      data["description"] = pattern["description"]
+      data["permalink"]   = "/patterns/#{Jekyll::Utils.slugify(pattern["name"])}/"
     end
   end
 end
