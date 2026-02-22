@@ -1,317 +1,112 @@
+---
+layout: default
+title: Energy Patterns for Mobile Apps
+show_intro: true
+---
 
+<script>
+  /* Redirect old hash-based URLs (e.g. #/patterns/Dark_UI_Colors) to new static pages */
+  (function () {
+    var hash = window.location.hash;
+    if (hash.indexOf('#/patterns/') === 0) {
+      var name = hash.replace('#/patterns/', '');
+      var slug = name.toLowerCase()
+        .replace(/_/g, '-')
+        .replace(/[^a-z0-9-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+      window.location.replace('{{ site.baseurl }}/patterns/' + slug + '/');
+    }
+  })();
+</script>
 
-
-
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>
-          Energy Patterns for Mobile Apps
-        </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="main.css">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132539699-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-132539699-1');
-        </script>
-
-        
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron jumbotron-fluid" style="background-color:#c3e6cb">
-      <div class="container">
-        <h1>
-          <ion-icon name="ios-leaf"></ion-icon>
-          Energy Patterns for Mobile Apps
-        </h1>
-        <p class="extra">This is an <strong>open catalogue of energy-related patterns in mobile applications</strong>.
-          Our goal is to share the knowledge across all developers and <strong>make mobile apps more energy efficient</strong>.
-          We'd love to count on you to make this a thorough catalogue and available to the mobile development community.
-          Help us <strong>spread the word</strong>.
-          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-related="luismcruz" data-dnt="true" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </p>
-        <p>A visualization with prevalence and co-occurence of patterns can be found <a href="./viz/chord.html">here.</a><br/>
-          <span class="badge badge-success">News</span>
-          This catalog has been <strong>accepted</strong> to the <em>Journal of Empirical Software Engineering</em>.
-          Check out the
-          <strong><a href="https://arxiv.org/pdf/1901.03302" target='_blank'>preprint</a></strong>.
-        </p>
+<div id="main-content" class="container">
+  <div class="list-group">
+    {% for pattern in site.data.patterns %}
+    {% assign total = 0 %}
+    {% if pattern.occurrences_android.issues %}{% assign total = total | plus: pattern.occurrences_android.issues.size %}{% endif %}
+    {% if pattern.occurrences_android.commits %}{% assign total = total | plus: pattern.occurrences_android.commits.size %}{% endif %}
+    {% if pattern.occurrences_android.pull_requests %}{% assign total = total | plus: pattern.occurrences_android.pull_requests.size %}{% endif %}
+    {% if pattern.occurrences_ios.issues %}{% assign total = total | plus: pattern.occurrences_ios.issues.size %}{% endif %}
+    {% if pattern.occurrences_ios.commits %}{% assign total = total | plus: pattern.occurrences_ios.commits.size %}{% endif %}
+    {% if pattern.occurrences_ios.pull_requests %}{% assign total = total | plus: pattern.occurrences_ios.pull_requests.size %}{% endif %}
+    {% assign slug = pattern.name | slugify %}
+    <a href="{{ '/patterns/' | append: slug | append: '/' | relative_url }}"
+       class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1" style="color:#155724">{{ pattern.name }}</h5>
+        <small>{{ total }} occurrences</small>
       </div>
+      <p class="mb-1" style="color:#155724">{{ pattern.description }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<br>
+
+<div id="downloads" class="container small">
+  <div class="card">
+    <div class="card-header">
+      <ion-icon name="download"></ion-icon>
+      <strong>Downloads</strong>
     </div>
-<!-- Large modal -->
+    <div class="card-body">
+      The data we collected in this study might be useful for other studies. Help yourselves:
+      <ul>
+        <li><a href="{{ '/patterns.yml' | relative_url }}" target="_blank">
+          Patterns dataset <span class="badge badge-success">YML</span>
+        </a></li>
+        <li><a href="https://github.com/TQRG/energy-patterns/blob/master/oss_ios_apps/ios_apps_july_2018.csv" target="_blank">
+          List of open-source iOS apps <span class="badge badge-success">CSV</span>
+        </a></li>
+        <li><a href="https://github.com/TQRG/energy-patterns/blob/master/android_apps.csv" target="_blank">
+          List of open-source Android apps <span class="badge badge-success">CSV</span>
+        </a></li>
+        <li><a href="https://github.com/TQRG/energy-patterns" target="_blank">
+          Data Collection and Analysis Scripts
+          <span class="badge badge-success">GitHub <ion-icon name="logo-github"></ion-icon></span>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-      <div id="main-content" class='container'>
+<div id="publications" class="container small">
+  <div class="card">
+    <div class="card-header">
+      <ion-icon name="journal"></ion-icon>
+      <strong>Publications</strong>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>
+          Luis Cruz and Rui Abreu (2019).
+          <a href="https://arxiv.org/pdf/1901.03302" target="_blank">Catalog of Energy Patterns for Mobile Applications.</a>
+          Journal of Empirical Software Engineering.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-      </div>
-
-      <div id='patterns-list-placeholder' class='container'>
-        <script id="patterns-list-template" type="text/x-handlebars-template">
-          <div class="list-group">
-          {{#each this}}
-          <a href="#/patterns/{{escape_pattern_name name}}" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1" style="color:#155724">{{name}}</h5>
-              <small>{{total_occurrences this}} occurrences</small>
-            </div>
-            <p class="mb-1" style="color:#155724">{{description}}</p>
-            <!-- <small>Donec id elit non mi porta.</small> -->
-          </a>
-          {{/each}}
-        </script>
-      </div>
-
-      <div id='pattern-show-placeholder' class='container'>
-        <script id="pattern-show-template" type="text/x-handlebars-template">
-          <a href='#/'>&larr; show all patterns</a>
-          <h1>
-            {{name}}
-          </h1>
-          {{#if figure}}
-          <img src="./illustrations/{{figure}}" class="float-right illustration" alt="{{name}}">
-          {{/if}}
-          <p class='lead'>{{description}}</p>
-          <h3>Context</h3>
-          <p>{{context}}</p>
-          <h3>Solution</h3>
-          <p>{{solution}}</p>
-          {{#if example}}
-          <h3>Example</h3>
-          <p>{{example}}</p>
-          {{/if}}
-          {{#if references}}
-          <h3>References</h3>
-          {{{list_references references}}}
-          {{/if}}
-          <h3>Occurences</h3>
-          {{#if occurrences_android}}
-          <h4>
-            <ion-icon name="logo-android"></ion-icon>
-            Android
-          </h4>
-              <div class="card">
-                <h6 class="card-header">
-                  <ion-icon name="alert"></ion-icon>
-                  Issues
-                </h6>
-                <div class="card-body">
-                  {{{list_occurrences occurrences_android.issues}}}
-            {{#unless occurrences_android.issues}}
-              <em class='text-muted'>No issues.</em>
-            {{/unless}}
-                </div>
-              </div>
-              <div class="card">
-                <h6 class="card-header">
-                  <ion-icon name="git-pull-request"></ion-icon>
-                  Pull Requests
-                </h6>
-                <div class="card-body">
-                  {{{list_occurrences occurrences_android.pull_requests}}}
-            {{#unless occurrences_android.pull_requests}}
-              <em class='text-muted'>No pull requests.</em>
-            {{/unless}}
-
-                </div>
-              </div>
-              <div class="card">
-                <h6 class="card-header">
-                  <ion-icon name="git-commit"></ion-icon>
-                  Commits
-                </h6>
-                <div class="card-body">
-                  {{{list_occurrences occurrences_android.commits}}}
-                  {{#unless occurrences_android.commits}}
-                    <em class='text-muted'>No pull commits.</em>
-                  {{/unless}}
-                </div>
-              </div>
-          {{/if}}
-<!--Occurrences iOS -->
-          {{#if occurrences_ios}}
-          <h4>
-            <ion-icon name="logo-apple"></ion-icon>
-            iOS
-          </h4>
-              <div class="card">
-                <h6 class="card-header">
-                  <ion-icon name="alert"></ion-icon>
-                  Issues
-                </h6>
-                <div class="card-body">
-                  {{{list_occurrences occurrences_ios.issues}}}
-            {{#unless occurrences_ios.issues}}
-              <em class='text-muted'>No issues.</em>
-            {{/unless}}
-                </div>
-              </div>
-              <div class="card">
-                <h6 class="card-header">
-                  <ion-icon name="git-pull-request"></ion-icon>
-                  Pull Requests
-                </h6>
-                <div class="card-body">
-                  {{{list_occurrences occurrences_ios.pull_requests}}}
-            {{#unless occurrences_ios.pull_requests}}
-              <em class='text-muted'>No pull requests.</em>
-            {{/unless}}
-
-                </div>
-              </div>
-              <div class="card">
-                <h6 class="card-header">
-                  <ion-icon name="git-commit"></ion-icon>
-                  Commits
-                </h6>
-                <div class="card-body">
-                  {{{list_occurrences occurrences_ios.commits}}}
-                  {{#unless occurrences_ios.commits}}
-                    <em class='text-muted'>No pull commits.</em>
-                  {{/unless}}
-                </div>
-              </div>
-          {{/if}}
-
-
-
-        </script>
-      </div>
-
-<br/>
-      <div id='downloads' class='container small'>
-      <div class='card'>
-       <div class="card-header">
-         <ion-icon name="download"></ion-icon>
-         <strong>Downloads</strong>
-       </div>
-       <div class="card-body">
-         The data we collected in this study might be useful for other studies. Help yourselves:
-        <ul class="">
-          <li><a class='' href='./patterns.yml' target='_blank'>
-            Patterns dataset
-            <span class="badge badge-success">YML</span>
-          </a></li>
-          <li><a class='' href='https://github.com/TQRG/energy-patterns/blob/master/oss_ios_apps/ios_apps_july_2018.csv' target='_blank'>
-            List of open-source iOS apps
-            <span class="badge badge-success">CSV</span>
-          </a></li>
-          <li><a class='' href='https://github.com/TQRG/energy-patterns/blob/master/android_apps.csv' target='_blank'>
-            List of open-source Android apps
-            <span class="badge badge-success">CSV</span>
-          </a></li>
-          <li><a class='' href='https://github.com/TQRG/energy-patterns' target='_blank'>
-            Data Collection and Analysis Scripts
-            <span class="badge badge-success">
-              GitHub
-              <ion-icon name="logo-github"></ion-icon>
-            </span>
-          </a></li>
-        </ul>
-      </div>
-      </div>
-      </div>
-      <div id='publications' class='container small'>
-      <div class='card'>
-       <div class="card-header">
-         <ion-icon name="journal"></ion-icon>
-         <strong>Publications</strong>
-       </div>
-       <div class="card-body">
-         <ul>
-           <li>
-             Luis Cruz and Rui Abreu (2019).
-             <a href="https://arxiv.org/pdf/1901.03302" target="_blank">Catalog of Energy Patterns for Mobile Applications.</a>
-             Journal of Empirical Software Engineering.
-           </li>
-         </ul>
-      </div>
-      </div>
-      </div>
-
-      <div id='publications' class='container small'>
-        <div class='card'>
-         <div class="card-header">
-           <ion-icon name="journal"></ion-icon>
-           <strong>Media Coverage</strong>
-         </div>
-         <div class="card-body">
-           <ul>
-            <li>
-              <a href='https://sdtimes.com/softwaredev/build-environmental-sustainability-into-your-development-teams/'>
-               Build environmental sustainability into your development teams.
-             </a> SDTimes. 2021.
-            </li>
-            <li>
-              <a href='https://www.dn.pt/lusa/interior/investigadores-criam-catalogo-que-ajuda-a-reduzir-o-consumo-de-bateria-das-aplicacoes-11021247.html'>
-                Investigadores criam catálogo que ajuda a reduzir o consumo de bateria das aplicações.
-             </a> Diário de Notícias. 2019.
-            </li>
-            <li>
-              <a href='https://www.noticiasaominuto.com/tech/1272728/investigadores-criam-catalogo-para-reduzir-consumo-de-bateria-de-apps'>
-                Investigadores criam catálogo para reduzir consumo de bateria de apps.
-             </a> Notícias ao Minuto. 2019.
-            </li>
-            <li>
-              <a href='https://www.tsf.pt/lusa/investigadores-criam-catalogo-que-ajuda-a-reduzir-o-consumo-de-bateria-das-aplicacoes-11021248.html'>
-                Investigadores criam catálogo que ajuda a reduzir o consumo de bateria das aplicações.
-             </a> TSF. 2019.
-            </li>
-            <li>
-              <a href='https://pplware.sapo.pt/smartphones-tablets/catalogo-online-de-apps-bateria/'>
-                Catálogo online de Apps que consomem menos bateria nos smartphones.
-             </a> Pplware. 2019.
-            </li>
-            <li>
-              <a href='https://wintech.pt/w-news/26606-1-catalogo-focado-na-eficiencia-energetica-de-aplicacoes-moveis-nasceu-em-portugal'>
-                1º catálogo focado na eficiência energética de aplicações móveis nasceu em Portugal.
-             </a> Wintech. 2019.
-            </li>
-            <li>
-              <a href='https://noticiasrtv.com/catalogo-en-linea-de-apps-que-consumen-menos-bateria-en-los-smartphones/'>
-                Catálogo en línea de Apps que consumen menos batería en los smartphones.
-             </a> Noticias RTV. 2019.
-            </li>
-            <li>
-              <a href='https://tek.sapo.pt/noticias/computadores/artigos/catalogo-de-padroes-de-energia-foca-se-na-eficiencia-energetica-em-sistemas-de-computacao'>
-                Catálogo de Padrões de Energia foca-se na eficiência energética em sistemas de computação
- Rui Parreira.
-             </a> TEK. 2019.
-            </li>
-           </ul>
-        </div>
-        </div>
-        </div>
-
-
-<hr>
-      <footer class='container'>
-        <p>&copy; <a href='https://luiscruz.github.io/' target='_blank'>Luís Cruz</a>,
-          <a href='http://ruimaranhao.com' target='_blank'>Rui Abreu</a>, <a href='https://sofiaoreis.github.io/' target='_blank'>Sofia Reis</a>, 2021</p>
-      </footer>
-
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="./node_modules/js-yaml/dist/js-yaml.min.js"></script>
-        <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/director@1.2.8/build/director.min.js"></script>
-        <script src="main.js"></script>
-        <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
-
-    </body>
-</html>
+<div class="container small">
+  <div class="card">
+    <div class="card-header">
+      <ion-icon name="journal"></ion-icon>
+      <strong>Media Coverage</strong>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li><a href="https://sdtimes.com/softwaredev/build-environmental-sustainability-into-your-development-teams/">Build environmental sustainability into your development teams.</a> SDTimes. 2021.</li>
+        <li><a href="https://www.dn.pt/lusa/interior/investigadores-criam-catalogo-que-ajuda-a-reduzir-o-consumo-de-bateria-das-aplicacoes-11021247.html">Investigadores criam catálogo que ajuda a reduzir o consumo de bateria das aplicações.</a> Diário de Notícias. 2019.</li>
+        <li><a href="https://www.noticiasaominuto.com/tech/1272728/investigadores-criam-catalogo-para-reduzir-consumo-de-bateria-de-apps">Investigadores criam catálogo para reduzir consumo de bateria de apps.</a> Notícias ao Minuto. 2019.</li>
+        <li><a href="https://www.tsf.pt/lusa/investigadores-criam-catalogo-que-ajuda-a-reduzir-o-consumo-de-bateria-das-aplicacoes-11021248.html">Investigadores criam catálogo que ajuda a reduzir o consumo de bateria das aplicações.</a> TSF. 2019.</li>
+        <li><a href="https://pplware.sapo.pt/smartphones-tablets/catalogo-online-de-apps-bateria/">Catálogo online de Apps que consomem menos bateria nos smartphones.</a> Pplware. 2019.</li>
+        <li><a href="https://wintech.pt/w-news/26606-1-catalogo-focado-na-eficiencia-energetica-de-aplicacoes-moveis-nasceu-em-portugal">1º catálogo focado na eficiência energética de aplicações móveis nasceu em Portugal.</a> Wintech. 2019.</li>
+        <li><a href="https://noticiasrtv.com/catalogo-en-linea-de-apps-que-consumen-menos-bateria-en-los-smartphones/">Catálogo en línea de Apps que consumen menos batería en los smartphones.</a> Noticias RTV. 2019.</li>
+        <li><a href="https://tek.sapo.pt/noticias/computadores/artigos/catalogo-de-padroes-de-energia-foca-se-na-eficiencia-energetica-em-sistemas-de-computacao">Catálogo de Padrões de Energia foca-se na eficiência energética em sistemas de computação.</a> TEK. 2019.</li>
+      </ul>
+    </div>
+  </div>
+</div>

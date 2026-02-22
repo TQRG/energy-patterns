@@ -2,3 +2,5 @@ config.json
 venv
 *.pyc
 .DS_Store
+docs/_site
+docs/Gemfile.lock

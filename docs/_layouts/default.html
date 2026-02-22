@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} — {% endif %}Energy Patterns for Mobile Apps</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132539699-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-132539699-1');
+    </script>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid" style="background-color:#c3e6cb">
+      <div class="container">
+        <h1>
+          <ion-icon name="ios-leaf"></ion-icon>
+          <a href="{{ '/' | relative_url }}" style="color:inherit;text-decoration:none">Energy Patterns for Mobile Apps</a>
+        </h1>
+        {% if page.show_intro %}
+        <p class="extra">This is an <strong>open catalogue of energy-related patterns in mobile applications</strong>.
+          Our goal is to share the knowledge across all developers and <strong>make mobile apps more energy efficient</strong>.
+          We'd love to count on you to make this a thorough catalogue and available to the mobile development community.
+          Help us <strong>spread the word</strong>.
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-related="luismcruz" data-dnt="true" data-show-count="false">Tweet</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </p>
+        <p>A visualization with prevalence and co-occurence of patterns can be found <a href="{{ '/viz/chord.html' | relative_url }}">here.</a><br/>
+          <span class="badge badge-success">News</span>
+          This catalog has been <strong>accepted</strong> to the <em>Journal of Empirical Software Engineering</em>.
+          Check out the <strong><a href="https://arxiv.org/pdf/1901.03302" target="_blank">preprint</a></strong>.
+        </p>
+        {% endif %}
+      </div>
+    </div>
+
+    {{ content }}
+
+    <hr>
+    <footer class="container">
+      <p>&copy; <a href="https://luiscruz.github.io/" target="_blank">Luís Cruz</a>,
+        <a href="http://ruimaranhao.com" target="_blank">Rui Abreu</a>,
+        <a href="https://sofiaoreis.github.io/" target="_blank">Sofia Reis</a>, 2021</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+  </body>
+</html>

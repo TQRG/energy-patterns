@@ -1,0 +1,16 @@
+title: Energy Patterns for Mobile Apps
+description: An open catalogue of energy-related patterns in mobile applications
+baseurl: "" # empty for local dev; overridden by GitHub Actions
+url: ""
+
+permalink: pretty
+
+exclude:
+  - node_modules
+  - package.json
+  - Gemfile
+  - Gemfile.lock
+  - main.js
+  - notes.md
+  - old
+  - .nojekyll

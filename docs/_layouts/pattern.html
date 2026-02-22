@@ -1,0 +1,134 @@
+---
+layout: default
+---
+<div class="container">
+  <a href="{{ '/' | relative_url }}">&larr; show all patterns</a>
+
+  <h1>{{ page.pattern.name }}</h1>
+
+  {% if page.pattern.figure %}
+  <img src="{{ '/illustrations/' | append: page.pattern.figure | relative_url }}" class="float-right illustration" alt="{{ page.pattern.name }}">
+  {% endif %}
+
+  <p class="lead">{{ page.pattern.description }}</p>
+
+  <h3>Context</h3>
+  <p>{{ page.pattern.context }}</p>
+
+  <h3>Solution</h3>
+  <p>{{ page.pattern.solution }}</p>
+
+  {% if page.pattern.example %}
+  <h3>Example</h3>
+  <p>{{ page.pattern.example }}</p>
+  {% endif %}
+
+  {% if page.pattern.references %}
+  <h3>References</h3>
+  <ul class="list-unstyled">
+    {% for ref in page.pattern.references %}
+    <li class="small">- {{ ref.authors }} <a href="{{ ref.url }}" target="_blank">{{ ref.title }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h3>Occurrences</h3>
+
+  {% if page.pattern.occurrences_android %}
+  <h4><ion-icon name="logo-android"></ion-icon> Android</h4>
+
+  <div class="card">
+    <h6 class="card-header"><ion-icon name="alert"></ion-icon> Issues</h6>
+    <div class="card-body">
+      {% if page.pattern.occurrences_android.issues %}
+      <ul class="list-unstyled">
+        {% for url in page.pattern.occurrences_android.issues %}
+        <li>- <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <em class="text-muted">No issues.</em>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card">
+    <h6 class="card-header"><ion-icon name="git-pull-request"></ion-icon> Pull Requests</h6>
+    <div class="card-body">
+      {% if page.pattern.occurrences_android.pull_requests %}
+      <ul class="list-unstyled">
+        {% for url in page.pattern.occurrences_android.pull_requests %}
+        <li>- <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <em class="text-muted">No pull requests.</em>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card">
+    <h6 class="card-header"><ion-icon name="git-commit"></ion-icon> Commits</h6>
+    <div class="card-body">
+      {% if page.pattern.occurrences_android.commits %}
+      <ul class="list-unstyled">
+        {% for url in page.pattern.occurrences_android.commits %}
+        <li>- <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <em class="text-muted">No commits.</em>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if page.pattern.occurrences_ios %}
+  <h4><ion-icon name="logo-apple"></ion-icon> iOS</h4>
+
+  <div class="card">
+    <h6 class="card-header"><ion-icon name="alert"></ion-icon> Issues</h6>
+    <div class="card-body">
+      {% if page.pattern.occurrences_ios.issues %}
+      <ul class="list-unstyled">
+        {% for url in page.pattern.occurrences_ios.issues %}
+        <li>- <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <em class="text-muted">No issues.</em>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card">
+    <h6 class="card-header"><ion-icon name="git-pull-request"></ion-icon> Pull Requests</h6>
+    <div class="card-body">
+      {% if page.pattern.occurrences_ios.pull_requests %}
+      <ul class="list-unstyled">
+        {% for url in page.pattern.occurrences_ios.pull_requests %}
+        <li>- <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <em class="text-muted">No pull requests.</em>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card">
+    <h6 class="card-header"><ion-icon name="git-commit"></ion-icon> Commits</h6>
+    <div class="card-body">
+      {% if page.pattern.occurrences_ios.commits %}
+      <ul class="list-unstyled">
+        {% for url in page.pattern.occurrences_ios.commits %}
+        <li>- <a href="{{ url }}" target="_blank">{{ url }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <em class="text-muted">No commits.</em>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</div>
